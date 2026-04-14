@@ -1,0 +1,63 @@
+body, #input {
+    background: transparent;
+    font-family: monospace;
+    font-size: 14px;
+}
+#top_banner, .verified_icon, .badge, #timestamp, #is_typing, #emojiTray, #emojiTrayToggle {
+    display: none !important;
+}
+#input {
+    border-top: 1px solid #232396;
+    border-radius: 0;
+}
+#input:empty:before {
+    color: #858585;
+    content: "type a message...";
+}
+#settings {
+    opacity: 20%;
+}
+#settings:hover {
+    opacity: 60%;
+}
+.msgWrapper {
+    display: block;
+}
+.allMessages {
+    padding: 0 5px;
+    color: #232396;
+    display: flex;
+    position: relative;
+}
+.allMessages:has(.owner) {
+    color: #b51f1f !important;
+}
+
+.senderInfo, .msgBody {
+    font-weight: lighter;
+    display: inline;
+}
+.senderInfo {
+    margin-right: 10px !important;
+    font-weight: bold;
+}
+.senderInfo:before {
+    content: "<";
+}
+.senderInfo:after {
+    content: ">"
+}
+.allMessages::after {
+    content: attr(time);
+    background-color: #dfe2ed;
+    border: #dfe2ed solid;
+    border-width: 0 10px;
+    font-size: 12px;
+    color: #858585;
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+}
+.allMessages:hover::after {
+    visibility: visible;
+}

@@ -1,0 +1,34 @@
+.zatoring * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.zatoring @font-face {
+    font-family: Courier;
+    src: url(Courier.ttf);
+}
+.zatoring {
+    background-color: black;
+    border: 1px white solid;
+    height: 158px;
+    padding: 10px;
+    font-family: Courier;
+    font-size: 15px;
+    image-rendering: pixelated;
+}
+.zatoring a {
+    color: white;
+}
+.zatoring a:hover {
+    color: #dec17e;
+}
+.zatoring-title, .zatoring-links {
+    text-align: center;
+}
+.zatoring img {
+    width: 90px;
+    border: 3px white double;
+    margin: 8px auto 5px;
+    padding: 2px;
+    display: block;
+}

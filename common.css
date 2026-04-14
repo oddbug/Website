@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: monospace;
+    font-size: 14px;
+}
+button, textarea, table {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 5px;
+}
+h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child) {
+    margin-top: 10px;
+}
+
+p:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+a:has(img), a[href^="https://"]:has(img)::after {
+    font-size: 0;
+}
+a[href^="https://"]::after {
+    content: "";
+    background-size: 100%;
+    mask-image: url(https://api.iconify.design/cil:external-link.svg);
+    mask-size: 100%;
+    width: 9px;
+    height: 9px;
+    margin-left: 5px;
+    display: inline-block;
+}
+a[href^="https://"]:has(img)::after {
+    display: none;
+}
+img {
+    image-rendering: pixelated;
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nebula</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="An angel's personal website where I do anything I want.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.nekoweb.org/">
+    
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="layout.js"></script>
+    <script src="https://iframe.chat/scripts/main.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="left">
+            <div class="flex">
+                <div>
+                    <div id="calendar"></div>
+                    <script>
+                        const posts = {
+                            "2026-02-18": "journal/260218.html",
+                            "2026-02-22": "blog/260222.html",
+                            "2026-03-10": "journal/260310.html",
+                            "2026-03-30": "blog/260330.html"
+                        };
+
+                        const calendarEl = document.getElementById("calendar");
+                        let current = new Date();
+
+                        function renderCalendar() {
+                            const year = current.getFullYear();
+                            const month = current.getMonth();
+
+                            const today = new Date();
+                            const firstDay = new Date(year, month, 1).getDay();
+                            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                            const monthName = current.toLocaleString('default', { month: 'long' });
+
+                            let html = `
+                                <div class="cal-header">
+                                    <button id="prev">⟵</button>
+                                    <span>${monthName} ${year}</span>
+                                    <button id="next">⟶</button>
+                                </div>
+
+                                <div class="cal-grid">
+                                    <div>S</div><div>M</div><div>T</div><div>W</div>
+                                    <div>T</div><div>F</div><div>S</div>
+                            `;
+
+                            for (let i = 0; i < firstDay; i++) {
+                                html += `<div class="empty"></div>`;
+                            }
+
+                            for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
+                                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(dayNum).padStart(2, '0')}`;
+
+                                let classes = "";
+
+                                if (dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                                    classes += "current-day";
+                                }
+
+                                if (posts[dateStr]) {
+                                    html += `<div class="has-post${classes}">
+                                                <a href="${posts[dateStr]}">${dayNum}</a>
+                                             </div>`;
+                                } else {
+                                    html += `<div class="${classes}">${dayNum}</div>`;
+                                }
+                            }
+
+                            html += `</div>`;
+                            calendarEl.innerHTML = html;
+
+                            document.getElementById("prev").onclick = () => {
+                                current.setMonth(current.getMonth() - 1);
+                                renderCalendar();
+                            };
+
+                            document.getElementById("next").onclick = () => {
+                                current.setMonth(current.getMonth() + 1);
+                                renderCalendar();
+                            };
+                        }
+
+                        renderCalendar();
+                    </script>
+                </div>
+                <div>
+                    <p>This website is ages 18+</p>
+                    <img style="width:100%" src="cat.jpg">
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHead">Who am I?</div>
+                <img id="pfp" src="icons/pfp.jpg">
+                <p>Hello. I am Bianca, the webmaster of this website. I created it for a place where I am able to write about my thoughts, feelings and interests.</p>
+                <p>I have a general interest in technologies such as electronic devices and communications, code, and artforms such as music, games, shows, books, and the like. I enjoy the internet as my home.</p>
+                <p>See more about me <a href="profile.html">here</a>.</p>
+                <div id="status">
+                    <div id="discord">
+                        <div id="status-blob"></div>
+                        <div id="status-details"></div>
+                        <script>
+                            async function discordChecker() {
+                                try {
+                                  const response = await fetch('https://api.lanyard.rest/v1/users/596068722506989570');
+                                  const splingus = await response.json();
+                                  document.getElementById("status-details").innerHTML = `
+                                  ${splingus.data.discord_user.username} is ${splingus.data.discord_status}
+                                  `
+                                  const statusColors = {
+                                    online: "#3ca681",
+                                    idle: "#cb9654",
+                                    dnd: "#ac3232",
+                                    offline: "#52263e",
+                                  };
+                                  document.getElementById("status-blob").style.backgroundColor = statusColors[splingus.data.discord_status];
+                                } catch (error) {
+                                  console.error("failed to fetch!!", error);
+                                }
+                            };
+
+                            discordChecker();
+                            setInterval(discordChecker, 2000);
+                        </script>
+                    </div>
+                    <div id="imood">
+                        <a href="https://www.imood.com/users/angelbug"><img src="https://moods.imood.com/display/uname-angelbug/fg-1a1818/bg-dfe2ed/imood.gif" alt="The current mood of angelbug at www.imood.com" border="0"></a>
+                    </div>
+                </div>
+                <div id="statuscafe">
+                    <div id="statuscafe-username"></div>
+                    <div id="statuscafe-content"></div>
+                </div>
+                <script>
+                    document.writeln('<div id="statuscafe"><div id="statuscafe-username"></div><div id="statuscafe-content"></div></div>');
+                    fetch("https://status.cafe/users/oddbug/status.json")
+                      .then( r => r.json() )
+                          .then( r => {
+                        if (!r.content.length) {
+                          document.getElementById("statuscafe-content").innerHTML = "No status yet."
+                          return
+                        }
+                        document.getElementById("statuscafe-username").innerHTML = '<a href="https://status.cafe/users/oddbug" target="_blank">' + r.author + '</a> ' + '-' + ' ' + r.timeAgo
+                        document.getElementById("statuscafe-content").innerHTML = r.content
+                      })
+                </script>
+            </div>
+            <div id="chat">
+                <iframe src="https://iframe.chat/embed?chat=14836092" id="chattable" frameborder="0"></iframe>
+                <script>
+                    chattable.initialize({
+                        stylesheet: "chattable.css"
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="center">
+            <h2>Welcome</h2>
+            <p>This is a personal website started back in 2024 as a place I could make my own while documenting all the things I am interested in.</p>
+            <p>Here you can find things</p>
+            <h2>News</h2>
+            <div class="flex">
+                <div style="width:470px">
+                    <p>As of March 27, the <a href="zatoring/index.html">Z.A.T.O.ring</a> has gone online. It is a webring created for fans of the game <a href="https://nopanamaman.itch.io/z-a-t-o-i-love-the-world-and-everything-in-it">Z.A.T.O. // I Love the World and Everything In It</a>.</p>
+                    <p>Please visit the page if you are interested.</p>
+                </div>
+                <div class="zatoring" style="width:250px"> <!-- You can edit the width to fit wherever -->
+                    <link rel="stylesheet" href="https://nogood-angel.nekoweb.org/zatoring/widget.css">
+                    <script src="https://nogood-angel.nekoweb.org/zatoring/webringu.js"></script>
+                    <div class="zatoring-title">
+                        <a href="https://nogood-angel.nekoweb.org/zatoring/index.html">Z.A.T.O.ring</a>
+                    </div>
+                    <img src="zatoring/icon.png">
+                    <div class="zatoring-links">
+                        <a href="https://nogood-angel.nekoweb.org/zatoring/index.html?action=previous">&larr; prev</a>
+                        <a href="https://nogood-angel.nekoweb.org/zatoring/index.html?action=random">random</a>
+                        <a href="https://nogood-angel.nekoweb.org/zatoring/index.html?action=next">next &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h2>Attention!</h2>
+                <p>This website is now for ages 18 and up! It used to be 16 and up since I have nothing explicitly adult but I kept worrying over what if I add something that is for adults only and I forget that people younger might see it. So for my own comfort, this is is now 18+.</p>
+                <p>Please do not steal my code, copy my site, and/or claim mine as yours. Although it is okay to get inspiration and to look at my code to see how things work.</p>
+            </div>
+            <div id="siteinfo" class="box">
+                <div class="boxHead">Site information</div>
+                <div class="flex">
+                    <div id="stats">
+                        <div id="created"></div>
+                        <div id="updated"></div>
+                        <div id="visitors"></div>
+                        <div id="followers"></div>
+                        <script>
+                            let domain = "nogood-angel.nekoweb.org";
+
+                            (async () => {
+                              try {
+                                const request = await fetch(`https://nekoweb.org/api/site/info/${domain}`);
+                                const json = await request.json();
+
+                                const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
+                                const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
+
+                                if (document.getElementById("created"))
+                                  document.getElementById("created").innerHTML =
+                                    `<span>Created:</span> ${created}`;
+                                if (document.getElementById("updated"))
+                                  document.getElementById("updated").innerHTML =
+                                    `<span>Updated:</span> ${updated}`;
+                                if (document.getElementById("visitors"))
+                                  document.getElementById("visitors").innerHTML =
+                                    `<span>Visits:</span> ${json.views}`;
+                                if (document.getElementById("followers"))
+                                  document.getElementById("followers").innerHTML =
+                                    `<span>Followers:</span> ${json.followers}`;
+                              } catch (error) {
+                                console.error(error);
+                                // If you wish to insert some fallback here, you may do so!
+                              }
+                            })();
+                        </script>
+                    </div>
+                    <div id="information">
+                        <ul>
+                            <li>Hosted on <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org">Nekoweb</a> and <a href="https://neocities.org/site/nogood-angel">Neocities</a></li>
+                            <li>Coded with Brackets/VSCode, previewed with Opera/Chrome</li>
+                            <li>Inspired by <a href="https://brooklynights.nekoweb.org/">brooklynights</a>, <a href="https://nikita-kryukov.itch.io/milk-outside-a-bag-of-milk-outside-a-bag-of-milk">milk</a>, <a href="https://corru.observer">corru.observer</a>, etc</li>
+                        </ul>
+                        <div class="button">
+                            <img src="graphics/buttons/nogood-angel.png">
+                            <textarea><a href="https://nogood-angel.nekoweb.org/" target="_blank"><img src="https://nogood-angel.nekoweb.org/graphics/buttons/nogood-angel.png"></a></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <a href="https://nekoweb.org/"><img src="graphics/buttons/nekoweb.webp"></a><!-- button by s1nez.nekoweb.org -->
+                    <a href="https://atabook.org/"><img src="graphics/buttons/atabook.gif"></a>
+                    <img src="graphics/buttons/bestviewedwithacomputer.gif">
+                    <img src="graphics/buttons/madebyahuman.png">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div id="feed" class="box">
+                <div class="boxHead">Feed</div>
+                <div class="inner">
+                    <h4><span>13/04/2026</span></h4>
+                    <ul><li>Site has reached 666 visits</li></ul>
+                    <h4><span>12/04/2026</span></h4>
+                    <ul><li>Recolor, along with some tweaks</li></ul>
+                    <h4><span>09/04/2026</span></h4>
+                    <ul><li>Updated the Genshin Impact shrine</li></ul>
+                    <h4><span>06/04/2026</span></h4>
+                    <ul><li>Site has reached 600 visits</li></ul>
+                    <h4><span>04/04/2026</span></h4>
+                    <ul><li>Update</li></ul>
+                    <h4><span>02/04/26</span></h4>
+                    <ul><li>Site has reached 500 visits</li></ul>
+                    <h4><span>28/03/26</span></h4>
+                    <ul><li>Answered another questionnaire.</li></ul>
+                    <h4><span>27/03/26</span></h4>
+                    <ul>
+                        <li>Made the Z.A.T.O.ring for Z.A.T.O. fans!</li>
+                        <li>Finished answering another questionnaire (in my profile.)</li>
+                    </ul>
+                    <h4><span>25/03/26</span></h4>
+                    <ul>
+                        <li>Site has hit 300 views</li>
+                        <li>Made profile page</li>
+                        <li>Added some links in Bookmarks</li>
+                        <li>A few new cliques in Links</li>
+                        <li>Reorganized graphics and webrings/cliques files</li>
+                        <li>I now have a <a href="graphics/buttons/nogood-angel.png">button</a></li>
+                        <li>Site stats now show both from Neocities and Nekoweb combined (except followers)</li>
+                    </ul>
+                    <h4><span>22/03/26</span></h4>
+                    <ul><li>Site redesign</li></ul>
+                    <h4><span>20/03/26</span></h4>
+                    <ul><li>Reorganized blog and journal files, check if you ever linked to any</li></ul>
+                    <h4><span>18/03/26</span></h4>
+                    <ul>
+                        <li>The beginning of the Genshin Impact shrine</li>
+                        <li>Guchiry shrine, Abnormaly Dancin' Girl</li>
+                        <li>Site has hit 200 views</li>
+                    </ul>
+                    <h4><span>08/03/26</span></h4>
+                    <ul><li>Profile, used to be webmaster page, redesigned</li></ul>
+                    <h4><span>07/03/26</span></h4>
+                    <ul><li>Home page site redesign</li></ul>
+                    <h4><span>01/03/26</span></h4>
+                    <ul><li>Added the webrings I'm in next to Before you enter</li></ul>
+                    <h4><span>28/02/26</span></h4>
+                    <ul><li>Hit 100 views on Nekoweb</li></ul>
+                    <h4><span>22/02/26</span></h4>
+                    <ul>
+                        <li>My first blog post; One week on Nekoweb</li>
+                        <li>All of my neighbors and other sites I like in Links. My own current button is there too.</li>
+                    </ul>
+                    <h4><span>19/02/26</span></h4>
+                    <ul><li>Journal now available. The more personal of my (not so) daily writings.</li></ul>
+                    <h4><span>17/02/26</span></h4>
+                    <ul><li>Nekoweb site is up!!!</li></ul>
+                </div>
+            </div>
+            <div>
+                <div id="moon">
+                    <iframe width="100%" style="margin-bottom:10px" src="https://dimden.dev/moon?custom=1&styleUrl=https://nogood-angel.nekoweb.org/moon.css" name="dimdenmoonwidget" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHead">To-do list</div>
+                <ul>
+                    <li>Things that won't go on the main page but are too small for a full page will popup on a moveable window</li>
+                    <li>Me core, add more images and show random on reload</li>
+                    <li>Sitemap, see first point</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

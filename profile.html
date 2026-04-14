@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="My profile, things about me.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.nekoweb.org/profile.html">
+    
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <script src="layout.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="left">
+            <div style="margin-bottom:20px;display:flex;column-gap:20px">
+                <div style="width: 35vw">
+                    <div class="flex">
+                        <div id="pfp">
+                            <img width="100%" src="icons/pfp.jpg">
+                            <a href="https://www.imood.com/users/angelbug"><img id="imood" src="https://moods.imood.com/display/uname-angelbug/fg-#1a181/bg-#f5f5f/imood.gif"></a>
+                        </div>
+                        <div id="status">
+                            <div id="statuscafe">
+                                <div id="statuscafe-username"></div>
+                                <div id="statuscafe-content"></div>
+                            </div>
+                            <script>
+                                document.writeln('<div id="statuscafe"><div id="statuscafe-username"></div><div id="statuscafe-content"></div></div>');
+                                fetch("https://status.cafe/users/oddbug/status.json")
+                                  .then( r => r.json() )
+                                      .then( r => {
+                                    if (!r.content.length) {
+                                      document.getElementById("statuscafe-content").innerHTML = "No status yet."
+                                      return
+                                    }
+                                    document.getElementById("statuscafe-username").innerHTML = '<a href="https://status.cafe/users/oddbug" target="_blank">' + r.author + '</a> ' + '-' + ' ' + r.timeAgo
+                                    document.getElementById("statuscafe-content").innerHTML = r.content
+                                  })
+                            </script>
+                            <div id="discord">
+                                <div id="status-blob"></div>
+                                <div id="status-details"></div>
+                                <script>
+                                    async function discordChecker() {
+                                        try {
+                                          const response = await fetch('https://api.lanyard.rest/v1/users/596068722506989570');
+                                          const splingus = await response.json();
+                                          document.getElementById("status-details").innerHTML = `
+                                          ${splingus.data.discord_user.username} is ${splingus.data.discord_status}
+                                          `
+                                          const statusColors = {
+                                            online: "#3ca681",
+                                            idle: "#cb9654",
+                                            dnd: "#ac3232",
+                                            offline: "#52263e",
+                                          };
+                                          document.getElementById("status-blob").style.backgroundColor = statusColors[splingus.data.discord_status];
+                                        } catch (error) {
+                                          console.error("failed to fetch!!", error);
+                                        }
+                                    };
+
+                                    discordChecker();
+                                    setInterval(discordChecker, 2000);
+                                </script>
+                            </div>
+                            <div id="ids">
+                                <img src="graphics/ids/lesbian.png">
+                                <img src="graphics/ids/aroace.png">
+                                <img src="graphics/ids/agender.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div id="buttons" class="graphics">
+                            <a href="https://rice.place/"><img src="graphics/buttons/cssisawesome.gif"></a>
+                        </div>
+                        <div id="blinkies" class="graphics">
+                            <a href="https://rice.place/"><img src="graphics/blinkies/nofriends.gif"></a>
+                            <a href="https://kael.crd.co/"><img src="graphics/blinkies/ilovemycomputer.gif"></a>
+                            <img src="graphics/blinkies/alifewhatsthat.gif">
+                            <a href="https://brooklynights.nekoweb.org/" target="_blank"><img src="graphics/blinkies/writingbyhand.gif"></a>
+                        </div>
+                        <div id="stamps" class="graphics">
+                            <a href="https://brooklynights.nekoweb.org/" target="_blank"><img src="graphics/stamps/windowserror.png"></a>
+                            <a href="https://brooklynights.nekoweb.org/" target="_blank"><img src="graphics/stamps/windows.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 60vw">
+                    <h2>About me</h2>
+                    <p>Hello, my name is Bianca, I go by She/They pronouns, and I live in what feels like the middle of nowhere in Canada.</p>
+                    <p>I like computer stuff (the internet, code, communications, etc), video games, anime, music, writing, and reading.</p>
+                    <p>I've been using the internet as a place to express myself. I am connected to others.</p>
+                    <div id="questions" class="box">
+                        <div class="boxHead">Questionnaires</div>
+                        <div class="inner">
+                            <details>
+                                <summary>100 webmaster questions</summary>
+                                <p><a href="https://mouseling.net/100webmaster.txt">mouseling</a></p>
+                                <dl>
+                                    <dt>1. Please introduce yourself.</dt>
+                                    <dd>You probably read my about me already.</dd>
+
+                                    <dt>2. How long have you been making websites?</dt>
+                                    <dd>Since maybe 2021 - 2022 (11th grade) when I started with Carrd because I saw my friend using it. I then started learning CSS with Spacehey in 2023. Moved to Neocities in 2024 to be able to make my own completely customizable site. Now I'm on Nekoweb.</dd>
+
+                                    <dt>3. And what got you into the hobby?</dt>
+                                    <dd>When I started on Carrd, I liked being able to have my own website to put in whatever I want.</dd>
+
+                                    <dt>4. What kind of website are you most interested in?</dt>
+                                    <dd>Personal ones with interesting designs. By interesting, I mean cute, esoteric, denpa, those types of words.</dd>
+
+                                    <dt>5. What's your workflow? Do you plan your websites out thoroughly or do you come up with the design as you go along?</dt>
+                                    <dd>I come up with it as I go. If I plan, it takes too long and then I feel frustrated.</dd>
+
+                                    <dt>6. Please link to your biggest inspirations.</dt>
+                                    <dd><a href="https://store.steampowered.com/app/1451940/NEEDY_STREAMER_OVERLOAD/">Needy Girl Overdose</a>, <a href="https://en.wikipedia.org/wiki/Serial_Experiments_Lain">Serial Experiments Lain</a>, <a href="https://0oxo0.neocities.org/">Ito</a>, <a href="https://dimden.dev/">Dimden</a>, <a href="https://rice.place/">rice.place</a>, <a href="https://corru.observer/">corru.observer</a>, <a href="https://store.steampowered.com/app/4122860/ZATO__I_Love_the_World_and_Everything_In_It/">Z.A.T.O // I Love the World and Everything In It</a></dd>
+
+                                    <dt>7. What's your favourite part about making websites?</dt>
+                                    <dd>When I feel satisfied upon achieving a unique look that I like.</dd>
+
+                                    <dt>8. And the thing you struggle with the most?</dt>
+                                    <dd>Redoing things over and over.</dd>
+
+                                    <dt>9. Do you keep the same layout on all of your pages? Or do you use different ones?</dt>
+                                    <dd>Currently multiple pages have a similar layout. Sometimes I don't do that. It depends on what kind of style I'm going for at the time.</dd>
+
+                                    <dt>10. How confident are you with CSS?</dt>
+                                    <dd>Pretty confident.</dd>
+
+                                    <dt>11. Do you know how to correctly use &lt;dl&gt;?</dt>
+                                    <dd>I do now. I didn't during the first time answering this. (This is the second time.)</dd>
+
+                                    <dt>12. What is your favourite HTML element?</dt>
+                                    <dd>I don't really have a favorite.</dd>
+
+                                    <dt>13. If you're making a new web page from scratch, what is the first thing you do?</dt>
+                                    <dd>Copy and paste the &lt;head&gt; because I don't really want to rewrite the same things that apply to all pages anyway.</dd>
+
+                                    <dt>14. Do you know JavaScript?</dt>
+                                    <dd>I am learning! (Happy exclamation.) I am learning the same I learned HTML and CSS which is by figuring it out as I go.</dd>
+
+                                    <dt>15. How about PHP?</dt>
+                                    <dd>No, I don't know what PHP is for.</dd>
+
+                                    <dt>16. Does your website have a theme that you stick to?</dt>
+                                    <dd>I don't always have the same theme, but I do always have a theme.</dd>
+
+                                    <dt>17. Are you more focused on content or design?</dt>
+                                    <dd>I would like to focus more on content but I do love the design aspect too.</dd>
+
+                                    <dt>18. Do you own a domain name? If not, would you ever want to?</dt>
+                                    <dd>I don't right now. I'm indifferent about it.</dd>
+
+                                    <dt>19. What do you think of nostalgia-focused or "retro" websites?</dt>
+                                    <dd>I really like seeing it. It's cool that it's still around since I was not born/too young at the time.</dd>
+
+                                    <dt>20. Is your HTML valid? Do you even check?</dt>
+                                    <dd>I don't bother to check. As long as it works, it's okay. I'll work on it if I really need to.</dd>
+
+                                    <dt>21. What are your opinion on buttons and banners?</dt>
+                                    <dd>I liked  them, as you can see on the right.</dd>
+
+                                    <dt>22. What do you think of button walls in particular?</dt>
+                                    <dd>I like them too.</dd>
+
+                                    <dt>23. If you started over again, would you make something similar or completely different?</dt>
+                                    <dd>I can now answer this since I started over again when moving to Nekoweb. I made things similarly.</dd>
+
+                                    <dt>24. Are you envious of other people's websites?</dt>
+                                    <dd>I don't feel envious, I think they're cool. Depending on which website, I sometimes think "Wow, that's so cool! How did they do that?" Ex, <a href="https://corru.observer/">corru.observer</a>.</dd>
+
+                                    <dt>25. What text editor do you use?</dt>
+                                    <dd>I use Brackets.</dd>
+
+                                    <dt>26. Why do you use that one?</dt>
+                                    <dd>It's the first one with a live preview that I found. Also it's live preview is in a completely seperate window, which I prefer.</dd>
+
+                                    <dt>27. Do you host your image files on your web server, or on another host?</dt>
+                                    <dd>Mostly in my site folder. I use a file hoster for the bigger files.</dd>
+
+                                    <dt>28. This might not be relevant to you, but what's your opinion on the Neocities vs. Nekoweb debate?</dt>
+                                    <dd>Both have different things they're good and bad for. What affects me the most was not being able to use external scripts on Neocities so that was part of the reason I switched to Nekoweb.</dd>
+
+                                    <dt>29. How much server space would you estimate your main website takes up?</dt>
+                                    <dd>Currently 76.82 MB.</dd>
+
+                                    <dt>30. Do you keep local backups of your files?</dt>
+                                    <dd>Yes. I do everything locally before uploading it, and keep everything on my computer.</dd>
+
+                                    <dt>31. Do you prefer simple or highly visual websites?</dt>
+                                    <dd>I prefer higher visual websites, if simple means text on solid colors only. But also it depends I think.</dd>
+
+                                    <dt>32. Do you stick to certain colours? Do you do that on purpose, or is it your subconscious?</dt>
+                                    <dd>I create a color palette as I go that I refer back to.</dd>
+
+                                    <dt>33. Have you ever thought about quitting? Why?</dt>
+                                    <dd>No. Could never.</dd>
+
+                                    <dt>34. Do you have many webmaster friends, or is it a solitary hobby?</dt>
+                                    <dd>I've been talking to other people online more now because of this. Another reason I joined Nekoweb is the tight knit community I couldn't find on Neocities.</dd>
+
+                                    <dt>35. Do people in your real life know about your website?</dt>
+                                    <dd>I have told two people about it to tell one of them that I've picked up coding as a hobby I love but I try to make sure they never see the website itself.</dd>
+
+                                    <dt>36. Do you update your website very often? How often is "very often"?</dt>
+                                    <dd>Every day or every few days. The longest I've gone without was almost a week and only because I had surgery. That or when I have the webdev aquivalent of writers block.</dd>
+
+                                    <dt>37. And the overall design, do you change that much? Why or why not?</dt>
+                                    <dd>I recently changed it completely.</dd>
+
+                                    <dt>38. Is your website more you-focused, hobby-focused, or outside world-focused?</dt>
+                                    <dd>Me and my interests. Sometimes it will be other things.</dd>
+
+                                    <dt>39. Do you do web design professionally?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>40. If not, would you like to? And if you're comfortable answering, what do you do for work?</dt>
+                                    <dd>Yes, I would like to. It would be nice making money doing something I love.</dd>
+
+                                    <dt>41. Do you communicate with people by email very much?</dt>
+                                    <dd>Only for important things.</dd>
+
+                                    <dt>42. Some people reject social media and use websites as a replacement. Do you keep social media outside of your website?</dt>
+                                    <dd>I do link to my other social medias.</dd>
+
+                                    <dt>43. How about instant messengers? Do you use a mainstream one like Discord or Telegram? Or something like Matrix? Do you avoid them?</dt>
+                                    <dd>I use Discord a lot.</dd>
+
+                                    <dt>44. Do you listen to music while you work on websites? If so, what kinds of artists?</dt>
+                                    <dd>I do like to listen to music while I code. I like artists like Will Wood (and the Tapeworms), Kikuo, Eve, Cavetown, Marianas Trench, Ado, LilyPichu, and that's just to name a few.</dd>
+
+                                    <dt>45. Do you keep everything you make on one website, or do you have more than one?</dt>
+                                    <dd>I have only one website. This questions excludes if I have anything on any social medias, right?</dd>
+
+                                    <dt>46. On a similar note, do you keep to one topic on your site, or many?</dt>
+                                    <dd>Many of that I am interested in.</dd>
+
+                                    <dt>47. Do you present your real self, or at least try? Or do you construct a persona on purpose?</dt>
+                                    <dd>I'd say it's my real self (without real pictures of myself.)</dd>
+
+                                    <dt>48. Have you ever made a good friend thanks to your website?</dt>
+                                    <dd>I'm not sure to what extent I can call them friends. People I talk to on the internet, that's all.</dd>
+
+                                    <dt>49. Are you happy with the way HTML and CSS currently work?</dt>
+                                    <dd>Yes, it is simple enough for me. It's fun.</dd>
+
+                                    <dt>50. What are practices that you think people should avoid?</dt>
+                                    <dd>When making layouts, to not use position for everything. I use flex as example for an alternative.</dd>
+
+                                    <dt>51. What about under-utilised practices, or things you think people should do more?</dt>
+                                    <dd>Be kind.</dd>
+
+                                    <dt>52. Do you use a lot of semantic HTML? Or are you guilty of generic structure?</dt>
+                                    <dd>I use semantic HTML. It helps me to understand what I'm doing, and faster than writing div class everything.</dd>
+
+                                    <dt>53. Do you consider different browsers?</dt>
+                                    <dd>Maybe I'll try if I were to understand it better. I don't know what is incompatible for certain browsers and I don't know a quick way to know.</dd>
+
+                                    <dt>54. Speaking of, what's your preferred browser? Convince your readers why they should use it.</dt>
+                                    <dd>I like Opera GX for the customization.</dd>
+
+                                    <dt>55. And what OS are you on?</dt>
+                                    <dd>Windows 11. I wanted to stay on Windows 10 but this laptop was already up to date when I got it.</dd>
+
+                                    <dt>56. Do you have a strong opinion on that, or do you just happen to use it?</dt>
+                                    <dd>Like I said previously. I didn't want to upgrade to Windows 11 because of all the issues that happened at it's launch. I didn't trust it.</dd>
+
+                                    <dt>57. Are your websites mobile-friendly?</dt>
+                                    <dd>No. But I use exact pixel amounts to size things. On my own mobile  devices at least, nothing looks too deformed.</dd>
+
+                                    <dt>58. What are your thoughts on autoplay?</dt>
+                                    <dd>I would say I have no problems with it but it does jumpscare me sometimes when I don't expect it. I try to warn first since I saw a lot of people with such a big hatred for it that it scared me a bit.</dd>
+
+                                    <dt>59. What are your thoughts on webrings? Are you in any?</dt>
+                                    <dd>I am in three. Although it's a bit complicated when I need to owner to update information for it to show on my site and they haven't been active in a long time. I try to just wait.</dd>
+
+                                    <dt>60. Do you have any web shrines? What do you like to see in that sort of page?</dt>
+                                    <dd>I have shrines in which I info dump or show particular parts of the thing I'm most interested in.</dd>
+
+                                    <dt>61. Are your websites "cliche", in your opinion?</dt>
+                                    <dd>I don't know of any cliches when it comes to websites.</dd>
+
+                                    <dt>62. What is your ideal website? Are you striving for that, or for something else?</dt>
+                                    <dd>Unique and very stylized. Completely filled with writing from me, but I procrastinate.</dd>
+
+                                    <dt>63. Are you an artist? Do you draw or design your own assets?</dt>
+                                    <dd>I don't draw enough to be called an artist but I do like to draw the things that are in my head to make them solid. I have made about one asset myself.</dd>
+
+                                    <dt>64. What are your favourite resource sites?</dt>
+                                    <dd>I try to place them in my <a href="bookmarks.html">bookmarks</a>.</dd>
+
+                                    <dt>65. Is there a habit you just can't get away from no matter how hard you try?</dt>
+                                    <dd>Redesigning everything all over again.</dd>
+
+                                    <dt>66. What's your biggest advice for a new webmaster?</dt>
+                                    <dd>If things aren't loading correctly, first try to hard refresh your browser.</dd>
+
+                                    <dt>67. Do you keep all your styling in CSS? Or do you hard-code some?</dt>
+                                    <dd>I hard-code small unique styles. For example, sizing a single image that isn't connected with anything else.</dd>
+
+                                    <dt>68. What do you think of frameset layouts?</dt>
+                                    <dd>I don't know what that is. W3Schools says it's outdated.</dd>
+
+                                    <dt>69. How about table-based layouts?</dt>
+                                    <dd>I think it's complicated to do. People recommend not doing as it was only a workaround before anything better was available, like flex or grid.</dd>
+
+                                    <dt>70. Do you subscribe to the ideas of "one-column", "two-column" and "three-column" layouts? Do you use any of these?</dt>
+                                    <dd>I use similar. The columns would be classes and each column would have an id of it's number.</dd>
+
+                                    <dt>71. Do you spend longer on the HTML or the CSS?</dt>
+                                    <dd>I don't think I spend more time on either. I work on both at the same time.</dd>
+
+                                    <dt>72. Have you ever made a page with no CSS? It's useful for your thoughts.</dt>
+                                    <dd>I had one I never worked on. I considered bringing it back. (I will.)</dd>
+
+                                    <dt>73. Do you ever find yourself making layouts with nothing to put on them? Or do you only make layouts when the need arises?</dt>
+                                    <dd>Sometimes I get ideas of layouts before I know what to do with them. Sometimes if I like them enough to finish, maybe I post it on Ko-fi for people to use. This happened twice.</dd>
+
+                                    <dt>74. Would you consider yourself a beginner? Or advanced? Somewhere in the middle?</dt>
+                                    <dd>I think I'm intermediate in skill level when it comes to HTML and CSS. I'm a complete beginner in JavaScript.</dd>
+
+                                    <dt>75. Do you have a habit of looking at the source code of websites you visit?</dt>
+                                    <dd>I do if they have something that I'm curious as to how they did it.</dd>
+
+                                    <dt>76. How did YOU learn how to make websites?</dt>
+                                    <dd>Carrd, with it's simple drag and drop. Then I learned CSS while on SpaceHey since I liked styling my profile a lot. I learned HTML when I got on Neocities. Everything  I learned has always been just learning as I go, researching things as I need them. I can't just sit down and learn everything beforehand.</dd>
+
+                                    <dt>77. Do you ever force elements to do things they're not supposed to?</dt>
+                                    <dd>I don't think so.</dd>
+
+                                    <dt>78. Thoughts on floating elements?</dt>
+                                    <dd>I've only been using float on images and figures that are placed within bodies of text.</dd>
+
+                                    <dt>79. When you're sizing stuff, what do you use first? Do you use px, em, %, or something else?</dt>
+                                    <dd>I mainly always use px. I secondly use % for certain things. I've been using vw and vh when needed. Rarely I use em, depending on how a certain page is styled.</dd>
+
+                                    <dt>80. Do you have a favourite font?</dt>
+                                    <dd>NanumGothicCoding, which is what I am using.</dd>
+
+                                    <dt>81. Would you run a website with another person? How would that work?</dt>
+                                    <dd>I would need to be close with the person, that we at least get along well. I want to avoid miscommunication and misunderstandings during process.</dd>
+
+                                    <dt>82. Do you surf the Web to find new personal websites very often?</dt>
+                                    <dd>Yes I do, mostly through Neocities and Nekoweb.</dd>
+
+                                    <dt>83. Do you bookmark other people's websites? How would you feel knowing someone else bookmarked yours?</dt>
+                                    <dd>I do have people's websites in my <a href="links.html">links</a> page. When I see myself linked in other people's sites, I get excited.</dd>
+
+                                    <dt>84. What do you want people to be most impressed with when they see your website?</dt>
+                                    <dd>The content and style.</dd>
+
+                                    <dt>85. Are you interested in technology outside of websites? Do you collect?</dt>
+                                    <dd>I am interesting in coding, secret codes, computers things, communications/secret communications. Terminals have always scratched my brain. (Funnily enough, I reached this question while watching <a href="https://youtu.be/iC04nkklPY0" target="_blank">this video</a>. The channel has been interesting to me.)</dd>
+
+                                    <dt>86. How often and for how long are you online?</dt>
+                                    <dd>Most of my time awake, every day.</dd>
+
+                                    <dt>87. When it comes to your website, who is your target audience?</dt>
+                                    <dd>People who might be interested in what I have going on.</dd>
+
+                                    <dt>88. Have you ever been interested in XHTML?</dt>
+                                    <dd>Haven't heard of it so no, not before. I looked it up. It's described as a XML based HTML which is more strict in order to be more compatible with data. I'd use it if I need to. I'm not a perfectionist, although perfecting things does scratch my brain a bit.</dd>
+
+                                    <dt>89. Do you program in general? Have you ever written a program for use with or on your website, not counting simple JavaScript?</dt>
+                                    <dd>If it counts, I did program in Python language in Ren'py which is an engine to make visual novel games. That's when my coding interest started, when I was trying to mod DDLC at 14 years old on my school laptop because I saw how many mods there are. I figured it must be simple if there's so many that are low-effort.</dd>
+
+                                    <dt>90. Speaking of programs that help you make websites, what do you think of static site generators (SSGs)? Have you ever used one?</dt>
+                                    <dd>Only one time before I understood HTML at all so I felt like I was completely confused. I think they're okay to use. My way of learning has been editing preexisting code.</dd>
+
+                                    <dt>91. Do you keep a hitcounter? Why or why not?</dt>
+                                    <dd>I do, because I like to see my site stats.</dd>
+
+                                    <dt>92. Do you frequent forums? Which ones?</dt>
+                                    <dd>I wish. I haven't really found any forums in general, let alone any that might be of my interests.</dd>
+
+                                    <dt>93. Do you write your page content directly into the editor, or do you prepare it elsewhere, like a text document or a Word document?</dt>
+                                    <dd>Directly into the editor. The only times I wrote content elsewhere beforehand is when I end up writing something for my blog or journal that came to mind while away from my computer. I also sometimes just write the simple ideas I get so I don't forget.</dd>
+
+                                    <dt>94. Do you think you appear cool to others? A more accurate answer now: do other people ever say you're cool?</dt>
+                                    <dd>I've been called cute a whole lot, cool a few times. Yes.</dd>
+
+                                    <dt>95. Are you embarrassed of your old work? Have you ever deleted everything out of shame?</dt>
+                                    <dd>Not out of shame, I just wanted to change things and it didn't fit anymore.</dd>
+
+                                    <dt>96. Would you close down your website if you couldn't update it, or would you leave an archive?</dt>
+                                    <dd>I would leave it up. I don't understand taking it down just because I couldn't work on it anymore since I personally would still like to see it anyway.</dd>
+
+                                    <dt>97. Do you reveal a lot about yourself on your website? Or are you more secretive?</dt>
+                                    <dd>I'd say I reveal a lot.</dd>
+
+                                    <dt>98. Are you willing to reveal who your best online friend is, and/or if they have a website?</dt>
+                                    <dd>I don't have a "best friend" online, I think, unfortunately. (Update: Rice and their server people are pretty cool)</dd>
+
+                                    <dt>99. And do you optimise the images on your website?</dt>
+                                    <dd>I try to optimise as much as I can. I want to keep my site from lagging and too much storage use.</dd>
+
+                                    <dt>100. We're out of time! How do you feel after answering 100 questions? ....other than exhausted.</dt>
+                                    <dd>I don't feel exhausted. This is my second time answering this because many of my answers from the first time quickly became outdated.</dd>
+                                </dl>
+                            </details>
+                            <details>
+                                <summary>random weird 100?naire</summary>
+                                <p><a href="https://brooklynights.nekoweb.org/torand?z=/pages/ourqst">brooklynights</a></p>
+                                <dl>
+                                    <dt>1. what is name</dt>
+                                    <dd>Bianca.</dd>
+
+                                    <dt>2. do rocks rlly emit waves or they r like prisms or what</dt>
+                                    <dd>Some rocks are prisms that emit rainbow waves.</dd>
+
+                                    <dt>3. wanna spend a night in nature?</dt>
+                                    <dd>As long as it's not 3 hours in the middle of nowhere. Let's camp in the backyard.</dd>
+
+                                    <dt>4. opinions on near-visible spectre (deep ir - extreme uv/even x-ray??) and everything in-between</dt>
+                                    <dd>Dunno what that means. Lazers are scary when they're visible.</dd>
+
+                                    <dt>5. heard of 'to russian it up' phrase? d u relate</dt>
+                                    <dd>Never heard of it. I don't relate, I need it to be pretty (and comprehensible.)</dd>
+
+                                    <dt>6. xenospirit?</dt>
+                                    <dd>Yeah sure.</dd>
+
+                                    <dt>7. how many unfinished projects d u have</dt>
+                                    <dd>All of them.</dd>
+
+                                    <dt>8. won't u mind 2 give everything up right now and blend ur being w/floating wandering intergalactic megamind</dt>
+                                    <dd>No :(</dd>
+
+                                    <dt>9. should the earth speak only one lang on daily basis (we mean primary 4 everyone), if yes then which</dt>
+                                    <dd>The world's languages should stay as it is, no one single language.</dd>
+
+                                    <dt>10. opinions on bureaucracy?</dt>
+                                    <dd>I tried to research it (for two minutes.) From what I understand, things would be too disconnected and prime for miscommunication.</dd>
+
+                                    <dt>11. self-pressure? if ye, why</dt>
+                                    <dd>Sometimes. Do the thing I don't want to do and get it over with so I can code.</dd>
+
+                                    <dt>12. a rlly important question. what is romantika (romantic attraction) 4 u, how d u understand the concept</dt>
+                                    <dd>I don't think I feel it. I want to cuddle in a queerplatonic way.</dd>
+
+                                    <dt>13. opinions on lgbtq+ flags?</dt>
+                                    <dd>I support.</dd>
+
+                                    <dt>14. crazy enough 2 think u can change the world?</dt>
+                                    <dd>I could. It'd have to be big.</dd>
+
+                                    <dt>15. do we rlly should define which thing do we like more out of nearly equally loved</dt>
+                                    <dd>I don't think so. There shouldn't be a favorite between two equal loves.</dd>
+
+                                    <dt>16. do u hate? anything?</dt>
+                                    <dd>Mean people and bullies.</dd>
+
+                                    <dt>17. if the world was cool and ai belonged 2 the earth and not big moneysuckers, 2 be used 4 no bad, would u donate smth to it, additionally think of its use</dt>
+                                    <dd>If it were used in a way that doesn't affect the earth negatively, it would be used to automate mundane tasks like it's initial intened use.</dd>
+
+                                    <dt>18. wanna domesticate any wild animal and keep it as pet? which</dt>
+                                    <dd>Deer.</dd>
+
+                                    <dt>19. stimming</dt>
+                                    <dd>I clap my hands when I'm suddenly really excited.</dd>
+
+                                    <dt>20. how 2 live on low budget d u know and have u ever</dt>
+                                    <dd>I don't know how. For all I know, I can only think of having to hold back on buying anything related to my interests.</dd>
+
+                                    <dt>21. what is family, significance, is it overrated</dt>
+                                    <dd>I do not like shackles of having to endure their abuse just because they birthed me.</dd>
+
+                                    <dt>22. d u use custom html tags??</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>23. opinions on swearing should we rlly delete fuks from life or</dt>
+                                    <dd>Swearing is important, emphasizes seriousness. Although you are not very intimidating if you think it is intimidating to swear ever few words.</dd>
+
+                                    <dt>24. a concept of friendship 4 u, how 2 how works</dt>
+                                    <dd>To be there for each other at any time. Able to reconnect almost instantly even after long seperation. I'm sorry.</dd>
+
+                                    <dt>25. now. count ur frnds mutuals etc etc ur allowed 2 not name them, just numbers</dt>
+                                    <dd>10 + 9x + 1</dd>
+
+                                    <dt>26. routines?</dt>
+                                    <dd>I have my day's routine in my head and depending on how strictly I need to follow it, I have a meltdown if it's severely interrupted.</dd>
+
+                                    <dt>27. breaking rules?</dt>
+                                    <dd>I'm a bit of a rule breaker sometimes, mostly in high school, only a little bit.</dd>
+
+                                    <dt>28. what will be 100yrs later ye u can build big plans</dt>
+                                    <dd>Summer will be too hot to survive and winter will be too cold to survive. Arctic Eggs.</dd>
+
+                                    <dt>29. opinions on spoilers?</dt>
+                                    <dd>I don't like it. Ruins the strong feelings I get when experiencing things for the first time.</dd>
+
+                                    <dt>30. opinions on opinions?</dt>
+                                    <dd>Everyone is entitled to their own opinions. Doesn't mean I won't feel negatively about some.</dd>
+
+                                    <dt>31. using stuff until dust, constantly repairing if needed?</dt>
+                                    <dd>Yes. I can keep it going longer rather than buying a whole new one. Although it depends on the prices of each choice, and what the issue is.</dd>
+
+                                    <dt>32. experienced altered consc states?</dt>
+                                    <dd>I experienced sleep paralysis multiple time.</dd>
+
+                                    <dt>33. wanna start over?</dt>
+                                    <dd>Only if things could be better in this restart.</dd>
+
+                                    <dt>34. are we and u the same</dt>
+                                    <dd>Maybe only partially. I can't fully tell even if I've looked at your site quite a bit.</dd>
+
+                                    <dt>35. been in an eternal moment</dt>
+                                    <dd>Yeah</dd>
+
+                                    <dt>36. moonwater? opinions</dt>
+                                    <dd>It's like Columbina.</dd>
+
+                                    <dt>37. relating 2 any ideology?</dt>
+                                    <dd>The ones that are basically wanting peace in the world.</dd>
+
+                                    <dt>38. ok think again. ur personal concept of love/6ual attraction then</dt>
+                                    <dd>Hold each other close, comfortably and warm.</dd>
+
+                                    <dt>39. to not leave thinking again, opinions on polyamor</dt>
+                                    <dd>I support it only as long as it is fully communicated and all parties consent under no pressure. It would be the same logic for everything else too, but I've seen polyamory be used by certain people as an excuse to cheat on their partner which I don't support.</dd>
+
+                                    <dt>40. rate ur awareness</dt>
+                                    <dd>Social awareness -33 unless I'm thinking everyone is thinking bad of me.</dd>
+
+                                    <dt>41. skipping classes??</dt>
+                                    <dd>I did try once, got found.</dd>
+
+                                    <dt>42. d u do shitposting? can u even stand it</dt>
+                                    <dd>It can be funny.</dd>
+
+                                    <dt>43. describe ur essence of existence in vibes</dt>
+                                    <dd>Ball</dd>
+
+                                    <dt>44. doomscrolling???</dt>
+                                    <dd>Terrible.</dd>
+
+                                    <dt>45. share ur experiences of a weak/foggy mind like when undersleeping/illnesses if u have smth 2 share</dt>
+                                    <dd>People get mad at me and/or I just cry.</dd>
+
+                                    <dt>46. can u do blind typing ? or blind writing?</dt>
+                                    <dd>I can type without looking at the keyboard. I can't write by hand without looking, it get's crooked or letters merge together.</dd>
+
+                                    <dt>47. arguments r healthy 4 progress</dt>
+                                    <dd>Maybe I'd have an answer leaning more towards yes if it weren't for the fact I have only ever known arguements as yelling and barely any good communication at all, so no.</dd>
+
+                                    <dt>48. d u experience anemoia (a nostalgia of where/when u've never been)</dt>
+                                    <dd>Yes. I feel it when seeing certain pictures of in the middle of nowhere old looking buildings in Russia, <a href="https://i.pinimg.com/736x/11/3e/5f/113e5f678757a2ff86397f4fe982d442.jpg">one example</a>, <a href="https://i.pinimg.com/736x/6a/58/12/6a581242ddfef16a2a482ac73f3d6cd6.jpg">two example</a>. At one point I thought it's probably because I live in the middle of nowhere Canada in a 200 year old house where it often is like this. <a href="https://youtu.be/Q0guReRtGWI?si=dhfrcUCB0-Ny3NTS">Also</a></dd>
+
+                                    <dt>49. artistic nudity</dt>
+                                    <dd>A beautiful thing.</dd>
+
+                                    <dt>50. art vents?</dt>
+                                    <dd>It's a good way to get feelings out.</dd>
+
+                                    <dt>51. earth overpopulation</dt>
+                                    <dd>It does cause problems, increased use of finite recourses.</dd>
+
+                                    <dt>52. any ?real ?point of ?anything? any sense</dt>
+                                    <dd>I don't know really. Just the stuff that make me feel happy.</dd>
+
+                                    <dt>53. how it'd be 2 time travel</dt>
+                                    <dd>I wouldn't want to do that. The butterfly effect comes to mind every time I think about time travel.</dd>
+
+                                    <dt>54. what abt teleporting</dt>
+                                    <dd>This one is cool. Makes it quick to go to the stores I want to, and I wouldn't bother anyone to take me there both because I can't drive and the city is too much to drive in when I will be able to drive at all.</dd>
+
+                                    <dt>55. what is 'beyond our comprehension'</dt>
+                                    <dd>I believe that nothing is beyond our comprehension.</dd>
+
+                                    <dt>56. d u !rlly! know how mbti works</dt>
+                                    <dd>Only a little bit. My friend researched it a lot.</dd>
+
+                                    <dt>57. critical thinking</dt>
+                                    <dd>Underutilized.</dd>
+
+                                    <dt>58. avoiding? escaping? running away?</dt>
+                                    <dd>Yeah.</dd>
+
+                                    <dt>59. opinions on pets, would/do u keep one/mult</dt>
+                                    <dd>I want cats but dad is allergic. Instead there's cats at work that I can pet at anytime and they love me.</dd>
+
+                                    <dt>60. if u were leading a cult</dt>
+                                    <dd>This thought spawned when, because of a joke misspelling of my name, Bianky, the friend group I was in started using it to act like I'm a religious figure to be worshiped. They named one of the groupchats Church of Bianky, one time talked about making a Bible out of it. I didn't realized I felt put off by it at the time. Then after I was gone from that group, I wanted that feeling of being worshipped by people to return, so I played Cult of The Lamb. I realized I couldn't since I got attached to one member and felt sad about killing him. Then when I moderated an artist's Discord server, I didn't like it when acted like I'm a scary figure when I just wanted to talk as equals.</dd>
+
+                                    <dt>61. what is fairy dust</dt>
+                                    <dd>Magical, heals the world.</dd>
+
+                                    <dt>62. d u learn quickly, also is ur short-term mem fine</dt>
+                                    <dd>I can learn fast yeah. And my short term memory is mostly good enough. It's only terrible sometimes when I'm told to do something.</dd>
+
+                                    <dt>63. how ez is it 2 ask 4 help</dt>
+                                    <dd>It really depends. I have to already be comfortable with whoever I'd be asking or else I'm terrified.</dd>
+
+                                    <dt>64. opinions on achieving best grades/top players spot/etc?</dt>
+                                    <dd>It feels rewarding but otherwise uninportant in the sense that it shouldn't negatively impact real life.</dd>
+
+                                    <dt>65. what is you, of what d u consist</dt>
+                                    <dd>I'm an entity, an angel with a deffective brain that's it trying it's best.</dd>
+
+                                    <dt>66. opinions on snow</dt>
+                                    <dd>I like snow. It's pretty and makes the world feel lonelier.</dd>
+
+                                    <dt>67. can u tell what the junk-for-some d u collect and keep</dt>
+                                    <dd>Old pokemon cards I have that used to belong to an uncle, there are some original 1995 base set and half of them in terrible quality but I don't care since having them feels so cool. Other thing is old video games I could buy from the thrift store. I like to buy things from the thrift shop.</dd>
+
+                                    <dt>68. the weirdest mediaprojects (books games movies etc) uve ever experienced</dt>
+                                    <dd>All of these that I categorize as weird for this question are things that I lov. I never thought of anything here as weird, I just don't know what else to answer with. <a href="https://corru.observer/">corru.observer</a>, <a href="https://store.steampowered.com/app/1854430/How_Fish_Is_Made/">How Fish Is Made</a>, <a href="https://store.steampowered.com/app/2134320/ENA_Dream_BBQ/">ENA: Dream BBQ</a>, Serial Experiments Lain.</dd>
+
+                                    <dt>69. what was ur first operating system</dt>
+                                    <dd>I don't completely remember. I think it was probably Windows 7. I used Tux Paint a lot and played Purble Place and games from Telequebec. My favorite of those was TocTocToc and I also liked the Caillou game.</dd>
+
+                                    <dt>70. ever used incenses?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>71. how much are 'close' and 'far' in terms of walking by feet</dt>
+                                    <dd>Close is 30 minutes of walking maximum and far is any further.</dd>
+
+                                    <dt>72. share ur local memes/phrases/etc</dt>
+                                    <dd>Chez pas.</dd>
+
+                                    <dt>73. opinions on money</dt>
+                                    <dd>Expensive.</dd>
+
+                                    <dt>74. opinions on bodies</dt>
+                                    <dd>Part of a person or thing.</dd>
+
+                                    <dt>75. what has feelings</dt>
+                                    <dd>Everything that experiences it. (My brain is frying.)</dd>
+
+                                    <dt>76. generousity?</dt>
+                                    <dd>Yes.</dd>
+
+                                    <dt>77. what if universe were more like a cabbage</dt>
+                                    <dd>Would that make it that the water is inside the earth instead?</dd>
+
+                                    <dt>78. wanna lay down on the puddle?</dt>
+                                    <dd>I don't like being wet like that.</dd>
+
+                                    <dt>79. the oldest things u have in home</dt>
+                                    <dd>Probably the house itself. More specifically, the kitchen, living room, and the specific bedroom next to the living room. My parents have removed a lot that made it have that old style so the oldest parts are mostly the house's insides.</dd>
+
+                                    <dt>80. what did the earth forgot 2 invent/do so we are not in frutiger aero world now</dt>
+                                    <dd>World peace.</dd>
+
+                                    <dt>81. can u be friends (named) with nature</dt>
+                                    <dd>Yeah.</dd>
+
+                                    <dt>82. o<br>u<br>t<br>da<br>b<br>oxxxxxxxxxxxxx</dt>
+                                    <dd>????????</dd>
+
+                                    <dt>83. artifical meat veggies and etc</dt>
+                                    <dd>It helps to kill less animals so yeah. I heard that it tastes good too.</dd>
+
+                                    <dt>84. how do hyperfixes work (4 u, if applicable)</dt>
+                                    <dd>When you lock in too hard and forget everything else like eating and going to sleep.</dd>
+
+                                    <dt>85. if u played, opinions on natlan genshin impact. if no, make a question alike and answer it</dt>
+                                    <dd>It's cool. I am in the process of playing all the quests possible so that I can explore Fontaine. I really like Fontaine and want to explore it but my brain won't let me until I finish at least Fontaine. I'm dreading Inazuma.</dd>
+
+                                    <dt>86. ur fashion stylee how ur meatbag is dressed</dt>
+                                    <dd>I'm always wearing a top that is merch of my interests. The bottom when I leave the house is always the same two pair of pants that are the exact same pants, other than that it's pajama pants. Then I always have a hoodie or sweather unless it's too hot.</dd>
+
+                                    <dt>87. opinions on trolling</dt>
+                                    <dd>I really don't like it. I've been trolled all my life. It feels terrible.</dd>
+
+                                    <dt>88. emotions???</dt>
+                                    <dd>Too many! I don't want to cry about things that aren't that serious for everyone else because then they get mad at me and I have to hide.</dd>
+
+                                    <dt>89. wud u like 2 live alone or w/frnds community family or nowhere or</dt>
+                                    <dd>I want to live alone or with friend. </dd>
+
+                                    <dt>90. cool keybinds/shortcuts u use</dt>
+                                    <dd>My Keqing Genshin Impact keyboard has the shortcuts for the RGB lights in it and it's fun to look at. It also came with the keybinds that help when listening to music, Fn+F6 pause and unpause music, Fn+F7 previous song, Fn+F8 next song.</dd>
+
+                                    <dt>91. honorable mention:</dt>
+                                    <dd>I need Furina banner right now or I will go insane I want Furina so bad she is good meta and also I just love her so much. I felt the same about my genshin crush Hu Tao but  Ialready have her and I play with her for years.</dd>
+
+                                    <dt>92. to observe or to interact or</dt>
+                                    <dd>To observer. To interact as well but that's a bit scary.</dd>
+
+                                    <dt>93. ever drew on desks walls etc??</dt>
+                                    <dd>I drew on desks. When I was little I drew on my bedroom walls only one time because my mom made me help her clean it and I didn't get it at the time but she said "We wouldn't have to clean it if it looked any good."</dd>
+
+                                    <dt>94. can u play chess checkers cards anything alike ?</dt>
+                                    <dd>I like chess and solitaire. I was in a chess tournament in 3rd grade but I lost fast because I can't play under the pressure of being timed. I don't play checkers but I know how to. I can also play Black Jack (without gambling) and the game that starts with black and white chips 2 each in the middle and then you add your color chips to next to the oppenants ones to switch them to your side. Those last two games was because they were in Petz Dogs 2 and I miss it where is it I can't find it.</dd>
+
+                                    <dt>95. what if no internet (it'll be back dw)</dt>
+                                    <dd>I have games I can play without internet and I can code locally. No internet doesn't mean no electricity, and with the promise of it coming back than I'm completely fine.</dd>
+
+                                    <dt>96. if u were allowed 2 build any three buildings anywhere</dt>
+                                    <dd>My dream house with collection full basement and an office for gaming and all the other rooms a house has. The second building will be a bunker for survival, research and different rooms for different things I want to do. Rooms where I'd bring Hatsune Miku to life, and make the Navi, and even occult, a bunch of servers and computer things, big powerful antennas, and all other stuff, like the main building in Voices of the Void. For the third building, that would have to be thought about more.</dd>
+
+                                    <dt>97. coincidences??</dt>
+                                    <dd>I think not!! Jk coincidences exist.</dd>
+
+                                    <dt>98. what if u were replaced w/microsoft internet explorer</dt>
+                                    <dd>Considered obsolete. I was going to say there wouldn't be much of a difference to how I'm treated by some people but I remembered the guy who wouldn't even search things that could be found quickly and he also wanted me to find the name of a song in a video when the name was in the corner of the video.</dd>
+
+                                    <dt>99. mental tuning or training a model of ur friend or what is it when u understand them w/out words</dt>
+                                    <dd>Truely understanding each other shows deep connection between the two.</dd>
+
+                                    <dt>100. ask urself anyyy question and answer it</dt>
+                                    <dd>Would you ever make a webring or clique? -- I just got the idea of doing it so ya that's the first question I could come up with</dd>
+                                </dl>
+                            </details>
+                            <details>
+                                <summary>questionnaire</summary>
+                                <p><a href="https://burypink.neocities.org/gifts">burypink</a></p>
+                                <dl>
+                                    <dt>1. time and date u started this?</dt>
+                                    <dd>March 27, 2026 11:20 PM AST-4</dd>
+
+                                    <dt>2. asl?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>3. opinions on musicals?</dt>
+                                    <dd>I like them, but with certain requirements. My favorite is The Greatest Showman and it is the one that made me realize it's a good one because when they suddenly break out into song, it still continues telling the story.</dd>
+
+                                    <dt>4. favorite snack?</dt>
+                                    <dd>Candy/Chocolate</dd>
+
+                                    <dt>5. have u ever been in love?</dt>
+                                    <dd>I've had one crush before.</dd>
+
+                                    <dt>6. favorite pokemon?</dt>
+                                    <dd>Mimikyu.</dd>
+
+                                    <dt>7. mario kart main?</dt>
+                                    <dd>I don't play a lot but I use different characters a lot depending on my mood in the moment.</dd>
+
+                                    <dt>8. tf2 main?</dt>
+                                    <dd>I don't play.</dd>
+
+                                    <dt>9. do you laugh at youtube poops?</dt>
+                                    <dd>Yes. suaus</dd>
+
+                                    <dt>10. are you listening to music right now?</dt>
+                                    <dd>No, I am watching Youtube in the corner of my screen. The current video is by Mutahar.</dd>
+
+                                    <dt>11. favorite shape?</dt>
+                                    <dd>✦</dd>
+
+                                    <dt>12. do you believe in astrology?</dt>
+                                    <dd>I think that type of stuff is interesting. I don't believe the part where people with certain Zodiac signs are compatible or incompatible.</dd>
+
+                                    <dt>13. do you believe in the occult?</dt>
+                                    <dd>Yes.</dd>
+
+                                    <dt>14. opinions on vocaloid?</dt>
+                                    <dd>I LOVE HATSUNE MIKU! I love Vocaloid! So much. Some producers I like are Guchiry, Kikuo</dd>
+
+                                    <dt>15. would you ever want to be a rockstar?</dt>
+                                    <dd>Yeah, I'm literally Hitori.</dd>
+
+                                    <dt>16. do you easily get stressed?</dt>
+                                    <dd>I don't think it's stress.</dd>
+
+                                    <dt>17. what is/was your favorite class in high school?</dt>
+                                    <dd>Gardening even if all my plants died and I cried. We played Minecraft.</dd>
+
+                                    <dt>18. what pokemon type would you be? dual types are allowed lol</dt>
+                                    <dd>Fairy and maybe Ice</dd>
+
+                                    <dt>19. rei or asuka?</dt>
+                                    <dd>I like both but Rei is my favorite. She's just like me fr fr</dd>
+
+                                    <dt>20. favorite html tag?</dt>
+                                    <dd>Uhh div</dd>
+
+                                    <dt>21. are you religious?</dt>
+                                    <dd>I'm agnostic and think about religious things a lot.</dd>
+
+                                    <dt>22. opinions on nightcore?</dt>
+                                    <dd><a href="https://youtu.be/c0mX-5q3mrY?si=sUbjcGSVPXyqwUhY">Peak</a> <a href="https://youtu.be/BziUJGxk5Dc?si=hlYakU2QaGLcoo3B">peak</a> <a href="https://youtu.be/cvaIgq5j2Q8?si=sgvFYZ1d8og7izWC">peak</a></dd>
+
+                                    <dt>23. did you go through any major phase? (emo, goth, weeaboo, etc)</dt>
+                                    <dd>Those times never ended. It really wasn't a phase.</dd>
+
+                                    <dt>24. are you good at drawing?</dt>
+                                    <dd>Good enough.</dd>
+
+                                    <dt>25. do you crack your joints?</dt>
+                                    <dd>My legs snap crackle and pop sometimes.</dd>
+
+                                    <dt>26. do you read visual novels?</dt>
+                                    <dd>Yeah.</dd>
+
+                                    <dt>27. can you sew?</dt>
+                                    <dd>No. I did sewing class in high school and was terrible.</dd>
+
+                                    <dt>28. can you cook?</dt>
+                                    <dd>Mostly. I need instructions for the most part until I know how to cook it without.</dd>
+
+                                    <dt>29. most expensive thing you've bought?</dt>
+                                    <dd>My gaming laptop.</dd>
+
+                                    <dt>30. opinions on cosplay?</dt>
+                                    <dd>It's cool. I have a few cosplay pieces. I found Misato's jacket in a thrift store, that was really cool.</dd>
+
+                                    <dt>31. what's your most hated band/musician?</dt>
+                                    <dd>Most country music in general. I can't think of a specific band or musician.</dd>
+
+                                    <dt>32. are you a dramatic person?</dt>
+                                    <dd>I'm emotional, not dramatic.</dd>
+
+                                    <dt>33. what emoticon do you use most?</dt>
+                                    <dd>Idk probably :3</dd>
+
+                                    <dt>34. can a miracle certainly occur?</dt>
+                                    <dd>Sure.</dd>
+
+                                    <dt>35. would you let a vampire suck ur blood?</dt>
+                                    <dd>Depends.</dd>
+
+                                    <dt>36. do you have a celebrity crush?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>37. do you like snow?</dt>
+                                    <dd>Yeah. It's pretty and lonely.</dd>
+
+                                    <dt>38. were you really into greek mythology as a kid?</dt>
+                                    <dd>I probably didn't know about it yet.</dd>
+
+                                    <dt>39. what are some things you could competently deliver a speech on?</dt>
+                                    <dd>Not competently but I can get up there and yap about whatever I'm interested as long as they listen and I get comfortable.</dd>
+
+                                    <dt>40. are you good at spelling?</dt>
+                                    <dd>Mostly.</dd>
+
+                                    <dt>41. which touhou wud u fuk? </dt>
+                                    <dd>I don't know any.</dd>
+
+                                    <dt>42. do you think there's going to be a robot takeover?</dt>
+                                    <dd>It'll be a while.</dd>
+
+                                    <dt>43. HAS SCIENCE GONE TOO FAR??!?!??!?!</dt>
+                                    <dd>In certain spots yes. In others not.</dd>
+
+                                    <dt>44. would you be an angel or devil?</dt>
+                                    <dd>Angel. It's litterally part of my site name and I thought about it a lot.</dd>
+
+                                    <dt>45. sine, cosine, or tangent?</dt>
+                                    <dd>distress I don't remember</dd>
+
+                                    <dt>46. do you like licorice?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>47. whats one thing you cant stand that everyone else loves?</dt>
+                                    <dd></dd>
+
+                                    <dt>48. what books did you like as a kid?</dt>
+                                    <dd>Goosebumps, Chester series of books, multiple books by Raina Telgemeier like Sourie, Soeurs, and En Scene.</dd>
+
+                                    <dt>49. can you play any instruments?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>50. what song would you want to play at your wedding?</dt>
+                                    <dd>I won't have a wedding but to still answer, TSUBASA WO KUDASAI.</dd>
+
+                                    <dt>51. do you believe in reincarnation?</dt>
+                                    <dd>Yes.</dd>
+
+                                    <dt>52. finish the sentence: I'm just a guy who ______</dt>
+                                    <dd>I'm just a guy who tries his best.</dd>
+
+                                    <dt>53. have you been to another continent?</dt>
+                                    <dd>No, I've never even left my country.</dd>
+
+                                    <dt>54. whats your worst habit?</dt>
+                                    <dd>Maybe self-harm.</dd>
+
+                                    <dt>55. favorite vegetable?</dt>
+                                    <dd>Lettuce because I like salad.</dd>
+
+                                    <dt>56. whats something stupid that scared the shit outta you as a kid?</dt>
+                                    <dd>Maybe it's not stupid but my friend came over and put on a video of FNAF gameplay and the jumpscares were scaring me so bad but he refused to turn it off. I needed permission to do everything so he kept saying like "Hold on" everytime I asked to turn it off. My dad had to make him turn it off. Because of that I got this lifelong fear of the dark and thinking the small lights on things is Freddy Fazbear about to staring at me. I slowly got better though, by gradually sleeping with less light. Now I can sleep in the dark as long as I can see anything at all.</dd>
+
+                                    <dt>57. whats one of your guilty pleasures?</dt>
+                                    <dd>Boobies idk</dd>
+
+                                    <dt>58. would you rather be a ghost or a vampire?</dt>
+                                    <dd>I don't want to be a vampire but being a ghost seems pretty lonely to not be seen or anything. Ghost.</dd>
+
+                                    <dt>59. what do you fear most?</dt>
+                                    <dd>Being rejected by the world.</dd>
+
+                                    <dt>60. do you sleep with any plushies?</dt>
+                                    <dd>Yes.</dd>
+
+                                    <dt>61. what hobby do you just not understand?</dt>
+                                    <dd>I can't think of any.</dd>
+
+                                    <dt>62. do you like the taste of alcohol?</dt>
+                                    <dd>I never tried it.</dd>
+
+                                    <dt>63. are you a hopeless romantic?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>64. which deadly sin best fits you?</dt>
+                                    <dd>I don't know, sloth maybe.</dd>
+
+                                    <dt>65. which of your physical features do you like the most?</dt>
+                                    <dd>My eye color, blue-grey.</dd>
+
+                                    <dt>66. are your ears pierced?</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>67. have you ever been in a physical fight?</dt>
+                                    <dd>Kind of, yeah.</dd>
+
+                                    <dt>68. where do you buy your clothes?</dt>
+                                    <dd>Mostly merch online, or merch in Hot Topic.</dd>
+
+                                    <dt>69. where would you live if you could live anywhere?</dt>
+                                    <dd>Some walkable city.</dd>
+
+                                    <dt>70. do believe in magic? or is it all a trick?</dt>
+                                    <dd>Slight of hand.</dd>
+
+                                    <dt>71. have you read umineko when they cry? you should!</dt>
+                                    <dd>I know.</dd>
+
+                                    <dt>72. what is the worst chore to do?</dt>
+                                    <dd>Any that is forced on me for reasons that don't make sense.</dd>
+
+                                    <dt>73. what did your parents almost name you?</dt>
+                                    <dd>Nothing that I know of.</dd>
+
+                                    <dt>74. what would you want your name to be if you were not your current gender?</dt>
+                                    <dd>That's hard to say since not my current gender would be a gender.</dd>
+
+                                    <dt>75. what were your first words?</dt>
+                                    <dd>Cookie.</dd>
+
+                                    <dt>76. what do you want your last words to be?</dt>
+                                    <dd>Some funny bullshit</dd>
+
+                                    <dt>77. when did you first regularly start going online?</dt>
+                                    <dd>At 4, because I'm counting the computer games. The first of my kindergarten pictures is me on the computer looking like I'm hypnotized by it.</dd>
+
+                                    <dt>78. what year do you miss the most?</dt>
+                                    <dd>2021-2022 school year.</dd>
+
+                                    <dt>79. are you psychic?</dt>
+                                    <dd>Nah.</dd>
+
+                                    <dt>80. would you fuck a clone of yourself? you're not allowed to kill yourself.</dt>
+                                    <dd>No.</dd>
+
+                                    <dt>81. what do you use to listen to music?</dt>
+                                    <dd>Spotify.</dd>
+
+                                    <dt>82. whats the biggest city you've been to?</dt>
+                                    <dd>Quebec city maybe. I don't know how big wherever we were in British Columbia was since I wasn't a year old.</dd>
+
+                                    <dt>83. favorite animal?</dt>
+                                    <dd>Cats.</dd>
+
+                                    <dt>84. what web browser do you use?</dt>
+                                    <dd>Opera GX.</dd>
+
+                                    <dt>85. are you allergic to kitty cats???????????</dt>
+                                    <dd>No, I'm so glad.</dd>
+
+                                    <dt>86. do you like energy drinks?</dt>
+                                    <dd>I have one right next to me right now.</dd>
+
+                                    <dt>87. would ever spend money on tf2 unusuals/csgo skins/gacha pulls/etc</dt>
+                                    <dd>I have spent money on Genshin Impact. None specifically for pulls since it was for the Yelan skin and I just used to rest of the Gensis Crystals on pulls to get rid of them. I got nothing anyway.</dd>
+
+                                    <dt>88. when do you usually go to bed?</dt>
+                                    <dd>At 7 AM.</dd>
+
+                                    <dt>89. how often do you wash your hair?</dt>
+                                    <dd>Every two days for fully with shampoo and conditiner. In between that I just use the water since it's not good to use the cleaning products on hair every single day.</dd>
+
+                                    <dt>90. would you download a car?</dt>
+                                    <dd>Yes!</dd>
+
+                                    <dt>91. what was your favorite show as a kid?</dt>
+                                    <dd>Pokemon.</dd>
+
+                                    <dt>92. whats the silliest hat you own?</dt>
+                                    <dd>ENA's hat, specifically the ENA: Dream BBQ ENA.</dd>
+
+                                    <dt>93. what album/song do you're feeling angsty</dt>
+                                    <dd>Cavetown. I know it's an artist and not just a song or album but I have a whole playlist that's just Cavetown and I've cried to it a bajillion times.</dd>
+
+                                    <dt>94. do you make OCs?</dt>
+                                    <dd>Yes.</dd>
+
+                                    <dt>95. whats the goofiest thing you do when completely alone?</dt>
+                                    <dd>Giggle at anything idk</dd>
+
+                                    <dt>96. do you like fireworks?</dt>
+                                    <dd>Yes, just not the loud noise.</dd>
+
+                                    <dt>97. favorite painter?</dt>
+                                    <dd><a href="https://www.instagram.com/llx_o.o_x/">Ito</a>.</dd>
+
+                                    <dt>98. favorite numbers?</dt>
+                                    <dd>7 and 333 and 143.</dd>
+
+                                    <dt>99. what genre of vidya gaems are you really good at? (fps, fightan, danmaku, racing, whatever)</dt>
+                                    <dd>I'd say I'm really good at puzzle solving, and the exploration in Genshin Impact.</dd>
+
+                                    <dt>100. time and date you finished this?</dt>
+                                    <dd>March 28, 2026 1:22 AM AST-4</dd>
+                                </dl>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table id="interests">
+                <tr>
+                    <td>
+                        <h3>General</h3>
+                        <ul>
+                            <li>Technology, computer stuff</li>
+                            <li>The internet</li>
+                            <li>Energy drinks</li>
+                            <li>Coding</li>
+                            <li>Eggs</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <h3>Video games</h3>
+                        <ul>
+                            <li>Z.A.T.O. // I Love the World and Everything In It</li>
+                            <li><a href="shrines/milk.html">Milk Inside a Bag of Milk Inside a Bag of Milk/Milk Outside a Bag of Milk Outside a Bag of Milk</a></li>
+                            <li>Pokemon series</li>
+                            <li>Hello Charlotte</li>
+                            <li><a href="shrines/genshin/index.html">Genshin Impact</a></li>
+                            <li>Minecraft</li>
+                            <li>Stardew Valley</li>
+                            <li>Slime Rancher</li>
+                            <li>ENA: Dream BBQ</li>
+                            <li>Needy Girl Overdose</li>
+                            <li>Doki Doki Literature Club</li>
+                            <li>Corru.observer</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <h3>Anime and Television</h3>
+                        <ul>
+                            <li>Serial Experiments Lain</li>
+                            <li>Neon Genesis Evangelion</li>
+                            <li>Arcane</li>
+                            <li>Bungo Stray Dogs</li>
+                            <li>Wonder Egg Priority</li>
+                            <li>Puella Magi Madoka Magica</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <h3>Movies</h3>
+                        <ul>
+                            <li>Battle Royale</li>
+                            <li>The Truman Show</li>
+                            <li>Lilo &amp; Stitch</li>
+                            <li>The Greatest Showman</li>
+                            <li>Neon Genesis Evangelion Rebuilds</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <h3>Music</h3>
+                        <ul>
+                            <li>Shinsei Kamattechan</li>
+                            <li>Ghost and Pals</li>
+                            <li>Marianas Trench</li>
+                            <li>Cavetown</li>
+                            <li>Eve</li>
+                            <li>Ado</li>
+                            <li><a href="shrines/guchiry.html">Guchiry</a></li>
+                            <li>Vocaloid</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="right">
+            <div id="thing" class="box">
+                <div class="boxHead">Thing of the time</div>
+                <iframe src="https://www.youtube.com/embed/qjlY1ksx4tw?si=V55DHHfArflLGXtS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div id="mecore" class="box">
+                <div class="boxHead">Me core</div>
+                <img src="mecore/image.png">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

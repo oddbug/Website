@@ -1,0 +1,38 @@
+.left {
+    width: 65vw;
+}
+.right {
+    width: 35vw;
+}
+
+/* LEFT */
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+}
+
+.box {
+    
+}
+
+.preview {
+    width: 100%px;
+    height: 250px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.preview img {
+    width: 100%;
+    object-fit: cover;
+}
+.box ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.box li:not(:last-child)::after {
+    content: "-";
+    margin: 0 5px;
+}
