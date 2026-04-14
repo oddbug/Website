@@ -1,0 +1,63 @@
+/* onionring.js is made up of four files - onionring-widget.js, onionring-index.js, onionring-variables.js and onionring.css (this one!)
+// it's licensed under the cooperative non-violent license (CNPL) v4+ (https://thufie.lain.haus/NPL.html)
+// it was originally made by joey + mord of allium (è’œ) house, last updated 2020-10-24 */
+
+/* === ONIONRING.CSS === */
+/* this file affects the style of the widget. remember to replace all instances of #webringid with whatever value you have for ringID in the onionring-widget.js file. make sure it still has the # at the front, though! probably easiest to use find+replace to do it */
+
+#siwebring {
+    width: 180px;
+    margin-bottom: 5px;
+}
+
+#siwebring #templateWebring {
+    background: url(https://dears.nekoweb.org/siwebring/siwidgetbg.png) no-repeat;
+    background-size: cover;
+    border: 1px #FF74B8 solid !important;
+    width: 100% !important;
+    height: auto !important;
+	padding: 5px;
+	font-family: NanumGothic !important;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 1px;
+    color: black;
+}
+
+#siwebring #webringboxes {
+    margin-bottom: 5px;
+    display: flex;
+    column-gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+#siwebring #webringiconbox {
+    border: 1px solid #FF74B8;
+    width: 75px;
+    height: 75px;
+    display: block;
+    overflow: hidden;
+}
+#siwebring #webringiconbox img {
+    width: 100%;
+    height: 100%;
+}
+
+#siwebring #webringdescbox {
+    width: 90px;
+}
+
+#siwebring #webringdesc {  
+    -webkit-text-stroke: white 3px;
+    paint-order: stroke; 
+}
+
+#siwebring #webringlinks{
+    width:100%;
+    margin:auto;
+}
+a[href^="https://"]::after {
+    content: "";
+    display: none;
+}

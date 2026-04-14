@@ -1,0 +1,143 @@
+body {
+    background-color: var(--background);
+    color: var(--textColor);
+}
+#container {
+    border: var(--border) solid;
+    border-width: 0 1px;
+    width: 650px;
+    min-height: calc(100vh - 130px);
+    margin: auto;
+}
+header {
+    background-image: var(--header);
+    background-size: 100%;
+    border: var(--border) solid;
+    border-width: 0 1px 1px;
+    width: 650px;
+    height: 130px;
+    margin: auto;
+    padding: 5px;
+}
+header .icon {
+    background-image: var(--postIcon);
+    background-size: cover;
+    border: 1px var(--border) solid;
+    width: 120px;
+    height: 120px;
+}
+
+/* MAIN */
+
+main {
+    padding: 5px;
+    display: flex;
+    column-gap: 5px;
+}
+.left {
+    width: 475px;
+}
+.right {
+    width: 158px;
+}
+
+a {
+    color: var(--linkColor);
+}
+
+/* LEFT */
+
+article {
+    border: 1px var(--border) solid;
+    padding: 5px;
+    display: flex;
+    column-gap: 5px;
+}
+a:has(article) {
+    color: var(--textColor);
+}
+a:not(:last-child) article {
+    margin-bottom: 5px;
+}
+article img {
+    border: 1px var(--border) solid;
+    height: 45px;
+}
+article div {
+    width: 100%;
+}
+article h3 {
+    display: flex;
+    justify-content: space-between;
+}
+article h3 span {
+    font-weight: normal;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.date {
+    margin-bottom: 10px;
+}
+
+#left {
+    margin-right: 5px;
+    float: left;
+}
+#right {
+    margin-left: 5px;
+    float: right;
+}
+
+/* RIGHT */
+
+#calendar {
+    border: 1px var(--border) solid;
+    width: 158px;
+    position: sticky;
+    top: 5px;
+}
+.cal-header {
+    background-color: var(--border);
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+.cal-header button {
+    background: none;
+    border: none;
+    width: 30px;
+    color: var(--textColor);
+}
+.cal-header button:hover {}
+.cal-grid {
+    text-align: center;
+    color: var(--border);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 2px;
+}
+.cal-grid div {
+    padding: 1px;
+}
+.cal-grid div:nth-child(-n+7) {
+    color: var(--textColor);
+}
+.has-post {}
+.has-post a {
+    color: var(--textColor);
+}
+.has-post:hover {}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbarTrack);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarThumb);
+}
