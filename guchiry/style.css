@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+section {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+section h1 {
+    margin-bottom: 10px;
+}
+
+#adg {
+    background-image: url(guchiry/abnormalitydancingirl.jpg);
+    color: white;
+}
+#adg dt:not(:first-child) {
+    margin-top: 25px;
+}
+#cas {
+    background-image: url(guchiry/castaspell.jpg);
+    color: #cc0a0a;
+}

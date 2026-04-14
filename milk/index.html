@@ -1,0 +1,180 @@
+<head>
+    <title>Buy milk</title>
+    <link rel="icon" href="milk/favicon.png">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="milk.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/pages.js"></script>
+    <script>
+        // Calling showTime function at every second
+        setInterval(showTime, 1000);
+
+        // Defining showTime funcion
+        function showTime() {
+            // Getting current time and date
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            am_pm = "AM";
+
+            // Setting time for 12 Hrs format
+            if (hour >= 12) {
+                if (hour > 12) hour -= 12;
+                am_pm = "PM";
+            } else if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+            
+            let currentTime = hour + ":" + min + ":" + sec + " " + am_pm;
+
+            // Displaying the time
+            document.getElementById(
+                "time"
+            ).innerHTML = currentTime;
+        }
+
+        showTime();
+    </script>
+</head>
+
+<body>
+    <audio autoplay loop src="milk/thinking.mp3"></audio>
+    <div class="clock">
+        <div id="time"></div>
+        <script>
+
+            var weekdayNames = [];
+            weekdayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+            
+            var monthNames = [];
+            monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            var today = new Date();
+            let day = today.getDate();
+            let year = today.getFullYear();
+
+            today = weekdayNames[today.getDay()] + ", " + day + " " + monthNames[today.getMonth()] + " " + year;
+            document.write(today);
+        </script>
+    </div>
+    <div class="container">
+        <header>
+            <p>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣦⣤⣴⣦⣤⣤⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣴⣶⡟⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠉⢉⠟⠀⠀⠀⠀⠉⠛⣿⠛⠷⡄⣀⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⠀⢀⣤⠞⣻⠉⠉⠀⠀⠀⠈⢣⡀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠐⠀⠀⠀⠀⣧⠀⡄⢉⡿⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⣴⠋⠀⠀⡇⠀⠀⠀⠐⠀⠀⢸⡇⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠀⠀⠤⣀⠀⠀⠀⢀⡟⠀⠀⠋⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠈⠈⠃⠀⠀⠧⠀⣀⠀⠠⠔⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
+                ========================================================================<br>
+                ###########################-WELCOME BIANCA!-############################<br>
+                ========================================================================<br>
+            </p>
+        </header>
+        <main>
+            <div class="left">
+                <img id="milkchan" src="milk/sprite1.png">
+                <img id="blink1" src="milk/sprite2.png">
+                <img id="blink2" src="milk/sprite3.png">
+            </div>
+            <div class="right">
+                <nav>
+                    <a onclick="show('home');">Home</a>
+                    <a onclick="show('loneliness');">Loneliness</a>
+                </nav>
+                <div id="home" class="page">
+                    <p>Milk Outside a Bag of Milk Outside a Bag of Milk is the sequal to Milk Inside a Bag of Milk Inside a Bag of Milk, please do play that one first. This shrine is for Outside.</p>
+                    <p>This series of games is about a girl and her adventure to buy milk, and thereafter.</p>
+                    <a href="https://nikita-kryukov.itch.io/pmkm" target="_blank"><button>Inside</button></a>
+                    <a href="https://nikita-kryukov.itch.io/milk-outside-a-bag-of-milk-outside-a-bag-of-milk" target="_blank"><button>Outside</button></a>
+                </div>
+                <div id="loneliness" class="page" style="display:none">
+                    <div class="inner">
+                        <div class="received">Hello, thank you for choosing our pizzeria!</div>
+                        <div class="sent">You know, this place is so empty... Though, I don't feel particularly good or bad because of it.</div>
+                        <div class="sent">I'm all alone, but at the same time it feels like I'm not. There's a lot of thoughts in my head, they always keep me entertained.</div>
+                        <div class="sent">I can create a whole world with them. I'm sure it'll be able to fill the void around me if I try hard enough!</div>
+                        <div class="sent">Although...</div>
+                        <div class="sent">No matter how much I think, my surroundings don't change. Yes, things happened in my head, but they never left its premises.</div>
+                        <div class="sent">And it's not like I tried to suppress them... Maybe they were afraid to come out?</div>
+                        <div class="received">What kind of pizza would you like to order?</div>
+                        <div class="sent">Anyway! There's so much space in my head that could be put to good use.</div>
+                        <div class="sent">So every thought would make a senseless and merciless circle in my head, destined to go back to where it started.</div>
+                        <div class="sent">But there should be an end somewhere. You can't wander around forever. What do you think?</div>
+                        <div class="sent">I know it sounds scary, but it's not scarier than constantly existing among the void.</div>
+                        <div class="sent">This place is safe, and nothing bad will happen here. Nothing good will happen either, though.</div>
+                        <div class="received">Please note that we have a special offer right now: three pizzas for the price of two!</div>
+                        <div class="sent">Yeah... There's probably nothing good in having the same thoughts over and over. What's the point of having them anyway?</div>
+                        <div class="sent">I could've escaped from here, but I  feel like my thoughts aren't helping me at all.</div>
+                        <div class="sent">They should be ashamed... Probably.</div>
+                        <div class="sent">It's nobody's fault that I can't even see a door here. I would've had it easier with one!</div>
+                        <div class="sent">I tried to find it. It turned out to be a waste of time.</div>
+                        <div class="sent">No matter where I look, it's not looking good (pun not intended!), and that strips me of the last bit of hope for salvation.</div>
+                        <div class="received">We also have a discount program for new customers. You can learn more about it on your account page!</div>
+                        <div class="sent">Don't you think that me being here is also a waste of time? What's the point in that?</div>
+                        <div class="sent">I can just keep on thinking. And even then, my thoughts are as meaningless and empty as everything else.</div>
+                        <div class="sent">Does it mean that I'm not filling the void, but am a part of it?</div>
+                        <div class="sent">Then why should I feel anything? Why should I know that I exist?</div>
+                        <div class="sent">Although, I'm not even sure about that.</div>
+                        <div class="sent">This place is always neither warm, nor cold. It's neutral.</div>
+                        <div class="sent">But at the same time, if I think about warmth, I feel warm.</div>
+                        <div class="sent">Maybe this world corresponds to my thoughts?</div>
+                        <div class="sent">I wouldn't want to admit that I'm completely empty.</div>
+                        <div class="sent">I'm not the reason everything had disappeared, right?</div>
+                        <div class="sent">Can't I just adapt and get used to having nothing around me since I can't do anything about it?</div>
+                        <div class="received">Are you ready to make your order?</div>
+                        <div style="margin-left:100" class="sent">Yes. That's right.</div>
+                        <div class="sent">I shouldn't care.</div>
+                        <div class="sent">It's empty here, and it makes me feel neither good nor bad.</div>
+                        <div class="sent">I'm all alone, but at the same time it feels like I'm not. There are a lot of thoughts in my head, they always keep me entertained.</div>
+                        <div class="sent">I can create a whole world with them. This place is safe, and nothing bad will happen here. Nothing good will happen either, though.</div>
+                        <div class="sent">Me being here is a waste of time. I don't fill the void, I'm a part of it. This strips me of the last bit of hope for salvation.</div>
+                        <div class="sent">I shouldn't care.</div>
+                        <div class="sent">It's empty here, and it makes me feel neither good nor bad.</div>
+                        <div class="sent">It's nobody's fault that I can't even see a door here. What's the point in having one?</div>
+                        <div class="sent">I feel like nobody is helping me. They should feel ashamed.</div>
+                        <div class="sent">I wouldn't want to admit it, but I'm all alone here.</div>
+                        <div class="sent">I can't do anything about it.</div>
+                        <div class="received">Please note that we have a special offer right now: four pizza's for the price of two!</div>
+                        <div class="sent">I don't care that this place is empty, you hear?! I feel neither good, nor bad!</div>
+                        <div class="sent">I'm all alone.</div>
+                        <div class="sent">My head is full of thoughts, they eclipse the world around me.</div>
+                        <div class="sent">This space is pretty cramped, but at least it's safe.</div>
+                        <div class="sent">Even though I'll never feel good here.</div>
+                        <div class="sent">Does that mean existing is a waste of time?</div>
+                        <div class="sent">I need to decide, and my thoughts will help me.</div>
+                        <div class="sent">They'll lead me to the exit... And I'll be able to feel proud of myself.</div>
+                        <div class="sent">I'll be able to save myself.</div>
+                        <div class="sent">At the same time...</div>
+                        <div class="sent">I don't really care anymore.</div>
+                        <div class="sent">This place is empty, but it makes me feel neither good, nor bad.</div>
+                        <div class="sent">I'm alone, but my head is full of thoughts. A whole world, one might say.</div>
+                        <div class="sent">If I try hard enough, it'll be able to fill all the void around me!</div>
+                        <div class="sent">Still...</div>
+                        <div class="sent">No matter how much I keep thinking, my surroundings don't change. Yes, something happened outside of my head, but...</div>
+                        <div class="sent">What was it?</div>
+                        <div class="sent">There's not enough space for my thoughts.</div>
+                        <div class="sent">It's already filled with something else...</div>
+                        <div class="sent">Even if there's nothing around me, I'm still here.</div>
+                        <div class="sent">And my head is full of thoughts.</div>
+                        <div style="margin-left:90px" class="sent">If I try hard enough...</div>
+                        <div style="margin-left: 10px" class="sent">...</div>
+                        <div class="sent">So the world isn't empty, after all.</div>
+                        <div class="sent">I can't see anything.</div>
+                        <div class="received">Session timeout, please reload the page.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
