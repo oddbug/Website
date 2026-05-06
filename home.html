@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nebula</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="An angel's personal website where I do anything I want.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="layout.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script>
+        (function($){
+            $(document).ready(function(){
+                $("[title]").style_my_tooltips({ 
+                    tip_follows_cursor:true,
+                    tip_delay_time:0,
+                    tip_fade_speed:0,
+                    attribute:"title"
+                });
+            });
+        })(jQuery);
+    </script>
+</head>
+
+<style>
+    #links {
+        border: 2px var(--green) solid;
+        border-radius: 10px;
+        width: 200px;
+        height: fit-content;
+        padding: 5px;
+        text-align: center;
+        overflow: hidden;
+    }
+    #links h3 {
+        background-color: var(--palegreen);
+        border: var(--green) solid;
+        border-width: 2px 0;
+        margin: 5px -5px;
+        padding: 2px;
+        color: var(--green)
+    }
+    #links h3:first-child {
+        border-top: 0;
+        margin-top: -5px;
+    }
+    #links .buttons {
+        margin: 8px 0;
+        display: flex;
+        column-gap: 5px;
+        justify-content: center;
+    }
+    #links textarea {
+        width: 180px;
+        height: 50px;
+        resize: none;
+    }
+    .list {
+        width: 270px;
+    }
+    #celestial {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    #celestial li:not(:last-child) {
+        margin-bottom: 3px;
+    }
+    #currently svg {
+        width: 16px;
+        height: 16px;
+        margin: 3px 3px -3px 0;
+    }
+</style>
+    
+<body>
+    <div class="container">
+        <main>
+            <div class="left">
+                <img src="images/miffy.gif" style="width:100px;float:right">
+                <h2 style="margin-top:0">Welcome to Nebula<span style="font-size:14px;opacity:.3">, where we curl up and pray for a new beginning.</span></h2>
+                <p>This website is where I write, document, and do just about anything else that interest me. Coding is a fun hobby for me as well, meaning I enjoy making this website. </p>
+                <p>This website is always under construction, as I am always building it. Have fun.</p>
+                <div class="flex">
+                    <div id="links">
+                        <h3>Interested?</h3>
+                        <p>Follow me on<br>
+                            <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org">Nekoweb</a> or
+                            <a href="https://neocities.org/site/nogood-angel">Neocities</a>
+                        </p>
+                        <h3>Link me</h3>
+                        <div class="buttons">
+                            <img src="images/graphics/buttons/button1.png" title="Made by rice.place">
+                            <img src="images/graphics/buttons/button2.png">
+                        </div>
+                        <textarea><a href="https://nogood-angel.moe" target="_blank"><img src="" alt="Nebula button"></a></textarea>
+                    </div>
+
+                    <div class="list">
+                        <h3>Missing pages</h3>
+                        <ul>
+                            <li>Blog<span>, due to lack of entries</span></li>
+                            <li>Journal<span>, due to reorganization</span></li>
+                            <li>Documentation<span>, due to lack of documents</span></li>
+                            <li>Images, collection in premature stage</li>
+                            <li>Graphics, collection in premature stage</li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h3>To-do</h3>
+                        <ul>
+                            <li>RSS feed (potentially)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div id="celestial">
+                    <ul id="celestial" class="nolist">
+                        <li><span id="moon"></span></li>
+                        <li>Time:
+                            <span id="time"></span>
+                            <a href="https://wiki.melonland.net/swatch_time"><span id="swatchTime"></span></a>
+                        </li>
+                        <li><span id="weather"></span></li>
+                        <li><span id="temperature"></span></li>
+                        <script>
+                            // MOON PHASE
+                            function getMoonPhase(date) {
+                                const year = date.getUTCFullYear();
+                                const month = date.getUTCMonth() + 1;
+                                const day = date.getUTCDate() + date.getUTCHours() / 24;
+
+                                let y = year;
+                                let m = month;
+                                if (m < 3) {
+                                    y--;
+                                    m += 12;
+                                }
+
+                                const a = Math.floor(y / 100);
+                                const b = 2 - a + Math.floor(a / 4);
+                                const jd = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + day + b - 1524.5;
+
+                                const daysSinceNew = jd - 2451549.5;
+                                const newMoons = daysSinceNew / 29.53058867;
+                                const phase = newMoons - Math.floor(newMoons);
+                                const age = phase * 29.53058867;
+
+                                if (age < 1.84566) return "New Moon";
+                                else if (age < 5.53699) return "Waxing Crescent";
+                                else if (age < 9.22831) return "First Quarter";
+                                else if (age < 12.91963) return "Waxing Gibbous";
+                                else if (age < 16.61096) return "Full Moon.png";
+                                else if (age < 20.30228) return "Waning Gibbous";
+                                else if (age < 23.99361) return "Last Quater";
+                                else if (age < 27.68493) return "Waning Crescent";
+                                else return "New Moon";
+                            }
+
+                            const today = new Date();
+                            const phaseName = getMoonPhase(today);
+
+                            if (phaseName) {
+                                document.getElementById("moon").innerHTML = `Moon: ${phaseName}`;
+                            } else {
+                                console.error("Failed to fetch moon phase.");
+                            }
+                            
+                            // TIME
+                            // Calling showTime function at every second
+                            setInterval(showTime, 1000);
+
+                            // Defining showTime funcion
+                            function showTime() {
+                                // Getting current time and date
+                                let time = new Date();
+                                let hour = time.getHours();
+                                let min = time.getMinutes();
+                                let sec = time.getSeconds();
+
+                                hour = hour < 10 ? "0" + hour : hour;
+                                min = min < 10 ? "0" + min : min;
+                                sec = sec < 10 ? "0" + sec : sec;
+
+                                let currentFullTime = hour + ":" + min + ":" + sec;
+
+                                // Displaying the time
+                                document.getElementById(
+                                    "time"
+                                ).innerHTML = currentFullTime;
+                            }
+
+                            showTime();
+                            
+                            // SWATCH TIME
+                            // Returns the current Swatch beat
+                            function GetSwatchTime(showDecimals = true) {
+                                // get date in UTC/GMT
+                                var date = new Date();
+                                var hours = date.getUTCHours();
+                                var minutes = date.getUTCMinutes();
+                                var seconds = date.getUTCSeconds();
+                                var milliseconds = date.getUTCMilliseconds();
+                                // add hour to get time in Switzerland
+                                hours = hours == 23 ? 0 : hours + 1;
+                                // time in seconds
+                                var timeInMilliseconds = ((hours * 60 + minutes) * 60 + seconds) * 1000 + milliseconds;
+                                // there are 86.4 seconds in a beat
+                                var millisecondsInABeat = 86400;
+                                // calculate beats to two decimal places
+                                if (showDecimals) {
+                                    return Math.abs(timeInMilliseconds / millisecondsInABeat).toFixed(2);
+                                } else {
+                                    return Math.floor(Math.abs(timeInMilliseconds / millisecondsInABeat));
+                                }
+                            }
+                            var mySwatchClock = document.getElementById('swatchTime');
+                            function updateSwatchClock() {
+                                mySwatchClock.innerHTML = '@' + GetSwatchTime();
+                            }
+                            setInterval(updateSwatchClock, 864);
+
+                            // WEATHER
+                            const apiKey = "d84e086d4bb3408b8cb225650241811";
+                            const city = "Shediac";
+                            const country = "Canada";
+                            const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city},${country}`;
+                            
+                            async function fetchWeather() {
+                                try {
+                                    const response = await fetch(apiUrl);
+                                    if (!response.ok) throw new Error("Failed to fetch weather data");
+                                    const data = await response.json();
+
+                                    const weather = data.current.condition.text;
+                                    const temperature = data.current.temp_c;
+
+                                    document.getElementById('weather').textContent = `Weather: ${weather}`;
+                                    document.getElementById('temperature').textContent = `Temperature: ${temperature}°C`;
+                                } catch (error) {
+                                    console.error(error);
+                                }
+                            }
+                            fetchWeather();
+                        </script>
+                    </ul>
+                </div>
+                <div id="currently">
+                    <h3>What was I doing?</h3>
+                    <div class="inner">
+                        <ul class="nolist">
+                            <li title="Date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6z"/></svg>April 28</li>
+                            <li title="Time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M13 12.6V9q0-.425-.288-.712T12 8t-.712.288T11 9v3.975q0 .2.075.388t.225.337l2.8 2.8q.275.275.7.275t.7-.275t.275-.7t-.275-.7zM12 22q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 13t.713-3.512t1.924-2.85t2.85-1.925T12 4t3.513.713t2.85 1.925t1.925 2.85T21 13t-.712 3.513t-1.925 2.85t-2.85 1.925T12 22M2.05 7.3q-.275-.275-.275-.7t.275-.7L4.9 3.05q.275-.275.7-.275t.7.275t.275.7t-.275.7L3.45 7.3q-.275.275-.7.275t-.7-.275m19.9 0q-.275.275-.7.275t-.7-.275L17.7 4.45q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l2.85 2.85q.275.275.275.7t-.275.7M12 20q2.925 0 4.963-2.037T19 13t-2.037-4.962T12 6T7.038 8.038T5 13t2.038 4.963T12 20"/></svg>3:30 AM</li>
+                            <li title="Weather"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M13.1 22h-2.6l.5-.312q.5-.313 1.088-.7t1.087-.7l.5-.313q2.025-.15 3.738-1.225t2.712-2.875q-2.15-.2-4.075-1.088t-3.45-2.412t-2.425-3.45T9.1 4.85Q7.175 5.925 6.088 7.813T5 11.9v.3l-.3.138q-.3.137-.663.287t-.662.288l-.3.137q-.05-.275-.062-.575T3 11.9q0-3.15 1.9-5.875T9.875 2.4q.275-.075.5-.025t.425.2t.288.363t.062.487q-.15 2.125.613 4.088t2.262 3.462q1.525 1.525 3.438 2.25t4.037.6q.275-.025.513.088t.362.312t.175.425t-.05.5q-1.075 3.125-3.55 4.988T13.1 22M6 20h4.5q.625 0 1.063-.437T12 18.5t-.425-1.062T10.55 17h-1.3l-.5-1.2q-.35-.825-1.1-1.312T6 14q-1.25 0-2.125.863T3 17q0 1.25.875 2.125T6 20m0 2q-2.075 0-3.537-1.463T1 17t1.463-3.537T6 12q1.5 0 2.738.813T10.575 15Q12 15.05 13 16.063t1 2.437q0 1.45-1.025 2.475T10.5 22z"/></svg>Clear, 2&deg;C</li>
+                            <li title="Feeling"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from IconaMoon by Dariush Habibpour - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-linecap="round" stroke-width="2"/><path stroke-width="3" d="M9 9.5h.01v.01H9zm6 0h.01v.01H15z"/></g></svg>Inspired</li>
+                            <li title="Listening"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><!-- Icon from Pepicons Pop! by CyCraft - https://github.com/CyCraft/pepicons/blob/dev/LICENSE --><g fill="currentColor"><path d="M9.781 1.698c4.323 2.937 6.469 5.064 6.469 6.606c0 1.492-.82 2.7-2.396 3.583c-.436.245-.922-.232-.685-.672c.407-.758.273-1.607-.461-2.617c-.774-1.065-1.89-1.84-3.365-2.328A.5.5 0 0 1 9 5.795V2.111a.5.5 0 0 1 .781-.413M7.75 17.75c-1.77 0-3.25-1.143-3.25-2.625S5.98 12.5 7.75 12.5S11 13.643 11 15.125S9.52 17.75 7.75 17.75"/><path d="M10 4a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1"/></g></svg>Nothing</li>
+                            <li title="Drinking"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round"><path stroke-linejoin="round" stroke-width="1.5" d="M6.632 18.263L5.031 6.1C4.91 5.188 5.116 5 6.126 5h10.749c1.01 0 1.214.188 1.094 1.1l-1.601 12.163c-.218 1.655-.327 2.483-.954 2.98c-1.297 1.031-6.587.987-7.828 0c-.627-.497-.736-1.325-.954-2.98"/><path stroke-width="1.5" d="m13.5 19l.446-16.059A1 1 0 0 1 14.944 2h4.057"/><path stroke-width="1.5" d="M6 10c.182-.333.782-1 2.09-1c1.637 0 1.205 1 2.296 1s2.728-1 4.364-1s2.75 1 2.75 1"/><path stroke-linejoin="round" stroke-width="2" d="M10.009 16H10"/></g></svg>Pipeline Monster</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
