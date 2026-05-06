@@ -1,0 +1,126 @@
+<head>
+    <title>Meat Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function show(elementID) {
+            // find the requested page and alert if it's not found
+            const ele = document.getElementById(elementID);
+            if (!ele) {
+                alert("Page does not exist");
+            }
+
+            // get all pages, loop through them and hide them
+            const pages = document.getElementsByClassName('page');
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+
+            // then show the requested page
+            ele.style.display = 'block';
+        }
+    </script>
+</head>
+
+<!--
+
+Layout by Bianca
+
+Website: https://nogood-angel.neocities.org/
+Ko-fi: https://ko-fi.com/user333143
+
+-->
+
+<body>
+    <div class="container">
+        <nav>
+            <a onclick="show('home');"><button>HOME</button></a>
+            <a onclick="show('profile');"><button>PROFILE</button></a>
+            <a onclick="show('links');"><button>LINKS</button></a>
+        </nav>
+        <main>
+            <div id="home" class="page">
+                <div class="banner">MEAT SHOP</div>
+                <section class="flex">
+                    <div style="width:475px">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in commodo dui. Donec facilisis elit eu enim sagittis, sit amet gravida tellus suscipit. Curabitur lectus nibh, malesuada ut leo et, aliquam tincidunt eros. Curabitur consectetur quam magna, et aliquet nulla feugiat in. Aliquam accumsan lacinia velit at maximus. Nullam condimentum fringilla nunc. Mauris sit amet orci est. In ut quam in magna lobortis facilisis. Vestibulum fringilla sollicitudin dolor, quis mattis eros viverra accumsan. Integer felis massa, auctor ut venenatis at, venenatis sit amet odio.</p>
+                        <p>This is normal text. <b>This is bold text.</b> <i>This is italic text.</i> <u>This is underlined text.</u> <del>This is strikethrough.</del> <span>This is highlighted text.</span> <a href="https://www.youtube.com/watch?v=OBOfblrONgA">This is a link.</a> This was a paragrath.</p>
+                        <p>This is another paragraph.</p>
+                        <blockquote>
+                            <p>This is a blockquote.</p>
+                            <p>This is the second paragraph in a blockquote.</p>
+                        </blockquote>
+                        <details>
+                            <summary>This is foldable content</summary>
+                            This is inside.
+                        </details>
+                    </div>
+                    <div style="width:175px">
+                        <section id="updatelog">
+                            <h3>Update log</h3>
+                            <div class="inner">
+                                <ul>
+                                    <li><b>04 02 2026:</b> Update</li>
+                                    <li><b>04 02 2026:</b> Some update</li>
+                                    <li><b>04 02 2026:</b> Update</li>
+                                    <li><b>04 02 2026:</b> Some update</li>
+                                    <li><b>04 02 2026:</b> Update</li>
+                                    <li><b>04 02 2026:</b> Some update</li>
+                                    <li><b>04 02 2026:</b> Update</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+            <div id="profile" class="page" style="display:none">
+                <div class="banner">PROFILE</div>
+                <section id="id" class="flex">
+                    <img id="pfp" src="pfp.png">
+                    <section id="info">
+                        <b>YOURNAME</b>
+                        <ul>
+                            <li><b>GENDER:</b> xxxx</li>
+                            <li><b>BIRTHDAY:</b> xx xx xxxx</li>
+                        </ul>
+                    </section>
+                </section>
+                <section id="desc">
+                    <p>This template is inspired by Butcher Vanity and my unwellness which you can see, because I've had it in my head for a while now.</p>
+                </section>
+            </div>
+            <div id="links" class="page" style="display:none">
+                <div class="banner">LINKS</div>
+                <h4>Neighbors</h4>
+                <section class="buttons">
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                </section>
+                <h4>Cool sites</h4>
+                <section class="buttons">
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                    <a href=""><img src="button.png"></a>
+                </section>
+            </div>
+            <footer>This layout is by <a href="https://ko-fi.com/user333143">Bianca</a>.</footer>
+        </main>
+    </div>
+</body>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nebula</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="The templates I made for you to use.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/templates/index.html">
+    
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../layout.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script>
+        (function($){
+            $(document).ready(function(){
+                $("[title]").style_my_tooltips({ 
+                    tip_follows_cursor:true,
+                    tip_delay_time:0,
+                    tip_fade_speed:0,
+                    attribute:"title"
+                });
+            });
+        })(jQuery);
+    </script>
+</head>
+
+<style>
+    .left {
+        width: 660px;
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 10px;
+    }
+    .right {
+        width: 300px;
+    }
+    .template {
+        border: 2px var(--green) solid;
+        padding: 10px;
+    }
+    .template img {
+        width: 302px;
+        height: 210px;
+        object-fit: cover;
+        object-position: top;
+    }
+    .template ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+    .template li:not(:last-child)::after {
+        content: "-";
+        margin: 0 5px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <main>
+            <div class="left">
+                <div class="template">
+                    <img src="steel.png">
+                    <h3>Steel</h3>
+                    <p>My first template.</p>
+                    <ul>
+                        <li><a href="steel/index.html">Preview</a></li>
+                        <li><a href="https://ko-fi.com/s/daa2488466">Ko-fi</a></li>
+                    </ul>
+                </div>
+                <div class="template">
+                    <img src="meatshop.png">
+                    <h3>Meatshop</h3>
+                    <p>Template I made real quick inspired by Butcher Vanity, song I've had in my head for days again.</p>
+                    <ul>
+                        <li><a href="meatshop/index.html">Preview</a></li>
+                        <li><a href="https://ko-fi.com/s/4c46ca6cd0">Ko-fi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <h3>Terms of Use</h3>
+                <p>Once you purchase:</p>
+                <ul>
+                    <li>You are free to edit the layout</li>
+                    <li>Must keep my credit somewhere, either where it was already or somewhere else that is visible for anyone to see without workaround</li>
+                </ul>
+                <p>I am looking to open commisions in the near future.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

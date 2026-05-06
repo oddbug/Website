@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --red: #c94f4d;
+    --white: #ededed;
+    --black: #333333;
+    
+    --invertred: #36b0b2;
+    --invertwhite: #121212;
+    --invertblack: #cccccc;
+}
+body {
+    background-color: var(--white);
+    font-family: sans-serif;
+    color: var(--black);
+}
+/*body::after {
+    content: "";
+    backdrop-filter: invert(100%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}*/
+.container {
+    width: 750px;
+    margin: 50px auto;
+    display: flex;
+}
+
+/* NAV */
+
+nav {
+    width: 100px;
+    margin: 10px 0 30px;
+}
+nav button {
+    border: 1px var(--black) solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--black);
+    width: 110%;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: var(--black);
+    transition: ease-in-out 0.2s;
+}
+nav button:hover {
+    margin-left: 0;
+    cursor: pointer;
+}
+
+/* MAIN */
+
+main p:not(:last-child) {
+    margin-bottom: 10px;
+}
+main a {
+    color: var(--red);
+}
+main a:hover {
+    text-decoration: none;
+}
+
+main blockquote {
+    border-left: 1px var(--black) solid;
+    margin-left: 10px;
+    padding: 5px 0 5px 10px;;
+}
+main blockquote:not(:last-child) {
+    margin-bottom: 10px;
+}
+h1, h2, h3, h4 {
+    margin: 10px 0 5px;
+}
+
+main {
+    background-color: var(--white);
+    border: 1px var(--black) solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--black);
+    width: 650px;
+    padding: 20px 15px;
+    font-size: 14px;
+}
+.flex {
+    display: flex;
+    column-gap: 15px;
+}
+
+section:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.banner {
+    background-color: var(--red);
+    border-bottom: 5px var(--black) solid;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+/* HOME */
+
+#updatelog h3 {
+    text-align: center;
+}
+#updatelog .inner {
+    border: var(--black) solid;
+    border-width: 1px 0;
+    height: 120px;
+    padding: 5px 10px;
+    overflow-y: auto;
+}
+#updatelog ul {
+    list-style: none;
+}
+#updatelog li:not(:last-child) {
+    margin-bottom: 5px;
+}
+#updatelog b {
+    color: var(--red);
+}
+
+/* PROFILE */
+
+#pfp {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+#info {
+    width: 450px;
+}
+#info b {
+    color: var(--red);
+}
+#info ul {
+    list-style: none;
+}
+
+#desc {
+    border: 1px var(--black) solid;
+    padding: 10px;
+}
+
+/* LINKS */
+
+.buttons {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* END */
+
+footer {
+    margin-top: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+::selection {
+    background-color: var(--invertwhite);
+    color: var(--invertred);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+}
