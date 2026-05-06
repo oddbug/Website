@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: url(cursor.png), default;
+}
+:root {
+    --gold: #e0bb6c;
+    --white: #f7f7f5;
+}
+@font-face {
+    font-family: genshin;
+    src: url(ja-jp.ttf);
+}
+body {
+    font-family: genshin;
+}
