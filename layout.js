@@ -70,13 +70,6 @@ const headerEl = `
         <nav>
             <a href="${nesting}/home.html">Home</a>
             <a href="${nesting}/webmaster.html">Webmaster</a>
-            <!--<div class="menu">
-                <span>Writings</span>
-                <div class="menuContent">
-                    <a href="">Journal</a>
-                    <a href="">Documentation</a>
-                </div>
-            </div>-->
             <a href="${nesting}/links.html">Links</a>
             <div class="menu">
                 <span>Shrines</span>
@@ -89,7 +82,7 @@ const headerEl = `
             <div class="menu">
                 <span>Collections</span>
                 <div class="menuContent">
-                    <a href="https://myfigurecollection.net/profile/angelbug">Figures</a>
+                    <a href="https://myfigurecollection.net/profile/angelbug" target="_blank">Figures</a>
                 </div>
             </div>
             <div class="menu">
@@ -102,7 +95,7 @@ const headerEl = `
             <div class="menu">
                 <span>Outlinks</span>
                 <div class="menuContent">
-                    <a href="https://nogood-angel.atabook.org/">Guestbook</a>
+                    <a href="https://nogood-angel.atabook.org/" target="_blank">Guestbook</a>
                 </div>
             </div>
         </nav>
