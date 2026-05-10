@@ -66,41 +66,44 @@ const nesting = getNestingString();
 // Insert your header HTML inside these ``. You can use HTML as usual.
 const headerEl = `
 	<header></header>
-    <div class="middle">
-        <nav>
-            <a href="${nesting}/home.html">Home</a>
-            <a href="${nesting}/webmaster.html">Webmaster</a>
-            <a href="${nesting}/links.html">Links</a>
-            <div class="menu">
-                <span>Shrines</span>
-                <div class="menuContent">
-                    <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
-                    <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
-                    <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
-                </div>
+    <nav>
+        <a href="${nesting}/home.html">Home</a>
+        <a href="${nesting}/webmaster.html">Webmaster</a>
+        <a href="${nesting}/links.html">Links</a>
+        <div class="menu">
+            <span>Writings</span>
+            <div class="menuContent">
+                <a href="${nesting}/journal.html">Journal</a>
             </div>
-            <div class="menu">
-                <span>Collections</span>
-                <div class="menuContent">
-                    <a href="https://myfigurecollection.net/profile/angelbug" target="_blank">Figures</a>
-                </div>
+        </div>
+        <div class="menu">
+            <span>Shrines</span>
+            <div class="menuContent">
+                <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
+                <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
+                <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
             </div>
-            <div class="menu">
-                <span>For you</span>
-                <div class="menuContent">
-                    <a href="${nesting}/templates/index.html">Templates</a>
-                    <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
-                </div>
+        </div>
+        <div class="menu">
+            <span>Collections</span>
+            <div class="menuContent">
+                <a href="https://myfigurecollection.net/profile/angelbug" target="_blank">Figures</a>
             </div>
-            <div class="menu">
-                <span>Outlinks</span>
-                <div class="menuContent">
-                    <a href="https://nogood-angel.atabook.org/" target="_blank">Guestbook</a>
-                </div>
+        </div>
+        <div class="menu">
+            <span>For you</span>
+            <div class="menuContent">
+                <a href="${nesting}/templates/index.html">Templates</a>
+                <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
             </div>
-        </nav>
-        <div>ver 0.1.0</div>
-    </div>
+        </div>
+        <div class="menu">
+            <span>Outlinks</span>
+            <div class="menuContent">
+                <a href="https://nogood-angel.atabook.org/" target="_blank">Guestbook</a>
+            </div>
+        </div>
+    </nav>
 `;
 
 // Insert your footer HTML inside these ``. You can use HTML as usual.
@@ -111,6 +114,6 @@ const footerEl = `
             <li><a href="mailto:nogoodangel@proton.me" title="Serious inquiries only">Contact</a></li>
             <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
         </ul>
-		nogood-angel.moe © 2024 - Forever
+		nogood-angel.moe © 2024 - Forever ver 0.1.0
 	</footer>
 `;
