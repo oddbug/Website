@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Journal</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="My journal.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    
+    <link rel="stylesheet" href="common.css">
+</head>
+    
+<style>
+    body {
+        background-color: lavender;
+        font-family: monospace;
+        font-weight: normal;
+        color: var(--darkpink);
+        image-rendering: pixelated;
+        overflow: hidden;
+    }
+    .container {
+        background-color: white;
+        background-clip: padding-box;
+        border: 30px transparent solid;
+        border-image: url(images/journalBorder1.png) 24.5 round;
+        border-image-width: 44px;
+        width: 900px;
+        margin: 30px auto;
+        display: flex;
+    }
+    aside {width: 250px;}
+    main {
+        background-color: var(--palepink);
+        background-image:
+            repeating-linear-gradient(
+                transparent,
+                transparent 16px,
+                rgba(255, 255, 255, 0.2) 16px,
+                rgba(255, 255, 255, 0.2) 34px),
+            repeating-linear-gradient(90deg,
+                transparent,
+                transparent 16px,
+                rgba(255,255,255,0.4) 16px,
+                rgba(255,255,255,0.4) 34px
+            );
+        border-left: 2px #ee94a6 solid;
+        width: 600px;
+    }
+
+    /* LEFT */
+
+    aside {position: relative;}
+    aside h2 {
+        border-bottom: 2px var(--darkpink) solid;
+        width: fit-content;
+        margin: 10px auto;
+        padding: 0 10px;
+        line-height: 20px;
+        font-style: italic;
+    }
+
+    #calendar {width: 197px;margin: 10px auto;}
+    .cal-header {display: flex;justify-content: space-between;}
+    .cal-header button {
+        background: none;
+        border: 0;
+        padding: 0 5px;
+        color: var(--darkpink);
+    }
+    .cal-grid {
+        margin: 5px 0;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 0;
+        text-align: center;
+    }
+    .cal-grid div:nth-child(-n+7) {font-weight: bold;}
+    .cal-grid div {
+        width: 28px;
+        height: 28px;
+        padding: 6px;
+    }
+    .has-post a {text-decoration: underline;}
+    .current-day, .current-day a {
+        background-color: var(--palepink);
+        border-radius: 50%;
+        font-weight: bold;
+
+    }
+
+    #madoka {
+        height: 445px;
+        object-fit: cover;
+        image-rendering: auto;
+        position: absolute;
+        left: -45px;
+        bottom: -102px;
+        pointer-events: none;
+    }
+
+    /* MAIN */
+
+    main {padding: 20px 40px;}
+    .inner {
+        background-color: white;
+        background-clip: padding-box;
+        border: 12px transparent solid;
+        border-image: url(images/journalBorder2.png) 11 round;
+    }
+    .page {
+        border: 2px var(--darkpink) dashed;
+        height: 500px;
+        padding: 10px 25px;
+        overflow-y: auto;
+    }
+    .page p {text-indent: 15px;}
+    .info {margin-bottom: 10px;text-align: center;}
+    .info h2 {
+        border-bottom: 2px var(--darkpink) solid;
+        width: fit-content;
+        margin: 0 auto 2px;
+        padding: 0 10px;
+        font-style: italic;
+    }
+    .info span {opacity: 0.7}
+</style>
+
+<body>
+    <div class="container">
+        <aside>
+            <h2>Journal</h2>
+            <div id="calendar"></div>
+            <script>
+                function show(elementID) {
+                    // find the requested page and alert if it's not found
+                    const ele = document.getElementById(elementID);
+                    if (!ele) {
+                        alert("Page does not exist");
+                    }
+
+                    // get all pages, loop through them and hide them
+                    const pages = document.getElementsByClassName('page');
+                    for (let i = 0; i < pages.length; i++) {
+                        pages[i].style.display = 'none';
+                    }
+
+                    // then show the requested page
+                    ele.style.display = 'block';
+                }
+                
+                const posts = {
+                    "2026-05-10": "260510"
+                };
+
+                const calendarEl = document.getElementById("calendar");
+                let current = new Date();
+
+                function renderCalendar() {
+                    const year = current.getFullYear();
+                    const month = current.getMonth();
+
+                    const today = new Date();
+                    const firstDay = new Date(year, month, 1).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                    const monthName = current.toLocaleString('default', { month: 'long' });
+
+                    let html = `
+                        <div class="cal-header">
+                            <button id="prev">⟵</button>
+                            <span>${monthName} ${year}</span>
+                            <button id="next">⟶</button>
+                        </div>
+
+                        <div class="cal-grid">
+                            <div>S</div><div>M</div><div>T</div><div>W</div>
+                            <div>T</div><div>F</div><div>S</div>
+                    `;
+
+                    for (let i = 0; i < firstDay; i++) {
+                        html += `<div class="empty"></div>`;
+                    }
+
+                    for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
+                        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(dayNum).padStart(2, '0')}`;
+
+                        let classes = "";
+
+                        if (dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                            classes += "current-day";
+                        }
+
+                        if (posts[dateStr]) {
+                            html += `<div class="has-post ${classes}">
+                                        <a onclick="show('${posts[dateStr]}');">${dayNum}</a>
+                                     </div>`;
+                        } else {
+                            html += `<div class="${classes}">${dayNum}</div>`;
+                        }
+                    }
+
+                    html += `</div>`;
+                    calendarEl.innerHTML = html;
+
+                    document.getElementById("prev").onclick = () => {
+                        current.setMonth(current.getMonth() - 1);
+                        renderCalendar();
+                    };
+
+                    document.getElementById("next").onclick = () => {
+                        current.setMonth(current.getMonth() + 1);
+                        renderCalendar();
+                    };
+                }
+
+                renderCalendar();
+            </script>
+            <img id="madoka" src="images/journalMadoka.webp">
+        </aside>
+        <main>
+            <div class="inner">
+                <div id="260510" class="page">
+                    <div class="info">
+                        <h2>Harbourer of a sad existence</h2>
+                        <span>May 10, 2026</span>
+                    </div>
+                    <p>There is a girl, off to die she goes! Why? Who cares!</p>
+                    <p>The scientist studies, grief is what he feels. He kills himself and studies again tomorrow.</p>
+                    <p>Their was an artist, she paints. The people found the blood of her pet rat on the canvas, the canvas with a painting of a man no one knows. She grieved and went to be hanged.</p>
+                    <!--<p>No hanging truelly took place, it was only a fabrication of the mind, a wish. Although her head did bleed from banging it against the wall. She grieved the things that have been taken away from her by those very things.</p>-->
+                    <p>There was a writer, he knew not of the fire outside his house. He only enjoyed his problems in fracturing peace. He died as well.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
