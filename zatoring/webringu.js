@@ -72,7 +72,8 @@ function createMembersList(el) {
     prettyUrl = prettyUrl.endsWith("/") ? prettyUrl.slice(0, -1) : prettyUrl;
     output += `<tr>
         <td>
-            ${member.name} // ${member.title}
+            ${member.name}
+            ${member.title ? `// ${member.title}`: ""} 
             <br>
             ${member.buttonUrl ? `<a href="${member.url}"><img src="${member.buttonUrl}"></a>`: ""}
             <a href="${member.url}"><div>${prettyUrl}</div></a>
