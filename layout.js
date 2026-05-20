@@ -2,14 +2,75 @@
 document.addEventListener("DOMContentLoaded", function () {
   // The layout will be loaded on all pages that do NOT have the "no-layout" class in the <body> element.
   if (!document.body.classList.contains("no-layout")) {
-    // Inserting your header and footer:
-    document.querySelector('.container').insertAdjacentHTML("afterbegin", headerEl);
-    document.querySelector('.container').insertAdjacentHTML("beforeend", footerEl);
+      
+    document.querySelector("main").insertAdjacentHTML("afterbegin", headerEl);
+    document.querySelector("main").insertAdjacentHTML("beforeend", footerEl);
+
+    const wrapperElement = document.querySelector("aside"); // you might have to change this selector to something like .my-wrapper
+    if (wrapperElement) {
+      wrapperElement.insertAdjacentHTML("afterbegin", sidebarEl1);
+    }
 
     initActiveLinks();
   }
 
-  // add your own javascript code here...
+  // CUSTOM JAVASCRIPT
+    
+  // CALENDAR
+  const calendarEl = document.getElementById("calendar");
+  let current = new Date();
+
+  function renderCalendar() {
+    const year = current.getFullYear();
+    const month = current.getMonth();
+
+    const today = new Date();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const monthName = current.toLocaleString('default', { month: 'long' });
+
+    let html = `
+        <div class="cal-header">
+            <button id="prev">⟵</button>
+            <span>${monthName} ${year}</span>
+            <button id="next">⟶</button>
+        </div>
+
+        <div class="cal-grid">
+            <div>S</div><div>M</div><div>T</div><div>W</div>
+            <div>T</div><div>F</div><div>S</div>
+    `;
+
+    for (let i = 0; i < firstDay; i++) {
+      html += `<div></div>`;
+    }
+
+    for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
+      let currentDay = "";
+
+      if (dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+        currentDay += `<div class="current-day">${dayNum}</div>`;
+      } else {
+        html += `<div>${dayNum}</div>`;
+      }
+    }
+
+    html += `</div>`;
+    calendarEl.innerHTML = html;
+
+    document.getElementById("prev").onclick = () => {
+      current.setMonth(current.getMonth() - 1);
+      renderCalendar();
+    };
+
+    document.getElementById("next").onclick = () => {
+      current.setMonth(current.getMonth() + 1);
+      renderCalendar();
+    };
+  }
+
+  renderCalendar();
 });
 
 /* FUNCTIONS */
@@ -52,24 +113,37 @@ function getNestingString() {
 
 const nesting = getNestingString();
 
-/**
-  Use ${nesting} to output a . or .. or ../.. etc according to the current page's folder depth.
-  Example:
-    <img src="${nesting}/images/example.jpg" />
-  will output
-  	 <img src="./images/example.jpg" /> on a page that isn't in any folder.
-    <img src="../images/example.jpg" /> on a page that is in a folder.
-    <img src="../../images/example.jpg" /> on a page that is in a sub-folder.
-    etc.
- */
-
-// Insert your header HTML inside these ``. You can use HTML as usual.
 const headerEl = `
-	<header></header>
+	<header>
+        <div id="calendar"></div>
+        <div class="inner">
+            <h1>Placeholder</h1>
+            <p>Where we curl up and wish for a new beginning</p>
+        </div>
+    </header>
+`;
+
+const footerEl = `
+	<footer>
+        <ul>
+            <li><a href="mailto:nogoodangel@proton.me" title="Serious inquiries only">Contact</a></li>
+            <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
+        </ul>
+        nogood-angel.moe © 2024 - Forever ver 0.1.1
+    </footer>
+`;
+
+const sidebarEl1 = `
     <nav>
-        <a href="${nesting}/home.html">Home</a>
-        <a href="${nesting}/webmaster.html">Webmaster</a>
-        <a href="${nesting}/links.html">Links</a>
+        <div class="menu">
+            <span>Sitely</span>
+            <div class="menuContent">
+                <a href="${nesting}/home.html">Home</a>
+                <a href="${nesting}/webmaster.html">Webmaster</a>
+                <a href="${nesting}/links.html">Links</a>
+                <a href="https://nogood-angel.atabook.org/">Guestbook</a>
+            </div>
+        </div>
         <div class="menu">
             <span>Writings</span>
             <div class="menuContent">
@@ -81,13 +155,12 @@ const headerEl = `
             <div class="menuContent">
                 <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
                 <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
-                <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
             </div>
         </div>
         <div class="menu">
             <span>Collections</span>
             <div class="menuContent">
-                <a href="https://myfigurecollection.net/profile/angelbug" target="_blank">Figures</a>
+                <a href="https://myfigurecollection.net/profile/angelbug">Figure</a>
             </div>
         </div>
         <div class="menu">
@@ -97,23 +170,5 @@ const headerEl = `
                 <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
             </div>
         </div>
-        <div class="menu">
-            <span>Outlinks</span>
-            <div class="menuContent">
-                <a href="https://nogood-angel.atabook.org/" target="_blank">Guestbook</a>
-            </div>
-        </div>
     </nav>
-`;
-
-// Insert your footer HTML inside these ``. You can use HTML as usual.
-// Remove all the content inside the `` if you don't have a footer.
-const footerEl = `
-	<footer>
-        <ul>
-            <li><a href="mailto:nogoodangel@proton.me" title="Serious inquiries only">Contact</a></li>
-            <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
-        </ul>
-		nogood-angel.moe © 2024 - Forever ver 0.1.0
-	</footer>
 `;

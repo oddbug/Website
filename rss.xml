@@ -1,0 +1,26 @@
+<rss version="2.0">
+    <channel>
+        <title>posts from example.org</title>
+        <description>my blog</description>
+        <link>https://example.org/blog</link>
+        <item>
+            <title>Site wide</title>
+            <description>Improved the design of the main pages.</description>
+            <link></link>
+        </item>
+		<item>
+            <title>Journal</title>
+            <description>My more personal writings.</description>
+            <link>https://nogood-angel.moe/journal.html</link>
+            <guid>post2</guid>
+            <pubDate>Sun 10 May 2026, 2:30:00 -0300</pubDate>
+        </item>
+        <item>
+            <title>Release</title>
+            <description>Description of post 2sssssssssssssssss</description>
+            <link>https://example.org/post-2sssssssssssss</link>
+            <guid>post1</guid>
+            <pubDate>Wed 06 May 2026, 09:30:00 -0300</pubDate>
+        </item>
+    </channel>
+</rss>

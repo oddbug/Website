@@ -1,5 +1,5 @@
 body {
-    background-color: var(--pink);
+    background-color: var(--lightpink);
     background-image:
         repeating-linear-gradient(
             transparent,
@@ -12,64 +12,74 @@ body {
             rgba(255,255,255,0.4) 25px,
             rgba(255,255,255,0.4) 50px
         );
-    background-attachment: fixed;
+}
+#s-m-t-tooltip {
+    background-color: white;
+    border: 1px var(--pink) solid;
+    border-radius: 50px;
+    max-width: 300px;
+    margin: 24px 14px 7px 4px;
+    padding: 5px 10px;
 }
 .container {
-    background-color: var(--offwhite);
-    border: 2px var(--blue) solid;
-    border-radius: 10px;
     width: 1000px;
     margin: 40px auto;
+    display: flex;
+}
+aside {
+    background-color: var(--palepink);
+    border: 1px var(--pink) solid;
+    border-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 200px;
+    height: fit-content;
+    margin: 50px 0;
     padding: 10px;
+    position: relative;
 }
 
-#s-m-t-tooltip {
-    background-color: var(--offwhite);
-    border: 2px var(--blue) solid;
-    border-radius: 5px;
-    max-width: 300px;
-    margin: 24px 14px 7px 12px;
-    padding: 5px;
-    z-index: 10;
-}
-
-/* MIDDLE */
-
-.middle {
-    display: flex;
-    justify-content: space-between;
-}
-
-nav {
-    text-align: center;
-    display: flex;
+nav:not(:last-child) {
+    margin-bottom: 10px;
 }
 nav a, nav span {
-    padding: 2px 10px;
     display: block;
+}
+nav span {
+    background-color: white;
+    border: 8px transparent solid;
+    border-image: 8 url(https://i.postimg.cc/MpP0w9VJ/ri32-015-a.gif) round;
+    width: 100%;
+    padding: 2px;
+    font-style: italic;
 }
 nav .menu {
     position: relative;
 }
-nav .menu span {
-    width: 100px;
+nav .menu:not(:last-child) {
+    margin-bottom: 10px;
 }
 nav .menuContent {
-    background-color: var(--paleblue);
-    border: 2px var(--blue) solid;
-    border-radius: 8px;
-    width: 130px;
+    background-color: white;
+    border: 1px var(--pink) solid;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
     position: absolute;
-    left: 50%;
-    margin-left: -65px;
-    z-index: 2;
-    visibility: hidden
+    top: 15px;
+    left: 100px;
+    overflow: hidden;
+    z-index: 3;
+    visibility: hidden;
 }
-nav .menuContent a:not(:last-child) {
-    border-bottom: 1px var(--blue) dashed;
+nav a {
+    padding: 2px;
 }
-nav .menuContent a:hover {
-    background-color: rgba(255,255,255,0.3);
+nav a:not(:last-child) {
+    border-bottom: 1px var(--pink) solid;
+}
+nav a:hover {
+    background-color: var(--palepink);
 }
 nav .menu:hover .menuContent {
     visibility: visible;
@@ -78,32 +88,110 @@ nav .menu:hover .menuContent {
 /* MAIN */
 
 main {
-    padding: 10px 0;
+    background-color: var(--palepink);
+    border: 1px var(--pink) solid;
+    border-radius: 5px;
+    width: 800px;
+    padding: 10px;
+    position: relative;
+}
+
+/* HEADER */
+
+header {
+    background-color: var(--lightpink);
+    border: 3px white double;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+}
+header .inner {
+    width: 600px;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+header .inner p {
+    color: white;
+    position: absolute;
+    left: 8px;
+    bottom: 5px;
+}
+
+#calendar {
+    border-right: 3px white double;
+    width: 180px;
+    overflow: hidden;
+}
+.cal-header {
+    background-color: var(--pink);
+    border-bottom: 1px white solid;
+    padding: 2px 7px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.cal-header button {
+    background: none;
+    border: 0;
+}
+.cal-grid {
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 2px;
+    text-align: center;
+}
+.cal-grid div:nth-child(-n+7) {
+    color: var(--darkpink)
+}
+.current-day {
+    color: var(--darkpink);
+}
+
+/* MIDDLE */
+
+.middle {
+    margin: 10px 5px;
+}
+
+.middle .flex {
     display: flex;
     column-gap: 10px;
 }
-.left {
-    width: 760px;
+.middle h2, .middle h3, .middle h4{
+    border-bottom: 1px var(--brown) dashed;
+    font-style: italic;
 }
-.right {
-    width: 200px;
-}
-
-h2 span, h3 span {
-    font-size: 14px;
-    opacity: .3;
+.middle h2:not(:first-child) {
+    margin-top: 15px;
 }
 
-.flex {
-    display: flex;
-    column-gap: 10px;
+.box {
+    border: 1px var(--pink) solid;
+    border-radius: 5px;
+    overflow: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--pink) transparent;
 }
-.column:not(:last-child) {
+.box:not(:last-child) {
     margin-bottom: 10px;
 }
-
-/* LEFT */
-/* RIGHT */
+.box .head {
+    background-color: var(--lightpink);
+    border-bottom: 1px var(--pink) solid;
+    padding: 2px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
+}
+.box .inner {
+    padding: 5px;
+    overflow-y: auto;
+}
 
 /* FOOTER */
 
@@ -111,11 +199,11 @@ footer {
     text-align: center;
 }
 footer ul {
+    list-style: none;
     display: flex;
     justify-content: center;
-    list-style: none;
 }
 footer li:not(:last-child)::after {
     content: "-";
-    margin: 0 5px;
+    margin: 0 10px;
 }

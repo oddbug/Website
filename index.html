@@ -16,19 +16,17 @@
 </head>
     
 <style>
-    .container {
-        width: 500px;
-    }
-    header {
-        background-image: url(images/indexHeader.png);
-        background-size: 100%;
-        border: 2px var(--blue) solid;
-        border-radius: 10px;
-        height: 140px;
-    }
     main {
+        width: 500px;
+        margin: 140px auto;
         padding: 10px;
         display: block;
+    }
+    h2 {
+        border-bottom: 1px var(--brown) dashed;
+        padding-bottom: 2px;
+        font-style: italic;
+        text-align: center;
     }
     ul {
         margin: 0 20px 10px;
@@ -41,31 +39,28 @@
 </style>
     
 <body>
-    <div class="container">
-        <header></header>
-        <main>
-            <h2>Before you proceed<span>, things to note;</span></h2>
-            <ul>
-                <li>Coded on a 1980 x 1080 monitor</li>
-                
-                <li>Autoplaying music and sounds</li>
-                <li>Contains moving parts and images</li>
-                <li>Uses iframes and JavaScript</li>
-                <li>Autoplaying music</li>
-            </ul>
-            <p><span style="color:var(--red)">Content warning! </span>Despite being cute, this website may contain:</p>
-            <ul>
-                <li>Vulgar language</li>
-                <li>Disturbing or mature themes, topics, and imagery</li>
-                
-            </ul>
-            <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. Otherwise, it's fine.</p>
-            <p style="text-align:center">You have been warned. What would you like to do?</p>
-            <div id="enter">
-                <a onclick="history.back()" style="text-decoration:underline">Turn back</a>
-                <a href="home.html">Enter</a>
-            </div>
-        </main>
-    </div>
+    <main>
+        <h2>Before you proceed</h2>
+        <ul>
+            <li>Coded on a 1980 x 1080 monitor</li>
+
+            <li>Autoplaying music and sounds</li>
+            <li>Contains moving parts and images</li>
+            <li>Uses iframes and JavaScript</li>
+            <li>Autoplaying music</li>
+        </ul>
+        <p><span style="font-weight:bold;color:var(--red)">Content warning! </span>Despite being cute, this website may contain:</p>
+        <ul>
+            <li>Vulgar language</li>
+            <li>Disturbing or mature themes, topics, and imagery</li>
+
+        </ul>
+        <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. Otherwise, it's fine.</p>
+        <p style="text-align:center">You have been warned. What would you like to do?</p>
+        <div id="enter">
+            <a onclick="history.back()" style="text-decoration:underline">Turn back</a>
+            <a href="home.html">Enter</a>
+        </div>
+    </main>
 </body>
 </html>
