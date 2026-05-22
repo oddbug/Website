@@ -31,6 +31,22 @@
 </head>
     
 <style>
+    #linkme {
+        text-align: center;
+    }
+    #linkme #buttons {
+        display: flex;
+        column-gap: 3px;
+    }
+    #linkme #buttons img {
+        width: 82px;
+        image-rendering: pixelated;
+    }
+    #linkme textarea {
+        width: 100%;
+        margin: 4px 0 -3px;
+        resize: none;
+    }
     #stats {
         background-color: var(--lightpink);
         border: 1px var(--pink) solid;
@@ -115,7 +131,7 @@
         justify-content: center;
         column-gap: 5px;
     }
-    #cliques #text {
+    #cliques #text li {
         background-color: var(--lightpink);
         border: 1px white solid;
         border-radius: 5px;
@@ -128,6 +144,23 @@
     <div class="container">
         <aside>
             <div id="linkme"></div>
+            <div id="linkme" class="box">
+                <div class="head">Interested?</div>
+                <div class="inner">
+                    Follow me on<br>
+                    <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org">Nekoweb</a>
+                    or
+                    <a href="https://neocities.org/site/nogood-angel">Neocities</a>
+                </div>
+                <div class="head">Link me</div>
+                <div class="inner">
+                    <div id="buttons">
+                        <img src="images/graphics/buttons/button1.png">
+                        <img src="images/graphics/buttons/button2.png">
+                    </div>
+                    <textarea><a href="https://nogood-angel.moe/"><img src="" alt="No-good Angel button"></a></textarea>
+                </div>
+            </div>
             <div id="stats">
                 <ul class="nolist">
                     <li>Visitors: <span id="visitors"></span></li>
@@ -169,7 +202,8 @@
                 <div class="flex">
                     <div class="left">
                         <h2>Welcome...</h2>
-                        <p>Welcome to <span style="font-weight:bold">Nebula</span>, my personal website. I use it as a place on the internet for myself, intirely personalized and containing the contents of my brain. Here I display my writings, throughts, feelings, and interests.</p>
+                        <p>Welcome to <b>Nebula</b>, my personal website. I use it as a place on the internet for myself, intirely personalized and containing the insides of my brain. Here I display my writings, throughts, feelings, and interests.</p>
+                        <p>Bienvenue à <b>Nebula</b>, mon site personnel. Je l'utilise comme un espace sur l'internet pour moi meme, entièrement personnaliser et contenant les intérieurs de mon cerveau. Ici je mentre mes écritures, sentiments, et intérêts.</p>
                         <div class="flex">
                             <div id="feed">
                                 <h3>
@@ -177,6 +211,10 @@
                                     <a href="rss.xml" target="_blank"><img src="images/rss.jpg" alt="RSS feed"></a>
                                 </h3>
                                 <ul class="nolist">
+                                    <li>
+                                        <span><a href="journal.html">Journal</a> • 22/05/26</span>
+                                        <p>New entry.</p>
+                                    </li>
                                     <li>
                                         <span><a href="index.html">Site wide</a> • 20/05/26</span>
                                         <p>Improved the design of the main pages.</p>
@@ -336,7 +374,7 @@
                                     <li>Add more to webmaster</li>
                                     <li>Bookmarks page</li>
                                     <li>Documentation page</li>
-                                    <li>Layout line 83, make work with onclick</li>
+                                    <li>Layout script, line 83, make work with onclick</li>
                                 </ul>
                                 <h4>Game guides</h4>
                                 <ul>
@@ -371,6 +409,8 @@
                             </ul>
                             <ul id="text" class="nolist">
                                 <li><a href="https://petrapixel.neocities.org/cliques">gore</a> // bruises, raw meat, fictional blood</li>
+                                <li><a href="https://joro.nu/cliques">themed</a> // <img style="height:13px;margin:2px 0 -2px" src="joined/tsi-cute.png"></li>
+                                <li><a href="https://reef.kingdra.net/">fruit lover</a><img style="height:14px;margin:3px 5px -3px" src="joined/fruitlover.png">strawberries</li>
                             </ul>
                         </div>
                     </div>
