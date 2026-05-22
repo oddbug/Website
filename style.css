@@ -160,9 +160,8 @@ header .inner p {
     display: flex;
     column-gap: 10px;
 }
-.middle h2, .middle h3, .middle h4{
+.middle h1, .middle h2, .middle h3, .middle h4{
     border-bottom: 1px var(--brown) dashed;
-    font-style: italic;
 }
 .middle h2:not(:first-child) {
     margin-top: 15px;
@@ -187,6 +186,9 @@ header .inner p {
     text-align: center;
     text-shadow: 1px 1px var(--darkpink);
     color: white;
+}
+.box .head:not(:first-child) {
+    border-top: 1px var(--pink) solid;
 }
 .box .inner {
     padding: 5px;

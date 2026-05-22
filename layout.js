@@ -129,7 +129,7 @@ const footerEl = `
             <li><a href="mailto:nogoodangel@proton.me" title="Serious inquiries only">Contact</a></li>
             <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
         </ul>
-        nogood-angel.moe © 2024 - Forever ver 0.1.1
+        nogood-angel.moe © 2024 - Forever | ver 0.1.1
     </footer>
 `;
 
