@@ -155,6 +155,7 @@ const sidebarEl1 = `
             <div class="menuContent">
                 <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
                 <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
+                <a href="${nesting}/shrines/backrooms/index.html">Backrooms</a>
             </div>
         </div>
         <div class="menu">

@@ -1,24 +1,40 @@
 <rss version="2.0">
     <channel>
-        <title>posts from example.org</title>
-        <description>my blog</description>
-        <link>https://example.org/blog</link>
+        <title>No-Good Angel</title>
+        <description>An angel's personal website where I do anything I want.</description>
+        <link>https://nogood-angel.moe</link>
+        <item>
+            <title>Backrooms shrine</title>
+            <description></description>
+            <link>https://nogood-angel.moe/shrines/backrooms/index.html</link>
+            <guid>post5</guid>
+            <pubDate>Sat 24 May 2026, 04:14:00 -0300</pubDate>
+        </item>
+        <item>
+            <title>Graphics</title>
+            <description>Made a page with my growing collection of decorative buttons, stamps and blinkies!</description>
+            <link>https://nogood-angel.moe/graphics.html</link>
+            <guid>post4</guid>
+            <pubDate>Sat 24 May 2026, 02:00:00 -0300</pubDate>
+        </item>
         <item>
             <title>Site wide</title>
             <description>Improved the design of the main pages.</description>
-            <link></link>
+            <link>https://nogood-angel.moe/home.html</link>
+            <guid>post3</guid>
+            <pubDate>Wed 20 May 2026, 00:00:00 -0300</pubDate>
         </item>
 		<item>
             <title>Journal</title>
             <description>My more personal writings.</description>
             <link>https://nogood-angel.moe/journal.html</link>
             <guid>post2</guid>
-            <pubDate>Sun 10 May 2026, 2:30:00 -0300</pubDate>
+            <pubDate>Sun 10 May 2026, 02:30:00 -0300</pubDate>
         </item>
         <item>
             <title>Release</title>
-            <description>Description of post 2sssssssssssssssss</description>
-            <link>https://example.org/post-2sssssssssssss</link>
+            <description>The release of my site on my own custom domain!</description>
+            <link>https://nogood-angel.moe/index.html</link>
             <guid>post1</guid>
             <pubDate>Wed 06 May 2026, 09:30:00 -0300</pubDate>
         </item>
