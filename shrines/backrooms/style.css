@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+:root {
+    --red: #f55;
+    --yellow: #ff5;
+    --grey: #aaa;
+    --darkgrey: #555;
+}
+@font-face {
+    font-family: Web437;
+    src: url(Web437_IBM_VGA_8x16.woff);
+}
+body {
+    background-color: black;
+    font-family: Web437;
+    color: var(--grey);
+}
+header {
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.container {
+    width: 1500px;
+    margin: 50px auto;
+    padding: 0 50px;
+    display: flex;
+    column-gap: 50px;
+}
+
+/* BULLETIN */
+
+aside {
+    width: 449px;
+}
+aside table {
+    border-bottom: 1px var(--darkgrey) solid;
+    width: 100%;
+    padding-bottom: 16px;
+}
+aside td {
+    vertical-align: top;
+    color: white;
+}
+aside td:first-child {
+    width: 60px;
+    color: var(--yellow);
+}
+aside .content {
+    padding: 5px 0 52px;
+}
+
+/* MAIN */
+
+main {
+    width: 1371px;
+}
+/*.box {
+    border: 3px var(--red) double;
+    padding: 12px;
+}*/
+
+#trailers {
+    margin: 0 0 12px 12px;
+    float: right;
+}
+
+/* END */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--darkgrey);
+}
