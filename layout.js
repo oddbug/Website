@@ -129,7 +129,7 @@ const footerEl = `
             <li><a href="mailto:nogoodangel@proton.me" title="Serious inquiries only">Contact</a></li>
             <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
         </ul>
-        nogood-angel.moe © 2024 - Forever | ver 0.1.1
+        nogood-angel.moe © 2024 - Forever | ver 0.1.2
     </footer>
 `;
 
@@ -160,6 +160,7 @@ const sidebarEl1 = `
         <div class="menu">
             <span>Collections</span>
             <div class="menuContent">
+                <a href="${nesting}/graphics.html">Graphics</a>
                 <a href="https://myfigurecollection.net/profile/angelbug">Figure</a>
             </div>
         </div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nebula</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="An angel's personal website where I do anything I want.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="layout.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script>
+        (function($){
+            $(document).ready(function(){
+                $("[title]").style_my_tooltips({ 
+                    tip_follows_cursor:true,
+                    tip_delay_time:0,
+                    tip_fade_speed:0,
+                    attribute:"title"
+                });
+            });
+        })(jQuery);
+    </script>
+</head>
+    
+<style>
+    .graphics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    #stamps img {
+        width: 91.6px;
+    }
+    #blinkies img {
+        width: 149.6px;
+        image-rendering: pixelated;
+    }
+</style>
+    
+<body>
+    <div class="container">
+        <aside></aside>
+        <main>
+            <div class="middle">
+                <p>Now I like to collect the decorative graphics and started to have too many for my webmaster page so now it has it's own page.</p>
+                <p>The ones with specific sources (taken from the original creator who asks for credit, or doesn't) will be clickable. Others without a source (found in one or more random recource sites for example) will not, unless I find the creator.</p>
+                <h3>Buttons</h3>
+                <div id="buttons" class="graphics">
+                    <a href="https://rice.place/" target="_blank"><img src="images/graphics/buttons/cssisawesome.webp" alt="CSS is awesome!"></a>
+                </div>
+                <h3>Stamps</h3>
+                <div id="stamps" class="graphics">
+                    <a href="https://brooklynights.nekoweb.org/" target="_blank"><img src="images/graphics/stamps/error.webp" alt="Glitchy windows error"></a>
+                    <a href="https://brooklynights.nekoweb.org/" target="_blank"><img src="images/graphics/stamps/window.webp" alt="Window of some building"></a>
+                    <img src="images/graphics/stamps/angel.webp" alt="Angel, picture taken of a screen">
+                    <img src="images/graphics/stamps/computercat.webp" alt="Cat using a computer">
+                    <img src="images/graphics/stamps/tamari1.webp" alt="Tamari from Reckless Battery Burns">
+                    <img src="images/graphics/stamps/tamari2.webp" alt="Tamari from Reckless Battery Burns">
+                    <img src="images/graphics/stamps/witchcharlotte.webp" alt="Charlotte from Madoka Magica">
+                    <img src="images/graphics/stamps/possiblyinmichigan.webp" alt="Possibly in Michigan">
+                    <img src="images/graphics/stamps/stampy.webp" alt="Stampy cat">
+                </div>
+                <h3>Blinkies</h3>
+                <div id="blinkies" class="graphics">
+                    <a href="https://rice.place/" target="_blank"><img src="images/graphics/blinkies/nofriends.webp" alt="Yes, I don't have any friends!"></a>
+                    <a href="https://kael.crd.co/" target="_blank"><img src="images/graphics/blinkies/ilovemycomputer.webp" alt="I love my computer"></a>
+                    <img src="images/graphics/blinkies/alifewhatsthat.webp" alt="A life, what's that?">
+                    <a href="https://brooklynights.nekoweb.org/" target="_blank"><img src="images/graphics/blinkies/writingbyhand.webp" alt="Writing by hand is cool"></a>
+                    <a href="https://kael.crd.co/" target="_blank"><img src="images/graphics/blinkies/bekindtoyourcomputer.webp" alt="Be kind to your computer"></a>
+                    <img src="images/graphics/blinkies/sotired.webp" alt="So tired">
+                    <img src="images/graphics/blinkies/recklessbatteryburns.webp" alt="Reckless Battery Burns">
+                    <img src="images/graphics/blinkies/endworldnormopathy.webp" alt="End-world Normopathy">
+                    <img src="images/graphics/blinkies/idreaminpixels.webp" alt="I dream in pixels">
+                </div>
+                <br>
+                <p>I didn't understand having a page with so many images, but now that my little collection got too big for a small corner in my webmaster page, I have one now.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
