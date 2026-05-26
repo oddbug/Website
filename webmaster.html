@@ -31,17 +31,13 @@
 </head>
     
 <style>
-    #profile {
-        width: 559px;
-    }
-    #pfp {
-        border: 1px white solid;
-        border-radius: 5px;
-        outline: 1px white solid;
-        outline-offset: -3px;
-        width: 130px;
-        margin-right: 10px;
-        float: left;
+    .middle {position:relative;}
+    .middle::after {
+        content: url(images/kitty.png);
+        zoom: 30%;
+        position: absolute;
+        right: -70px; top: -440px;
+        z-index: 2;
     }
     
     .devide {
@@ -56,6 +52,92 @@
         text-align: center;
         text-shadow: 1px 1px var(--darkpink);
         color: white;
+        position: relative;
+    }
+    #one::after {
+        content: url(images/clown.png);
+        zoom: 38%;
+        position: absolute;
+        left: -160px; bottom: -15px;
+    }
+    
+    #profile {
+        width: 418px;
+    }
+    #pfp {
+        border: 1px white solid;
+        border-radius: 5px;
+        outline: 1px white solid;
+        outline-offset: -3px;
+        width: 100%;
+        margin-bottom: 5px;
+        float: left;
+    }
+    #ids img {
+        width: 100px;
+        margin: auto;
+        display: block;
+        image-rendering: pixelated;
+    }
+    #ids img:not(:last-child) {
+        margin-bottom: 2px;
+    }
+    
+    #facts {
+        background-color: white;
+        border: 1px var(--pink) solid;
+        border-radius: 5px;
+        height: 43px;
+        padding: 5px;
+    }
+    
+    #infodump {
+        width: 530px;
+        height: 320px;
+        margin: -10px 0;
+        padding: 10px 0;
+        overflow: auto;
+    }
+    #infodump::-webkit-scrollbar {
+        width: 0;
+    }
+    
+    #interests {
+        width: 230px;
+    }
+    #interests .inner {
+        height: 280px;
+    }
+    
+    #artists {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 10px;
+    }
+    #artists .item {
+        width: 185px;
+        height: 185px;        
+        position: relative;
+    }
+    #artists img {
+        width: 100%;
+    }
+    #artists span {
+        background-color: rgba(255,255,255,0.3);
+        backdrop-filter: blur(0.6px) sepia() grayscale(70%) hue-rotate(280deg);
+        width: 100%;
+        height: 100%;
+        text-shadow: 0 0 3px white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        visibility: hidden;
+    }
+    #artists .item:hover span {
+        visibility: visible;
     }
 </style>
     
@@ -65,19 +147,94 @@
         <main>
             <div class="middle">
                 <div class="flex">
-                    <div id="profile">
+                    <div style="width:130px">
                         <img id="pfp" src="images/icons/pfp.jpg">
-                        <h2 style="margin-left:140px;margin-top:0">About me</h2>
-                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this site.</p>
-                        <div style="display:flex;column-gap:5px">
+                        <div id="ids">
                             <img src="images/graphics/ids/lesbian.png">
                             <img src="images/graphics/ids/aroace.png">
                             <img src="images/graphics/ids/genderfluid.png">
                         </div>
                     </div>
+                    <div id="profile">
+                        <h2>About me</h2>
+                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this site.</p>
+                        <div id="facts">
+                            When I was  little I hated the color pink and didn't even know why (society), now look at my site.
+                            <br>In 11th grade, the PSD teacher had us do an IQ test and I got 145.
+                        </div>
+                    </div>
                     <a href="https://rice.place/quiz.html">
                         <img style="image-rendering:pixelated" src="images/graphics/quizzes/rice.jpg">
                     </a>
+                </div>
+                <div class="devide" id="one">Interests</div>
+                <div class="flex">
+                    <div id="infodump">
+                        <h4>Technology</h4>
+                        <p>I first started coding when I was 14 and wondered "Wow, there's so many DDLC mods that are low effort memes. That must mean it's easy to mod, right?" so I tried it out. I later learned CSS by customizing my Spacehey profile, then HTML when I started this website in 2024.</p>
+                        <p>I became really interested into more than just coding this past year, things like physical parts of a machine (from opening one (a PS2) for the first time), [...]</p>
+                        <h4>Psychological horror</h4>
+                        <p>I didn't like horror until I saw stuff like DDLC, Totono, School Days, etc, because what I knew of horror was just jumpscares courtesy of my friend showing me Five Nights at Freddy's and not letting me turn it off.</p>
+                        <p>Horror is probably my favorite genre now. I love stuff like Hello Charlotte, Serial Experiments Lain, Neon Genesis Evangelion, ENA, things that make me think a lot, for a long time. I enjoy having interests with lots of details and many things to think about all the time. Bonus points when I deeply relate to a character. Other horrors I like are the Backrooms (excited for the movie), Needy Girl Overdose, Madoka Magica, Petscop, Silent Hill f (now I want to play the other games), and all other previous ones I've named. <span style="opacity:0.5">I'm going to make a horror page.</span></p>
+                    </div>
+                    <div id="interests" class="box">
+                        <div class="head">General</div>
+                        <div class="inner">
+                            <ul>
+                                <li>Technologies, telecommunications</li>
+                                <li>Angels, wings, gods/deities</li>
+                            </ul>
+                            <h4>Games</h4>
+                            <ul>
+                                <li>Etherane games (HC, TWCW█, MRSIS)</li>
+                                <li>Z.A.T.O. // I Love the World and Everything In It</li>
+                                <li>Minecraft</li>
+                                
+                            </ul>
+                            <h4>Anime/Show/Movie</h4>
+                            <ul>
+                                <li>Serial Experiments Lain</li>
+                                <li>Neon Genesis Evangelion</li>
+                            </ul>
+                            <h4>Music artists</h4>
+                            <ul>
+                                <li>Shinsei Kamattechan</li>
+                                <li>Cavetown</li>
+                            </ul>
+                            <h4>Music genres</h4>
+                            <ul>
+                                <li>Pop punk</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="devide">Artists I like</div>
+                <div id="artists">
+                    <div class="item">
+                        <img src="images/icons/lonelyt4xicab.jpg">
+                        <span><a href="https://x.com/lonelyt4xicab">lonelyt4xicab</a></span>
+                    </div>
+                    <div class="item">
+                        <img src="images/icons/iewa.jpg">
+                        <span><a href="https://www.instagram.com/iewaaaaaaa">iewa</a></span>
+                    </div>
+                    <div class="item">
+                        <img src="images/icons/yoruseh.jpg">
+                        <span><a href="https://www.instagram.com/yoruseh">yoruseh</a></span>
+                    </div>
+                    <div class="item">
+                        <img src="images/icons/sukinapan.jpg">
+                        <span>
+                            <a href="https://sukinapan.tumblr.com/">sukinapan</a>
+                            also is part of a team of game devs who have cool games
+                            <a href="https://smarto-club.itch.io/">smarto club</a>
+                            <a href="https://lonely-house.itch.io/">lonely house</a>
+                        </span>
+                    </div>
+                    <div class="item">
+                        <img src="images/icons/hiyoponyo.webp">
+                        <span><a href="https://www.instagram.com/hiyoponyo/">hiyoponyo</a></span>
+                    </div>
                 </div>
             </div>
         </main>
