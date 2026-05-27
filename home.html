@@ -163,36 +163,32 @@
             </div>
             <div id="stats">
                 <ul class="nolist">
-                    <li>Visitors: <span id="visitors"></span></li>
                     <li>Creation: <span id="created"></span></li>
-                    <li>Last Updated: <span id="updated"></span></li>
+                    <li>Last Updated: <span id="shortHash"></span></li>
                     <script>
-                        const neocitiesUsername = "nogood-angel";
-                        const nekowebDomain = "nogood-angel.nekoweb.org";
-
                         (async () => {
                             try {
-                                const neoResponse = await fetch(`https://weirdscifi.ratiosemper.com/neocities.php?sitename=${neocitiesUsername}`);
+                                const neoResponse = await fetch(`https://weirdscifi.ratiosemper.com/neocities.php?sitename=nogood-angel`);
                                 const neoData = await neoResponse.json();
-                                const nekoResponse = await fetch(`https://nekoweb.org/api/site/info/${nekowebDomain}`);
-                                const nekoData = await nekoResponse.json();
                                 
-                                const created = new Date(neoData.info.created_at).toLocaleDateString();
-                                const updated = new Date(nekoData.updated_at).toLocaleDateString();
+                                const created = new Date(neoData.info.created_at).toLocaleDateString('en-GB');
 
                                 if (document.getElementById("created"))
                                     document.getElementById("created").innerHTML =
                                         `${created}`;
-                                if (document.getElementById("updated"))
-                                    document.getElementById("updated").innerHTML =
-                                        `${updated}`;
-                                if (document.getElementById("visitors"))
-                                    document.getElementById("visitors").innerHTML =
-                                        `${neoData.info.views + nekoData.views}`;
                             } catch (error) {
                                 console.error(error);
                             }
                         })();
+                        
+                        fetch('https://api.github.com/repos/oddbug/Website/commits?per_page=1')
+                          .then(res => res.json())
+                          .then(res => {
+                              let sha = res[0].sha;
+                              let authorDate = new Date(res[0].commit.author.date);
+
+                              document.getElementById('shortHash').innerText = authorDate.toLocaleDateString('en-GB');
+                          });
                     </script>
                 </ul>
             </div>
