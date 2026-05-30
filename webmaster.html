@@ -158,10 +158,25 @@
                     <div id="profile">
                         <h2>About me</h2>
                         <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this site.</p>
-                        <!--<div id="facts">
-                            When I was  little I hated the color pink and didn't even know why (society), now look at my site.
-                            <br>In 11th grade, the PSD teacher had us do an IQ test and I got 145.
-                        </div>-->
+                        <div id="facts">
+                            <span id="factOutput">Click for a random fact about me!</span>
+                        </div>
+                        <script>
+                            var factBtn = document.getElementById('facts');
+                            var factOutput = document.getElementById('factOutput');
+
+                            var factsArray = ["When I was  little I hated the color pink and didn't even know why (society), now look at my site.", 
+                                             "In 11th grade, the PSD teacher made us do an IQ test and I scored 145.",
+                                             "I identify more with beings that are not entirely human.",
+                                             "I can type without looking at my keyboard."];
+
+                            factBtn.addEventListener('click', displayFact);
+
+                            function displayFact() {
+                              var rand = Math.floor(Math.random() * factsArray.length);
+                              factOutput.innerText = factsArray[rand];
+                            }
+                        </script>
                     </div>
                     <a href="https://rice.place/quiz.html">
                         <img style="image-rendering:pixelated" src="images/graphics/quizzes/rice.jpg">
@@ -204,6 +219,7 @@
                             <h4>Music genres</h4>
                             <ul>
                                 <li>Pop punk</li>
+                                <li>Indie</li>
                             </ul>
                         </div>
                     </div>
