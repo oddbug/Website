@@ -103,8 +103,23 @@
         margin: 0 5px 5px;
     }
     
+    #born {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 13px;
+    }
+    #born #dove {
+        background-color: var(--brown);
+        width: 72px;
+        height: 14px;
+        margin: auto;
+        mask-image: url(images/doves.webp);
+        image-rendering: pixelated;
+    }
+    
     #celestial {
         margin-bottom: 15px;
+        padding: 5px;
         text-align: center;
     }
     
@@ -208,6 +223,10 @@
                                 </h3>
                                 <ul class="nolist">
                                     <li>
+                                        <span><a href="journal.html">Journal</a> • 31/05/26</span>
+                                        <p>I watched the Backrooms</p>
+                                    </li>
+                                    <li>
                                         <span><a href="shrines/backrooms/index.html">Backrooms shrine</a> • 24/05/26</span>
                                     </li>
                                     <li>
@@ -239,8 +258,12 @@
                         </div>
                     </div>
                     <div class="right">
-                        <div id="celestial">
-                            <ul id="celestial" class="nolist">
+                        <div id="born">
+                            <div id="dove"></div>
+                            <p>BORN TO FLY<br>WORLD IS A FUCK<br>鬼神 Kill Em All 2005<br>I am an angel<br>410,757,864,530 DEAD SKIES</p>
+                        </div>
+                        <div id="celestial" class="box">
+                            <ul class="nolist">
                                 <li><span id="moon"></span></li>
                                 <li>Time:
                                     <span id="time"></span>
