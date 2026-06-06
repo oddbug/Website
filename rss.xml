@@ -4,6 +4,13 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
+            <title>Contact</title>
+            <description>Now havea contact form for inquiries which might not be as serious as needed for emailing.</description>
+            <link>https://nogood-angel.moe/contact.html</link>
+            <guid>post6</guid>
+            <pubDate>Sat 06 June 2026, 04:40:00 -0300</pubDate>
+        </item>
+        <item>
             <title>Backrooms shrine</title>
             <description></description>
             <link>https://nogood-angel.moe/shrines/backrooms/index.html</link>
