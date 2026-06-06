@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="Contact me.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="layout.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script>
+        (function($){
+            $(document).ready(function(){
+                $("[title]").style_my_tooltips({ 
+                    tip_follows_cursor:true,
+                    tip_delay_time:0,
+                    tip_fade_speed:0,
+                    attribute:"title"
+                });
+            });
+        })(jQuery);
+    </script>
+</head>
+    
+<style>
+    form {
+        background-color: white;
+        width: 500px;
+        margin: auto;
+    }
+</style>
+    
+<body>
+    <div class="container">
+        <aside></aside>
+        <main>
+            <div class="middle">
+                <h2>Would you like to contact me?</h2>
+                <p>For serious inquiries only, email me at <b>nogoodangel@gmail.com</b>. Otherwise, use this contact form.</p>
+                
+                <form id="contactForm">
+                    <label>Your name</label>
+                    <input type="name" name="name" required>
+                    <label>Your website</label>
+                    <input type="website" name="website">
+                    <label>Your email</label>
+                    <input type="email" name="email" required>
+                    <br>
+                    <label>Any questions, concerns, feedback?</label>
+                    <textarea name="message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+                
+                <script>
+                    document.getElementById("contactForm").onsubmit = async (e) => {
+                        // if you delete the page reloads!! (so dont)
+                        e.preventDefault();
+
+                        const form = e.target;
+                        
+                        const name = form.name.value.trim();
+                        const website = form.website.value.trim();
+                        const email = form.email.value.trim();
+                        const message = form.message.value.trim();
+
+                        const response = await fetch("https://still-violet-22d5.nogoodangel.workers.dev/", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ name, website, email, message })
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+                            alert("I have not recieved it or something is wrong. Email me if this happens more often then usual. " + (data.error || "Error?"));
+                            return;
+                        } else {
+                            alert("I have recieved your inquiry, thank you!");
+                        }
+                        form.reset();
+                    };
+                </script>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
