@@ -12,6 +12,7 @@ body {
             rgba(255,255,255,0.4) 25px,
             rgba(255,255,255,0.4) 50px
         );
+    background-size: 100% 100%;
 }
 #s-m-t-tooltip {
     background-color: white;
@@ -48,7 +49,7 @@ nav a, nav span {
 nav span {
     background-color: white;
     border: 8px transparent solid;
-    border-image: 8 url(https://i.postimg.cc/MpP0w9VJ/ri32-015-a.gif) round;
+    border-image: 8 url(images/navBorder.webp) round;
     width: 100%;
     padding: 2px;
     font-style: italic;
@@ -131,10 +132,12 @@ header .inner p {
     color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .cal-header button {
     background: none;
     border: 0;
+    padding: 0;
 }
 .cal-grid {
     margin: 5px 0;

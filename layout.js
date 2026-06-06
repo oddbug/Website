@@ -69,8 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
       renderCalendar();
     };
   }
-
   renderCalendar();
+    
+  (function($){
+    $(document).ready(function(){
+      $("[title]").style_my_tooltips({ 
+        tip_follows_cursor:true,
+        tip_delay_time:0,
+        tip_fade_speed:0,
+        attribute:"title"
+      });
+    });
+  })(jQuery);
 });
 
 /* FUNCTIONS */
@@ -123,16 +133,6 @@ const headerEl = `
     </header>
 `;
 
-const footerEl = `
-	<footer>
-        <ul>
-            <li><a href="mailto:nogoodangel@proton.me" title="Serious inquiries only">Contact</a></li>
-            <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
-        </ul>
-        nogood-angel.moe © 2024 - Forever | ver 0.1.2
-    </footer>
-`;
-
 const sidebarEl1 = `
     <nav>
         <div class="menu">
@@ -141,7 +141,6 @@ const sidebarEl1 = `
                 <a href="${nesting}/home.html">Home</a>
                 <a href="${nesting}/webmaster.html">Webmaster</a>
                 <a href="${nesting}/links.html">Links</a>
-                <a href="https://nogood-angel.atabook.org/">Guestbook</a>
             </div>
         </div>
         <div class="menu">
@@ -155,6 +154,7 @@ const sidebarEl1 = `
             <div class="menuContent">
                 <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
                 <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
+                <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
                 <a href="${nesting}/shrines/backrooms/index.html">Backrooms</a>
             </div>
         </div>
@@ -173,4 +173,15 @@ const sidebarEl1 = `
             </div>
         </div>
     </nav>
+`;
+
+const footerEl = `
+	<footer>
+        <ul>
+            <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
+            <li><a href="${nesting}/contact.html">Contact</a></li>
+            <li><a href="https://nogood-angel.atabook.org/">Guestbook</a></li>
+        </ul>
+        nogood-angel.moe © 2024 - Forever | ver 0.1.3
+    </footer>
 `;

@@ -9,32 +9,50 @@
     <meta property="og:title" content="Nebula">
     <meta property="og:description" content="Contact me.">
     <!--<meta property="og:image" content="">-->
-    <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    <meta property="og:url" content="https://nogood-angel.moe/contact.html">
     
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
     <script src="layout.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
-    <script>
-        (function($){
-            $(document).ready(function(){
-                $("[title]").style_my_tooltips({ 
-                    tip_follows_cursor:true,
-                    tip_delay_time:0,
-                    tip_fade_speed:0,
-                    attribute:"title"
-                });
-            });
-        })(jQuery);
-    </script>
 </head>
     
 <style>
     form {
-        background-color: white;
         width: 500px;
         margin: auto;
+    }
+    .top {
+        margin-bottom: 10px;
+        display: flex;
+        column-gap: 10px;
+    }
+    .field {
+        width: 250px;
+    }
+    .field input {
+        width: 100%;
+    }
+    .bottom textarea {
+        width: 500px;
+        resize: vertical;
+    }
+    label {
+        margin-left: 5px;
+    }
+    input, textarea, button {
+        border: 1px var(--pink) solid;
+        border-radius: 5px;
+        margin-top: 2px;
+        padding: 3px 5px;
+    }
+    button {
+        background-color: var(--lightpink);
+        padding: 3px 10px;
+    }
+    button:hover {
+        background-color: var(--palepink);
     }
 </style>
     
@@ -44,18 +62,27 @@
         <main>
             <div class="middle">
                 <h2>Would you like to contact me?</h2>
-                <p>For serious inquiries only, email me at <b>nogoodangel@gmail.com</b>. Otherwise, use this contact form.</p>
+                <p>For serious inquiries only, email me at <span style="text-decoration:underline;font-weight:bold">nogoodangel@proton.me</span>, Otherwise, use this contact form.</p>
                 
                 <form id="contactForm">
-                    <label>Your name</label>
-                    <input type="name" name="name" required>
-                    <label>Your website</label>
-                    <input type="website" name="website">
-                    <label>Your email</label>
-                    <input type="email" name="email" required>
-                    <br>
-                    <label>Any questions, concerns, feedback?</label>
-                    <textarea name="message" required></textarea>
+                    <div class="top">
+                        <div class="field">
+                            <label>Your name</label>
+                            <input type="name" name="name" placeholder="Required" required>
+                        </div>
+                        <div class="field">
+                            <label>Your website</label>
+                            <input type="website" name="website">
+                        </div>
+                        <div class="field">
+                            <label>Your email</label>
+                            <input type="email" name="email" placeholder="Required" required>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <label>Any questions, concerns, feedback?</label>
+                        <textarea name="message" placeholder="Required" required></textarea>
+                    </div>
                     <button type="submit">Send</button>
                 </form>
                 

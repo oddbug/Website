@@ -29,7 +29,7 @@ body {
     font-size: 14px;
     color: var(--brown);
 }
-button {
+button, button, input, textarea {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -37,6 +37,7 @@ button {
 }
 h1, h2, h3, h4 {
     margin-bottom: 5px;
+    font-style: italic;
 }
 h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child) {
     margin-top: 10px;
