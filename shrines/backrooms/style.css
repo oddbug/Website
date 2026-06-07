@@ -44,21 +44,25 @@ p:not(:last-child) {
 aside {
     width: 449px;
 }
-aside table {
+aside .info {
     border-bottom: 1px var(--darkgrey) solid;
     width: 100%;
     padding-bottom: 16px;
 }
-aside td {
+aside .info td {
     vertical-align: top;
     color: white;
 }
-aside td:first-child {
+aside .info td:first-child {
     width: 60px;
     color: var(--yellow);
 }
 aside .content {
     padding: 5px 0 52px;
+}
+
+#ahdyharbor td:first-child {
+    width: 90px;
 }
 
 /* MAIN */
