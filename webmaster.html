@@ -49,9 +49,6 @@
         left: -160px; bottom: -15px;
     }
     
-    #profile {
-        width: 418px;
-    }
     #pfp {
         border: 1px white solid;
         border-radius: 5px;
@@ -70,7 +67,13 @@
     #ids img:not(:last-child) {
         margin-bottom: 2px;
     }
-    
+    #profile {
+        width: 398px;
+    }
+    #quiz {
+        width: 220px;
+        image-rendering: pixelated;
+    }
     #facts {
         background-color: white;
         border: 1px var(--pink) solid;
@@ -145,7 +148,7 @@
                     </div>
                     <div id="profile">
                         <h2>About me</h2>
-                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website.</p>
+                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website. I am 21 years old (June 7) and I live in Canada.</p>
                         <div id="facts">
                             <span id="factOutput">Click for a random fact about me!</span>
                         </div>
@@ -167,7 +170,7 @@
                         </script>
                     </div>
                     <a href="https://rice.place/quiz.html">
-                        <img style="image-rendering:pixelated" src="images/graphics/quizzes/rice.jpg">
+                        <img id="quiz" src="images/graphics/quizzes/rice.jpg">
                     </a>
                 </div>
                 <div class="devide" id="one">Interests</div>
