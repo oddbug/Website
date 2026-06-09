@@ -150,7 +150,9 @@ header .inner p {
     color: var(--darkpink)
 }
 .current-day {
-    color: var(--darkpink);
+    font-weight: bold;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
 }
 
 /* MIDDLE */

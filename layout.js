@@ -1,133 +1,189 @@
+// initLayout() is called once the DOM (the HTML content of your website) has been loaded.
 document.addEventListener("DOMContentLoaded", function () {
-    if (document.body.classList.contains("no-layout")) return;
-    document.body.insertAdjacentHTML("afterbegin", headerEl);
-    document.querySelector(".mainInner").insertAdjacentHTML("afterend", footerEl);
-    
-    // Inserting sidebars:
-    const wrapperElement = document.querySelector("aside"); // Div the sidebar appears inside
+  // The layout will be loaded on all pages that do NOT have the "no-layout" class in the <body> element.
+  if (!document.body.classList.contains("no-layout")) {
+      
+    document.querySelector("main").insertAdjacentHTML("afterbegin", headerEl);
+    document.querySelector("main").insertAdjacentHTML("beforeend", footerEl);
+
+    const wrapperElement = document.querySelector("aside"); // you might have to change this selector to something like .my-wrapper
     if (wrapperElement) {
-        wrapperElement.insertAdjacentHTML("afterbegin", sidebarEl);
+      wrapperElement.insertAdjacentHTML("afterbegin", sidebarEl1);
     }
 
     initActiveLinks();
-    
-    // add your own JavaScript code here...
-    
-    // Quote
-    const quotes = [
-        'Why do you long for such terrible things?',
-        '.-.- - . -... .-.- .-.. ..-- -... .-.. ..--',
-        'Scratch, kick. Let gravity win like',
-        '"That bird has no idea what he\'s looking at."'
-    ];
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    const quote = "<div>" + randomQuote + "</div>";
-    document.getElementById("quote").innerHTML = quote;
-    
-    // Clock
-    setInterval(showTime, 1000); // 1000 bits = 1 sec
+  }
 
-    function showTime() {
-        let time = new Date();
-        let hour = time.getHours();
-        let min = time.getMinutes();
-        let sec = time.getSeconds();
+  // CUSTOM JAVASCRIPT
+    
+  // CALENDAR
+  const calendarEl = document.getElementById("calendar");
+  let current = new Date();
 
-        hour = hour < 10 ? "0" + hour : hour;
-        min = min < 10 ? "0" + min : min;
-        sec = sec < 10 ? "0" + sec : sec;
-        let currentTime = hour + ":" + min + ":" + sec;
+  function renderCalendar() {
+    const year = current.getFullYear();
+    const month = current.getMonth();
 
-        document.getElementById("clock").innerHTML = currentTime;
+    const today = new Date();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const monthName = current.toLocaleString('default', { month: 'long' });
+
+    let html = `
+        <div class="cal-header">
+            <button id="prev">⟵</button>
+            <span>${monthName} ${year}</span>
+            <button id="next">⟶</button>
+        </div>
+
+        <div class="cal-grid">
+            <div>S</div><div>M</div><div>T</div><div>W</div>
+            <div>T</div><div>F</div><div>S</div>
+    `;
+
+    for (let i = 0; i < firstDay; i++) {
+      html += `<div></div>`;
+    }
+      
+    for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
+        
+      if (dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+        html += `<div class="current-day">${dayNum}</div>`;
+      } else {
+        html += `<div>${dayNum}</div>`;
+      }
     }
 
-    showTime();
+
+    html += `</div>`;
+    calendarEl.innerHTML = html;
+
+    document.getElementById("prev").onclick = () => {
+      current.setMonth(current.getMonth() - 1);
+      renderCalendar();
+    };
+
+    document.getElementById("next").onclick = () => {
+      current.setMonth(current.getMonth() + 1);
+      renderCalendar();
+    };
+  }
+  renderCalendar();
+  
+  // TOOLTIP
+  (function($){
+    $(document).ready(function(){
+      $("[title]").style_my_tooltips({ 
+        tip_follows_cursor:true,
+        tip_delay_time:0,
+        tip_fade_speed:0,
+        attribute:"title"
+      });
+    });
+  })(jQuery);
+    
 });
 
 /* FUNCTIONS */
 
 function initActiveLinks() {
-    const pathname = window.location.pathname;
-    [...document.querySelectorAll("a")].forEach((el) => {
-        const elHref = el.getAttribute("href").replace(".html", "").replace("/public", "");
+  // This function adds the class "active" to any link that links to the current page.
+  // This is helpful for styling the active menu item.
 
-        if (pathname == "/") {
-            if (elHref == "/" || elHref == "/index.html") el.classList.add("active");
-        } else {
-            if (window.location.href.includes(elHref)) el.classList.add("active");
-        }
-    });
+  const pathname = window.location.pathname;
+  [...document.querySelectorAll("a")].forEach((el) => {
+    const elHref = el
+      .getAttribute("href")
+      .replace(".html", "")
+      .replace("/public", "");
+
+    if (pathname == "/") {
+      // homepage
+      if (elHref == "/" || elHref == "/index.html") el.classList.add("active");
+    } else {
+      // other pages
+      if (window.location.href.includes(elHref)) el.classList.add("active");
+    }
+  });
 }
 
 function getNestingString() {
-    const currentUrl = window.location.href.replace("http://", "").replace("https://", "").replace("/public/", "/");
-    const numberOfSlahes = currentUrl.split("/").length - 1;
-    if (numberOfSlahes == 1) return ".";
-    if (numberOfSlahes == 2) return "..";
-    return ".." + "/..".repeat(numberOfSlahes - 2);
+  // This function prepares the "nesting" variable for your header and footer (see below).
+  // Only change this function if you know what you're doing.
+  const currentUrl = window.location.href
+    .replace("http://", "")
+    .replace("https://", "")
+    .replace("/public/", "/");
+  const numberOfSlahes = currentUrl.split("/").length - 1;
+  if (numberOfSlahes == 1) return ".";
+  if (numberOfSlahes == 2) return "..";
+  return ".." + "/..".repeat(numberOfSlahes - 2);
 }
 
-/* HTML*/
+/* HTML */
 
 const nesting = getNestingString();
 
-// How to use the nesting variable: <img src="${nesting}/images/example.jpg" />
-
 const headerEl = `
 	<header>
-        <nav>
-            &#10022;
-            <a href="${nesting}/index.html">Home</a>
-            <a href="${nesting}/profile.html">Profile</a>
-            <a href="${nesting}/blog/index.html">Blog</a>
-            <a href="${nesting}/links.html">Links</a>
-            <div class="menu">
-                <span>Writings</span>
-                <div class="menuContent">
-                    <a href="${nesting}/journal/index.html">Journal</a>
-                </div>
-            </div>
-            <div class="menu">
-                <span>Shrines</span>
-                <div class="menuContent">
-                    <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
-                    <a href="${nesting}/shrines/guchiry.html">Guchiry</a>
-                    <a href="${nesting}/shrines/milk.html">Milk Outside a Bag of Milk</a>
-                </div>
-            </div>
-            <div class="menu">
-                <span>For you</span>
-                <div class="menuContent">
-                    <a href="${nesting}/templates/index.html">Templates</a>
-                    <a href="${nesting}/zatoring/index.html">Z.A.T.0.ring</a>
-                </div>
-            </div>
-            <div class="menu">
-                <span>Find me elsewhere</span>
-                <div class="menuContent">
-                    <a href="https://x.com/user_333143">Twitter</a>
-                    <a href="https://www.youtube.com/@user33143">Youtube</a>
-                    <a href="https://user333143.tumblr.com/">Tumblr</a>
-                    <a href="https://ko-fi.com/user333143">Ko-fi</a>
-                </div>
-            </div>
-        </nav>
-        <div id="quote"></div>
-        <div id="clock"></div>
+        <div id="calendar"></div>
+        <div class="inner">
+            <h1>Placeholder</h1>
+            <p>Where we curl up and wish for a new beginning</p>
+        </div>
     </header>
 `;
 
-const footerEl = `
-    <footer>
-        <ul>
-            <li><a href="mailto:nogoodangel@proton.me">Contact</a></li>
-            <!-- <li><a href="">Sitemap</a></li> -->
-            <li><a href="https://nogood-angel.atabook.org/">Guestbook</a></li>
-        </ul>
-        nogood-angel.org © 2024 - Forever
-    </footer>
+const sidebarEl1 = `
+    <nav>
+        <div class="menu">
+            <span>Sitely</span>
+            <div class="menuContent">
+                <a href="${nesting}/home.html">Home</a>
+                <a href="${nesting}/webmaster.html">Webmaster</a>
+                <a href="${nesting}/links.html">Links</a>
+            </div>
+        </div>
+        <div class="menu">
+            <span>Writings</span>
+            <div class="menuContent">
+                <a href="${nesting}/journal.html">Journal</a>
+            </div>
+        </div>
+        <div class="menu">
+            <span>Shrines</span>
+            <div class="menuContent">
+                <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
+                <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
+                <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
+                <a href="${nesting}/shrines/backrooms/index.html">Backrooms</a>
+            </div>
+        </div>
+        <div class="menu">
+            <span>Collections</span>
+            <div class="menuContent">
+                <a href="${nesting}/graphics.html">Graphics</a>
+                <a href="https://myfigurecollection.net/profile/angelbug">Figure</a>
+            </div>
+        </div>
+        <div class="menu">
+            <span>For you</span>
+            <div class="menuContent">
+                <a href="${nesting}/templates/index.html">Templates</a>
+                <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
+            </div>
+        </div>
+    </nav>
 `;
 
-const sidebarEl = `
-    <img id="banner" src="${nesting}/banner.png">
+const footerEl = `
+	<footer>
+        <ul>
+            <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
+            <li><a href="${nesting}/contact.html">Contact</a></li>
+            <li><a href="https://nogood-angel.atabook.org/">Guestbook</a></li>
+        </ul>
+        nogood-angel.moe © 2024 - Forever | ver 0.1.3
+    </footer>
 `;
