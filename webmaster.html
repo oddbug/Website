@@ -18,7 +18,38 @@
     <script src="scripts/jquery.style-my-tooltips.js"></script>
 </head>
     
-<style>
+<style>    
+    nav::before {
+        content: "";
+        background-image: url(images/icons/pfp.jpg);
+        background-size: 100%;
+        border: 1px white solid;
+        border-radius: 5px;
+        outline: 1px white solid;
+        outline-offset: -3px;
+        width: 177.2px;
+        height: 177.2px;
+        position: absolute;
+        top: 10px;
+    }
+    nav::after {
+        content: url(images/clown.png);
+        zoom: 38%;
+        position: absolute;
+        right: -390px; bottom: 400px;
+        z-index: 2;
+    }
+    nav {
+        margin-top: 187.2px;
+    }
+    #ids {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+        image-rendering: pixelated;
+    }
+    
     .middle {position:relative;}
     .middle::after {
         content: url(images/kitty.png);
@@ -43,42 +74,29 @@
         position: relative;
     }
     #one::after {
-        content: url(images/clown.png);
-        zoom: 38%;
-        position: absolute;
-        left: -160px; bottom: -15px;
-    }
-    #two::after {
         content: url(images/strawberry.png);
         zoom: 38%;
         position: absolute;
         bottom: -30px; right: -60px;
     }
     
-    #pfp {
-        border: 1px white solid;
-        border-radius: 5px;
-        outline: 1px white solid;
-        outline-offset: -3px;
-        width: 100%;
-        margin-bottom: 5px;
-        float: left;
+    #info {
+        width: 163px;
+        height: fit-content;
     }
-    #ids img {
-        width: 100px;
-        margin: auto;
-        display: block;
-        image-rendering: pixelated;
+    #info table {
+        border-collapse: collapse;
+        width: 151px;
+        margin: 5px;
     }
-    #ids img:not(:last-child) {
-        margin-bottom: 2px;
+    #info tr {
+        border-bottom: 1px var(--pink) dashed;
+    }
+    #info td:last-child {
+        text-align: right;
     }
     #profile {
-        width: 398px;
-    }
-    #quiz {
-        width: 220px;
-        image-rendering: pixelated;
+        width: 385px;
     }
     #facts {
         background-color: white;
@@ -86,6 +104,9 @@
         border-radius: 5px;
         height: 43px;
         padding: 5px;
+    }
+    #quiz {
+        image-rendering: pixelated;
     }
     
     #infodump {
@@ -140,21 +161,40 @@
     
 <body>
     <div class="container">
-        <aside></aside>
+        <aside>
+            <div id="ids">
+                <img src="images/graphics/ids/lesbian.png">
+                <img src="images/graphics/ids/aroace.png">
+                <img src="images/graphics/ids/genderfluid.png">
+            </div>
+        </aside>
         <main>
             <div class="middle">
                 <div class="flex">
-                    <div style="width:130px">
-                        <img id="pfp" src="images/icons/pfp.jpg">
-                        <div id="ids">
-                            <img src="images/graphics/ids/lesbian.png">
-                            <img src="images/graphics/ids/aroace.png">
-                            <img src="images/graphics/ids/genderfluid.png">
-                        </div>
+                    <div id="info" class="box">
+                        <div class="head">Information</div>
+                        <table>
+                            <tr>
+                                <td>Age</td>
+                                <td>21</td>
+                            </tr>
+                            <tr>
+                                <td>Birthday</td>
+                                <td>June 7</td>
+                            </tr>
+                            <tr>
+                                <td>Pronouns</td>
+                                <td>She/They</td>
+                            </tr>
+                            <tr>
+                                <td>Location</td>
+                                <td>Nebula</td>
+                            </tr>
+                        </table>
                     </div>
                     <div id="profile">
                         <h2>About me</h2>
-                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website. I am 21 years old (June 7) and I live in Canada.</p>
+                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website.</p>
                         <div id="facts">
                             <span id="factOutput">Click for a random fact about me!</span>
                         </div>
@@ -179,7 +219,7 @@
                         <img id="quiz" src="images/graphics/quizzes/rice.jpg">
                     </a>
                 </div>
-                <div class="devide" id="one">Interests</div>
+                <div class="devide">Interests</div>
                 <div class="flex">
                     <div id="infodump">
                         <h4>Technology</h4>
@@ -226,7 +266,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="devide" id="two">Artists I like</div>
+                <div class="devide" id="one">Artists I like</div>
                 <div id="artists">
                     <div class="item">
                         <img src="images/icons/lonelyt4xicab.jpg">
