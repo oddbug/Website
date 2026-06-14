@@ -141,6 +141,7 @@ const sidebarEl1 = `
             <span>Sitely</span>
             <div class="menuContent">
                 <a href="${nesting}/home.html">Home</a>
+                <a href="${nesting}/aboutsite.html">About site</a>
                 <a href="${nesting}/webmaster.html">Webmaster</a>
                 <a href="${nesting}/links.html">Links</a>
             </div>
