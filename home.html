@@ -82,9 +82,15 @@
         color: var(--darkpink);
     }
     
-    #status {
-        height: 41px;
+    #statuscafe-username {
+        margin-bottom: 5px;
     }
+    #statuscafe-timestamp {
+        padding-top: 3.5px;
+        font-size: 11px;
+        opacity: 0.7;
+    }
+    
     #latest {
         width: 340px;
         height: 191.25px;
@@ -247,7 +253,26 @@
                             </div>
                             <div style="width:350px">
                                 <h3>What am I thinking?</h3>
-                                <iframe id="status" src="https://lunebox.malune.net/widget/bianca?font-family=monospace&color=%23523f39&linkColor=%23bd4d4d&hideEmoji=1" frameborder="0"></iframe>
+                                <div id="statuscafe">
+                                    <div style="display:flex;column-gap:5px">
+                                        <div id="statuscafe-username"></div>
+                                        <div id="statuscafe-timestamp"></div>
+                                    </div>
+                                    <div id="statuscafe-content"></div>
+                                </div>
+                                <script>
+                                    fetch("https://status.cafe/users/oddbug/status.json")
+                                        .then( r => r.json() )
+                                            .then( r => {
+                                        if (!r.content.length) {
+                                            document.getElementById("statuscafe-content").innerHTML = "No status yet."
+                                            return
+                                        }
+                                        document.getElementById("statuscafe-username").innerHTML = '<a href="https://status.cafe/users/oddbug" target="_blank">' + r.author + '</a>'
+                                        document.getElementById("statuscafe-timestamp").innerHTML = r.timeAgo
+                                        document.getElementById("statuscafe-content").innerHTML = r.content
+                                    })
+                                </script>
                                 <h3>Latest in my brain</h3>
                                 <iframe id="latest" src="https://www.youtube.com/embed/icBDYkfxpMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
@@ -281,6 +306,10 @@
                                     <li>Rental</li>
                                     <li>Membrillo hid my socks</li>
                                     <li>Flesh, Blood, and Concrete</li>
+                                </ul>
+                                <h4>Shrines</h4>
+                                <ul>
+                                    <li>Redo Genshin Impact</li>
                                 </ul>
                                 <h4>Collections</h4>
                                 <ul>
