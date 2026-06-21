@@ -9,24 +9,18 @@
     --lightpink: #f7d7e2;
     --pink: #eda4bc;
     --darkpink: #ba5979;
-    --hotpink: #eb608c;
+    --palepeach: #faf4f2;
+    --peach: #ffded1;
     --red: #bd4d4d;
     --brown: #523f39;
-    --yellow: #efeab5;
-    --palegreen: #e6f5e8;
-    --green: #89c78f;
-    --paleblue: #edeff7;
-    --lightblue: #d7e3f7;
-    --blue: #abb4e0;
-    --darkblue: #434a69;
-    --lightgrey: #c7c7c7;
-    --offwhite: #fffdfa;
-    --black: #2e2e30;
 }
 body {
     font-family: monospace;
     font-weight: normal;
     font-size: 14px;
+    text-shadow:
+        0 0 3px var(--peach),
+        0 0 3px var(--peach);
     color: var(--brown);
 }
 button, button, input, textarea {
@@ -61,4 +55,18 @@ ol {
 ul.nolist, ol.nolist {
     margin-left: 0;
     list-style: none;
+}
+code {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 12px
+}
+
+.censor {
+    background-color: var(--brown);
+    box-shadow:
+        0 0 3px var(--peach),
+        0 0 3px var(--peach);
+    text-shadow: none;
 }
