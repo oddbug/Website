@@ -36,6 +36,17 @@
         justify-content: center;
         column-gap: 80px;
     }
+    .buttons {
+        margin-top: 10px;
+        image-rendering: pixelated;
+        display: flex;
+        justify-content: center;
+        column-gap: 5px;
+        .devide {
+            border-right: 1px var(--brown) dashed;
+            margin: 0 5px;
+        }
+    }
 </style>
     
 <body>
@@ -59,6 +70,13 @@
         <div id="enter">
             <a onclick="history.back()" style="text-decoration:underline">Turn back</a>
             <a href="home.html">Enter</a>
+        </div>
+        <div class="buttons">
+            <a href="https://neocities.org/site/nogood-angel" target="_blank"><img src="images/graphics/buttons/neocities.webp"></a>
+            <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org" target="_blank"><img src="images/graphics/buttons/nekoweb.webp"></a>
+            <a href="https://nogood-angel.atabook.org/" target="_blank"><img src="images/graphics/buttons/atabook.webp"></a>
+            <div class="devide"></div>
+            <a href="https://rice.place/clover.html"><img src="images/graphics/buttons/luckbutton.png"></a>
         </div>
     </main>
 </body>

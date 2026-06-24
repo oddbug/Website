@@ -27,6 +27,13 @@ body {
     margin: 40px auto;
     display: flex;
 }
+
+h1, h2, h3, h4 {
+    border-bottom: 1px var(--brown) dashed;
+}
+
+/* ASIDE */
+
 aside {
     background-color: var(--palepeach);
     border: 1px var(--pink) solid;
@@ -80,7 +87,7 @@ nav a:not(:last-child) {
     border-bottom: 1px var(--pink) solid;
 }
 nav a:hover {
-    background-color: var(--palepink);
+    background-color: var(--paleyellow);
 }
 nav .menu:hover .menuContent {
     visibility: visible;
@@ -112,6 +119,9 @@ header .inner {
     text-align: center;
     color: white;
     position: relative;
+}
+header .inner h1 {
+    border: 0;
 }
 header .inner p {
     color: white;
@@ -164,12 +174,6 @@ header .inner p {
 .middle .flex {
     display: flex;
     column-gap: 10px;
-}
-.middle h1, .middle h2, .middle h3, .middle h4{
-    border-bottom: 1px var(--brown) dashed;
-}
-.middle h2:not(:first-child) {
-    margin-top: 15px;
 }
 
 .box {

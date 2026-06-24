@@ -13,6 +13,7 @@
     --peach: #ffded1;
     --red: #bd4d4d;
     --brown: #523f39;
+    --paleyellow: #fcfbed;
 }
 body {
     font-family: monospace;
@@ -32,19 +33,20 @@ button, button, input, textarea {
 h1, h2, h3, h4 {
     margin-bottom: 5px;
     font-style: italic;
+    &:not(:first-child) {
+        margin-top: 10px;
+    }
 }
-h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child) {
-    margin-top: 10px;
-}
-
-p:not(:last-child), ul:not(:last-child), ol:not(:last-child) {
-    margin-bottom: 10px;
+p, ul, ol {
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
 }
 a {
     color: var(--red);
-}
-a:has(img) {
-    font-size: 0;
+    &:has(img) {
+        font-size: 0;
+    }
 }
 ul {
     margin-left: 15px;
