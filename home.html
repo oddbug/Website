@@ -108,7 +108,25 @@
     #latest {
         width: 340px;
         height: 191.25px;
-        margin: 0 5px 5px;
+        margin: 0 5px;
+    }
+        
+    #currently {
+        margin: 0;
+        list-style: none;
+        img {
+            width: 15px;
+            height: 15px;
+            margin: 3px 0px -3px;
+            image-rendering: pixelated;
+        }
+    }
+    #status span {
+        display: inline-block;
+        &::first-letter {
+            text-transform: capitalize;
+            
+        }
     }
     
     #born {
@@ -116,14 +134,14 @@
         text-align: center;
         line-height: 13px;
         font-size: 13px;
-    }
-    #born #dove {
-        background-color: var(--brown);
-        width: 72px;
-        height: 14px;
-        margin: auto;
-        mask-image: url(images/doves.webp);
-        image-rendering: pixelated;
+        #dove {
+            background-color: var(--brown);
+            width: 72px;
+            height: 14px;
+            margin: auto;
+            mask-image: url(images/doves.webp);
+            image-rendering: pixelated;
+        }
     }
     
     #celestial {
@@ -289,6 +307,45 @@
                                 </script>
                                 <h3>Latest in my brain</h3>
                                 <iframe id="latest" src="https://www.youtube.com/embed/2tWO_2xLPiE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <h3>Currently, I am...</h3>
+                                <ul id="currently">
+                                    <li id="status"></li>
+                                    <script>
+                                        async function discordChecker() {
+                                            try {
+                                                const response = await fetch('https://api.lanyard.rest/v1/users/596068722506989570');
+                                                const splingus = await response.json();
+                                                
+                                                const statusImages = {
+                                                    online: "stardewSmile",
+                                                    idle: "stardewWhistling",
+                                                    dnd: "stardewUnsure",
+                                                    offline: "stardewBored",
+                                                };
+                                                
+                                                const statusImage = "<img src='images/graphics/pixels/" + statusImages[splingus.data.discord_status] + ".webp'>";
+                                                document.getElementById("status").innerHTML = `
+                                                    ${statusImage} <span>${splingus.data.discord_status} on discord</span>
+                                                `;
+                                            } catch (error) {
+                                                console.error(error);
+                                            }
+                                        };
+
+                                        discordChecker();
+                                        setInterval(discordChecker, 2000);
+                                    </script>
+                                    <li><img src="images/graphics/pixels/stardewMusicnote.webp">
+                                        Listening: my horror playlist</li>
+                                    <li><img src="images/graphics/pixels/stardewController.webp">
+                                        Playing: Cyberpunk 2077</li>
+                                    <li><img src="images/graphics/pixels/stardewDisk.webp">
+                                        Watching: hbomberguy on youtube</li>
+                                    <li><img src="images/graphics/pixels/stardewMushroom.webp">
+                                        Reading: nothing</li>
+                                    <li><img src="images/graphics/pixels/stardewDizzy.webp">
+                                        Learning: JavaScript slowly</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -304,6 +361,7 @@
                                     <li>Bookmarks page</li>
                                     <li>Documentation page</li>
                                     <li>Contact form, allow more ways of communication</li>
+                                    <li>Find and fix tooltip issue causing it to not work when uploaded</li>
                                     <li>Layout script, line 83, make work with onclick</li>
                                 </ul>
                                 <h4>Webmaster</h4>
