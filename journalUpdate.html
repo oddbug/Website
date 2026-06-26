@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Journal</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="My journal.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/journal.html">
+    
+    <link rel="stylesheet" href="common.css">
+</head>
+    
+<style>
+    body {
+        background-color: lavender;
+        font-family: monospace;
+        font-weight: normal;
+        color: var(--darkpink);
+        image-rendering: pixelated;
+        overflow: hidden;
+    }
+    .container {
+        background-color: white;
+        background-clip: padding-box;
+        border: 30px transparent solid;
+        border-image: url(images/journal/border1.png) 24.5 round;
+        border-image-width: 44px;
+        width: 900px;
+        margin: 30px auto;
+        display: flex;
+    }
+    aside {width: 250px;}
+    main {
+        background-color: var(--palepink);
+        background-image:
+            repeating-linear-gradient(
+                transparent,
+                transparent 16px,
+                rgba(255, 255, 255, 0.2) 16px,
+                rgba(255, 255, 255, 0.2) 34px),
+            repeating-linear-gradient(90deg,
+                transparent,
+                transparent 16px,
+                rgba(255,255,255,0.4) 16px,
+                rgba(255,255,255,0.4) 34px
+            );
+        border-left: 2px #ee94a6 solid;
+        width: 600px;
+    }
+
+    /* LEFT */
+
+    aside {
+        position: relative;
+    }
+    aside h2 {
+        border-bottom: 2px var(--darkpink) solid;
+        width: fit-content;
+        margin: 10px auto;
+        padding: 0 10px;
+        line-height: 20px;
+        font-style: italic;
+    }
+
+    #calendar {
+        width: 197px;
+        margin: 10px auto;
+    }
+    .cal-header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .cal-header button {
+        background: none;
+        border: 0;
+        padding: 0 5px;
+        color: var(--darkpink);
+    }
+    .cal-grid {
+        margin: 5px 0;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 0;
+        text-align: center;
+    }
+    .cal-grid div:nth-child(-n+7) {font-weight: bold;}
+    .cal-grid div {
+        width: 28px;
+        height: 28px;
+        padding: 6px;
+    }
+    .has-post a {text-decoration: underline;}
+    .current-day, .current-day a {
+        background-color: var(--palepink);
+        border-radius: 50%;
+        font-weight: bold;
+
+    }
+
+    #madoka {
+        height: 445px;
+        object-fit: cover;
+        image-rendering: auto;
+        position: absolute;
+        left: -45px;
+        bottom: -102px;
+        pointer-events: none;
+    }
+
+    /* MAIN */
+
+    main {padding: 20px 40px;}
+    .inner {
+        background-color: white;
+        background-clip: padding-box;
+        border: 12px transparent solid;
+        border-image: url(images/journal/border2.png) 11 round;
+        scrollbar-width: thin;
+        scrollbar-color: var(--pink) transparent;
+    }
+    .page {
+        border: 2px var(--darkpink) dashed;
+        height: 500px;
+        padding: 10px 25px;
+        overflow-y: auto;
+    }
+    .page p {text-indent: 15px;}
+    .info {margin-bottom: 10px;text-align: center;}
+    .info h2 {
+        border-bottom: 2px var(--darkpink) solid;
+        width: fit-content;
+        margin: 0 auto 2px;
+        padding: 0 10px;
+        font-style: italic;
+    }
+    .info span {opacity: 0.7}
+    
+    .left {
+        margin: 0 10px 10px 0;
+        float: left;
+    }
+    .right {
+        margin: 0 0 10px 10px;
+        float: right;
+    }
+    
+    #i260616 img {
+        width: 100%;
+        image-rendering: auto;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <aside>
+            <h2>Journal</h2>
+            <div id="calendar"></div>
+            <script>
+                function show(elementID) {
+                    // find the requested page and alert if it's not found
+                    const ele = document.getElementById(elementID);
+                    if (!ele) {
+                        alert("Page does not exist");
+                    }
+
+                    // get all pages, loop through them and hide them
+                    const pages = document.getElementsByClassName('page');
+                    for (let i = 0; i < pages.length; i++) {
+                        pages[i].style.display = 'none';
+                    }
+
+                    // then show the requested page
+                    ele.style.display = 'block';
+                }
+                
+                const posts = {
+                    "2026-05-10": "i260510",
+                    "2026-05-22": "i260522",
+                    "2026-05-31": "i260531",
+                    "2026-06-01": "i260601",
+                    "2026-06-07": "i260607",
+                    "2026-06-16": "i260616",
+                    "2026-06-27": "i260627"
+                };
+
+                const calendarEl = document.getElementById("calendar");
+                let current = new Date();
+
+                function renderCalendar() {
+                    const year = current.getFullYear();
+                    const month = current.getMonth();
+
+                    const today = new Date();
+                    const firstDay = new Date(year, month, 1).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                    const monthName = current.toLocaleString('default', { month: 'long' });
+
+                    let html = `
+                        <div class="cal-header">
+                            <button id="prev">⟵</button>
+                            <span>${monthName} ${year}</span>
+                            <button id="next">⟶</button>
+                        </div>
+
+                        <div class="cal-grid">
+                            <div>S</div><div>M</div><div>T</div><div>W</div>
+                            <div>T</div><div>F</div><div>S</div>
+                    `;
+
+                    for (let i = 0; i < firstDay; i++) {
+                        html += `<div class="empty"></div>`;
+                    }
+
+                    for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
+                        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(dayNum).padStart(2, '0')}`;
+
+                        let classes = "";
+
+                        if (dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                            classes += "current-day";
+                        }
+
+                        if (posts[dateStr]) {
+                            html += `<div class="has-post ${classes}">
+                                        <a onclick="show('${posts[dateStr]}');">${dayNum}</a>
+                                     </div>`;
+                        } else {
+                            html += `<div class="${classes}">${dayNum}</div>`;
+                        }
+                    }
+
+                    html += `</div>`;
+                    calendarEl.innerHTML = html;
+
+                    document.getElementById("prev").onclick = () => {
+                        current.setMonth(current.getMonth() - 1);
+                        renderCalendar();
+                    };
+
+                    document.getElementById("next").onclick = () => {
+                        current.setMonth(current.getMonth() + 1);
+                        renderCalendar();
+                    };
+                }
+
+                renderCalendar();
+            </script>
+            <img id="madoka" src="images/journal/madoka.webp">
+        </aside>
+        <main>
+            <div class="inner">
+                <div id="i260627" class="page">
+                    <div class="info">
+                        <h2>Petscop video rant and Nobody cares about how I feel</h2>
+                        <span>Written June 27, 2026 | Edited June , 2026</span>
+                    </div>
+                    <p>This morning, I found the video about Petscop by Pheyden and it helped me understand important things that no other video even cared about which helped me also finally have my own interpretation of the story. Because of that I wanted to rewatch videos about Petscop. I found Sagen Hawkes' video and watched since it's a bit over an hour and I had an hour of free time left. Important thing is that in the beginning, he says that the creator left things not so explicit on purpose. But then it reached the questions part of the video. He started explaining that he thinks Care and Paul are the same person, which I think so too. But then he mentions the interpretation of Paul is trans (It's not my interpretation but I see it.) He says that it's valid but it's not explicit from the author so it can't be it. He says the same bringing up the interpretation I have which is that Paul was never a girl but was forced to be because Marvin's old friend was a girl, basically. He says that he "doesn't even want to entertain it", breifly mentions that that type of thing has transphobic history so the interpretation, and again says it wasn't explicit from the creator so the interpretation is wrong and very bad. I presonally don't see what's so untouchable about an interpretation with transphobic history when the evil man in the story already tortures kids as it is. It's entirely possible for that to be what is happening. Marvin tries to force kids into being his old friend which they are not, trans people in the interpretations Hawkes called so terrible also experience being forced to be something they're not. Basically if I made no sense again, Hawkes brings up interpretations that very much make sense and could be possible only to harsh when saying those are wrong being wrong and I have issue with that. Instead his interpretation is that it's supernatural and he too enthusiastically says he is 100% sure there's a sentient entity in the game. I would have no problem with it if he didn't already call other interpretations wrong for being not explicit by the author and thinking of it like "the one who must not be named" type thing. I don't remember the rest of his interpretation after that because I stopped watching.</p>
+                    <p>Today I woke up at 5:55 PM. I wanted to ask either of my parents to go to the store for energy drinks but I saw they weren't home. I worried about calling since what if they are only minutes away from home already and they would get upset at me for calling when they were just done with whatever. When I actually looked at my phone, I saw I got a text from dad asking if I'm awake but it was thirty minutes before. I thought "Oh they want me to call?" so I do. Immediately I felt bombarbed "Oh man sorry we just left [city] oh sorry" but it felt or was way more than that. I was stuck not able to even speak for like 15 seconds because it was so loud too. It was because they wanted to ask if I wanted something from my favorite restaurant which is there. When I could finally talk I just asked for my energy drinks we get at any gas station or store. Then they asked if I want McDonald instead and I said yeah. That's a bonus.</p>
+                    <p>So here's the bad part. They get home with my McDonald and they drop the drink. No problem, I would want the rest anyway. But they didn't consider it and just let my brother drink from MY drink. When I went to pick up my stuff and then came downstairs a second time, mom asked if I was want my drink still and I said yes pretty loud, or it sounded loud to me. Maybe it was loud because mom said don't blame my brother it's not his fault. I don't care. I'm mad at everyone. It feels too often like they don't consider how I feel about things. Then when I'm back in my room to eat, I sent the money for my stuff since it's mine so I technically pay for it but I accidentally sent too much money. I sent the moeney for my Buldak noodles that I already gave her the money for when she made the Walmart order. Mom noticed and asked if I sent the wrong amount, but if I was the one to notice I wouldn't really care. They've taken so much money from me already, it doesn't matter anymore.</p>
+                    <p>I felt the need to write. This is the most I could think of.</p>
+                    <p>This one feels more sensitive in topic but I'm not mentally well while writing this and it feels like I'm rambling incoherrently so I'm going to go back and fix it later.</p>
+                </div>
+                <div id="i260616" class="page">
+                    <div class="info">
+                        <h2>We are so back</h2>
+                        <span>June 16, 2026</span>
+                    </div>
+                    <p>I am writing this entry on my new computer! I got it mainly for video games. I have a gaming laptop, that's what I've been using this whole time but it's getting old. It can't really handle AAA games which is what I want to play (Cyberpunk, GTA, and RDR2 specifically.) I did play GTA5 on it before but the fan got so loud that it scared me so I never played that big of games on it again, except for Genshin Impact obviously.</p>
+                    <p>Since my computer arrived today, I set it up and got on Genshin Impact to see how well it runs. It runs amazing even on the high graphics settings. Everything is so pretty too, I took pictures of visual effects that are new to me because I couldn't see them on medium graphics settings. It's so cool I get to see it high quality now. It was already so pretty with just medium graphics and now even more so. There are things I didn't screenshot because it was moving or I couldn't. The omni die in the TCG when you roll are actually colorful and the color moves around (Yes I did play the probably not hard on recources card game in the middle of trying out my powerful computer's capabilities, I just wanted to play it.) Columbina has pretty effects in her sleeping idle animation and the ring behind her after her burst that I couldn't see before. And here's what I took pictures of.</p>
+                    <div style="height:305px;display:flex">
+                        <img src="images/journal/highShowcase01.webp">
+                        <img src="images/journal/highShowcase02.webp">
+                    </div>
+                    <p>These ghosts/spirits have more effects, like how it's more detailed and dithered. On my laptop, it was not dithered like that and a texture more solid.</p>
+                    <img src="images/journal/highShowcase03.webp">
+                    <p>Barely visible in this photo because it couldn't capture the movement but the ring behind her back is more glowy.</p>
+                    <img src="images/journal/highShowcase04.webp">
+                    <p>More subtle effects I didn't see before.</p>
+                    <img src="images/journal/highShowcase05.webp">
+                    <p>Lumi reflects in the water. I couldn't get a better photo because Lumi kept moving away from on top of the water.</p>
+                    <img src="images/journal/highShowcase06.webp">
+                    <p>This is the view on top of one of the towers in the Temple of Space. This one is just higher quality image than I could take before. I just wanted to see it because I like this view.</p>
+                    <img src="images/journal/highShowcase07.webp">
+                    <p>The floor is reflective.</p>
+                    <img src="images/journal/highShowcase08.webp">
+                    <p>The purple item is radient.</p>
+                    <img src="images/journal/highShowcase09.webp">
+                    <p>Focus on the peach colored parts of her clothes, specefically her cuff to the left which is the most visible of what I tried to picture. It looks better when it's moving but I was fascinated by the lighting.</p>
+                    <img src="images/journal/highShowcase10.webp">
+                    <p>The water has more visible ripples like real water.</p>
+                    <p>I'm still going to use my laptop just as much as before of course. It still runs completely fine, just has been crashing weird a lot when it gets moved in certain ways. It's a laptop so of course it won't be used for the biggest games, it's compact so the powerful components get hot fast. When my little brother found out I was going to get a new computer, he asked me for my old one. I said no I'm still going to use it. I'm going to use the two computers for two different purposes, one mainly for gaming and one for everything else. I don't remember the conversation anymore but it felt like using two computers for two different purposes is a non-existent concept to him which was funny.</p>
+                </div>
+                <div id="i260607" class="page" style="display:none">
+                    <div class="info">
+                        <h2>Birthday</h2>
+                        <span>June 7, 2026</span>
+                    </div>
+                    <p>I was going to go to my favorite restaurant today, then I was going to go to the store and I would've bought ramune and stuff, and I would've written about it for this entry. I thought I set my alarm, I'm 100% sure I did because I remember it. I guess I did that thing where I turn my alarm off while still asleep so I didn't wake up from it. It was too late so we're going next weekend instead.</p>
+                    <img width="140px" class="right" src="images/journal/cake.webp">
+                    <p style="padding-bottom:54px">Anyway my cake. It's storebought McCain chocolate cake because it's my favorite. I forgot to take a picture before I started eating.</p>
+                    <p>The unfortunate thing of having my birthday if I really don't want to be getting older is that I need to update my age on things or else I'd be lying. Fortunately, I just don't care anymore.</p>
+                </div>
+                <div id="i260601" class="page" style="display:none">
+                    <div class="info">
+                        <h2>Untitled #1</h2>
+                        <span>June 1, 2026</span>
+                    </div>
+                    <p>I shouldn't speak on anything until my mind can leech from others. My own interpretation always ends up being wrong. I always speak, feeling I understand confidently, only to see what others say and I got it all wrong. In school,  I did always just trail behind whoever I was comfortable with, and if I couldn't, I hid in the bathroom.</p>
+                    <p>It was painful how quickly she went for that person none of us liked very much. I thought we could team up one last time out of obligation but no, not even that.</p>
+                    <p>I did pet the support dog when it had it's vest on, but everyone else was doing it so it made me think it would be okay. I was told not to do that by one of them. It felt condescending. I understand the dog was working, I'm sorry.</p>
+                    <p>A funny misspelling of my name turned into being occasionaly talked to as if I was a Christ-like figure. The group chat was named "Church of <span style="letter-spacing:-5px;">▋▋▋▋▋▋</span>". They once spoke about writing a bible around it. There was nothing to write about, yet I still imagined how that would be. I already felt isolated, then I wasn't even an equal anymore. The only coping mechanism I could find to not just cry all the time was to delude myself that I'm a god. With the help of that, I didn't feel so below everyone, though I am not as human either.</p>
+                </div>
+                <div id="i260531" class="page" style="display:none">
+                    <div class="info">
+                        <h2>Backrooms</h2>
+                        <span>May 31, 2026</span>
+                    </div>
+                    <h3 style="color:var(--red)">Backrooms movie, spoiler alert!</h3>
+                    <p>Before the day even started, it wasn't good. I was barely able to sleep because I was in pain. When arriving at the theater, all the store signs were drippy like everything is old and decrepit. It's because of all the rain but everything around looked dry so I was like what the hell. When I tried to go put butter on my popcorn, I hit it on the counter by accident and spilled some. When I bought a ticket, on my own for the first time so I panicked. Then even though the seats were a bit over half taken, there was still a set of good seats right in the middle which is my favorite spot. While the ads were playing and I was waiting for the movie to start, I was listening to my own music. Once In A Lifetime by Talking Heads played which felt connected when I heard Mary ask Clark "How did you get here?" while showing him driving a (not large) automobile.</p>
+                    <p>After Mari woke up tied to the chair in the kitchen, Clark explained to her that the Backrooms is a space that tries to recreate the memories of the people that enter it. He then wanted to redo that therapy excercise. He asked the woman still-life to turn the light off but she didn't listen to him. He laughs and says he's been trying that with her for a while now and goes to do it himself. I noticed her head lowers in the moment he passes in front of her. In this whole sequence, we see again how he's verbally abuses to Barbara who used to be his wife before she kicked him out of his house. It's the moment when he went to turn off the light that I realized something about the whole movie and honestly cried a bit. It's childhood trauma. Just before, there was a sequence going down and down from the indoour of Mari's house from when she was a kid and kept inside by her mother who I believe must've suffered from dementia, schizophrenia, or some other mental illness that causes delusion. As it went lower and lower, the room became more and more empty and unstructured. It's like as you forget more and more. So that and the childhood trauma, the sort of warped still-lifes, it's all distorted memomries of childhood trauma. I'm terrible at explaining, I know. But Clark reminded me of my dad in that moment.</p>
+                    <img style="width:150px;margin:0 0 5px 5px;float:right;" src="images/journal/winnieThePooh.jpg">
+                    <p>It's my memory of my childhood bedroom, specifically of it when I was young, since I still live in here. I remember it as much bigger, a bed with red metal frame at the end. There was a tall (for the height I was) little white shelf with a door type. I had this Whinnie the Pooh rug but I only remember it because I found it again a while ago. I am sure my room was very empty but my memory of it is more empty than I think it was.</p>
+                </div>
+                <div id="i260522" class="page" style="display:none">
+                    <div class="info">
+                        <h2>Abuse?</h2>
+                        <span>May 22, 2026</span>
+                    </div>
+                    <p>My memory is failing when it comes to recalling most of what my dad says to me in those bad moments, the ones I always recall when thinking too much about the bad things he's done to me. Is this a good thing. I don't really think so.</p>
+                    <p>It bothers me that I can't remember things. Although, I still remember those things happened but I don't remember the specific words anymore really. I don't want to forget everything completely, I've learned how to avoid conflict so I'd rather not forget it all and cause problems for myself.</p>
+                </div>
+                <div id="i260510" class="page" style="display:none">
+                    <div class="info">
+                        <h2>Harbourer of a sad existence</h2>
+                        <span>May 10, 2026</span>
+                    </div>
+                    <p>There is a girl, off to die she goes! Why? Who cares!</p>
+                    <p>The scientist studies, grief is what he feels. He kills himself and studies again tomorrow.</p>
+                    <p>Their was an artist, she paints. The people found the blood of her pet rat on the canvas, the canvas with a painting of a man no one knows. She grieved and went to be hanged.</p>
+                    <p>There was a writer, he knew not of the fire outside his house. He only enjoyed his problems in fracturing peace. He died as well.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
