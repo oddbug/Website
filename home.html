@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
     <script src="layout.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
     <script>
       (function($){
@@ -79,19 +79,19 @@
     
     #feed {
         width: 210px;
-    }
-    #feed h3 img {
-        border-radius: 2px;
-        width: 12px;
-        height: 12px;
-    }
-    #feed a {
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
-    }
-    #feed span {
-        color: var(--darkpink);
+        h3 img {
+            border-radius: 2px;
+            width: 12px;
+            height: 12px;
+        }
+        a {
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+        }
+        span {
+            color: var(--darkpink);
+        }
     }
     
     #statuscafe-username {
@@ -234,15 +234,15 @@
                                 </h3>
                                 <ul class="nolist">
                                     <li>
-                                        <a href="journal.html">Journal</a> • 16/06/26
+                                        <span><a href="journal.html">Journal</a> • 16/06/26</span>
                                         <p>New entry where I'm a bit excited.</p>
                                     </li>
                                     <li>
-                                        <a href="aboutsite.html">About site</a> • 14/06/26
+                                        <span><a href="aboutsite.html">About site</a> • 14/06/26</span>
                                         <p>Information about the site itself and how it came to be.</p>
                                     </li>
                                     <li>
-                                        <a href="journal.html">Journal</a><span> • 07/06/26</span>
+                                        <span><a href="journal.html">Journal</a> • 07/06/26</span>
                                         <p>New entry.</p>
                                     </li>
                                     <li>
@@ -339,7 +339,7 @@
                                     <li><img src="images/graphics/pixels/stardewController.webp">
                                         Playing: Cyberpunk 2077</li>
                                     <li><img src="images/graphics/pixels/stardewDisk.webp">
-                                        Watching: hbomberguy on youtube</li>
+                                        Watching: Petscop videos</li>
                                     <li><img src="images/graphics/pixels/stardewMushroom.webp">
                                         Reading: nothing</li>
                                     <li><img src="images/graphics/pixels/stardewDizzy.webp">
