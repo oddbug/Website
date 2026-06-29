@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // The layout will be loaded on all pages that do NOT have the "no-layout" class in the <body> element.
   if (!document.body.classList.contains("no-layout")) {
       
-    document.querySelector("main").insertAdjacentHTML("afterbegin", headerEl);
-    document.querySelector("main").insertAdjacentHTML("beforeend", footerEl);
+    document.querySelector("main").insertAdjacentHTML("beforebegin", headerEl);
+    document.querySelector("main").insertAdjacentHTML("afterend", footerEl);
 
     const wrapperElement = document.querySelector("aside"); // you might have to change this selector to something like .my-wrapper
     if (wrapperElement) {
@@ -115,10 +115,12 @@ const nesting = getNestingString();
 
 const headerEl = `
 	<header>
-        <div id="calendar"></div>
-        <div class="inner">
-            <h1>Placeholder</h1>
-            <p>Where we curl up and wish for a new beginning</p>
+        <div id="banner">
+            <div id="calendar"></div>
+            <div class="inner">
+                <h1>Placeholder</h1>
+                <p>Where we curl up and wish for a new beginning</p>
+            </div>
         </div>
     </header>
 `;
