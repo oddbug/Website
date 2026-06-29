@@ -14,10 +14,9 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
     <script src="layout.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
     <script>
-      // TOOLTIP
       (function($){
         $(document).ready(function(){
           $("[title]").style_my_tooltips({ 
@@ -46,13 +45,6 @@
         position: absolute;
         top: 10px;
     }
-    nav::after {
-        content: url(images/clown.png);
-        zoom: 38%;
-        position: absolute;
-        right: -390px; bottom: 400px;
-        z-index: 2;
-    }
     nav {
         margin-top: 187.2px;
     }
@@ -64,8 +56,8 @@
         image-rendering: pixelated;
     }
     
-    .middle {position:relative;}
-    .middle::after {
+    main {position:relative;}
+    main::after {
         content: url(images/kitty.png);
         zoom: 30%;
         position: absolute;
@@ -88,6 +80,13 @@
         position: relative;
     }
     #one::after {
+        content: url(images/clown.png);
+        zoom: 38%;
+        position: absolute;
+        left: -40px; bottom: 0;
+        z-index: 2;
+    }
+    #two::after {
         content: url(images/strawberry.png);
         zoom: 38%;
         position: absolute;
@@ -171,6 +170,27 @@
     #artists .item:hover span {
         visibility: visible;
     }
+    
+    @media (max-width: 1000px) {
+        nav {
+            padding-left: 46px;
+        }
+        nav::before {
+            width: 41px;
+            height: 41px;
+            z-index: 1;
+            top: 6px; left: 10px;
+        }
+        main::after {
+            top: -560px;
+        }
+        #two::after {
+            right: -50px;
+        }
+        #ids {
+            display: none;
+        }
+    }
 </style>
     
 <body>
@@ -183,145 +203,150 @@
             </div>
         </aside>
         <main>
-            <div class="middle">
-                <div class="flex">
-                    <div id="info" class="box">
-                        <div class="head">Information</div>
-                        <table>
-                            <tr>
-                                <td>Age</td>
-                                <td>21</td>
-                            </tr>
-                            <tr>
-                                <td>Birthday</td>
-                                <td>June 7</td>
-                            </tr>
-                            <tr>
-                                <td>Pronouns</td>
-                                <td>She/They</td>
-                            </tr>
-                            <tr>
-                                <td>Location</td>
-                                <td>Nebula</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div id="profile">
-                        <h2>About me</h2>
-                        <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website.</p>
-                        <div id="facts">
-                            <span id="factOutput">Click for a random fact about me!</span>
-                        </div>
-                        <script>
-                            var factBtn = document.getElementById('facts');
-                            var factOutput = document.getElementById('factOutput');
-
-                            var factsArray = ["When I was  little I hated the color pink and didn't even know why (society), I love it now!", 
-                                             "In 11th grade, the PSD teacher made us do an IQ test and I scored 145.",
-                                             "I identify more with beings that are not entirely human.",
-                                             "I can type without looking at my keyboard."];
-
-                            factBtn.addEventListener('click', displayFact);
-
-                            function displayFact() {
-                              var rand = Math.floor(Math.random() * factsArray.length);
-                              factOutput.innerText = factsArray[rand];
-                            }
-                        </script>
-                    </div>
-                    <a href="https://rice.place/quiz.html">
-                        <img id="quiz" src="images/graphics/quizzes/rice.jpg">
-                    </a>
+            <div class="flex">
+                <div id="info" class="box">
+                    <div class="head">Information</div>
+                    <table>
+                        <tr>
+                            <td>Age</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Birthday</td>
+                            <td>June 7</td>
+                        </tr>
+                        <tr>
+                            <td>Pronouns</td>
+                            <td>She/They</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>Nebula</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="devide">Interests</div>
-                <div class="flex">
-                    <div id="infodump">
-                        <h4>Technology</h4>
-                        <p>I first started coding when I was 14 and wondered "Wow, there's so many DDLC mods that are low effort memes. That must mean it's easy to mod, right?" so I tried it out. I later learned CSS by customizing my Spacehey profile, then HTML when I started this website in 2024.</p>
-                        <p>I became really interested into more than just coding this past year, things like physical parts of a machine (from opening one (a PS2) for the first time), [...]</p>
-                        <h4>Psychological horror</h4>
-                        <p>I didn't like horror until I saw stuff like DDLC, Totono, School Days, etc, because what I knew of horror was just jumpscares courtesy of my friend showing me Five Nights at Freddy's and not letting me turn it off.</p>
-                        <p>Horror is probably my favorite genre now. I love stuff like Hello Charlotte, Serial Experiments Lain, Neon Genesis Evangelion, ENA, things that make me think a lot, for a long time. I enjoy having interests with lots of details and many things to think about all the time. Bonus points when I deeply relate to a character. Other horrors I like are the Backrooms (excited for the movie), Needy Girl Overdose, Madoka Magica, Petscop, Silent Hill f (now I want to play the other games), and all other previous ones I've named.</p>
+                <div id="profile">
+                    <h2>About me</h2>
+                    <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website.</p>
+                    <div id="facts">
+                        <span id="factOutput">Click for a random fact about me!</span>
                     </div>
-                    <div id="interests" class="box">
-                        <div class="head">General</div>
-                        <div class="inner">
-                            <ul>
-                                <li>Technologies, telecommunications</li>
-                                <li>Angels, wings, gods/deities</li>
-                                <li>Video games, anime, manga</li>
-                            </ul>
-                            <h4>Games</h4>
-                            <ul>
-                                <li>Etherane games (Hello Charlotte, TWCW█, MRSIS)</li>
-                                <li>Z.A.T.O. // I Love the World and Everything In It</li>
-                                <li>Minecraft</li>
-                                
-                            </ul>
-                            <h4>Anime/Show/Movie</h4>
-                            <ul>
-                                <li>Girls Last Tour</li>
-                                <li>Serial Experiments Lain</li>
-                                <li>Neon Genesis Evangelion</li>
-                            </ul>
-                            <h4>Music artists</h4>
-                            <ul>
-                                <li>Shinsei Kamattechan</li>
-                                <li>Cavetown</li>
-                                <li>Ghost and Pals</li>
-                                <li>Guchiry</li>
-                            </ul>
-                            <h4>Music genres</h4>
-                            <ul>
-                                <li>Pop punk</li>
-                                <li>Indie</li>
-                                <li>Vocaloid</li>
-                                <li>J-Rock</li>
-                            </ul>
-                        </div>
+                    <script>
+                        var factBtn = document.getElementById('facts');
+                        var factOutput = document.getElementById('factOutput');
+
+                        var factsArray = ["When I was  little I hated the color pink and didn't even know why (society), I love it now!", 
+                                         "In 11th grade, the PSD teacher made us do an IQ test and I scored 145.",
+                                         "I identify more with beings that are not entirely human.",
+                                         "I can type without looking at my keyboard.",
+                                         "I have small hands and long fingers."];
+
+                        factBtn.addEventListener('click', displayFact);
+
+                        function displayFact() {
+                          var rand = Math.floor(Math.random() * factsArray.length);
+                          factOutput.innerText = factsArray[rand];
+                        }
+                    </script>
+                </div>
+                <a href="https://rice.place/quiz.html">
+                    <img id="quiz" src="images/graphics/quizzes/rice.jpg">
+                </a>
+            </div>
+            <div class="devide" id="one">Interests</div>
+            <div class="flex">
+                <div id="infodump">
+                    <h4>Technology</h4>
+                    <p>I first started coding when I was 14 and wondered "Wow, there's so many DDLC mods that are low effort memes. That must mean it's easy to mod, right?" so I tried it out. I later learned CSS by customizing my Spacehey profile, then HTML when I started this website in 2024.</p>
+                    <p>I became really interested into more than just coding this past year, things like physical parts of a machine (from opening one (a PS2) for the first time), [...]</p>
+                    <h4>Psychological horror</h4>
+                    <p>I didn't like horror until I saw stuff like DDLC, Totono, School Days, etc, because what I knew of horror was just jumpscares courtesy of my friend showing me Five Nights at Freddy's and not letting me turn it off.</p>
+                    <p>Horror is probably my favorite genre now. I love stuff like Hello Charlotte, Serial Experiments Lain, Neon Genesis Evangelion, ENA, things that make me think a lot, for a long time. I enjoy having interests with lots of details and many things to think about all the time. Bonus points when I deeply relate to a character. Other horrors I like are the Backrooms (excited for the movie), Needy Girl Overdose, Madoka Magica, Petscop, Silent Hill f (now I want to play the other games), and all other previous ones I've named.</p>
+                </div>
+                <div id="interests" class="box">
+                    <div class="head">General</div>
+                    <div class="inner">
+                        <ul>
+                            <li>Technologies, telecommunications</li>
+                            <li>Angels, wings, gods/deities</li>
+                            <li>Video games, anime, manga</li>
+                        </ul>
+                        <h4>Games</h4>
+                        <ul>
+                            <li>Etherane games (Hello Charlotte, TWCW█, MRSIS)</li>
+                            <li>Z.A.T.O. // I Love the World and Everything In It</li>
+                            <li>Minecraft</li>
+                            <li>ENA: Dream BBQ</li>
+                        </ul>
+                        <h4>Web series</h4>
+                        <ul>
+                            <li>ENA</li>
+                            <li>Petscop <a href="https://youtu.be/02Oh_rnNJF8">1</a>,<a href="https://www.youtube.com/watch?v=MXWWittFcEs">2</a></li>
+                        </ul>
+
+                        <h4>Anime/Show/Movie</h4>
+                        <ul>
+                            <li>Girls Last Tour</li>
+                            <li>Serial Experiments Lain</li>
+                            <li>Neon Genesis Evangelion</li>
+                        </ul>
+                        <h4>Music artists</h4>
+                        <ul>
+                            <li>Shinsei Kamattechan</li>
+                            <li>Cavetown</li>
+                            <li>Ghost and Pals</li>
+                            <li>Guchiry</li>
+                        </ul>
+                        <h4>Music genres</h4>
+                        <ul>
+                            <li>Pop punk</li>
+                            <li>Indie</li>
+                            <li>Vocaloid</li>
+                            <li>J-Rock</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="devide" id="one">Artists I like</div>
-                <div id="artists">
-                    <div class="item">
-                        <img src="images/icons/lonelyt4xicab.jpg">
-                        <span><a href="https://x.com/lonelyt4xicab">lonelyt4xicab</a></span>
-                    </div>
-                    <div class="item">
-                        <img src="images/icons/iewa.jpg">
-                        <span><a href="https://www.instagram.com/iewaaaaaaa">iewa</a></span>
-                    </div>
-                    <div class="item">
-                        <img src="images/icons/yoruseh.jpg">
-                        <span><a href="https://www.instagram.com/yoruseh">yoruseh</a></span>
-                    </div>
-                    <div class="item">
-                        <img src="images/icons/sukinapan.jpg">
-                        <span>
-                            <a href="https://sukinapan.tumblr.com/">sukinapan</a>
-                            also is part of a team of game devs who have cool games
-                            <a href="https://smarto-club.itch.io/">smarto club</a>
-                            <a href="https://lonely-house.itch.io/">lonely house</a>
-                        </span>
-                    </div>
-                    <div class="item">
-                        <img src="images/icons/hiyoponyo.webp">
-                        <span><a href="https://www.instagram.com/hiyoponyo/">hiyoponyo</a></span>
-                    </div>
-                    <div class="item">
-                        <img src="images/icons/etherane.jpg">
-                        <span>
-                            <a href="https://anegames.fandom.com/wiki/Ætherworks_Wiki">Etherane</a>
-                            Creator of one of my favorite game series Hello Charlotte
-                        </span>
-                    </div>
-                    <div class="item">
-                        <img src="images/icons/tsukumizu.jpg">
-                        <span>
-                            <a href="https://x.com/lililjiliijili">Tsukumizu</a>
-                            Magaka of Girls Last Tour
-                        </span>
-                    </div>
+            </div>
+            <div class="devide" id="two">Artists I like</div>
+            <div id="artists">
+                <div class="item">
+                    <img src="images/icons/lonelyt4xicab.jpg">
+                    <span><a href="https://x.com/lonelyt4xicab">lonelyt4xicab</a></span>
+                </div>
+                <div class="item">
+                    <img src="images/icons/iewa.jpg">
+                    <span><a href="https://www.instagram.com/iewaaaaaaa">iewa</a></span>
+                </div>
+                <div class="item">
+                    <img src="images/icons/yoruseh.jpg">
+                    <span><a href="https://www.instagram.com/yoruseh">yoruseh</a></span>
+                </div>
+                <div class="item">
+                    <img src="images/icons/sukinapan.jpg">
+                    <span>
+                        <a href="https://sukinapan.tumblr.com/">sukinapan</a>
+                        also is part of a team of game devs who have cool games
+                        <a href="https://smarto-club.itch.io/">smarto club</a>
+                        <a href="https://lonely-house.itch.io/">lonely house</a>
+                    </span>
+                </div>
+                <div class="item">
+                    <img src="images/icons/hiyoponyo.webp">
+                    <span><a href="https://www.instagram.com/hiyoponyo/">hiyoponyo</a></span>
+                </div>
+                <div class="item">
+                    <img src="images/icons/etherane.jpg">
+                    <span>
+                        <a href="https://anegames.fandom.com/wiki/Ætherworks_Wiki">Etherane</a>
+                        Creator of one of my favorite game series Hello Charlotte
+                    </span>
+                </div>
+                <div class="item">
+                    <img src="images/icons/tsukumizu.jpg">
+                    <span>
+                        <a href="https://x.com/lililjiliijili">Tsukumizu</a>
+                        Magaka of Girls Last Tour
+                    </span>
                 </div>
             </div>
         </main>
