@@ -17,10 +17,20 @@
     
 <style>
     main {
+        border-width: 1px;
+        border-radius: 5px;
         width: 500px;
         margin: 140px auto;
         padding: 10px;
         display: block;
+        position: relative;
+        &::after {
+            content: url(images/butterfree.webp);
+            zoom: 30%;
+            position: absolute;
+            top: -300px;
+            right: -180px;
+        }
     }
     h2 {
         border-bottom: 1px var(--brown) dashed;
