@@ -13,6 +13,9 @@ body {
             rgba(255,255,255,0.4) 50px
         );
     height: 100%;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 #s-m-t-tooltip {
     background-color: white;
@@ -28,6 +31,8 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 200px 800px;
+    scrollbar-color: var(--pink) var(--palepeach);
+    scrollbar-width: thin;
 }
 
 h1, h2, h3, h4 {
@@ -124,10 +129,11 @@ header {
     overflow: hidden;
 }
 #banner .inner {
-    width: 600px;
-    padding: 50px;
-    text-align: center;
+    width: calc(100% - 180px);
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 #banner .inner h1 {
@@ -191,8 +197,6 @@ main .flex {
     border: 1px var(--pink) solid;
     border-radius: 5px;
     overflow: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: var(--pink) transparent;
 }
 .box:not(:last-child) {
     margin-bottom: 10px;
@@ -237,10 +241,12 @@ footer li:not(:last-child)::after {
     margin: 0 10px;
 }
 
+/* RESPONSIVE */
+
 @media (max-width: 1000px) {
     .container {
         max-width: 800px;
-        grid-template-columns: 100%;;
+        grid-template-columns: 100%;
     }
     header {
         grid-row: 1;
@@ -285,7 +291,25 @@ footer li:not(:last-child)::after {
     }
 }
 @media (max-width: 840px) {
+    body {
+        font-size: 90%;
+    }
     .container {
+        width: calc(100vw - 40px);
         margin: 40px 20px;
+    }
+    #calendar {
+        width: 160px;
+    }
+}
+@media (max-width: 645px) {
+    nav {
+        flex-wrap: wrap;
+        .menu {
+            width: calc(50% - 5px);
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
     }
 }

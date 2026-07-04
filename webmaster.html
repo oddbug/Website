@@ -31,22 +31,22 @@
 </head>
     
 <style>    
-    nav::before {
-        content: "";
-        background-image: url(images/icons/pfp.webp);
-        background-size: 100%;
-        filter: brightness(1.5) grayscale(0%) contrast(90%);
-        border: 1px white solid;
-        border-radius: 5px;
-        outline: 1px white solid;
-        outline-offset: -3px;
-        width: 177.2px;
-        height: 177.2px;
-        position: absolute;
-        top: 10px;
-    }
     nav {
         margin-top: 187.2px;
+        &::before {
+            content: "";
+            background-image: url(images/icons/pfp.webp);
+            background-size: 100%;
+            filter: brightness(1.5) grayscale(0%) contrast(90%);
+            border: 1px white solid;
+            border-radius: 5px;
+            outline: 1px white solid;
+            outline-offset: -3px;
+            width: 177.2px;
+            height: 177.2px;
+            position: absolute;
+            top: 10px;
+        }
     }
     #ids {
         display: flex;
@@ -56,13 +56,15 @@
         image-rendering: pixelated;
     }
     
-    main {position:relative;}
-    main::after {
-        content: url(images/kitty.png);
-        zoom: 30%;
-        position: absolute;
-        right: -70px; top: -440px;
-        z-index: 2;
+    main {
+        position:relative;
+        &::after {
+            content: url(images/kitty.png);
+            zoom: 30%;
+            position: absolute;
+            right: -70px; top: -440px;
+            z-index: 2;
+        }
     }
     
     .devide {
@@ -108,7 +110,7 @@
     #info td:last-child {
         text-align: right;
     }
-    #profile {
+    #about {
         width: 385px;
     }
     #facts {
@@ -128,9 +130,9 @@
         margin: -10px 0;
         padding: 10px 0;
         overflow: auto;
-    }
-    #infodump::-webkit-scrollbar {
-        width: 0;
+        & ::-webkit-scrollbar {
+            width: 0;
+        }
     }
     
     #interests {
@@ -191,6 +193,22 @@
             display: none;
         }
     }
+    @media (max-width: 840px) {
+        #profile {
+            flex-wrap: wrap;
+        }
+        #about {
+            width: calc(100% - 173px);
+        }
+    }
+    @media (max-width: 645px) {
+        nav {
+            padding: 0;
+            &::before {
+                display: none;
+            }
+        }
+    }
 </style>
     
 <body>
@@ -203,7 +221,7 @@
             </div>
         </aside>
         <main>
-            <div class="flex">
+            <div id="profile" class="flex">
                 <div id="info" class="box">
                     <div class="head">Information</div>
                     <table>
@@ -225,7 +243,7 @@
                         </tr>
                     </table>
                 </div>
-                <div id="profile">
+                <div id="about">
                     <h2>About me</h2>
                     <p>Hello, I am <span style="font-weight:bold;color:var(--darkpink)">Bianca</span>, the webmaster of this website.</p>
                     <div id="facts">
@@ -277,6 +295,7 @@
                             <li>Z.A.T.O. // I Love the World and Everything In It</li>
                             <li>Minecraft</li>
                             <li>ENA: Dream BBQ</li>
+                            <li>A Hat In Time</li>
                         </ul>
                         <h4>Web series</h4>
                         <ul>

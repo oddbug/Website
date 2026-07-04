@@ -47,14 +47,36 @@
         column-gap: 80px;
     }
     .buttons {
-        margin-top: 10px;
+        width: fit-content;
+        margin: 10px auto 0;
         image-rendering: pixelated;
         display: flex;
-        justify-content: center;
-        column-gap: 5px;
+        gap: 5px;
         .devide {
             border-right: 1px var(--brown) dashed;
-            margin: 0 5px;
+        }
+    }
+    @media (max-width: 540px) {
+        main {
+            width: calc(100vw - 40px);
+            margin: 140px 20px;
+            &::after {
+                right: -60px;
+            }
+        }
+    }
+    @media (max-width: 437px) {
+        .buttons {
+            flex-direction: column;
+        }
+        .devide {
+            border-right: 0;
+            border-bottom: 1px var(--brown) dashed;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            column-gap: 5px;
         }
     }
 </style>
@@ -82,11 +104,15 @@
             <a href="home.html">Enter</a>
         </div>
         <div class="buttons">
-            <a href="https://neocities.org/site/nogood-angel" target="_blank"><img src="images/graphics/buttons/neocities.webp"></a>
-            <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org" target="_blank"><img src="images/graphics/buttons/nekoweb.webp"></a>
-            <a href="https://nogood-angel.atabook.org/" target="_blank"><img src="images/graphics/buttons/atabook.webp"></a>
+            <div class="row">
+                <a href="https://neocities.org/site/nogood-angel" target="_blank"><img src="images/graphics/buttons/neocities.webp"></a>
+                <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org" target="_blank"><img src="images/graphics/buttons/nekoweb.webp"></a>
+                <a href="https://nogood-angel.atabook.org/" target="_blank"><img src="images/graphics/buttons/atabook.webp"></a>
+            </div>
             <div class="devide"></div>
-            <a href="https://rice.place/clover.html" target="_blank"><img src="images/graphics/buttons/luckbutton.png"></a>
+            <div class="row">
+                <a href="https://rice.place/clover.html" target="_blank"><img src="images/graphics/buttons/luckbutton.png"></a>
+            </div>
         </div>
     </main>
 </body>

@@ -66,8 +66,13 @@
         transform: scale(125%);
     }
     
+    .right {
+        width:306px
+    }
     #webrings {
+        width: 306px;
         height: 199px;
+        margin: auto;
         padding: 10px;
         overflow-y: auto;
     }
@@ -95,6 +100,14 @@
         header::after {
             zoom: 15%;
             right: -100px; top: -110px;
+        }
+    }
+    @media (max-width: 656px) {
+        main {
+            flex-direction: column;
+        }
+        #sites, .right {
+            width: 100%;
         }
     }
 </style>
@@ -156,7 +169,7 @@
                     <a href="https://petrapixel.neocities.org/" target="_blank"><img src="images/graphics/buttons/petrapixel.webp" title="PetraPixel" alt="Petra pixel button"></a>
                 </div>
             </div>
-            <div style="width:306px">
+            <div class="right">
                 <h2>Credits</h2>
                 <ul>
                     <li><a href="https://www.instagram.com/iewaaaaaaa/" target="_blank">iewa</a> - little arts scattered around</li>
