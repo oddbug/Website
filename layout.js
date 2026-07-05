@@ -137,6 +137,12 @@ const sidebarEl1 = `
             </div>
         </div>
         <div class="menu">
+            <span>Personal</span>
+            <div class="menuContent">
+                <a href="${nesting}/medialog.html">Media log</a>
+            </div>
+        </div>
+        <div class="menu">
             <span>Writings</span>
             <div class="menuContent">
                 <a href="${nesting}/journal.html">Journal</a>
