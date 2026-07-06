@@ -4,6 +4,13 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
+            <title>Media log</title>
+            <description>All the media I've played or watched.</description>
+            <link>https://nogood-angel.moe/medialog.html</link>
+            <guid>post8</guid>
+            <pubDate>Mon 06 July 2026, 05:44:00 -0300</pubDate>
+        </item>
+        <item>
             <title>About site</title>
             <description>Information about the site itself and how it came to.</description>
             <link>https://nogood-angel.moe/aboutsite.html</link>
