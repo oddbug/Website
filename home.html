@@ -130,10 +130,18 @@
         }
     }
 
-    #celestial {
-        margin-bottom: 15px;
+    #poll {
         padding: 5px;
-        text-align: center;
+    }
+    #poll b {
+        background-color: var(--green);
+        color: white;
+    }
+    #poll input[type="submit"] {
+        background-color: var(--paleyellow);
+        border: 1px var(--pink) solid;
+        border-radius: 3px;
+        padding: 0 5px;
     }
     
     #todo .inner {
@@ -401,6 +409,23 @@
                 </div>
             </div>
             <div class="right">
+                <div id="poll" class="box">
+                    <form method="post" action="https://poll.pollcode.com/56784461">
+                        <div style="padding:2px 0px 4px 2px;">
+                            <b>Should I make a Discord server? (Bad idea)</b>
+                        </div>
+                        <input type="radio" name="answer" value="1" id="answer567844611">
+                        <label for="answer567844611">Yes</label>
+                        <div style="clear:both;height:2px;"></div>
+                        <input type="radio" name="answer" value="2" id="answer567844612">
+                        <label for="answer567844612">No</label>
+                        <div style="clear:both;height:2px;"></div>
+                        <div align="center" style="padding:3px;">
+                            <input type="submit" value="Vote">
+                            <input type="submit" name="view" value="View">
+                        </div>
+                    </form>
+                </div>
                 <div id="todo" class="box">
                     <div class="head">To-do list</div>
                     <div class="inner">

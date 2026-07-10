@@ -12,7 +12,6 @@ html {
             rgba(255,255,255,0.4) 25px,
             rgba(255,255,255,0.4) 50px
         );
-    height: 100%;
     &::-webkit-scrollbar {
         width: 0;
     }

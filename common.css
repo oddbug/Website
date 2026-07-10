@@ -14,6 +14,7 @@
     --red: #bd4d4d;
     --brown: #523f39;
     --paleyellow: #fcfbed;
+    --green: #567d59;
 }
 body {
     font-family: monospace;
@@ -24,10 +25,11 @@ body {
         0 0 3px var(--peach);
     color: var(--brown);
 }
-button, button, input, textarea {
+button, input, textarea {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+    text-shadow: inherit;
     color: inherit;
 }
 h1, h2, h3, h4 {
@@ -44,6 +46,9 @@ p, ul, ol {
 }
 a {
     color: var(--red);
+    &:hover {
+        color: var(--green);
+    }
     &:has(img) {
         font-size: 0;
     }

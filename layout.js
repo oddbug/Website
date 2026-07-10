@@ -134,6 +134,9 @@ const sidebarEl1 = `
                 <a href="${nesting}/aboutsite.html">About site</a>
                 <a href="${nesting}/webmaster.html">Webmaster</a>
                 <a href="${nesting}/links.html">Links</a>
+                <a href="${nesting}/sitemap.html">Sitemap</a>
+                <a href="${nesting}/contact.html">Contact</a>
+                <a href="https://nogood-angel.atabook.org/">Guestbook</a>
             </div>
         </div>
         <div class="menu">
