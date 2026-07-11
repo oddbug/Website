@@ -209,14 +209,12 @@
         .right {
             width: auto;
             display: flex;
-            column-gap: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
             .box {
                 width: 200px;
                 margin: 0;
             }
-        }
-        #todo, #cliques {
-            width: 50%;
         }
         #todo .inner {
             height: 160px;
@@ -425,6 +423,7 @@
                             <input type="submit" name="view" value="View">
                         </div>
                     </form>
+                    <p>Today (11/07/26) I woke up in a good mood and thinking back to when I asked this partially didn't feel real anymore. I no longer have the urge to ruin myself, sorry!</p>
                 </div>
                 <div id="todo" class="box">
                     <div class="head">To-do list</div>
