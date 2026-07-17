@@ -126,6 +126,10 @@ const headerEl = `
 `;
 
 const sidebarEl1 = `
+    <div class="sideHead">
+        <h2>Navigation</h2>
+        <img src="${nesting}/images/cross.png">
+    </div>
     <nav>
         <div class="menu">
             <span>Sitely</span>

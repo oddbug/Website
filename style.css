@@ -36,6 +36,14 @@ html {
 
 h1, h2, h3, h4 {
     border-bottom: 1px var(--brown) dashed;
+    position: relative;
+}
+main h1, main h2, main h3, main h4 {
+    &::after {
+        content: url(images/graphics/pixels/daisy.webp);
+        position: absolute;
+        right: 0;
+    }
 }
 
 /* ASIDE */
@@ -51,6 +59,28 @@ aside {
     grid-row: 1/4;
     grid-column: 1;
     position: relative;
+}
+
+.sideHead {
+    background-color: var(--lightpink);
+    border-bottom: 1px var(--pink) solid;
+    width: calc(100% + 20px);
+    margin: -10px -10px 10px;;
+    padding: 3px 10px;
+    text-align: right;
+    position: relative;
+}
+.sideHead h2 {
+    border: 0;
+    margin: 0;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
+}
+.sideHead img {
+    width: 90px;
+    position: absolute;
+    left: -10px;
+    bottom: 0px;
 }
 
 nav:not(:last-child) {
@@ -92,7 +122,8 @@ nav a {
         border-bottom: 1px var(--pink) solid;
     }
     &:hover {
-        background-color: var(--paleyellow);
+        background: var(--paleyellow);
+        color: var(--red);
     }
 }
 nav .menu:hover .menuContent {
@@ -190,6 +221,20 @@ main {
 main .flex {
     display: flex;
     column-gap: 10px;
+}
+
+.devide {
+    background-color: var(--lightpink);
+    border: var(--pink) solid;
+    border-width: 1px 0;
+    margin: 10px -15px;
+    padding: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
 }
 
 .box {

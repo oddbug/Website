@@ -286,59 +286,28 @@
                             Feed
                             <a href="rss.xml" target="_blank"><img src="images/rss.jpg" alt="RSS feed"></a>
                         </h3>
-                        <ul class="nolist">
-                            <li>
-                                <span><a href="medialog.html">Media log</a> • 05/07/26</span>
-                                <p>All the media I've played or watched.</p>
-                            </li>
-                            <li>
-                                <span><a href="journal.html">Journal</a> • 16/06/26</span>
-                                <p>New entry where I'm a bit excited.</p>
-                            </li>
-                            <li>
-                                <span><a href="aboutsite.html">About site</a> • 14/06/26</span>
-                                <p>Information about the site itself and how it came to be.</p>
-                            </li>
-                            <li>
-                                <span><a href="journal.html">Journal</a> • 07/06/26</span>
-                                <p>New entry.</p>
-                            </li>
-                            <li>
-                                <span><a href="contact.html">Contact</a> • 06/06/26</span>
-                                <p>Now have a contact form for inquiries which might not be as serious as needed for emailing.</p>
-                            </li>
-                            <li>
-                                <span><a href="journal.html">Journal</a> • 01/06/26</span>
-                                <p>New journal entry.</p>
-                            </li>
-                            <li>
-                                <span><a href="journal.html">Journal</a> • 31/05/26</span>
-                                <p>I watched the Backrooms.</p>
-                            </li>
-                            <li>
-                                <span><a href="shrines/backrooms/index.html">Backrooms shrine</a> • 24/05/26</span>
-                            </li>
-                            <li>
-                                <span><a href="graphics.html">Graphics</a> • 24/05/26</span>
-                                <p>Optimized links page, new graphics page!</p>
-                            </li>
-                            <li>
-                                <span><a href="journal.html">Journal</a> • 22/05/26</span>
-                                <p>New entry.</p>
-                            </li>
-                            <li>
-                                <span><a href="index.html">Site wide</a> • 20/05/26</span>
-                                <p>Improved the design of the main pages.</p>
-                            </li>
-                            <li>
-                                <span><a href="journal.html">Journal</a> • 10/05/26</span>
-                                <p>My more personal writings.</p>
-                            </li>
-                            <li>
-                                <span><a href="index.html">Release</a> • 06/05/26</span>
-                                <p>The release of my site on my custom domain.</p>
-                            </li>
-                        </ul>
+                        <script>
+                            // Tutorial https://www.youtube.com/watch?v=eS-FVnhjvEQ
+                            fetch("feed.json")
+                            
+                            .then(function(responce){
+                                return responce.json();
+                            })
+                            .then(function(updates){
+                                let placeholder = document.querySelector("#feedList");
+                                let out = "";
+                                for(let log of updates){
+                                    out += `
+                                        <li>
+                                            <span><a href="${log.link}">${log.title}</a> • ${log.date}</span>
+                                            <p>${log.desc}</p>
+                                        </li>
+                                    `;
+                                }
+                                placeholder.innerHTML = out;
+                            })
+                        </script>
+                        <ul id="feedList" class="nolist"></ul>
                     </div>
                     <div id="allme">
                         <h3>What am I thinking?</h3>
@@ -407,24 +376,6 @@
                 </div>
             </div>
             <div class="right">
-                <div id="poll" class="box">
-                    <form method="post" action="https://poll.pollcode.com/56784461">
-                        <div style="padding:2px 0px 4px 2px;">
-                            <b>Should I make a Discord server? (Bad idea)</b>
-                        </div>
-                        <input type="radio" name="answer" value="1" id="answer567844611">
-                        <label for="answer567844611">Yes</label>
-                        <div style="clear:both;height:2px;"></div>
-                        <input type="radio" name="answer" value="2" id="answer567844612">
-                        <label for="answer567844612">No</label>
-                        <div style="clear:both;height:2px;"></div>
-                        <div align="center" style="padding:3px;">
-                            <input type="submit" value="Vote">
-                            <input type="submit" name="view" value="View">
-                        </div>
-                    </form>
-                    <p>Today (11/07/26) I woke up in a good mood and thinking back to when I asked this partially didn't feel real anymore. I no longer have the urge to ruin myself, sorry!</p>
-                </div>
                 <div id="todo" class="box">
                     <div class="head">To-do list</div>
                     <div class="inner">

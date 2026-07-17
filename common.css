@@ -14,15 +14,14 @@
     --red: #bd4d4d;
     --brown: #523f39;
     --paleyellow: #fcfbed;
+    --lightgreen: #95bd8f;
     --green: #567d59;
 }
 body {
     font-family: monospace;
     font-weight: normal;
     font-size: 14px;
-    text-shadow:
-        0 0 3px var(--peach),
-        0 0 3px var(--peach);
+    
     color: var(--brown);
 }
 button, input, textarea {
@@ -47,7 +46,9 @@ p, ul, ol {
 a {
     color: var(--red);
     &:hover {
-        color: var(--green);
+        background-image: linear-gradient(var(--red), var(--green));
+        background-clip: text;
+        color: transparent;
     }
     &:has(img) {
         font-size: 0;
