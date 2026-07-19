@@ -46,9 +46,7 @@ p, ul, ol {
 a {
     color: var(--red);
     &:hover {
-        background-image: linear-gradient(var(--red), var(--green));
-        background-clip: text;
-        color: transparent;
+        color: var(--green);
     }
     &:has(img) {
         font-size: 0;
