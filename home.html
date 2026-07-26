@@ -89,6 +89,9 @@
         span {
             color: var(--darkpink);
         }
+        li:not(:last-child) {
+            margin-bottom: 3px;
+        }
     }
     
     #allme {
@@ -122,26 +125,35 @@
             image-rendering: pixelated;
         }
     }
-    #status span {
-        display: inline-block;
-        &::first-letter {
-            text-transform: capitalize;
-            
+    
+    #discord .flex {
+        margin-bottom: 5px;
+    }
+    #discordPfp {
+        width: 50px;
+        height: 50px;
+        img {
+            border-radius: 5px;
+            width: 100%;
         }
     }
-
-    #poll {
-        padding: 5px;
+    #discord #username {
+        font-weight: bold;
     }
-    #poll b {
+    #discord #status {
+        display: flex;
+        column-gap: 5px
+    }
+    #discord #status-blob {
+        border-radius: 20px;
+        width: 12px;
+        height: 12px;
+        margin: 2px 0 -2px;
+    }
+    #discord span a {
         background-color: var(--green);
+        font-size: 13.9px;
         color: white;
-    }
-    #poll input[type="submit"] {
-        background-color: var(--paleyellow);
-        border: 1px var(--pink) solid;
-        border-radius: 3px;
-        padding: 0 5px;
     }
     
     #todo .inner {
@@ -274,6 +286,10 @@
                     </script>
                 </ul>
             </div>
+            <div id="banners">
+                <a href="https://rice.place/"><img src="images/graphics/banners/riceplace.webp"></a>
+                <a href="https://nyscyra.net/"><img src="images/graphics/banners/nyscyra.webp"></a>
+            </div>
         </aside>
         <main>
             <div class="left">
@@ -336,54 +352,74 @@
                         <p style="margin:0 10px; font-size:12px;">Care from Petscop since I'm now finally watching the actual videos and writing notes so that I can analyze everything. I'm the type who needs to understand absolutely everything when I'm really interested. I wanted to put a specific funny fanart here but I couldn't find who the artist is.</p>
                         <h3>Currently, I am...</h3>
                         <ul id="currently">
-                            <li id="status"></li>
-                            <script>
-                                async function discordChecker() {
-                                    try {
-                                        const response = await fetch('https://api.lanyard.rest/v1/users/596068722506989570');
-                                        const splingus = await response.json();
-
-                                        const statusImages = {
-                                            online: "stardewSmile",
-                                            idle: "stardewWhistling",
-                                            dnd: "stardewUnsure",
-                                            offline: "stardewBored",
-                                        };
-
-                                        const statusImage = "<img src='images/graphics/pixels/" + statusImages[splingus.data.discord_status] + ".webp' alt='Status icon'>";
-                                        document.getElementById("status").innerHTML = `
-                                            ${statusImage} <span>${splingus.data.discord_status} on discord</span>
-                                        `;
-                                    } catch (error) {
-                                        console.error(error);
-                                    }
-                                };
-
-                                discordChecker();
-                                setInterval(discordChecker, 2000);
-                            </script>
-                            <li><img src="images/graphics/pixels/stardewMusicnote.webp" alt="Music icon">
-                                Listening: The Emptiness Machine by Linkin Park</li>
-                            <li><img src="images/graphics/pixels/stardewController.webp" alt="Game controller icon">
+                            <li><img src="images/graphics/pixels/leaf.webp">
+                                Doing: Trying to add more colors</li>
+                            <li><img src="images/graphics/pixels/headphones.webp">
+                                Listening: Larping The Rooms</li>
+                            <li><img src="images/graphics/pixels/gameboy.webp">
                                 Playing: Cyberpunk 2077</li>
-                            <li><img src="images/graphics/pixels/stardewDisk.webp" alt="Compact disk icon">
-                                Watching: Petscop videos</li>
-                            <li><img src="images/graphics/pixels/stardewMushroom.webp" alt="Mushroom icon">
-                                Reading: nothing</li>
-                            <li><img src="images/graphics/pixels/stardewDizzy.webp" alt="Dizzy swirly icon">
-                                Learning: JavaScript slowly</li>
+                            <li><img src="images/graphics/pixels/cd.webp">
+                                Watching: Youtube</li>
+                            <li><img src="images/graphics/pixels/bug.webp">
+                                Reading: Nothing</li>
+                            <li><img src="images/graphics/pixels/frog.webp">
+                                Learning: Javascript slowly</li>
+                            <li><img src="images/graphics/pixels/onigiri.webp">
+                                Eating: Pepperoni and cheese</li>
+                            <li><img src="images/graphics/pixels/monster.webp">
+                                Drinking: Pacific punch Monster</li>
+                            <!--<li><img src="images/graphics/pixels/rain.webp">
+                                Weather:</li>-->
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="right">
+                <div id="discord" class="box">
+                    <div class="head">Discord</div>
+                    <div class="inner">
+                        <div class="flex">
+                            <div id="discordPfp"></div>
+                            <div id="discordInfo">
+                                <div id="username"></div>
+                                <div id="status">
+                                    <div id="status-blob"></div>
+                                    <div id="status-details"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <span><a href="https://discord.gg/zkApGxebnK">I made a Discord server</a></span>
+                    </div>
+                    <script>
+                        async function discordChecker() {
+                            try {
+                                const response = await fetch('https://api.lanyard.rest/v1/users/596068722506989570');
+                                const splingus = await response.json();
+                                document.getElementById("discordPfp").innerHTML = `<img src="https://cdn.discordapp.com/avatars/596068722506989570/${splingus.data.discord_user.avatar}.webp">`;
+                                document.getElementById("username").innerHTML = `${splingus.data.discord_user.global_name}`
+                                document.getElementById("status-details").innerHTML = `${splingus.data.discord_status}`;
+                                const statusColors = {
+                                    online: "#95bd8f",
+                                    idle: "#cb9654",
+                                    dnd: "#d83a43",
+                                    offline: "#5d5d5d",
+                                };
+                                document.getElementById("status-blob").style.backgroundColor = statusColors[splingus.data.discord_status];
+                            } catch (error) {
+                                console.error("failed to fetch!!", error);
+                            }
+                        };
+
+                        discordChecker();
+                        setInterval(discordChecker, 2000);
+                    </script>
+                </div>
                 <div id="todo" class="box">
                     <div class="head">To-do list</div>
                     <div class="inner">
                         <ul>
                             <li>Bookmarks page</li>
                             <li>Documentation page</li>
-                            <li>Contact form, allow more ways of communication</li>
                             <li>Layout script, line 83, make work with onclick</li>
                         </ul>
                         <h4>Webmaster</h4>
