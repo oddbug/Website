@@ -118,8 +118,7 @@ const headerEl = `
         <div id="banner">
             <div id="calendar"></div>
             <div class="inner">
-                <h1>Placeholder</h1>
-                <p>Where we curl up and wish for a new beginning</p>
+                <span>Where we curl up and wish for a new beginning</span>
             </div>
         </div>
     </header>

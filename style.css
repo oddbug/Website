@@ -167,17 +167,21 @@ header {
     overflow: hidden;
 }
 #banner .inner {
+    background-image: url(images/header.webp);
+    background-size: 100%;
     width: calc(100% - 180px);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 }
-#banner .inner h1 {
-    border: 0;
-}
-#banner .inner p {
+#banner .inner span {
+    text-shadow:
+        1px 0 var(--darkpink),
+        0 1px var(--darkpink),
+        0 -1px var(--darkpink),
+        -1px 0 var(--darkpink),
+        1px 1px var(--darkpink),
+        -1px -1px var(--darkpink),
+        1px -1px var(--darkpink),
+        -1px 1px var(--darkpink);
     color: white;
     position: absolute;
     left: 8px;
