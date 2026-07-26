@@ -1,5 +1,5 @@
 html {
-    background-color: var(--lightpink);
+    background-color: var(--lightblue);
     background-image:
         repeating-linear-gradient(
             transparent,
@@ -128,6 +128,14 @@ nav a {
 }
 nav .menu:hover .menuContent {
     visibility: visible;
+}
+
+#banners {
+    position: absolute;
+    top: calc(100% + 5px); left: 5px;
+    img {
+        width: 190px;
+    }
 }
 
 /* MAIN */
