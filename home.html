@@ -141,6 +141,7 @@
         font-weight: bold;
     }
     #discord #status {
+        text-transform: capitalize;
         display: flex;
         column-gap: 5px
     }
@@ -150,10 +151,16 @@
         height: 12px;
         margin: 2px 0 -2px;
     }
-    #discord span a {
-        background-color: var(--green);
-        font-size: 13.9px;
-        color: white;
+    #discord button {
+        background-color: white;
+        border: 1px var(--pink) solid;
+        border-radius: 3px;
+        width: 100%;
+        padding: 3px;
+        text-align: center;
+        &:hover {
+            background-color: var(--paleyellow);
+        }
     }
     
     #todo .inner {
@@ -388,7 +395,7 @@
                                 </div>
                             </div>
                         </div>
-                        <span><a href="https://discord.gg/zkApGxebnK">I made a Discord server</a></span>
+                        <a href="https://discord.gg/zkApGxebnK" target="_blank"><button>Join my server!</button></a>
                     </div>
                     <script>
                         async function discordChecker() {
@@ -400,9 +407,9 @@
                                 document.getElementById("status-details").innerHTML = `${splingus.data.discord_status}`;
                                 const statusColors = {
                                     online: "#95bd8f",
-                                    idle: "#cb9654",
-                                    dnd: "#d83a43",
-                                    offline: "#5d5d5d",
+                                    idle: "#e0ca6e",
+                                    dnd: "#d14f57",
+                                    offline: "#999999",
                                 };
                                 document.getElementById("status-blob").style.backgroundColor = statusColors[splingus.data.discord_status];
                             } catch (error) {
