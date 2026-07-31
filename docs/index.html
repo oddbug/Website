@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nebula</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="My documentation of things.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/docs/index.html">
+    
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/layout.js"></script>
+    <script src="scripts/tooltip.js"></script>
+    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script>
+      (function($){
+        $(document).ready(function(){
+          $("[title]").style_my_tooltips({ 
+            tip_follows_cursor:true,
+            tip_delay_time:0,
+            tip_fade_speed:0,
+            attribute:"title"
+          });
+        });
+      })(jQuery);
+    </script>
+</head>
+    
+<body>
+    <div class="container">
+        <aside></aside>
+        <main>
+            <div class="middle">
+                <h2>Documentation</h2>
+                <p>Here are my documentation of things I've been interested in, either in deep detail or in spurts upon finding things.</p>
+                <a href="body/index.html">Body</a>
+                <h2>Wikipedia</h2>
+                <p>Interesting Wikipedia pages.</p>
+                <a href="https://en.wikipedia.org/wiki/Mental_health_of_Jesus?useskin=Vector">Mental health of Jesus</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
