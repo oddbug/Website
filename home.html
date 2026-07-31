@@ -311,7 +311,7 @@
                         </h3>
                         <script>
                             // Tutorial https://www.youtube.com/watch?v=eS-FVnhjvEQ
-                            fetch("feed.json")
+                            fetch("updates.json")
                             
                             .then(function(responce){
                                 return responce.json();
@@ -381,22 +381,6 @@
                 </div>
             </div>
             <div class="right">
-                <!--<div id="test" style="width:100px; height: 100px;"></div>
-                <script>
-                    /*const quotes [
-                        {quote:"#0000ff",chance:0.5}
-                        {quote:"#ff0000",chance:0.25}
-                        {quote:"#00ff00",chance:0.25}
-                    ];*/
-                    const quotes ["#0000ff",
-                                  "#ff0000",
-                                  "#00ff00"];
-                    
-                    function showQuote() {
-                        let rng = Math.floor(Math.random() * quotes.length);
-                        document.getElementById("test").style.backgroundColor = quotes[rng];
-                    };
-                </script>-->
                 <div id="discord" class="box">
                     <div class="head">Discord</div>
                     <div class="inner">
@@ -443,6 +427,7 @@
                             <li>Bookmarks page</li>
                             <li>Documentation page</li>
                             <li>Layout script, line 83, make work with onclick</li>
+                            <li>Give percentages to header quotes</li>
                         </ul>
                         <h4>Webmaster</h4>
                         <ul>

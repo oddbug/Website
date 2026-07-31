@@ -4,11 +4,18 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
-            <title>Server</title>
-            <description>I made a Discord server</description>
+            <title>Documentation</title>
+            <description>My documentation of things that interested me.</description>
+            <link>https://nogood-angel.moe/docs/index.html</link>
+            <guid>post10</guid>
+            <pubDate>Fri 31 July 2026, 1:47:00 -0400</pubDate>
+        </item>
+        <item>
+            <title>Discord</title>
+            <description>I made a Discord server.</description>
             <link>https://discord.gg/zkApGxebnK</link>
             <guid>post9</guid>
-            <pubDate>Sun 26 July 2026, 2:19:00 -0300</pubDate>
+            <pubDate>Sun 26 July 2026, 2:19:00 -0400</pubDate>
         </item>
         <item>
             <title>Media log</title>

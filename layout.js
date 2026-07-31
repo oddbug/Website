@@ -71,6 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   renderCalendar();
     
+    // HEADER QUOTE
+    const quotes = [
+        {quote:'Where we curl up and wish for a new beginning', chance:70},
+        {quote:'I am trying to be happy', chance:30}
+    ];
+    
+    function loadQuote() {
+        const percentage = Math.floor(Math.random() * 101);
+        console.log(percentage);
+    };
+    
+    loadQuote();
 });
 
 /* FUNCTIONS */
@@ -118,7 +130,7 @@ const headerEl = `
         <div id="banner">
             <div id="calendar"></div>
             <div class="inner">
-                <span>Where we curl up and wish for a new beginning</span>
+                <span id="quote"></span>
             </div>
         </div>
     </header>
@@ -135,7 +147,7 @@ const sidebarEl1 = `
             <div class="menuContent">
                 <a href="${nesting}/home.html">Home</a>
                 <a href="${nesting}/aboutsite.html">About site</a>
-                <a href="${nesting}/webmaster.html">Webmaster</a>
+                
                 <a href="${nesting}/links.html">Links</a>
                 <a href="${nesting}/sitemap.html">Sitemap</a>
                 <a href="${nesting}/contact.html">Contact</a>
@@ -145,6 +157,7 @@ const sidebarEl1 = `
         <div class="menu">
             <span>Personal</span>
             <div class="menuContent">
+                <a href="${nesting}/webmaster.html">Webmaster</a>
                 <a href="${nesting}/medialog.html">Media log</a>
             </div>
         </div>
@@ -152,6 +165,7 @@ const sidebarEl1 = `
             <span>Writings</span>
             <div class="menuContent">
                 <a href="${nesting}/journal.html">Journal</a>
+                <a href="${nesting}/docs/index.html">Documentation</a>
             </div>
         </div>
         <div class="menu">
