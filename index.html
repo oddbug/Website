@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
+    <script src="scripts/counter.js"></script>
 </head>
     
 <style>
@@ -56,6 +57,10 @@
             border-right: 1px var(--brown) dashed;
         }
     }
+    #counter {
+        position: absolute;
+        left: 10px; top: -100px;
+    }
     @media (max-width: 540px) {
         main {
             width: calc(100vw - 40px);
@@ -83,6 +88,30 @@
     
 <body>
     <main>
+        <div id="counter"></div>
+        <script>
+            const views = document.getElementById("counter");
+
+            async function displayStats() {
+                try {
+                    const response = await fetch(`https://nekoweb.org/api/site/info/nogood-angel.nekoweb.org`);
+                    const data = await response.json();
+                    convertTextToImage(data.views.toString().split(""), views);
+                } catch (error) {
+                    console.error("failed to fetch!!", error);
+                }
+            }
+
+            function convertTextToImage(stringValue, elementValue) {
+                stringValue.forEach(n => {
+                    const img = document.createElement("img");
+                    img.src = `images/counter/${n}.gif`;
+                    elementValue.appendChild(img);
+                });
+            }
+
+            displayStats();
+        </script>
         <h2>Before you proceed</h2>
         <ul>
             <li>Coded on a 1920 x 1080 monitor</li>
