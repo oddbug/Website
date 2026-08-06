@@ -156,6 +156,11 @@ tables, input, textarea {
     height: 90px;
     padding-bottom: 10px;
     vertical-align: top;
+    &:active {
+        box-shadow: none;
+        height: 84px;
+        margin-top: 6px;
+    }
 }
 
 /* END */
