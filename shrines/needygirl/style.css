@@ -19,16 +19,6 @@ body {
     color: var(--blue);
     image-rendering: pixelated;
     overflow: hidden;
-    &::after {
-        content: "";
-        background-image: url(assets/desktop_borders_kangel.png);
-        background-size: 100%;
-        background-repeat: no-repeat;
-        width: 12vw;
-        height: 84vh;
-        position: fixed;
-        right: -0.1vw; bottom: 0;
-    }
 }
 tables, input, textarea, button {
     font-family: inherit;
@@ -48,7 +38,6 @@ tables, input, textarea, button {
         right: 0;
     }
 }
-.container {}
 
 .window {
     background-color: #94f1e1;
@@ -166,11 +155,11 @@ tables, input, textarea, button {
 /* END */
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
 }
 ::-webkit-scrollbar-track {
-    background-color: red;
+    background-color: #d8d4db;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: #db9ae2;
 }
