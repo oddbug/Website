@@ -30,7 +30,7 @@ body {
         right: -0.1vw; bottom: 0;
     }
 }
-tables, input, textarea {
+tables, input, textarea, button {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
@@ -148,7 +148,7 @@ tables, input, textarea {
     padding: 5px;
     resize: none;
 }
-#jine input[type=button] {
+#jine button {
     background-color: #eed8f1;
     border: none;
     box-shadow: 0 -6px #7e5cd6 inset;
