@@ -73,16 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // HEADER QUOTE
     const quotes = [
-        {quote:'Where we curl up and wish for a new beginning', chance:70},
-        {quote:'I am trying to be happy', chance:30}
+        "Where we curl up and wish for a new beginning",
+        "I am trying to be happy"
     ];
     
-    function loadQuote() {
-        const percentage = Math.floor(Math.random() * 101);
-        console.log(percentage);
-    };
-    
-    loadQuote();
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quote").innerHTML = randomQuote;
 });
 
 /* FUNCTIONS */
@@ -174,6 +170,7 @@ const sidebarEl1 = `
                 <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
                 <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
                 <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
+                <a href="${nesting}/shrines/needygirl/index.html">Needy Girl Overdose</a>
             </div>
         </div>
         <div class="menu">
