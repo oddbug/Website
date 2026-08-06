@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: url(assets/ui/cursor.png), default;
+}
+:root {
+    --blue: #4932c9;
+}
+@font-face {
+    font-family: needy;
+    src: url(assets/DinkieBitmap-9px.woff2);
+}
+body {
+    background-image: url(assets/desktop_bg.png);
+    background-size: 5vw;
+    font-family: needy;
+    font-size: 16px;
+    color: var(--blue);
+    image-rendering: pixelated;
+    overflow: hidden;
+    &::after {
+        content: "";
+        background-image: url(assets/desktop_borders_kangel.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 12vw;
+        height: 84vh;
+        position: fixed;
+        right: -0.1vw; bottom: 0;
+    }
+}
+tables, input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+.borders {
+    background-image: url(assets/desktop_borders_night.png);
+    background-size: 100%;
+    background-position: center;
+    width: 15vw;
+    height: 100vh;
+    &:nth-of-type(1) {
+        transform: scaleX(-1);
+        position: fixed;
+        right: 0;
+    }
+}
+.container {}
+
+.window {
+    background-color: #94f1e1;
+    border: 2px var(--blue) solid;
+    padding: 4px;
+}
+.window .head {
+    background-color: #edd0ee;
+    border: 2px var(--blue) solid;
+    margin-bottom: 4px;
+    padding: 4px 26px 5px;
+    font-size: 14px;
+    position: relative;
+    &::before {
+        content: url(assets/ui/window_icon.png);
+        position: absolute;
+        left: 4px; top: 4px;
+    }
+    &::after {
+        content: url(assets/ui/window_buttons.png);
+        zoom: 99%;
+        position: absolute;
+        right: 4px; top: 4px;
+    }
+}
+.window .inner {
+    background-color: #f9eff9;
+    border: 2px var(--blue) solid;
+    padding: 10px;
+    overflow: auto;
+}
+
+/* APPS */
+
+#jine {
+    width: 300px;
+    position: fixed;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -180px;
+    .inner {
+        background-image: url(assets/bg_jine.png);
+        background-size: 100%;
+        height: 300px;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+#jine #chat {
+    height: 197px;
+    padding: 10px;
+    overflow-y: auto;
+}
+#jine .message {
+    border-radius: 6px;
+    padding: 5px 10px 8px;
+    &:not(:last-child) {
+        margin-bottom: 15px;
+    }
+}
+#jine .received {
+    background-color: #cfe4f9;
+    min-height: 51px;
+    margin-left: 50px;
+    position: relative;
+    &::before {
+        content: url(assets/icon_jine_ame.png);
+        zoom: 80%;
+        position: absolute;
+        left: -65px;
+        
+    }
+    &::after {
+        content: "";
+        border-style: solid;
+        border-width: 8px 0px 0 13px;
+        border-color: #cfe4f9 transparent transparent transparent;
+        transform: rotate(15deg);
+        position: absolute;
+        left: -10px; top: 15px;
+    }
+}
+#jine .sent {
+    background-color: #A1ED55;
+}
+
+#jine form {
+    background-color: #cc99e4;
+    height: 100px;
+    padding: 5px;
+}
+#jine textarea {
+    border: none;
+    width: 245px;
+    height: 90px;
+    padding: 5px;
+    resize: none;
+}
+#jine input[type=button] {
+    background-color: #eed8f1;
+    border: none;
+    box-shadow: 0 -6px #7e5cd6 inset;
+    width: 25px;
+    height: 90px;
+    padding-bottom: 10px;
+    vertical-align: top;
+}
+
+/* END */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: red;
+}
+::-webkit-scrollbar-thumb {
+    background-color: blue;
+}
