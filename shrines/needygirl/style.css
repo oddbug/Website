@@ -123,12 +123,22 @@ tables, input, textarea, button {
 }
 #jine .sent {
     background-color: #A1ED55;
+    text-align: right;
+}
+#jine .sent:has(img) {
+    background: none;
+    padding: 0;
+    img {
+        width: 70px;
+    }
 }
 
 #jine form {
     background-color: #cc99e4;
     height: 100px;
     padding: 5px;
+    display: flex;
+    column-gap: 5px;
 }
 #jine textarea {
     border: none;
