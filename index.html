@@ -17,11 +17,17 @@
 </head>
     
 <style>
+    .container {
+        width: 775px;
+        display: flex;
+        column-gap: 25px;
+    }
     main {
         border-width: 1px;
         border-radius: 5px;
         width: 500px;
-        margin: 140px auto;
+        height: fit-content;
+        margin: 100px auto;
         padding: 10px;
         display: block;
         position: relative;
@@ -61,6 +67,38 @@
         position: absolute;
         left: 10px; top: -100px;
     }
+    .webrings {
+        background-color: var(--paleyellow);
+        border: 1px var(--pink) solid;
+        border-radius: 5px;
+        width: 250px;
+        height: 550px;
+        padding: 10px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+    }
+    .ring {
+        display: block;
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+    #chuuniring {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url(https://supernw095.nekoweb.org/chuuniring/chuuniring-bg.webp);
+        height: 165px;
+        border-radius: 5px;
+        a {
+            color: #efefff;
+            text-shadow: 2px 2px #7b6b94;
+        }
+    }
+    
     @media (max-width: 540px) {
         main {
             width: calc(100vw - 40px);
@@ -87,62 +125,113 @@
 </style>
     
 <body>
-    <main>
-        <div id="counter"></div>
-        <script>
-            const views = document.getElementById("counter");
+    <div class="container">
+        <main>
+            <div id="counter"></div>
+            <script>
+                const views = document.getElementById("counter");
 
-            async function displayStats() {
-                try {
-                    const response = await fetch(`https://nekoweb.org/api/site/info/nogood-angel.nekoweb.org`);
-                    const data = await response.json();
-                    convertTextToImage(data.views.toString().split(""), views);
-                } catch (error) {
-                    console.error("failed to fetch!!", error);
+                async function displayStats() {
+                    try {
+                        const response = await fetch(`https://nekoweb.org/api/site/info/nogood-angel.nekoweb.org`);
+                        const data = await response.json();
+                        convertTextToImage(data.views.toString().split(""), views);
+                    } catch (error) {
+                        console.error("failed to fetch!!", error);
+                    }
                 }
-            }
 
-            function convertTextToImage(stringValue, elementValue) {
-                stringValue.forEach(n => {
-                    const img = document.createElement("img");
-                    img.src = `images/counter/${n}.gif`;
-                    elementValue.appendChild(img);
-                });
-            }
+                function convertTextToImage(stringValue, elementValue) {
+                    stringValue.forEach(n => {
+                        const img = document.createElement("img");
+                        img.src = `images/counter/${n}.gif`;
+                        elementValue.appendChild(img);
+                    });
+                }
 
-            displayStats();
-        </script>
-        <h2>Before you proceed</h2>
-        <ul>
-            <li>Coded on a 1920 x 1080 monitor</li>
-            <li>Autoplaying music and sounds</li>
-            <li>Contains moving parts and images</li>
-            <li>Uses iframes and JavaScript</li>
-            <li>Autoplaying music</li>
-        </ul>
-        <p><span style="font-weight:bold;color:var(--red)">Content warning! </span>Despite being cute, this website contains:</p>
-        <ul>
-            <li>Vulgar language</li>
-            <li>Disturbing or mature themes, topics, and imagery</li>
+                displayStats();
+            </script>
+            <h2>Before you proceed</h2>
+            <ul>
+                <li>Coded on a 1920 x 1080 monitor</li>
+                <li>Autoplaying music and sounds</li>
+                <li>Contains moving parts and images</li>
+                <li>Uses iframes and JavaScript</li>
+                <li>Autoplaying music</li>
+            </ul>
+            <p><span style="font-weight:bold;color:var(--red)">Content warning!</span> Despite being cute, this website contains:</p>
+            <ul>
+                <li>Vulgar language</li>
+                <li>Disturbing or mature themes, topics, and imagery</li>
 
-        </ul>
-        <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. Otherwise, it's fine.</p>
-        <p style="text-align:center">You have been warned. What would you like to do?</p>
-        <div id="enter">
-            <a onclick="history.back()" style="text-decoration:underline">Turn back</a>
-            <a href="home.html">Enter</a>
-        </div>
-        <div class="buttons">
-            <div class="row">
-                <a href="https://neocities.org/site/nogood-angel" target="_blank"><img src="images/graphics/buttons/neocities.webp"></a>
-                <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org" target="_blank"><img src="images/graphics/buttons/nekoweb.webp"></a>
-                <a href="https://nogood-angel.atabook.org/" target="_blank"><img src="images/graphics/buttons/atabook.webp"></a>
+            </ul>
+            <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. Otherwise, it's fine.</p>
+            <p style="text-align:center">You have been warned. What would you like to do?</p>
+            <div id="enter">
+                <a onclick="history.back()" style="text-decoration:underline">Turn back</a>
+                <a href="home.html">Enter</a>
             </div>
-            <div class="line"></div>
-            <div class="row">
-                <a href="https://rice.place/clover.html" target="_blank"><img src="images/graphics/buttons/luckbutton.png"></a>
+            <div class="buttons">
+                <div class="row">
+                    <a href="https://neocities.org/site/nogood-angel" target="_blank"><img src="images/graphics/buttons/neocities.webp"></a>
+                    <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org" target="_blank"><img src="images/graphics/buttons/nekoweb.webp"></a>
+                    <a href="https://nogood-angel.atabook.org/" target="_blank"><img src="images/graphics/buttons/atabook.webp"></a>
+                </div>
+                <div class="line"></div>
+                <div class="row">
+                    <a href="https://rice.place/clover.html" target="_blank"><img src="images/graphics/buttons/luckbutton.png"></a>
+                </div>
             </div>
+        </main>
+        <div class="webrings">
+            <script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
+                <div class="zatoring ring">
+                    <link rel="stylesheet" href="https://nogood-angel.moe/zatoring/widget.css">
+                    <script src="https://nogood-angel.nekoweb.org/zatoring/webringu.js"></script>
+                    <div class="zatoring-title">
+                        <a href="https://nogood-angel.nekoweb.org/zatoring/index.html">Z.A.T.O.ring</a>
+                    </div>
+                    <img src="zatoring/icon.png">
+                    <div class="zatoring-links">
+                        <a href="https://nogood-angel.moe/zatoring/index.html?action=previous">&larr; prev</a>
+                        <a href="https://nogood-angel.moe/zatoring/index.html?action=random">random</a>
+                        <a href="https://nogood-angel.moe/zatoring/index.html?action=next">next &rarr;</a>
+                    </div>
+                </div>
+                <div id="we_bring" style="margin:0 12px" class="ring">
+                    <script type="text/javascript" src="https://brooklynights.nekoweb.org/we_bring/onionring-variables.js"></script>
+                    <script type="text/javascript" src="https://brooklynights.nekoweb.org/we_bring/onionring-widget.js"></script>
+                </div>
+                <div id="IDOLRING_WIDGET" style="margin:10px 0;zoom:75%" class="ring">
+                    <link rel="stylesheet" href="https://idolring.nekoweb.org/idolring.css" />
+                    <script src="https://idolring.nekoweb.org/scripts/white.js"></script>
+                    <script>
+                        document.getElementById("idol_description").innerHTML =
+                            "This webmaster is a big <b>Hatsune Miku</b> fan! <u>Vocaloid</u>";
+                    </script>
+                    <script>
+                        // replace YOUR_URL_HERE with the link to your idol's image
+                        document.getElementById("oshi").style.backgroundImage = "url('joined/idolring.jpg')";
+                    </script>
+                </div>
+                <div id="chuuniring" class="ring">
+                    <a href="https://supernw095.nekoweb.org/chuuniring">
+                        <img width="160px" src="https://supernw095.nekoweb.org/chuuniring/chuuniring-title.webp" alt="Chuuniring">
+                    </a>
+                    <img height="100px" src="joined/chuuniring.png">
+                    <div>
+                        <a href="https://supernw095.nekoweb.org/chuuniring?action=previous">🠜 prev</a>
+                        <a href="https://supernw095.nekoweb.org/chuuniring?action=random">random</a>
+                        <a href="https://supernw095.nekoweb.org/chuuniring?action=next">next 🠞</a>
+                    </div>
+                </div>
+                <div id="siwebring" class="ring">
+                    <script src="webrings/siwebringuservars.js"></script>
+                    <script src="https://dears.nekoweb.org/siwebring/onionring-variables.js"></script>
+                    <script src="https://dears.nekoweb.org/siwebring/onionring-widget.js"></script>
+                </div>
+                <script defer data-widget="kaidou" src="https://saikikusuo.nekoweb.org/webring/webringscript.js/"></script>
         </div>
-    </main>
+    </div>
 </body>
 </html>
