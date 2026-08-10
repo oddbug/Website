@@ -1,4 +1,4 @@
-html {
+body {
     background-color: var(--lightblue);
     background-image:
         repeating-linear-gradient(
@@ -49,9 +49,12 @@ main h1, main h2, main h3, main h4 {
 
 /* ASIDE */
 
+aside, header, main, footer {
+    background-color: var(--paleyellow);
+    border: var(--pink) solid;
+}
+
 aside {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
     border-width: 1px 0 1px 1px;
     border-radius: 5px 0 0 5px;
     height: fit-content;
@@ -122,9 +125,6 @@ nav a {
     &:not(:last-child) {
         border-bottom: 1px var(--pink) solid;
     }
-    &:hover {
-        background: var(--paleyellow);
-    }
 }
 nav .menu:hover .menuContent {
     visibility: visible;
@@ -138,22 +138,10 @@ nav .menu:hover .menuContent {
     }
 }
 
-/* MAIN */
-
-main {
-    background-color: var(--palepeach);
-    border: var(--pink) solid;
-    border-width: 0 1px;
-    padding: 10px;
-    position: relative;
-}
-
 /* HEADER */
 
 header {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
-    border-bottom: 0;
+    border-width: 1px 1px 0;
     border-radius: 5px 5px 0 0;
     padding: 10px 10px 0;
 }
@@ -223,10 +211,12 @@ header {
     color: white;
 }
 
-/* MIDDLE */
+/* MAIN */
 
 main {
+    border-width: 0 1px;
     padding: 10px 15px;
+    position: relative;
     grid-row: 2;
     grid-column: 2;
 }
@@ -278,9 +268,7 @@ main .flex {
 /* FOOTER */
 
 footer {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
-    border-top: 0;
+    border-width: 0 1px 1px;
     border-radius: 0 0 5px 5px;
     padding: 0 10px 10px;
     text-align: center;
