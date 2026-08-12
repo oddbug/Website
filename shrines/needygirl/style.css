@@ -90,6 +90,8 @@ tables, input, textarea, button {
 #jine #chat {
     height: 197px;
     padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
     overflow-y: auto;
 }
 #jine .message {
