@@ -27,7 +27,7 @@ tables, input, textarea, button {
 }
 
 .borders {
-    background-image: url(assets/desktop_borders_night.png);
+    background-image: url(assets/desktop_borders_noon.png);
     background-size: 100%;
     background-position: center;
     width: 15vw;
