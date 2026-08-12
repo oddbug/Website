@@ -132,6 +132,15 @@ tables, input, textarea, button {
         width: 70px;
     }
 }
+#jine .devide {
+    background-color: rgba(238, 216, 241, 0.8);
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto 10px;
+    padding: 0 40px;
+    font-size: 12px;
+    text-align: center;
+}
 
 #jine form {
     background-color: #cc99e4;
