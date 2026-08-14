@@ -143,7 +143,6 @@ const sidebarEl1 = `
             <div class="menuContent">
                 <a href="${nesting}/home.html">Home</a>
                 <a href="${nesting}/aboutsite.html">About site</a>
-                
                 <a href="${nesting}/links.html">Links</a>
                 <a href="${nesting}/sitemap.html">Sitemap</a>
                 <a href="${nesting}/contact.html">Contact</a>
