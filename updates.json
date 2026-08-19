@@ -1,5 +1,11 @@
 [
     {
+        "title": "Journal",
+        "link": "/journal.html",
+        "date": "18/08/26",
+        "desc": "New writing about my slowly growing interest in fashion and dressing up."
+    },
+    {
         "title": "Words",
         "link":  "/docs/words.html",
         "date": "13/08/26",
