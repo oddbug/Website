@@ -27,7 +27,7 @@
         border-radius: 5px;
         width: 500px;
         height: fit-content;
-        margin: 100px auto;
+        margin: 100px auto 20px;
         padding: 10px;
         display: block;
         position: relative;
@@ -37,12 +37,10 @@
             position: absolute;
             top: -300px;
             right: -180px;
+            pointer-events: none;
         }
     }
-    h2 {
-        border-bottom: 1px var(--brown) dashed;
-        padding-bottom: 2px;
-        font-style: italic;
+    h2:first-of-type {
         text-align: center;
     }
     ul {
@@ -99,27 +97,31 @@
         }
     }
     
-    @media (max-width: 540px) {
-        main {
-            width: calc(100vw - 40px);
-            margin: 140px 20px;
-            &::after {
-                right: -60px;
-            }
+    @media (max-width: 840px) {
+        body {
+            font-size: 14px;
+        }
+        .webrings {
+            height: auto;
         }
     }
-    @media (max-width: 437px) {
-        .buttons {
+    @media (max-width: 815px) {
+        .container {
+            max-width: 540px;
+            margin: 10px auto;
+            font-size: 14px;
             flex-direction: column;
+            align-items: center;
         }
-        .line {
-            border-right: 0;
-            border-bottom: 1px var(--brown) dashed;
+    }
+    @media (max-width: 540px) {
+        .container {
+            max-width: fit-content;
+            margin: 10px 20px;
+            font-size: 90%;
         }
-        .row {
-            display: flex;
-            justify-content: center;
-            column-gap: 5px;
+        main {
+            width: 100%;
         }
     }
 </style>
@@ -159,12 +161,8 @@
                 <li>Uses iframes and JavaScript</li>
                 <li>Autoplaying music</li>
             </ul>
-            <p><span style="font-weight:bold;color:var(--red)">Content warning!</span> Despite being cute, this website contains:</p>
-            <ul>
-                <li>Vulgar language</li>
-                <li>Disturbing or mature themes, topics, and imagery</li>
-
-            </ul>
+            <h2>Disclaimer</h2>
+            <p>Despite being cute, this website contains horror elements, disturbing themes, topics, and imagery.</p>
             <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. Otherwise, it's fine.</p>
             <p style="text-align:center">You have been warned. What would you like to do?</p>
             <div id="enter">
@@ -172,15 +170,7 @@
                 <a href="home.html">Enter</a>
             </div>
             <div class="buttons">
-                <div class="row">
-                    <a href="https://neocities.org/site/nogood-angel" target="_blank"><img src="images/graphics/buttons/neocities.webp"></a>
-                    <a href="https://nekoweb.org/follow/nogood-angel.nekoweb.org" target="_blank"><img src="images/graphics/buttons/nekoweb.webp"></a>
-                    <a href="https://nogood-angel.atabook.org/" target="_blank"><img src="images/graphics/buttons/atabook.webp"></a>
-                </div>
-                <div class="line"></div>
-                <div class="row">
-                    <a href="https://rice.place/clover.html" target="_blank"><img src="images/graphics/buttons/luckbutton.png"></a>
-                </div>
+                <a href="https://rice.place/clover.html" target="_blank"><img src="images/graphics/buttons/luckbutton.png"></a>
             </div>
         </main>
         <div class="webrings">
@@ -215,7 +205,7 @@
                 </script>
             </div>
             <div id="chuuniring" class="ring">
-                <a href="https://supernw095.nekoweb.org/chuuniring">
+                <a href="https://supernw095.nekoweb.org/chuuniring" target="_blank">
                     <img width="160px" src="https://supernw095.nekoweb.org/chuuniring/chuuniring-title.webp" alt="Chuuniring">
                 </a>
                 <img height="100px" src="joined/chuuniring.png">

@@ -47,6 +47,13 @@ main h1, main h2, main h3, main h4 {
     }
 }
 
+hr {
+    border: none;
+    border-bottom: 1px var(--brown) dashed;
+    width: 380px;
+    margin: 0 auto 10px;
+}
+
 /* ASIDE */
 
 aside, header, main, footer {
@@ -223,6 +230,9 @@ main {
 main .flex {
     display: flex;
     column-gap: 10px;
+    .box {
+        margin-bottom: 0;
+    }
 }
 
 .devide {
