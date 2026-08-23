@@ -1,5 +1,11 @@
 [
     {
+        "title": "Home",
+        "link": "/home.html",
+        "date": "23/08/26",
+        "desc": "Updated the home page, fixed mobile responsivity here and index page."
+    },
+    {
         "title": "Journal",
         "link": "/journal.html",
         "date": "18/08/26",

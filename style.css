@@ -50,8 +50,7 @@ main h1, main h2, main h3, main h4 {
 hr {
     border: none;
     border-bottom: 1px var(--brown) dashed;
-    width: 380px;
-    margin: 0 auto 10px;
+    margin: 0 50px 10px;
 }
 
 /* ASIDE */
@@ -163,7 +162,8 @@ header {
 }
 #banner .inner {
     background-image: url(images/header.webp);
-    background-size: 100%;
+    background-size: cover;
+    background-position: center right;
     width: calc(100% - 180px);
     position: relative;
 }
@@ -316,6 +316,9 @@ footer li:not(:last-child)::after {
         grid-row: 2;
         grid-column: 1;
     }
+    .sideHead {
+        display: none;
+    }
     nav {
         width: 100%;
         display: flex;
@@ -331,8 +334,8 @@ footer li:not(:last-child)::after {
         }
     }
     nav .menuContent {
-        width: 80%;
-        left: 10%;
+        width: 90%;
+        left: 5%;
         top: 85%;
     }
     main {
@@ -355,8 +358,11 @@ footer li:not(:last-child)::after {
     #calendar {
         width: 160px;
     }
+    #banner .inner {
+        width: calc(100% - 160px);
+    }
 }
-@media (max-width: 645px) {
+@media (max-width: 700px) {
     nav {
         flex-wrap: wrap;
         .menu {
