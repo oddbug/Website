@@ -4,6 +4,13 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
+            <title>My anatomy</title>
+            <description>What is me.</description>
+            <link>https://nogood-angel.moe/anatomy.html</link>
+            <guid>post14</guid>
+            <pubDate>Mon 24 August 2026, 8:00:00 -0400</pubDate>
+        </item>
+        <item>
             <title>Home</title>
             <description>Updated the home page, fixed mobile responsivity here and index page.</description>
             <link>https://nogood-angel.moe/home.html</link>

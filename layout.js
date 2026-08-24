@@ -153,6 +153,7 @@ const sidebarEl1 = `
             <span>Personal</span>
             <div class="menuContent">
                 <a href="${nesting}/webmaster.html">Webmaster</a>
+                <a href="${nesting}/anatomy.html">My anatomy</a>
                 <a href="${nesting}/medialog.html">Media log</a>
             </div>
         </div>

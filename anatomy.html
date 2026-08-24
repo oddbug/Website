@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nebula</title>
+    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    <meta property="og:title" content="Nebula">
+    <meta property="og:description" content="An angel's personal website where I do anything I want.">
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="layout.js"></script>
+    <script src="scripts/tooltip.js"></script>
+    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script>
+      (function($){
+        $(document).ready(function(){
+          $("[title]").style_my_tooltips({ 
+            tip_follows_cursor:true,
+            tip_delay_time:0,
+            tip_fade_speed:0,
+            attribute:"title"
+          });
+        });
+      })(jQuery);
+    </script>
+</head>
+    
+<style>
+    #diagram {
+        width: 300px;
+    }
+    
+    #textbook {
+        width: 458px;
+    }
+    #legende {
+        margin-bottom: 10px;
+    }
+    #legende li {
+        display: flex;
+        column-gap: 5px;
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+    .color {
+        width: 15px;
+        height: 15px;
+    }
+    #brain {
+        background-color: #fb0808;
+    }
+    #body {
+        background-color: #00ff11;
+    }
+    #me {
+        background-color: #92cfd0;
+    }
+</style>
+    
+<body>
+    <div class="container">
+        <aside></aside>
+        <main>
+            <div class="flex">
+                <img id="diagram" src="images/anatomy.png">
+                <div id="textbook">
+                    <h2>My anatomy</h2>
+                    <ul id="legende" class="nolist">
+                        <li><div id="brain" class="color"></div>Brain</li>
+                        <li><div id="body" class="color"></div>My body</li>
+                        <li><div id="me" class="color"></div>Me</li>
+                    </ul>
+                    <p>I control my body like a car. It feels more me than a car since I've been controlling it my whole life. My brain gives me thoughts and instructions. My brain sometimes fails, but I forgive it because it is trying its best. Me, my body, and my brain are all seperate, yet they are all me.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
