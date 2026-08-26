@@ -33,6 +33,7 @@
 <style>
     #diagram {
         width: 300px;
+        height: fit-content;
     }
     
     #textbook {
@@ -61,6 +62,28 @@
     #me {
         background-color: #92cfd0;
     }
+    
+    .look {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    .look img {
+        height: 200px;
+    }
+    @media (max-width: 840px) {
+        .flex {
+            flex-direction: column;
+        }
+        #diagram {
+            width: calc(100% - 40px);
+            align-self: center;
+        }
+        #textbook {
+            width: 100%;
+        }
+    }
 </style>
     
 <body>
@@ -77,6 +100,21 @@
                         <li><div id="me" class="color"></div>Me</li>
                     </ul>
                     <p>I control my body like a car. It feels more me than a car since I've been controlling it my whole life. My brain gives me thoughts and instructions. My brain sometimes fails, but I forgive it because it is trying its best. Me, my body, and my brain are all seperate, yet they are all me.</p>
+                    <h2>Online</h2>
+                    <div class="look">
+                        <img src="images/sona/daigakugarashi.jpg" title="My avatar in Daigaku Garashi">
+                        <a href="https://picrew.me/en/image_maker/2109546"><img src="images/sona/2109546.png"></a>
+                        <a href="https://picrew.me/en/image_maker/2307052"><img src="images/sona/2307052.png"></a>
+                        <a href="https://picrew.me/en/image_maker/2286007"><img src="images/sona/2286007.png"></a>
+                        <a href="https://picrew.me/en/image_maker/139219"><img src="images/sona/139219.png"></a>
+                        <a href="https://picrew.me/en/image_maker/2310696"><img src="images/sona/2310696.png"></a>
+                        <a href=""><img src="images/sona/2834274.png"></a>
+                    </div>
+                    <h2>Offline</h2>
+                    <div class="look">
+                        <a href=""><img src="images/sona/ootd-character.png"></a>
+                        <a href="https://picrew.me/en/image_maker/2615986"><img src="images/sona/2615986.png"></a>
+                    </div>
                 </div>
             </div>
         </main>
