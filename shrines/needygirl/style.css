@@ -27,7 +27,7 @@ tables, input, textarea, button {
 }
 
 .borders {
-    background-image: url(assets/desktop_borders_noon.png);
+    background-image: url(assets/desktop_borders_night.png);
     background-size: 100%;
     background-position: center;
     width: 15vw;
@@ -125,21 +125,25 @@ tables, input, textarea, button {
 }
 #jine .sent {
     background-color: #A1ED55;
+    width: fit-content;
+    justify-self: right;
     text-align: right;
 }
-#jine .sent:has(img) {
+#jine .sent:has(img), #jine .received:has(img) {
     background: none;
     padding: 0;
     img {
         width: 70px;
     }
+    &::after {
+        display: none;
+    }
 }
 #jine .devide {
     background-color: rgba(238, 216, 241, 0.8);
     border-radius: 50px;
-    width: fit-content;
+    width: 104px;
     margin: 0 auto 10px;
-    padding: 0 40px;
     font-size: 12px;
     text-align: center;
 }
