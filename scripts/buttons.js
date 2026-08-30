@@ -8,6 +8,7 @@
             const neighbors = [
                 {title: "BRUISEDGH0ST", alt: "Bruised ghost buttons", button: "bruisedgh0st", link: "bruisedgh0st.neocities.org"},
                 {title: "CAPTCHaAngel", alt: "Captcha angel button", button: "captchaangel", link: "captchaangel.nekoweb.org"},
+                {title: "eyeorb", alt: "Eye orb button", button: "eyeorb", link: "eyeorb.net"},
                 {title: "itinerae", alt: "Itinerae button", button: "itinerae", link: "itinerae.shop"},
                 {title: "lolv66", alt: "Lolv66 button", button: "lolv66", link: "lolv66.neocities.org"},
                 {title: "Malune", alt: "Malune button", button: "malune", link: "malune.net"},
