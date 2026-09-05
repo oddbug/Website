@@ -9,6 +9,7 @@
                 {title: "BRUISEDGH0ST", alt: "Bruised ghost buttons", button: "bruisedgh0st", link: "bruisedgh0st.neocities.org"},
                 {title: "CAPTCHaAngel", alt: "Captcha angel button", button: "captchaangel", link: "captchaangel.nekoweb.org"},
                 {title: "eyeorb", alt: "Eye orb button", button: "eyeorb", link: "eyeorb.net"},
+                {title: "i026net", alt: "i026NETt", button: "i026net", link: "i026net.neocities.org"},
                 {title: "itinerae", alt: "Itinerae button", button: "itinerae", link: "itinerae.shop"},
                 {title: "lolv66", alt: "Lolv66 button", button: "lolv66", link: "lolv66.neocities.org"},
                 {title: "Malune", alt: "Malune button", button: "malune", link: "malune.net"},
@@ -40,7 +41,6 @@
             const coolsites = [
                 {title: "0oxo0", alt: "0oxo0 button", button: "0oxo0", link: "0oxo0.neocities.org"},
                 {title: "aelita", alt: "Aelita button", button: "aelita", link: "aelita.neocities.org"},
-                {title: "blueberrymuffinss", alt: "Blueberry muffinss button", button: "blueberrymuffinss", link: "blueberrymuffinss.neocities.org"},
                 {title: "Brooklynights", alt: "Brooklynights button", button: "brooklynights", link: "brooklynights.nekoweb.org"},
                 {title: "BRUISEDGH0ST", alt: "Bruised ghost buttons", button: "bruisedgh0st", link: "bruisedgh0st.neocities.org"},
                 {title: "CAPTCHaAngel", alt: "Captcha angel button", button: "captchaangel", link: "captchaangel.nekoweb.org"},
@@ -48,6 +48,7 @@
                 {title: "corru.observer", alt: "Corru observer button", button: "corru", link: "corru.observer"},
                 {title: "espy.world", alt: "Espy world button", button: "espyworld", link: "espy.world"},
                 {title: "How soon is now?", alt: "How soon is now button", button: "howsoonisnow", link: "howsoonisnow.org"},
+                {title: "i026net", alt: "i026NETt", button: "i026net", link: "i026net.neocities.org"},
                 {title: "mosiac-of-love", alt: "Mosiac of love button", button: "mosiacoflove", link: "mosiac-of-love.neocities.org"},
                 {title: "Mushmallow", alt: "Mushmallow button", button: "mushmallow", link: "mushmallow.neocities.org"},
                 {title: "neo's HEAVENWURLD", alt: "Heaven wurld button", button: "heavenwurld", link: "neo.heavenwurld.net"},
