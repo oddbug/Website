@@ -31,7 +31,7 @@
                 let nLocation = document.getElementById("neighborButtons");
                 let nOutput = "";
                 for(let nButtons of neighbors){
-                    nOutput += `<a href="https://${nButtons.title}"><img src="images/graphics/buttons/${nButtons.button}.webp" title="${nButtons.title}" alt="${nButtons.alt}"></a>`;
+                    nOutput += `<a href="https://${nButtons.link}"><img src="images/graphics/buttons/${nButtons.button}.webp" title="${nButtons.title}" alt="${nButtons.alt}"></a>`;
                 }
                 nLocation.innerHTML = nOutput;
             });
@@ -67,7 +67,7 @@
                 let cLocation = document.getElementById("coolsiteButtons");
                 let cOutput = "";
                 for(let cButtons of coolsites){
-                    cOutput += `<a href="https://${cButtons.title}"><img src="images/graphics/buttons/${cButtons.button}.webp" title="${cButtons.title}" alt="${cButtons.alt}"></a>`;
+                    cOutput += `<a href="https://${cButtons.link}"><img src="images/graphics/buttons/${cButtons.button}.webp" title="${cButtons.title}" alt="${cButtons.alt}"></a>`;
                 }
                 cLocation.innerHTML = cOutput;
             });
@@ -82,7 +82,7 @@
                 let rLocation = document.getElementById("recourceButtons");
                 let rOutput = "";
                 for(let rButtons of recources){
-                    rOutput += `<a href="https://${rButtons.title}"><img src="images/graphics/buttons/${rButtons.button}.webp" title="${rButtons.title}" alt="${rButtons.alt}"></a>`;
+                    rOutput += `<a href="https://${rButtons.link}"><img src="images/graphics/buttons/${rButtons.button}.webp" title="${rButtons.title}" alt="${rButtons.alt}"></a>`;
                 }
                 rLocation.innerHTML = rOutput;
             });
