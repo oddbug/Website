@@ -261,7 +261,7 @@
             display: flex;
             align-items: center;
             hr {
-                display: none;
+                margin: 0;
             }
         }
         #discord #kitty, #discord #profile {
@@ -275,6 +275,15 @@
     @media (max-width: 475px) {
         #latest iframe {
             width: 250px;
+            height: 140.63px;
+        }
+        #discord {
+            display: flex;
+            flex-direction: column-reverse;
+            hr {
+                width: 100%;
+                margin: 10px 50px 0;
+            }
         }
         #lists {
             grid-template-columns: 100%;
