@@ -12,9 +12,9 @@ body {
             rgba(255,255,255,0.4) 25px,
             rgba(255,255,255,0.4) 50px
         );
-    height: 100%;
-    scrollbar-color: var(--pink) var(--palepeach);
-    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 #s-m-t-tooltip {
     background-color: white;
@@ -28,27 +28,71 @@ body {
     width: 1000px;
     margin: 40px auto;
     display: grid;
-    grid-template-rows: auto 1fr auto;
     grid-template-columns: 200px 800px;
+    grid-template-areas:
+        "aside header"
+        "aside main"
+        "aside footer";
+    scrollbar-color: var(--pink) var(--palepeach);
+    scrollbar-width: thin;
 }
 
 h1, h2, h3, h4 {
     border-bottom: 1px var(--brown) dashed;
+    position: relative;
+}
+main h1, main h2, main h3, main h4 {
+    padding-right: 15px;
+    &::after {
+        content: url(images/graphics/pixels/daisy.webp);
+        position: absolute;
+        right: 0;
+    }
+}
+
+hr {
+    border: none;
+    border-bottom: 1px var(--brown) dashed;
+    margin: 0 50px 10px;
 }
 
 /* ASIDE */
 
+aside, header, main, footer {
+    background-color: var(--paleyellow);
+    border: var(--pink) solid;
+}
+
 aside {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
     border-width: 1px 0 1px 1px;
     border-radius: 5px 0 0 5px;
     height: fit-content;
     margin: 50px 0;
     padding: 10px;
-    grid-row: 1/4;
-    grid-column: 1;
+    grid-area: aside;
     position: relative;
+}
+
+.sideHead {
+    background-color: var(--lightpink);
+    border-bottom: 1px var(--pink) solid;
+    width: calc(100% + 20px);
+    margin: -10px -10px 10px;;
+    padding: 3px 10px;
+    text-align: right;
+    position: relative;
+}
+.sideHead h2 {
+    border: 0;
+    margin: 0;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
+}
+.sideHead img {
+    width: 90px;
+    position: absolute;
+    left: -10px;
+    bottom: 0px;
 }
 
 nav:not(:last-child) {
@@ -89,58 +133,43 @@ nav a {
     &:not(:last-child) {
         border-bottom: 1px var(--pink) solid;
     }
-    &:hover {
-        background-color: var(--paleyellow);
-    }
 }
 nav .menu:hover .menuContent {
     visibility: visible;
 }
 
-/* MAIN */
-
-main {
-    background-color: var(--palepeach);
-    border: var(--pink) solid;
-    border-width: 0 1px;
-    padding: 10px;
-    position: relative;
-}
-
 /* HEADER */
 
 header {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
-    border-bottom: 0;
+    border-width: 1px 1px 0;
     border-radius: 5px 5px 0 0;
     padding: 10px 10px 0;
+    grid-area: header;
 }
 #banner {
     background-color: var(--lightpink);
     border: 3px white double;
     border-radius: 5px;
     display: flex;
-    grid-row: 1;
-    grid-column: 2;
     overflow: hidden;
 }
 #banner .inner {
+    background-image: url(images/header.webp);
+    background-size: cover;
+    background-position: center right;
     width: calc(100% - 180px);
+    padding: 6px 10px;
+    text-shadow:
+        1px 0 var(--darkpink),
+        0 1px var(--darkpink),
+        0 -1px var(--darkpink),
+        -1px 0 var(--darkpink),
+        1px 1px var(--darkpink),
+        -1px -1px var(--darkpink),
+        1px -1px var(--darkpink),
+        -1px 1px var(--darkpink);
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-#banner .inner h1 {
-    border: 0;
-}
-#banner .inner p {
-    color: white;
-    position: absolute;
-    left: 8px;
-    bottom: 5px;
+    place-content: end;
 }
 
 #calendar {
@@ -178,16 +207,34 @@ header {
     color: white;
 }
 
-/* MIDDLE */
+/* MAIN */
 
 main {
+    border-width: 0 1px;
     padding: 10px 15px;
-    grid-row: 2;
-    grid-column: 2;
+    position: relative;
+    grid-area: main;
 }
 main .flex {
     display: flex;
     column-gap: 10px;
+    .box {
+        margin-bottom: 0;
+    }
+}
+
+.devide {
+    background-color: var(--lightpink);
+    border: var(--pink) solid;
+    border-width: 1px 0;
+    margin: 10px -15px;
+    padding: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
 }
 
 .box {
@@ -219,14 +266,11 @@ main .flex {
 /* FOOTER */
 
 footer {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
-    border-top: 0;
+    border-width: 0 1px 1px;
     border-radius: 0 0 5px 5px;
     padding: 0 10px 10px;
     text-align: center;
-    grid-row: 3;
-    grid-column: 2;
+    grid-area: footer;
 }
 footer ul {
     list-style: none;
@@ -240,56 +284,50 @@ footer li:not(:last-child)::after {
 
 /* RESPONSIVE */
 
-@media (max-width: 1000px) {
+@media (max-width: 1040px) {
     .container {
         max-width: 800px;
-        grid-template-columns: 100%;
+        margin: 20px auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "aside" "main" "footer";
     }
     header {
-        grid-row: 1;
-        grid-column: 1;
+        padding-bottom: 10px;
     }
     aside {
-        border-width: 0 1px;
+        border-bottom: 0;
+        border-right: 1px var(--pink) solid;
         border-radius: 0;
-        padding-bottom: 0;
         margin: 0;
-        padding: 10px 15px 0;
-        display: flex;
-        grid-row: 2;
-        grid-column: 1;
+    }
+    .sideHead {
+        text-align: center;
     }
     nav {
-        width: 100%;
-        display: flex;
-        column-gap: 10px;
-        &:not(:last-child) {
-            margin: 0;
-        }
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        &:not(:last-child) {margin:0}
     }
-    nav .menu {
-        width: 20%;
-        &:not(:last-child) {
-            margin: 0;
-        }
+    nav .menu:not(:last-child) {
+        margin-bottom: 0;
     }
     nav .menuContent {
-        width: 80%;
-        left: 10%;
-        top: 85%;
+        width: calc(100% - 10px);
+        left: 5px; top: 85%;
     }
     main {
-        grid-row: 3;
-        grid-column: 1;
-    }
-    footer {
-        grid-row: 4;
-        grid-column: 1;
+        padding-top: 0;
     }
 }
 @media (max-width: 840px) {
     .container {
-        width: calc(100vw - 50px);
-        margin: 40px 20px;
+        width: calc(100vw - 40px);
     }
 }
+@media (max-width: 800px) {
+    nav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 475px) {}
