@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teststyle.css">
     <script src="layout.js"></script>
     <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
@@ -272,6 +272,17 @@
             margin: auto;
         }
     }
+    @media (max-width: 475px) {
+        #latest iframe {
+            width: 250px;
+        }
+        #lists {
+            grid-template-columns: 100%;
+        }
+        #neighborButtons {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
 </style>
     
 <body>
@@ -364,7 +375,7 @@
                     <li><img src="images/graphics/pixels/frog.webp">
                         Learning: Grid, cleaner (code-wise) mobile responsiveness</li>
                     <li><img src="images/graphics/pixels/onigiri.webp">
-                        Eating: Stew</li>
+                        Eating: Beef stew</li>
                     <li><img src="images/graphics/pixels/monster.webp">
                         Drinking: Khaotic monster</li>
                 </ul>

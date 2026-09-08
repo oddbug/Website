@@ -330,4 +330,8 @@ footer li:not(:last-child)::after {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-@media (max-width: 475px) {}
+@media (max-width: 475px) {
+    #banner .inner {
+        background-position: 240px center;
+    }
+}
