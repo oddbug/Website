@@ -28,8 +28,11 @@ body {
     width: 1000px;
     margin: 40px auto;
     display: grid;
-    grid-template-rows: auto 1fr auto;
     grid-template-columns: 200px 800px;
+    grid-template-areas:
+        "aside header"
+        "aside main"
+        "aside footer";
     scrollbar-color: var(--pink) var(--palepeach);
     scrollbar-width: thin;
 }
@@ -66,8 +69,7 @@ aside {
     height: fit-content;
     margin: 50px 0;
     padding: 10px;
-    grid-row: 1/4;
-    grid-column: 1;
+    grid-area: aside;
     position: relative;
 }
 
@@ -136,28 +138,19 @@ nav .menu:hover .menuContent {
     visibility: visible;
 }
 
-#banners {
-    position: absolute;
-    top: calc(100% + 5px); left: 5px;
-    img {
-        width: 190px;
-    }
-}
-
 /* HEADER */
 
 header {
     border-width: 1px 1px 0;
     border-radius: 5px 5px 0 0;
     padding: 10px 10px 0;
+    grid-area: header;
 }
 #banner {
     background-color: var(--lightpink);
     border: 3px white double;
     border-radius: 5px;
     display: flex;
-    grid-row: 1;
-    grid-column: 2;
     overflow: hidden;
 }
 #banner .inner {
@@ -165,9 +158,7 @@ header {
     background-size: cover;
     background-position: center right;
     width: calc(100% - 180px);
-    position: relative;
-}
-#banner .inner span {
+    padding: 6px 10px;
     text-shadow:
         1px 0 var(--darkpink),
         0 1px var(--darkpink),
@@ -178,9 +169,7 @@ header {
         1px -1px var(--darkpink),
         -1px 1px var(--darkpink);
     color: white;
-    position: absolute;
-    left: 8px;
-    bottom: 5px;
+    place-content: end;
 }
 
 #calendar {
@@ -224,8 +213,7 @@ main {
     border-width: 0 1px;
     padding: 10px 15px;
     position: relative;
-    grid-row: 2;
-    grid-column: 2;
+    grid-area: main;
 }
 main .flex {
     display: flex;
@@ -282,8 +270,7 @@ footer {
     border-radius: 0 0 5px 5px;
     padding: 0 10px 10px;
     text-align: center;
-    grid-row: 3;
-    grid-column: 2;
+    grid-area: footer;
 }
 footer ul {
     list-style: none;
@@ -297,79 +284,57 @@ footer li:not(:last-child)::after {
 
 /* RESPONSIVE */
 
-@media (max-width: 1000px) {
+@media (max-width: 1040px) {
     .container {
         max-width: 800px;
-        grid-template-columns: 100%;
+        margin: 20px auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "aside" "main" "footer";
     }
     header {
-        grid-row: 1;
-        grid-column: 1;
+        padding-bottom: 10px;
     }
     aside {
-        border-width: 0 1px;
+        border-bottom: 0;
+        border-right: 1px var(--pink) solid;
         border-radius: 0;
-        padding-bottom: 0;
         margin: 0;
-        padding: 10px 15px 0;
-        display: flex;
-        grid-row: 2;
-        grid-column: 1;
     }
     .sideHead {
-        display: none;
+        text-align: center;
     }
     nav {
-        width: 100%;
-        display: flex;
-        column-gap: 10px;
-        &:not(:last-child) {
-            margin: 0;
-        }
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        &:not(:last-child) {margin:0}
     }
-    nav .menu {
-        width: 20%;
-        &:not(:last-child) {
-            margin: 0;
-        }
+    nav .menu:not(:last-child) {
+        margin-bottom: 0;
     }
     nav .menuContent {
-        width: 90%;
-        left: 5%;
-        top: 85%;
+        width: calc(100% - 10px);
+        left: 5px; top: 85%;
     }
     main {
-        grid-row: 3;
-        grid-column: 1;
-    }
-    footer {
-        grid-row: 4;
-        grid-column: 1;
+        padding-top: 0;
     }
 }
 @media (max-width: 840px) {
-    body {
-        font-size: 90%;
-    }
     .container {
         width: calc(100vw - 40px);
-        margin: 40px 20px;
-    }
-    #calendar {
-        width: 160px;
-    }
-    #banner .inner {
-        width: calc(100% - 160px);
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     nav {
-        flex-wrap: wrap;
-        .menu {
-            width: calc(50% - 5px);
-            &:not(:last-child) {
-                margin-bottom: 10px;
-            }
-        }
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 475px) {
+    #banner .inner {
+        background-position: 240px center;
+    }
+    nav {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
