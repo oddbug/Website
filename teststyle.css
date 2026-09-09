@@ -334,4 +334,7 @@ footer li:not(:last-child)::after {
     #banner .inner {
         background-position: 240px center;
     }
+    nav {
+        grid-template-columns: repeat(2, 1fr)
+    }
 }
