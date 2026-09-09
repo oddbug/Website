@@ -197,6 +197,6 @@ const footerEl = `
             <li><a href="${nesting}/contact.html">Contact</a></li>
             <li><a href="https://nogood-angel.atabook.org/">Guestbook</a></li>
         </ul>
-        nogood-angel.moe © 2024 - Forever | ver 0.1.7
+        nogood-angel.moe © 2024 - Forever
     </footer>
 `;
