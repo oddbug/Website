@@ -2,17 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-wrap: pretty;
     cursor: url(cursor.cur), default;
 }
 :root {
     --palepink: #f7edf1;
     --lightpink: #f7d7e2;
-    --pink: #eda4bc;
+    --pink: #e0a2b7;
     --darkpink: #ba5979;
     --palepeach: #faf4f2;
     --peach: #ffded1;
     --red: red /*#bd4d4d*/;
-    --brown: #523f39;
+    --brown: #614e45;
     --paleyellow: #fcfbed;
     --lightyellow: #fff8e1;
     --lightgreen: #95bd8f;
@@ -51,6 +52,7 @@ a {
     }
     &:has(img) {
         font-size: 0;
+        text-box: none;
     }
 }
 ul {

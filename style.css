@@ -19,7 +19,7 @@ body {
 #s-m-t-tooltip {
     background-color: white;
     border: 1px var(--pink) solid;
-    border-radius: 50px;
+    border-radius: 7px;
     max-width: 300px;
     margin: 24px 14px 7px 4px;
     padding: 5px 10px;
@@ -39,14 +39,22 @@ body {
 
 h1, h2, h3, h4 {
     border-bottom: 1px var(--brown) dashed;
-    position: relative;
-}
-main h1, main h2, main h3, main h4 {
     padding-right: 15px;
+    position: relative;
     &::after {
         content: url(images/graphics/pixels/daisy.webp);
         position: absolute;
         right: 0;
+    }
+    &:has(span) {
+        padding-right: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    span {
+        font-size: 12px;
+        font-weight: normal;
     }
 }
 
@@ -79,20 +87,16 @@ aside {
     width: calc(100% + 20px);
     margin: -10px -10px 10px;;
     padding: 3px 10px;
+    font-size: 20px;
     text-align: right;
     position: relative;
 }
-.sideHead h2 {
-    border: 0;
-    margin: 0;
-    text-shadow: 1px 1px var(--darkpink);
-    color: white;
-}
-.sideHead img {
-    width: 90px;
+.sideHead::before {
+    content: url(images/cross.png);
+    zoom: 45%;
     position: absolute;
-    left: -10px;
-    bottom: 0px;
+    left: -20px;
+    bottom: -5px;
 }
 
 nav:not(:last-child) {
@@ -224,17 +228,12 @@ main .flex {
 }
 
 .devide {
-    background-color: var(--lightpink);
     border: var(--pink) solid;
     border-width: 1px 0;
-    margin: 10px -15px;
-    padding: 3px;
+    margin: 0 -15px 10px;
+    padding: 2px;
     font-size: 20px;
-    font-weight: bold;
-    font-style: italic;
     text-align: center;
-    text-shadow: 1px 1px var(--darkpink);
-    color: white;
 }
 
 .box {
@@ -246,14 +245,9 @@ main .flex {
     margin-bottom: 10px;
 }
 .box .head {
-    background-color: var(--lightpink);
     border-bottom: 1px var(--pink) solid;
     padding: 2px;
-    font-weight: bold;
-    font-style: italic;
     text-align: center;
-    text-shadow: 1px 1px var(--darkpink);
-    color: white;
 }
 .box .head:not(:first-child) {
     border-top: 1px var(--pink) solid;
@@ -261,6 +255,14 @@ main .flex {
 .box .inner {
     padding: 5px;
     overflow-y: auto;
+}
+
+.sideHead, .devide, .box .head {
+    background-color: var(--lightpink);
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 1px 1px var(--darkpink);
+    color: white;
 }
 
 /* FOOTER */
