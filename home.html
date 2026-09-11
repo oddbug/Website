@@ -5,6 +5,7 @@
     <meta property="og:title" content="Nebula | Homepage">
     <meta property="og:description" content="An angel's personal website where I do anything I want.">
     <meta property="og:url" content="https://nogood-angel.moe/home.html">
+    <meta name="theme-color" content="#faf4f2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" href="images/favicon.webp">
@@ -13,18 +14,7 @@
     <script src="layout.js"></script>
     <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
-    <script>
-      (function($){
-        $(document).ready(function(){
-          $("[title]").style_my_tooltips({ 
-            tip_follows_cursor:true,
-            tip_delay_time:0,
-            tip_fade_speed:0,
-            attribute:"title"
-          });
-        });
-      })(jQuery);
-    </script>
+    <script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips({ tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0,attribute:"title"});});})(jQuery);</script>
 </head>
     
 <style>
