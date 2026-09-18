@@ -21,17 +21,17 @@
     #stats {
         background-color: var(--lightpink);
         border: 1px var(--pink) solid;
+        border-radius: var(--borderRadiusSm);
         padding: 5px;
         font-size: 12px;
     }
-    aside::after {
+    aside #hurt {
         content: url(images/hurt.png);
-        zoom: 40%;
+        width: 80px;
         position: absolute;
-        right: -60px;
-        bottom: -130px;
-        z-index: 2;
-        pointer-events: none;
+        right: -30px;
+        bottom: -60px;
+        z-index: 2
     }
     
     #banners {
@@ -71,7 +71,7 @@
         height: 70px;
         img {
             width: 100%;
-            border-radius: 5px;
+            border-radius: var(--borderRadiusMd);
         }
     }
     #discord #username {
@@ -91,14 +91,13 @@
     #discord button {
         background-color: white;
         border: 1px var(--pink) solid;
-        border-radius: 3px;
+        border-radius: var(--borderRadiusSm);
         width: 100%;
         padding: 3px;
         text-align: center;
     }
     
     #currently {
-
         img {
             width: 15px;
             height: 15px;
@@ -165,6 +164,7 @@
         margin-bottom: 5px;
     }
     #cliques #pixel li {
+        image-rendering: pixelated;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -173,7 +173,7 @@
     #cliques #text li {
         background-color: var(--lightpink);
         border: 1px white solid;
-        border-radius: 5px;
+        border-radius: var(--borderRadiusSm);
         padding: 2px;
         text-align: center;
     }
@@ -210,13 +210,13 @@
     footer {
         position: relative;
     }
-    footer::after {
-        content: url(images/bedbunny.png);
-        zoom: 35%;
+    
+    #bedbunny {
+        width: 120px;
         position: absolute;
-        right: -130px;
-        bottom: -130px;
-        pointer-events: none;
+        right: -40px;
+        bottom: -80px;
+        z-index: 2;
     }
     
     @media (max-width: 1040px) {
@@ -358,17 +358,17 @@
                 </div>
             </div>
             <div id="intro" style="grid-area: intro">
-                <p>Welcome to this personal website on the net, belonging to me, <b style="color:var(--red)">Bianca</b>. I created it as a place to store all of my brain matter. Here you can find my writings, shrines, collections, things I've done, and my favorite things.</p>
+                <p>Welcome to this personal website on the net, belonging to me, <b>Bianca</b>. I created it as a place to store all of my brain matter. Here you can find my writings, shrines, collections, things I've done, and my favorite things.</p>
                 <hr>
-                <p>Bievenue à ce siteweb personel sur le net, apartenant à moi, <b style="color:var(--red)">Bianca</b>. Je l'avais crée comme un endroit pour contenir tout la matière de mon cerveau. Ici tu peux trouver mes écritures, sanctuaires, collections, des chose que j'ai fait, et mes choses préférées.</p>
+                <p>Bievenue à ce siteweb personel sur le net, apartenant à moi, <b>Bianca</b>. Je l'avais crée comme un endroit pour contenir tout la matière de mon cerveau. Ici tu peux trouver mes écritures, sanctuaires, collections, des chose que j'ai fait, et mes choses préférées.</p>
             </div>
             <div id="currently" style="grid-area: currently">
                 <h3>Currently I am...</h3>
                 <ul class="nolist">
                     <li><img src="images/graphics/pixels/leaf.webp">
-                        Doing: Happily webdeving</li>
+                        Doing: Working for Genshin completionist brain</li>
                     <li><img src="images/graphics/pixels/headphones.webp">
-                        Listening: Nightcore</li>
+                        Listening: Cheerleader - Porter Robinson</li>
                     <li><img src="images/graphics/pixels/gameboy.webp">
                         Playing: Cyberpunk 2077</li>
                     <li><img src="images/graphics/pixels/cd.webp">
@@ -378,9 +378,9 @@
                     <li><img src="images/graphics/pixels/frog.webp">
                         Learning: Grid, cleaner (code-wise) mobile responsiveness</li>
                     <li><img src="images/graphics/pixels/onigiri.webp">
-                        Eating: Beef stew</li>
+                        Eating: Deer steak</li>
                     <li><img src="images/graphics/pixels/monster.webp">
-                        Drinking: Khaotic monster</li>
+                        Drinking: Iced tea </li>
                 </ul>
             </div>
             <div id="status" style="grid-area: status">
@@ -485,7 +485,8 @@
                                 <a href="https://angel.valentinely.cc/" target="_blank"><img src="joined/angelnumbers.png" alt="333 Angel numbers clique"></a>
                             </li>
                             <li><a href="https://plasma.nekoweb.org" target="_blank"><img src="joined/plasma.png" alt="Plasma clique"></a></li>
-                            <li>
+                            <li><a href="https://sweet-pea.neocities.org/cliques/lucky" target="_blank"><img src="joined/lucky.webp" alt="Lucky clique"></a></li>
+                            <li style="image-rendering:auto">
                                 <a href="https://web.archive.org/web/20100211214059/http://cry.xxxxxxxx.jp/" target="_blank"><img src="joined/cryunion.jpg" alt="Cry union"></a>
                                 <a href="https://web.archive.org/web/20080412132449/http://escapist.ifdef.jp/" target="_blank"><img src="joined/escapeunion.jpg" alt="Escapism union"></a>
                                 <a href="https://web.archive.org/web/20060509054542/http://joy.poosan.net/aptchild/ff/index.html" target="_blank"><img src="joined/featherfreak.jpg" alt="Feather freak union"></a>
@@ -498,7 +499,7 @@
                             </li>
                             <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="joined/astrology.webp" alt="Gemini Astrology clique"></a></li>
                             <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="joined/animegenre.webp" alt="Slice of Life Anime genre clique"></a></li>
-                            <li><a href="https://sweet-pea.neocities.org/cliques/whosdere" target="_blank"><img src="joined/dandere.gif" alt="Who's dere"></a></li>
+                            <li  style="image-rendering:auto"><a href="https://sweet-pea.neocities.org/cliques/whosdere" target="_blank"><img src="joined/dandere.gif" alt="Who's dere"></a></li>
                         </ul>
                         <ul id="text" class="nolist">
                             <li><a href="https://petrapixel.neocities.org/cliques" target="_blank">gore</a> // bruises, raw meat, blood</li>
@@ -528,6 +529,7 @@
                 <h3>Neighbors</h3>
                 <div id="neighborButtons"></div>
             </div>
+            <img id="bedbunny" src="images/bedbunny.png">
         </main>
     </div>
 </body>
