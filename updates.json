@@ -1,5 +1,11 @@
 [
     {
+        "title": "Images",
+        "link": "/images.html",
+        "date": "20/09/26",
+        "desc": "Beginning of my collection of images."
+    },
+    {
         "title": "About me",
         "link": "/aboutme.html",
         "date": "20/09/26",

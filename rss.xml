@@ -4,11 +4,18 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
+            <title>Images</title>
+            <description>The beginning of my collection of images.</description>
+            <link>https://nogood-angel.moe/images.html</link>
+            <guid>post16</guid>
+            <pubDate>Sun 20 September 2026, 10:34:00 -0400</pubDate>
+        </item>
+        <item>
             <title>Journal</title>
             <description>New laptop</description>
             <link>https://nogood-angel.moe/journal.html</link>
             <guid>post15</guid>
-            <pubDate>Fri 04 September 2026, 4:18:00</pubDate>
+            <pubDate>Fri 04 September 2026, 4:18:00 -0400</pubDate>
         </item>
         <item>
             <title>My anatomy</title>
