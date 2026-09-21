@@ -44,10 +44,11 @@
     }
     
     #interests {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
         gap: 5px;
     }
+    #interests div {}
     
     #questionaires dd {
         margin-bottom: 10px;
@@ -124,7 +125,7 @@
             
             <div class="devide">Interests</div>
             <div id="interests">
-                <div>
+                <div style="grid-column: span 3">
                     <h4>General</h4>
                     <ul>
                         <li>Technologies, telecommunications</li>
@@ -133,14 +134,14 @@
                         <li>Video Games, anime, manga</li>
                     </ul>
                 </div>
-                <div>
+                <div style="grid-column: span 1">
                     <h4>Web series</h4>
                     <ul>
                         <li>Petscop</li>
                         <li>ENA</li>
                     </ul>
                 </div>
-                <div>
+                <div style="grid-column: span 4">
                     <h4>Video games</h4>
                     <ul>
                         <li>Etherane games (Hello Charlotte, TWCW█, MRSIS)</li>
@@ -152,7 +153,8 @@
                         <li>Portal</li>
                     </ul>
                 </div>
-                <div>
+                
+                <div style="grid-column: span 4">
                     <h4>Anime/Show/Movie</h4>
                     <ul>
                         <li>Girls Last Tour</li>
@@ -162,7 +164,7 @@
                         <li>Lucky Star</li>
                     </ul>
                 </div>
-                <div>
+                <div style="grid-column: span 2">
                     <h4>Music artists</h4>
                     <ul>
                         <li>Shinsei Kamattechan</li>
@@ -171,7 +173,7 @@
                         <li>Guchiry</li>
                     </ul>
                 </div>
-                <div>
+                <div style="grid-column: span 2">
                     <h4>Music genre</h4>
                     <ul>
                         <li>Pop punk</li>
@@ -183,8 +185,8 @@
                 </div>
             </div>
             
-            <div class="devide">Questionaires and quizes</div>
-            <div id="questionaires">
+            <div class="devide">Questionnaires</div>
+            <div id="questionnaires">
                 <details>
                     <summary>100 webmaster questions</summary>
                     <p><a href="https://mouseling.net/100webmaster.txt">mouseling</a></p>
