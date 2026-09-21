@@ -1,5 +1,11 @@
 [
     {
+        "title": "About me",
+        "link": "/aboutme.html",
+        "date": "20/09/26",
+        desc: "Big update to webmaster page which is now About me."
+    },
+    {
         "title": "Journal",
         "link": "/journal.html",
         "date": "03/09/26",

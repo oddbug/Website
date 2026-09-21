@@ -25,14 +25,6 @@
         padding: 5px;
         font-size: 12px;
     }
-    aside #hurt {
-        content: url(images/hurt.png);
-        width: 80px;
-        position: absolute;
-        right: -30px;
-        bottom: -60px;
-        z-index: 2
-    }
     
     #banners {
         position: absolute;
@@ -44,24 +36,20 @@
     
     main {
         display: grid;
-        grid-template-columns: 180px 1fr 300px;
+        grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
             "title title title"
-            "discord intro intro"
-            "discord currently status"
-            "discord currently latest"
-            ". . latest"
+            "intro intro discord"
+            "currently status discord"
+            "currently latest ."
+            ". latest ."
             "lists lists lists"
-            "interested neighbors neighbors";
+            "neighbors neighbors interested";
         gap: 10px;
     }
     
     #discord {
         margin-bottom: 10px;
-    }
-    #kitty {
-        width: 100%;
-        padding: 10px;
     }
     #discord .flex {
         margin-bottom: 5px;
@@ -180,8 +168,8 @@
     
     #interested {
         height: fit-content;
+        margin-top: 20px;
         text-align: center;
-        .inner {font-size: 13px;}
     }
     #interested textarea {
         width: 100%;
@@ -200,7 +188,7 @@
 
     #neighborButtons {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
         gap: 5px;
         img {
             width: 100%;
@@ -209,82 +197,6 @@
     
     footer {
         position: relative;
-    }
-    
-    #bedbunny {
-        width: 120px;
-        position: absolute;
-        right: -40px;
-        bottom: -80px;
-        z-index: 2;
-    }
-    
-    @media (max-width: 1040px) {
-        #stats, #banners {
-            display: none;
-        }
-    }
-    @media (max-width: 840px) {
-        main {
-            grid-template-columns: 1fr 2fr;
-            grid-template-areas:
-                "title title"
-                "intro intro"
-                "discord status"
-                "discord latest"
-                "discord currently"
-                "lists lists"
-                "interested neighbors";
-        }
-        #neighborButtons {
-            grid-template-columns: repeat(5, 1fr);
-        }
-    }
-    @media (max-width: 590px) {
-        main {
-            grid-template-columns: 100%;
-            grid-template-areas: "title" "intro" "status" "latest" "currently" "discord" "lists" "neighbors" "interested";
-        }
-        #lists {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        #discord {
-            display: flex;
-            align-items: center;
-            hr {
-                margin: 0;
-            }
-        }
-        #discord #kitty, #discord #profile {
-            width: 50%;
-        }
-        #interested {
-            width: 250px;
-            margin: auto;
-        }
-        footer:after {
-            zoom: 20%;
-        }
-    }
-    @media (max-width: 475px) {
-        
-        #discord {
-            display: flex;
-            flex-direction: column-reverse;
-            hr {
-                width: 100%;
-                margin: 10px 50px 0;
-            }
-        }
-        #discord #kitty, #discord #profile {
-            width: 100%;
-        }
-        #lists {
-            grid-template-columns: 100%;
-        }
-        #neighborButtons {
-            grid-template-columns: repeat(3, 1fr);
-        }
     }
 </style>
     
@@ -318,8 +230,6 @@
         <main>
             <h2 style="grid-area: title">Welcome...</h2>
             <div id="discord" style="grid-area: discord">
-                <img id="kitty" src="images/kittyroomlover.png">
-                <hr>
                 <div id="profile">
                     <div class="flex">
                         <div id="discordPfp"></div>
@@ -448,6 +358,7 @@
                             <li>Give percentages to header quotes</li>
                             <li>Remake RSS feed</li>
                             <li>Find a new cursor</li>
+                            <li>Restructure folders</li>
                         </ul>
                         <h4>Webmaster</h4>
                         <ul>
@@ -521,7 +432,6 @@
                 <div class="inner">
                     <div id="buttons">
                         <img title="Made by rice.place" src="images/graphics/buttons/button1.webp">
-                        <img src="images/graphics/buttons/button2.webp">
                     </div>
                 </div>
             </div>
@@ -529,7 +439,6 @@
                 <h3>Neighbors</h3>
                 <div id="neighborButtons"></div>
             </div>
-            <img id="bedbunny" src="images/bedbunny.png">
         </main>
     </div>
 </body>

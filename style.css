@@ -2,39 +2,13 @@ body {
     background-color: var(--lightpink);
     background-image:
         repeating-linear-gradient(
-            transparent,
-            transparent 25px,
-            rgba(255, 255, 255, 0.2) 25px,
-            rgba(255, 255, 255, 0.2) 50px),
+            transparent 0 25px,
+            rgba(255, 255, 255, 0.2) 25px 50px),
         repeating-linear-gradient(90deg,
-            transparent,
-            transparent 25px,
-            rgba(255,255,255,0.4) 25px,
-            rgba(255,255,255,0.4) 50px
+            transparent 0 25px,
+            rgba(255,255,255,0.4) 25px 50px
         );
-    &::-webkit-scrollbar {
-        width: 0;
-    }
-}
-#s-m-t-tooltip {
-    background-color: white;
-    border: 1px var(--pink) solid;
-    border-radius: 7px;
-    max-width: 300px;
-    margin: 24px 14px 7px 4px;
-    padding: 5px 10px;
-}
-.container {
-    width: 1000px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: 200px 800px;
-    grid-template-areas:
-        "aside header"
-        "aside main"
-        "aside footer";
-    scrollbar-color: var(--pink) var(--palepeach);
-    scrollbar-width: thin;
+    margin: 40px;
 }
 
 h1, h2, h3, h4 {
@@ -57,11 +31,36 @@ h1, h2, h3, h4 {
         font-weight: normal;
     }
 }
+b {
+    color: var(--red);
+}
 
 hr {
     border: none;
     border-bottom: 1px var(--brown) dashed;
-    margin: 0 50px 10px;
+    margin: 10px 0;
+}
+
+#s-m-t-tooltip {
+    background-color: white;
+    border: 1px var(--pink) solid;
+    border-radius: var(--borderRadiusMd);
+    max-width: 300px;
+    margin: 24px 14px 7px 4px;
+    padding: 5px 10px;
+    z-index: 99;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        ". footer";
+    scrollbar-color: var(--pink) var(--paleyellow);
+    scrollbar-width: thin;
 }
 
 /* ASIDE */
@@ -72,26 +71,28 @@ aside, header, main, footer {
 }
 
 aside {
-    border-width: 1px 0 1px 1px;
-    border-radius: 5px 0 0 5px;
+    border-width: 0 0 1px 1px;
+    border-bottom-left-radius: var(--borderRadiusMd);
     height: fit-content;
-    margin: 50px 0;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 0 10px 10px;
     grid-area: aside;
     position: relative;
 }
 
+/*
 .sideHead {
     background-color: var(--lightpink);
-    border-bottom: 1px var(--pink) solid;
+    border: var(--pink) solid;
+    border-width: 1px 0;
     width: calc(100% + 20px);
-    margin: -10px -10px 10px;;
+    margin: -10px -10px 10px;
     padding: 3px 10px;
     font-size: 20px;
     text-align: right;
     position: relative;
 }
-.sideHead::before {
+.sideHead img {
     content: url(images/cross.png);
     zoom: 45%;
     position: absolute;
@@ -122,7 +123,7 @@ nav .menu {
 nav .menuContent {
     background-color: white;
     border: 1px var(--pink) solid;
-    border-radius: 5px;
+    border-radius: var(--borderRadiusMd);
     width: 120px;
     text-align: center;
     position: absolute;
@@ -141,19 +142,104 @@ nav a {
 nav .menu:hover .menuContent {
     visibility: visible;
 }
+*/
+
+.sideHead {
+    border: var(--pink) solid;
+    border-width: 1px 0;
+    margin: 0 -10px;
+    padding: 7px;
+    font-size: 17px;
+    text-align: right;
+    text-box: trim-both cap alphabetic;
+    position: relative;
+}
+.sideHead img {
+    transform: rotate(15deg);
+    filter: contrast(1.3);
+    position: absolute;
+    left: -20px; top: -10px;
+    z-index: 1;
+    pointer-events: none;
+}
+.sideHead:nth-of-type(1) img {
+    left: -30px;
+}
+
+nav:not(:last-child) {
+    margin-bottom: 10px;
+}
+.navBox {
+    background-color: var(--palepeach);
+    border: 1px var(--pink) solid;
+    border-radius: var(--borderRadiusSm);
+    list-style: none;
+    &:has(details[open]) {
+        border-bottom-right-radius: 0;
+    }
+    summary {
+        text-decoration: underline;
+        color: var(--red);
+    }
+}
+nav > .navBox {
+    margin-top: 10px;
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+nav a, nav details {
+    display: block;
+    position: relative;
+    &:not(:last-child) {
+        border-bottom: 1px var(--pink) solid;
+    }
+    &::after {
+        content: url(images/navClover.webp);
+        zoom: 70%;
+        transition: ease-in-out .2s;
+        position: absolute;
+        right: 6px; top: 5px;
+    }
+    &[open]::after {
+        content: none;
+    }
+}
+nav a, nav summary {
+    padding: 2px 8px;
+    &::marker {
+        content: "";
+    }
+}
+nav details .navBox {
+    border-top-left-radius: 0;
+    width: 80%;
+    margin: 0;
+    position: absolute;
+    inset: -.7px auto auto 100%;
+    z-index: 1;
+}
+nav a:hover, nav details:hover {
+    &::after {
+        transform: scale(115%);
+    }
+}
+nav summary:hover {
+    color: var(--green);
+}
 
 /* HEADER */
 
 header {
     border-width: 1px 1px 0;
-    border-radius: 5px 5px 0 0;
-    padding: 10px 10px 0;
+    border-radius: var(--borderRadiusMd) var(--borderRadiusMd) 0 0;
+    padding: 10px;
     grid-area: header;
 }
 #banner {
     background-color: var(--lightpink);
     border: 3px white double;
-    border-radius: 5px;
+    border-radius: var(--borderRadiusSm);
     display: flex;
     overflow: hidden;
 }
@@ -177,7 +263,7 @@ header {
 }
 
 #calendar {
-    border-right: 3px white double;
+    border-left: 3px white double;
     width: 180px;
     overflow: hidden;
 }
@@ -215,7 +301,7 @@ header {
 
 main {
     border-width: 0 1px;
-    padding: 10px 15px;
+    padding: 0 15px 10px;
     position: relative;
     grid-area: main;
 }
@@ -230,15 +316,15 @@ main .flex {
 .devide {
     border: var(--pink) solid;
     border-width: 1px 0;
-    margin: 0 -15px 10px;
-    padding: 2px;
+    margin: 10px -15px;
+    padding: 5px;
     font-size: 20px;
     text-align: center;
 }
 
 .box {
     border: 1px var(--pink) solid;
-    border-radius: 5px;
+    border-radius: var(--borderRadiusMd);
     overflow: hidden;
 }
 .box:not(:last-child) {
@@ -269,7 +355,7 @@ main .flex {
 
 footer {
     border-width: 0 1px 1px;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 var(--borderRadiusMd) var(--borderRadiusMd);
     padding: 0 10px 10px;
     text-align: center;
     grid-area: footer;
@@ -282,61 +368,4 @@ footer ul {
 footer li:not(:last-child)::after {
     content: "-";
     margin: 0 10px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 1040px) {
-    .container {
-        max-width: 800px;
-        margin: 20px auto;
-        grid-template-columns: 1fr;
-        grid-template-areas: "header" "aside" "main" "footer";
-    }
-    header {
-        padding-bottom: 10px;
-    }
-    aside {
-        border-bottom: 0;
-        border-right: 1px var(--pink) solid;
-        border-radius: 0;
-        margin: 0;
-    }
-    .sideHead {
-        text-align: center;
-    }
-    nav {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 10px;
-        &:not(:last-child) {margin:0}
-    }
-    nav .menu:not(:last-child) {
-        margin-bottom: 0;
-    }
-    nav .menuContent {
-        width: calc(100% - 10px);
-        left: 5px; top: 85%;
-    }
-    main {
-        padding-top: 0;
-    }
-}
-@media (max-width: 840px) {
-    .container {
-        width: calc(100vw - 40px);
-    }
-}
-@media (max-width: 800px) {
-    nav {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (max-width: 475px) {
-    #banner .inner {
-        background-position: 240px center;
-    }
-    nav {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }

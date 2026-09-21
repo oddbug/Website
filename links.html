@@ -2,52 +2,29 @@
 <html lang="en">
 <head>
     <title>Links</title>
-    <meta name="description" content="An angel's personal website where I do anything I want.">
+    <meta property="og:title" content="Nebula | Links">
+    <meta property="og:description" content="Other sites and credits.">
+    <meta property="og:url" content="https://nogood-angel.moe/links.html">
+    <meta name="theme-color" content="#e0a2b7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    
-    <meta property="og:title" content="Nebula">
-    <meta property="og:description" content="Other sites and links.">
-    <!--<meta property="og:image" content="">-->
-    <meta property="og:url" content="https://nogood-angel.moe/links.html">
-    
+    <link rel="icon" href="images/favicon.webp">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
     <script src="layout.js"></script>
     <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
-    <script>
-      // TOOLTIP
-      (function($){
-        $(document).ready(function(){
-          $("[title]").style_my_tooltips({ 
-            tip_follows_cursor:true,
-            tip_delay_time:0,
-            tip_fade_speed:0,
-            attribute:"title"
-          });
-        });
-      })(jQuery);
-    </script>
+    <script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips({ tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0,attribute:"title"});});})(jQuery);</script>
 </head>
     
 <style>
     header {
         position: relative;
     }
-    header::after {
-        content: url(images/haveyouseenthisangel.png);
-        zoom: 25%;
-        z-index: 2;
-        position: absolute;
-        right: -650px; top: 150px;
-        pointer-events: none;
-    }
     main {
         display: flex;
         column-gap: 10px;
     }
-    
     #sites {
         width: 452px;
     }
@@ -69,47 +46,6 @@
     .right {
         width:306px
     }
-    #webrings {
-        width: 306px;
-        height: 199px;
-        margin: auto;
-        padding: 10px;
-        overflow-y: auto;
-    }
-    .ring {
-        margin: auto;
-    }
-    .ring:not(:last-child) {
-        margin-bottom: 10px;
-    }
-    #chuuniring {
-        width: 260px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-image: url(https://supernw095.nekoweb.org/chuuniring/chuuniring-bg.webp);
-        height: 165px;
-        border-radius: 5px;
-    }
-    #chuuniring a {
-        color: #efefff;
-        text-shadow: 2px 2px #7b6b94;
-    }
-    @media (max-width: 1000px) {
-        header::after {
-            zoom: 15%;
-            right: -100px; top: -110px;
-        }
-    }
-    @media (max-width: 656px) {
-        main {
-            flex-direction: column;
-        }
-        #sites, .right {
-            width: 100%;
-        }
-    }
 </style>
 
 <body>
@@ -117,7 +53,7 @@
         <aside></aside>
         <main>
             <div id="sites">
-                <h2>Neighbors</h2>
+                <h2>Neighbors<span>✦ = inspiration</span></h2>
                 <div id="neighborButtons" class="buttons"></div>
                 <h2>Sites I like</h2>
                 <div id="coolsiteButtons" class="buttons"></div>
@@ -128,13 +64,13 @@
             <div class="right">
                 <h2>Credits</h2>
                 <ul>
+                    <li><a href="">strawbunimilk</a> - font &amp; webm pfp</li>
                     <li><a href="https://www.instagram.com/kael333_">kael</a> - currently icons</li>
                     <li><a href="https://petrapixel.neocities.org/" target="_blank">petrapixel</a> - load same elements on every main page</li>
                     <li><a href="https://manos.malihu.gr/style-my-tooltips-jquery-plugin/" target="_blank">style my tooltip</a> - custom tooltip that follows cursor</li>
                     <li><a href="https://sadgrl.online/" target="_blank">sadgrl</a> - random facts script</li>
                     <li><a href="https://status.cafe/" target="_blank">status.cafe</a> - what am I thinking?</li>
-                    <li><a href="https://moosyu.github.io/guides/latest_commit/" target="_blank">moosyu</a> - latest commit date</li>
-                    <li><a href="https://moosyu.github.io/guides/safe_webhook/" target="_blank">moosyu</a> - guide for contact form</li>
+                    <li><a href="https://moosyu.github.io/guides/latest_commit/" target="_blank">moosyu</a> - latest commit date &amp; contact form (guides)</li>
                 </ul>
                 <h3>Learning webdev</h3>
                 <ul>

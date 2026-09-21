@@ -74,7 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // HEADER QUOTE
     const quotes = [
         "Where we curl up and wish for a new beginning",
-        "I am trying to be happy"
+        "I am trying to be happy",
+        "Don't pity yourself. Once you go down that road, life turns into an endless nightmare."
     ];
     
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -124,65 +125,56 @@ const nesting = getNestingString();
 const headerEl = `
 	<header>
         <div id="banner">
-            <div id="calendar"></div>
+            
             <div class="inner">
                 <span id="quote"></span>
             </div>
+            <div id="calendar"></div>
         </div>
     </header>
 `;
 
 const sidebarEl1 = `
-    <div class="sideHead">Navigation</div>
     <nav>
-        <div class="menu">
-            <span>Sitely</span>
-            <div class="menuContent">
-                <a href="${nesting}/home.html">Home</a>
-                <a href="${nesting}/aboutsite.html">About site</a>
-                <a href="${nesting}/links.html">Links</a>
-                <a href="${nesting}/sitemap.html">Sitemap</a>
-                <a href="${nesting}/contact.html">Contact</a>
-                <a href="https://nogood-angel.atabook.org/">Guestbook</a>
-            </div>
+        <div class="sideHead">Navigation</div>
+        <div class="navBox">
+            <a href="${nesting}/home.html">Home</a>
+            <a href="${nesting}/aboutsite.html">About site</a>
+            <a href="${nesting}/links.html">Links</a>
+            <a href="${nesting}/sitemap.html">Sitemap</a>
+            <a href="${nesting}/contact.html">Contact</a>
+            <a href="https://nogood-angel.atabook.org/">Guestbook</a>
         </div>
-        <div class="menu">
-            <span>Personal</span>
-            <div class="menuContent">
-                <a href="${nesting}/webmaster.html">Webmaster</a>
-                <a href="${nesting}/anatomy.html">My anatomy</a>
-                <a href="${nesting}/medialog.html">Media log</a>
-            </div>
+        <div class="sideHead">Personal</div>
+        <div class="navBox">
+            <a href="${nesting}/aboutme.html">About me</a>
+            <a href="${nesting}/anatomy.html">My anatomy</a>
+            <a href="${nesting}/medialog.html">Media log</a>
+            <details>
+                <summary>Collections</summary>
+                <div class="navBox">
+                    <a href="${nesting}/images.html">Images</a>
+                    <a href="${nesting}/graphics.html">Graphics</a>
+                    <a href="https://myfigurecollection.net/profile/angelbug">Figures</a>
+                </div>
+            </details>
         </div>
-        <div class="menu">
-            <span>Writings</span>
-            <div class="menuContent">
-                <a href="${nesting}/journal.html">Journal</a>
-                <a href="${nesting}/docs/index.html">Documentation</a>
-            </div>
+        <div class="sideHead">Writings</div>
+        <div class="navBox">
+            <a href="${nesting}/journal.html">Journal</a>
+            <a href="${nesting}/docs/index.html">Documentation</a>
         </div>
-        <div class="menu">
-            <span>Shrines</span>
-            <div class="menuContent">
-                <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
-                <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
-                <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
-                <a href="${nesting}/shrines/needygirl/index.html">Needy Girl Overdose</a>
-            </div>
+        <div class="sideHead">Shrines</div>
+        <div class="navBox">
+            <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
+            <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
+            <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
+            <a href="${nesting}/shrines/needygirl/index.html">Needy Girl Overdose</a>
         </div>
-        <div class="menu">
-            <span>Collections</span>
-            <div class="menuContent">
-                <a href="${nesting}/graphics.html">Graphics</a>
-                <a href="https://myfigurecollection.net/profile/angelbug">Figure</a>
-            </div>
-        </div>
-        <div class="menu">
-            <span>For you</span>
-            <div class="menuContent">
-                <a href="${nesting}/templates/index.html">Templates</a>
-                <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
-            </div>
+        <div class="sideHead">For you</div>
+        <div class="navBox">
+            <a href="${nesting}/templates/index.html">Template</a>
+            <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
         </div>
     </nav>
 `;

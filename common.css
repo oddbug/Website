@@ -3,9 +3,13 @@
     margin: 0;
     padding: 0;
     text-wrap: pretty;
-    cursor: url(cursor.cur), default;
+}
+@font-face {
+    font-family: angelbunny;
+    src: url(strawbunimilkPAIDfont.ttf);
 }
 :root {
+    /* COLORS */
     --palepink: #f7edf1;
     --lightpink: #f7d7e2;
     --pink: #e0a2b7;
@@ -19,11 +23,15 @@
     --lightgreen: #95bd8f;
     --green: #567d59;
     --lightblue: #d0def5;
+    /* OTHER EFFECTS */
+    --borderRadiusSm: 4px;
+    --borderRadiusMd: 7px;
+    
 }
 body {
-    font-family: monospace;
+    font-family: angelbunny, sans-serif;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--brown);
 }
 button, input, textarea {
