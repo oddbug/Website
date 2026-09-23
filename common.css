@@ -43,7 +43,6 @@ button, input, textarea {
 }
 h1, h2, h3, h4 {
     margin-bottom: 5px;
-    font-style: italic;
     &:not(:first-child) {
         margin-top: 10px;
     }

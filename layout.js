@@ -125,7 +125,6 @@ const nesting = getNestingString();
 const headerEl = `
 	<header>
         <div id="banner">
-            
             <div class="inner">
                 <span id="quote"></span>
             </div>
@@ -136,7 +135,7 @@ const headerEl = `
 
 const sidebarEl1 = `
     <nav>
-        <div class="sideHead">Navigation</div>
+        <h3 class="devide">Navigation</h3>
         <div class="navBox">
             <a href="${nesting}/home.html">Home</a>
             <a href="${nesting}/aboutsite.html">About site</a>
@@ -145,7 +144,7 @@ const sidebarEl1 = `
             <a href="${nesting}/contact.html">Contact</a>
             <a href="https://nogood-angel.atabook.org/">Guestbook</a>
         </div>
-        <div class="sideHead">Personal</div>
+        <h3 class="devide">Personal</h3>
         <div class="navBox">
             <a href="${nesting}/aboutme.html">About me</a>
             <a href="${nesting}/anatomy.html">My anatomy</a>
@@ -159,19 +158,19 @@ const sidebarEl1 = `
                 </div>
             </details>
         </div>
-        <div class="sideHead">Writings</div>
+        <h3 class="devide">Writings</h3>
         <div class="navBox">
             <a href="${nesting}/journal.html">Journal</a>
             <a href="${nesting}/docs/index.html">Documentation</a>
         </div>
-        <div class="sideHead">Shrines</div>
+        <h3 class="devide">Shrines</h3>
         <div class="navBox">
             <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
             <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
             <a href="${nesting}/shrines/genshin/index.html">Genshin Impact</a>
             <a href="${nesting}/shrines/needygirl/index.html">Needy Girl Overdose</a>
         </div>
-        <div class="sideHead">For you</div>
+        <h3 class="devide">For you</h3>
         <div class="navBox">
             <a href="${nesting}/templates/index.html">Template</a>
             <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>

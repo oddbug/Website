@@ -45,7 +45,7 @@
     
     #interests {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(12, 1fr);
         gap: 5px;
     }
     
@@ -98,33 +98,32 @@
                 <div>
                     <p>Hello, I am <b>Bianca</b>, and this website belongs to me.</p>
                     <p>I never know what to write about myself. I have been obsessed with coding for years. I love playing video games with stories and even games like Minecraft and Stardew Valley where I spend hours doing tasks. I am a completionist, which means I feel satisfaction in achieveing everything I can (that I deem feasible to keep it fun.)</p>
-                <div id="facts">
-                    <span id="factOutput">Click for a random fact about me.</span>
-                </div>
-                <script>
-                    var factBtn = document.getElementById('facts');
-                    var factOutput = document.getElementById('factOutput');
+                    <div id="facts">
+                        <span id="factOutput">Click for a random fact about me.</span>
+                    </div>
+                    <script>
+                        var factBtn = document.getElementById('facts');
+                        var factOutput = document.getElementById('factOutput');
 
-                    var factsArray = ["When I was  little I hated the color pink and didn't even know why (society), I love it now.", 
-                                     "In 11th grade, the PSD teacher made us do an IQ test and I scored 145.",
-                                     "I identify more with beings that are not entirely human.",
-                                     "I can type without looking at my keyboard.",
-                                     "I have small hands and long fingers."];
+                        var factsArray = ["When I was  little I hated the color pink and didn't even know why (society), I love it now.", 
+                                         "In 11th grade, the PSD teacher made us do an IQ test and I scored 145.",
+                                         "I identify more with beings that are not entirely human.",
+                                         "I can type without looking at my keyboard.",
+                                         "I have small hands and long fingers."];
 
-                    factBtn.addEventListener('click', displayFact);
+                        factBtn.addEventListener('click', displayFact);
 
-                    function displayFact() {
-                      var rand = Math.floor(Math.random() * factsArray.length);
-                      factOutput.innerText = factsArray[rand];
-                    }
-                </script>
+                        function displayFact() {
+                          var rand = Math.floor(Math.random() * factsArray.length);
+                          factOutput.innerText = factsArray[rand];
+                        }
+                    </script>
                 </div>
                 <img id="me" src="images/tsukasafig.png">
             </div>
-            
-            <div class="devide">Interests</div>
+            <h3 class="devide">Interests</h3>
             <div id="interests">
-                <div style="grid-column: span 3">
+                <div style="grid-column: span 4">
                     <h4>General</h4>
                     <ul>
                         <li>Technologies, telecommunications</li>
@@ -133,14 +132,14 @@
                         <li>Video Games, anime, manga</li>
                     </ul>
                 </div>
-                <div style="grid-column: span 1">
+                <div style="grid-column: span 2">
                     <h4>Web series</h4>
                     <ul>
                         <li>Petscop</li>
                         <li>ENA</li>
                     </ul>
                 </div>
-                <div style="grid-column: span 4">
+                <div style="grid-column: span 6">
                     <h4>Video games</h4>
                     <ul>
                         <li>Etherane games (Hello Charlotte, TWCW█, MRSIS)</li>
@@ -152,8 +151,7 @@
                         <li>Portal</li>
                     </ul>
                 </div>
-                
-                <div style="grid-column: span 4">
+                <div style="grid-column: span 6">
                     <h4>Anime/Show/Movie</h4>
                     <ul>
                         <li>Girls Last Tour</li>
@@ -163,7 +161,7 @@
                         <li>Lucky Star</li>
                     </ul>
                 </div>
-                <div style="grid-column: span 2">
+                <div style="grid-column: span 3">
                     <h4>Music artists</h4>
                     <ul>
                         <li>Shinsei Kamattechan</li>
@@ -172,7 +170,7 @@
                         <li>Guchiry</li>
                     </ul>
                 </div>
-                <div style="grid-column: span 2">
+                <div style="grid-column: span 3">
                     <h4>Music genre</h4>
                     <ul>
                         <li>Pop punk</li>
@@ -183,12 +181,11 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="devide">Questionnaires</div>
+            <h3 class="devide">Questionnaires</h3>
             <div id="questionnaires">
                 <details>
                     <summary>100 webmaster questions</summary>
-                    <p><a href="https://mouseling.net/100webmaster.txt">mouseling</a></p>
+                    <p><a href="https://mouseling.net/100webmaster.txt" target="_blank">mouseling</a></p>
                     <dl>
                         <dt>1. Please introduce yourself.</dt>
                         <dd>You probably read my about me already.</dd>
@@ -495,7 +492,7 @@
                 </details>
                 <details>
                     <summary>random weird 100?naire</summary>
-                    <p><a href="https://brooklynights.nekoweb.org/torand?z=/pages/ourqst">brooklynights</a></p>
+                    <p><a href="https://brooklynights.nekoweb.org/torand?z=/pages/ourqst" target="_blank">brooklynights</a></p>
                     <dl>
                         <dt>1. what is name</dt>
                         <dd>Bianca.</dd>
@@ -800,7 +797,7 @@
                 </details>
                 <details>
                     <summary>questionnaire</summary>
-                    <p><a href="https://burypink.neocities.org/gifts">burypink</a></p>
+                    <p><a href="https://burypink.neocities.org/gifts" target="_blank">burypink</a></p>
                     <dl>
                         <dt>1. time and date u started this?</dt>
                         <dd>March 27, 2026 11:20 PM AST-4 (Re:passing through September 20, 2026 8:47 AM AST-4)</dd>
@@ -1104,8 +1101,7 @@
                     </dl>
                 </details>
             </div>
-            
-            <div class="devide">Artists I like</div>
+            <h3 class="devide">Artists I like</h3>
             <div id="artists">
                 <div class="item">
                     <img src="images/icons/lonelyt4xicab.jpg" alt="Lonely taxi cab">
@@ -1148,31 +1144,30 @@
                 </div>
                 <div class="item">
                     <img src="images/icons/kael333.webp">
-                    <span><a href="https://kael.crd.co/">kael333</a></span>
+                    <span><a href="https://kael.crd.co/" target="_blank">kael333</a></span>
                 </div>
                 <div class="item">
                     <img src="images/icons/yurucamp.webp">
                     <span>
-                        <a href="https://waxwing.neocities.org/">io</a>
+                        <a href="https://waxwing.neocities.org/" target="_blank">io</a>
                         Creator of the game Flesh, Blood, and Concrete
                     </span>
                 </div>
                 <div class="item">
                     <img src="images/icons/lai.webp">
-                    <span><a href="https://ca.pinterest.com/yasulk/">lai</a></span>
+                    <span><a href="https://ca.pinterest.com/yasulk/" target="_blank">lai</a></span>
                 </div>
                 <div class="item">
                     <img src="images/icons/strawbunimilk.jpg">
                     <span>
-                        <a href="https://strawbunimilk.neocities.org/">strawbunimilk</a>
+                        <a href="https://strawbunimilk.neocities.org/" target="_blank">strawbunimilk</a>
                         i am going to commission them weheehe *excited*
                     </span>
                 </div>
             </div>
-            
-            <div class="devide">Quizzes</div>
+            <h3 class="devide">Quizzes</h3>
             <div id="quizzes">
-                <img src="images/graphics/quizzes/rice.jpg">
+                <a href="https://rice.place/quiz.html" target="_blank"><img src="images/graphics/quizzes/rice.jpg"></a>
             </div>
         </main>
     </div>
