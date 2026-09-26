@@ -1,13 +1,15 @@
+* {
+    cursor: url(bunny.cur), default;
+}
 body {
-    background-color: var(--lightpink);
-    background-image:
+    background:
         repeating-linear-gradient(
             transparent 0 25px,
             rgba(255, 255, 255, 0.2) 25px 50px),
         repeating-linear-gradient(90deg,
             transparent 0 25px,
             rgba(255,255,255,0.4) 25px 50px
-        );
+        ) var(--lightpink);
     margin: 40px;
 }
 
@@ -47,7 +49,7 @@ hr {
     border: 1px var(--pink) solid;
     border-radius: var(--borderRadiusMd);
     max-width: 300px;
-    margin: 0 14px 7px 18px;
+    margin: 0 14px 7px 26px;
     padding: 5px 10px;
     z-index: 99;
 }
@@ -122,27 +124,53 @@ nav > .navBox {
         margin-bottom: 10px;
     }
 }
+
+/* THIS HAS BECOME TOO CONFUSING! FIX!!! */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+/* ATTENTION */
+
 nav a, nav details {
     display: block;
     position: relative;
     &:not(:last-child) {
         border-bottom: 1px var(--pink) solid;
     }
-    &::after {
-        content: url(images/navClover.webp);
-        zoom: 70%;
-        transition: ease-in-out .2s;
-        position: absolute;
-        right: 6px; top: 5px;
-    }
-    &[open]::after {
-        content: none;
-    }
 }
 nav a, nav summary {
     padding: 2px 8px;
     &::marker {
         content: "";
+    }
+    &::after {
+        zoom: 70%;
+        transition: ease 0.2s;
+        position: absolute;
+        right: 6px; top: 5px;
+    }
+}
+nav a {
+    &:nth-of-type(even)::after {
+        content: url(images/navMarker1.webp);
+    }
+    &:nth-of-type(odd)::after {
+        content: url(images/navMarker2.webp);
+    }
+}
+nav summary {
+    &:hover {
+        color: var(--green);
+    }
+    &::after {
+        content: url(images/navMarker3.webp);
     }
 }
 nav details .navBox {
@@ -155,12 +183,10 @@ nav details .navBox {
 }
 nav a:hover, nav details:hover {
     &::after {
-        transform: scale(115%);
+        transform: scale(110%);
     }
 }
-nav summary:hover {
-    color: var(--green);
-}
+
 
 /* HEADER */
 
@@ -238,6 +264,13 @@ main {
     padding: 0 15px 10px;
     position: relative;
     grid-area: main;
+}
+main.indexfound {
+    border-width: 1px;
+    border-radius: var(--borderRadiusMd);
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 10px;
 }
 
 main .devide {

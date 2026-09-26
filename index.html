@@ -21,13 +21,6 @@
         column-gap: 25px;
     }
     main {
-        border-width: 1px;
-        border-radius: 5px;
-        width: 500px;
-        height: fit-content;
-        margin: 100px auto 20px;
-        padding: 10px;
-        display: block;
         position: relative;
         &::after {
             content: url(images/butterfree.webp);
@@ -97,42 +90,11 @@
             text-shadow: 2px 2px #7b6b94;
         }
     }
-    
-    @media (max-width: 840px) {
-        body {
-            font-size: 14px;
-        }
-        .webrings {
-            height: auto;
-        }
-    }
-    @media (max-width: 815px) {
-        .container {
-            max-width: 540px;
-            margin: 10px auto;
-            font-size: 14px;
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-    @media (max-width: 540px) {
-        .container {
-            max-width: fit-content;
-            margin: 10px 20px;
-            font-size: 90%;
-        }
-        main {
-            width: 100%;
-            &::after {
-                right: -70px;
-            }
-        }
-    }
 </style>
     
 <body>
     <div class="container">
-        <main>
+        <main class="indexfound">
             <!--<div id="counter"></div>
             <script>
                 const views = document.getElementById("counter");
