@@ -124,20 +124,6 @@ nav > .navBox {
         margin-bottom: 10px;
     }
 }
-
-/* THIS HAS BECOME TOO CONFUSING! FIX!!! */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-/* ATTENTION */
-
 nav a, nav details {
     display: block;
     position: relative;
@@ -181,7 +167,7 @@ nav details .navBox {
     inset: -.7px auto auto 100%;
     z-index: 1;
 }
-nav a:hover, nav details:hover {
+nav a:hover, nav summary:hover {
     &::after {
         transform: scale(110%);
     }

@@ -63,7 +63,20 @@
         }
     }
     #discord #username {
+        font-size: 18px;
         font-weight: bold;
+    }
+    #discord #tag {
+        background-color: var(--palepink);
+        border: 1px var(--pink) solid;
+        border-radius: var(--borderRadiusSm);
+        padding: 0 4px;
+        font-size: 12px;
+        font-weight: bold;
+        img {
+            height: 12px;
+            margin: 2px 0 -2px;
+        }
     }
     #discord #status {
         text-transform: capitalize;
@@ -235,7 +248,13 @@
                     <div class="flex">
                         <div id="discordPfp"></div>
                         <div id="discordInfo">
-                            <div id="username"></div>
+                            <div class="flex">
+                                <div id="username"></div>
+                                <div id="tag">
+                                    <img src="images/discordTag.png">
+                                    밥먹어<span style="font-weight:normal">?</span>
+                                </div>
+                            </div>
                             <div id="status">
                                 <div id="status-blob"></div>
                                 <div id="status-details"></div>
