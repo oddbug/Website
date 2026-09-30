@@ -79,3 +79,8 @@ body {
 #emojiTrayToggle {
     margin: 5px;
 }
+
+#settingsMenu {
+    background-color: var(--paleyellow);
+    width: 100%;
+}
