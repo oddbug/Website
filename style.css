@@ -1,6 +1,9 @@
 * {
     cursor: url(bunny.cur), default;
+    scrollbar-color: var(--pink) transparent;
+    scrollbar-width: thin;
 }
+html {scrollbar-width: none;}
 body {
     background:
         repeating-linear-gradient(
@@ -62,8 +65,6 @@ hr {
         "header header"
         "aside main"
         ". footer";
-    scrollbar-color: var(--pink) var(--paleyellow);
-    scrollbar-width: thin;
 }
 
 .devide {
