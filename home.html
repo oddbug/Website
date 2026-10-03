@@ -19,7 +19,6 @@
     <!-- Chattable -->
     <script src="https://iframe.chat/scripts/main.min.js"></script>
     <script>chattable.initialize({stylesheet: "chattable.css",});</script>
-</head>
     
 <style>
     #stats {
@@ -75,7 +74,6 @@
         border: 1px var(--pink) solid;
         border-radius: var(--borderRadiusSm);
         padding: 4px 6px 0;
-        text-box: trim-both cap alphabetic;
         font-size: 12px;
         font-weight: bold;
         display: flex;
@@ -84,7 +82,7 @@
             height: 12px;
         }
     }
-    #discord #status {
+    #discord #discordStatus {
         text-transform: capitalize;
         display: flex;
         column-gap: 5px
@@ -95,13 +93,15 @@
         height: 12px;
         margin: 2px 0 -2px;
     }
-    #discord button {
+    #discord .buttons a {
         background-color: white;
         border: 1px var(--pink) solid;
         border-radius: var(--borderRadiusSm);
         width: 100%;
-        padding: 3px;
+        padding: 3px 0 2px;
+        text-decoration: none;
         text-align: center;
+        display: block;
     }
     
     #chattable {
@@ -120,8 +120,8 @@
         }
     }
     #latest iframe {
+        border: none;
         aspect-ratio: 16/9;
-        /*height: 168.75px;*/
         margin: auto;
         display: block;
     }
@@ -204,7 +204,7 @@
         padding: 0 3px;
         resize: none;
     }
-    #interested #buttons {
+    #interested .buttons {
         display: flex;
         column-gap: 5px;
         img {
@@ -225,6 +225,7 @@
         position: relative;
     }
 </style>
+</head>
     
 <body>
     <div class="container">
@@ -246,12 +247,12 @@
                 </ul>
             </div>
             <div id="banners">
-                <a href="https://rice.place/" target="_blank"><img src="images/graphics/banners/riceplace.webp"></a>
-                <a href="https://nyscyra.net/" target="_blank"><img src="images/graphics/banners/nyscyra.webp"></a>
-                <a href="https://eyeorb.net/" target="_blank"><img src="images/graphics/banners/eyeorb.webp"></a>
-                <a href="https://ophanim.dev/" target="_blank"><img src="images/graphics/banners/guts.webp"></a>
-                <a href="https://8eyes.neocities.org/" target="_blank"><img src="images/graphics/banners/8eyes.webp"></a>
-                <a href="https://yogurt200.com/rabbitmaidensoft/" target="_blank"><img src="images/graphics/banners/rabbitmaidensoftworks.webp"></a>
+                <a href="https://rice.place/" target="_blank"><img src="images/graphics/banners/riceplace.webp" alt="Rice place banner"></a>
+                <a href="https://nyscyra.net/" target="_blank"><img src="images/graphics/banners/nyscyra.webp" alt="Nyscyra banner"></a>
+                <a href="https://eyeorb.net/" target="_blank"><img src="images/graphics/banners/eyeorb.webp" alt="Eye orb banner"></a>
+                <a href="https://ophanim.dev/" target="_blank"><img src="images/graphics/banners/guts.webp" alt="Guts banner"></a>
+                <a href="https://8eyes.neocities.org/" target="_blank"><img src="images/graphics/banners/8eyes.webp" alt="8 eyes banner"></a>
+                <a href="https://yogurt200.com/rabbitmaidensoft/" target="_blank"><img src="images/graphics/banners/rabbitmaidensoftworks.webp" alt="Rabbit maiden softworks banner"></a>
             </div>
         </aside>
         <main>
@@ -268,7 +269,7 @@
                                     <div id="tagText"></div>
                                 </div>
                             </div>
-                            <div id="status">
+                            <div id="discordStatus">
                                 <div id="statusBlob"></div>
                                 <div id="statusDetails"></div>
                             </div>
@@ -299,7 +300,9 @@
                         discordChecker();
                         setInterval(discordChecker, 2000);
                     </script>
-                    <a href="https://discord.gg/zkApGxebnK" target="_blank"><button>Join my Discord server!</button></a>
+                    <div class="buttons">
+                        <a href="https://discord.gg/zkApGxebnK" target="_blank">Join my server!</a>
+                    </div>
                 </div>
                 <iframe id="chattable" src="https://iframe.chat/embed?chat=14836092"></iframe>
             </div>
@@ -311,22 +314,22 @@
             <div id="currently" style="grid-area: currently">
                 <h3>Currently I am...</h3>
                 <ul class="nolist">
-                    <li><img src="images/graphics/pixels/leaf.webp">
-                        Feeling: Inspired</li>
-                    <li><img src="images/graphics/pixels/headphones.webp">
-                        Listening: Mary On A Cross - Ghost</li>
-                    <li><img src="images/graphics/pixels/gameboy.webp">
+                    <li><img src="images/graphics/pixels/leaf.webp" alt="Leaf feeling icon">
+                        Feeling: Nervous</li>
+                    <li><img src="images/graphics/pixels/headphones.webp" alt="Headphones listening icon">
+                        Listening: Ode to a balloon animal - Astrid, Milkypossum</li>
+                    <li><img src="images/graphics/pixels/gameboy.webp" alt="Gameboy playing icon">
                         Playing: Petit Planet, Cyberpunk 2077</li>
-                    <li><img src="images/graphics/pixels/cd.webp">
+                    <li><img src="images/graphics/pixels/cd.webp" alt="CD watching icon">
                         Watching: Nothing</li>
-                    <li><img src="images/graphics/pixels/bug.webp">
+                    <li><img src="images/graphics/pixels/bug.webp" alt="Beetle reading icon">
                         Reading: Nothing</li>
-                    <li><img src="images/graphics/pixels/frog.webp">
-                        Learning: Grid, cleaner code, background shorthand</li>
-                    <li><img src="images/graphics/pixels/onigiri.webp">
-                        Eating: Beef stew</li>
-                    <li><img src="images/graphics/pixels/monster.webp">
-                        Drinking: Khaotic monster</li>
+                    <li><img src="images/graphics/pixels/frog.webp" alt="Frog reading icon">
+                        Learning: Javascript</li>
+                    <li><img src="images/graphics/pixels/onigiri.webp" alt="Onigiri eating icon">
+                        Eating: Candy</li>
+                    <li><img src="images/graphics/pixels/monster.webp" alt="Monster drinking icon">
+                        Drinking: Pacific punch monster</li>
                 </ul>
             </div>
             <div id="status" style="grid-area: status">
@@ -354,11 +357,11 @@
             </div>
             <div id="latest" style="grid-area: latest">
                 <h3>Latest in my brain</h3>
-                <iframe src="https://www.youtube.com/embed/CzJbz9qSsd0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/CzJbz9qSsd0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div id="lists" style="grid-area: lists">
                 <div id="updates" class="box">
-                    <h4 class="devide">Updates <a href="rss.xml" target="_blank"><img src="images/rss.jpg"></a></h4>
+                    <h4 class="devide">Updates <a href="rss.xml" target="_blank"><img src="images/rss.jpg" alt="RSS feed icon"></a></h4>
                     <div class="inner">
                         <script>
                             // Tutorial https://www.youtube.com/watch?v=eS-FVnhjvEQ
@@ -393,9 +396,14 @@
                             <li>Layout script, line 83, make work with onclick</li>
                             <li>Give percentages to header quotes</li>
                             <li>Remake RSS feed</li>
-                            <li>Find a new cursor</li>
                             <li>Restructure folders</li>
                         </ul>
+                        <h4>Chatbox</h4>
+                        <ul>
+                            <li>Fix space below everything</li>
+                            <li>Fix the color of text input corners</li>
+                        </ul>
+
                         <h4>Webmaster</h4>
                         <ul>
                             <li>Find my MBTI type by research</li>
@@ -428,7 +436,7 @@
                     <div class="inner">
                         <ul id="pixel" class="nolist">
                             <li>
-                                <a href="https://bungle.online/clique" target="_blank"><img height="60px" src="joined/computerangel.png" alt="Computer angel clique"></a>
+                                <a href="https://bungle.online/clique" target="_blank"><img height="60" src="joined/computerangel.png" alt="Computer angel clique"></a>
                                 <a href="https://angel.valentinely.cc/" target="_blank"><img src="joined/angelnumbers.png" alt="333 Angel numbers clique"></a>
                             </li>
                             <li><a href="https://plasma.nekoweb.org" target="_blank"><img src="joined/plasma.png" alt="Plasma clique"></a></li>
@@ -446,12 +454,12 @@
                             </li>
                             <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="joined/astrology.webp" alt="Gemini Astrology clique"></a></li>
                             <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="joined/animegenre.webp" alt="Slice of Life Anime genre clique"></a></li>
-                            <li style="image-rendering:auto"><a href="https://sweet-pea.neocities.org/cliques/whosdere" target="_blank"><img src="joined/dandere.gif" alt="Who's dere"></a></li>
+                            <li style="image-rendering:auto"><a href="https://sweet-pea.neocities.org/cliques/whosdere" target="_blank"><img src="joined/dandere.gif" alt="Who's dere clique"></a></li>
                         </ul>
                         <ul id="text" class="nolist">
                             <li><a href="https://petrapixel.neocities.org/cliques" target="_blank">gore</a> // bruises, raw meat, blood</li>
                             <li><img style="width:14px;margin:-2px 3px -2px 0" src="https://file.garden/ZkEY3dxjtja0xEri/tfc/aw1.png" alt="Left angel wing">I am <a href="https://ballonlea.neocities.org/trickyfox/" target="_blank">angelic</a><img style="width:14px;margin:-2px -0 -2px 3px" src="https://file.garden/ZkEY3dxjtja0xEri/tfc/aw2.png" alt="Right angel wing"></li>
-                            <li><a href="https://joro.nu/cliques" target="_blank">themed</a> // <img style="height:13px;margin:2px 0 -2px" src="joined/tsi-cute.png"></li>
+                            <li><a href="https://joro.nu/cliques" target="_blank">themed</a> // <img style="height:13px;margin:2px 0 -2px" src="joined/tsi-cute.png" alt="Cute Theme clique"></li>
                             <li><a href="https://reef.kingdra.net/" target="_blank">fruit lover</a><img style="height:14px;margin:3px 5px -3px" src="joined/fruitlover.png" alt="Strawberry Fruit lover clique">strawberries</li>
                             <li><a href="https://cobie.nekoweb.org/webmaster/webcliques.html#BLACKCAT" target="_blank">Black Cat</a> // Unlucky, Strange</li>
                         </ul>
@@ -465,7 +473,7 @@
                 </div>
                 <h4 class="devide">Link me</h4>
                 <div class="inner">
-                    <div id="buttons">
+                    <div class="buttons">
                         <img title="Made by rice.place" src="images/graphics/buttons/button1.webp">
                     </div>
                 </div>
@@ -473,9 +481,9 @@
             <div id="neighbors" style="grid-area: neighbors">
                 <h3>Neighbors</h3>
                 <div id="neighborButtons"></div>
+                <script src="scripts/buttons.js"></script>
             </div>
         </main>
     </div>
 </body>
-<script src="scripts/buttons.js"></script>
 </html>
