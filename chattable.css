@@ -1,13 +1,16 @@
+@import url(https://nogood-angel.moe/common.css);
 @import url(https://nogood-angel.moe/style.css);
 
 body {
+    background: none;
     height: auto;
+    margin: 0;
     font-size: 14px;
 }
 #top_banner {
     background: var(--lightgreen);
     border-bottom: var(--green) solid;
-    border-width: 1px 0;
+    border-width: 2px 0;
     width: 100%;
     padding: 7px;
     font-family: inherit;
