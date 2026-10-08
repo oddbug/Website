@@ -1,5 +1,11 @@
 [
     {
+        "title": "Site wide",
+        "link": "/home.html",
+        "date": "08/10/26",
+        "desc": "Slight style overhaul."
+    },
+    {
         "title": "Images",
         "link": "/images.html",
         "date": "20/09/26",

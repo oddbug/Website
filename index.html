@@ -15,6 +15,125 @@
 </head>
     
 <style>
+    main {
+        max-width: 800px;
+        height: 270px;
+        display: grid;
+        grid-template-columns: 1fr 230px;
+        gap: 20px;
+    }
+    #bye {
+        position: relative;
+    }
+    #bye img {
+        width: 130px;
+        position: absolute;
+        top: -50px; right: -50px;
+        z-index: 1;
+        pointer-events: none;
+    }
+    #webrings {
+        margin: -10px;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    .ring {
+        margin: auto;
+        display: block;
+        :not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+    
+    #chuuniring {
+        background: center / contain url(https://supernw095.nekoweb.org/chuuniring/chuuniring-bg.webp);
+        border-radius: 5px;
+        height: 185px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        a {
+            text-shadow: 2px 2px #7b6b94;
+            color: #efefff;
+        }
+    }
+</style>
+
+<body>
+    <main class="sidePages">
+        <div id="bye">
+            <h2>Before you enter...</h2>
+            <ul>
+                <li>Coded on a 1920 x 1080 monitor</li>
+                <li>Autoplaying music and sounds</li>
+                <li>Contains moving parts and images</li>
+                <li>Uses iframes and JavaScript</li>
+                <li>Autoplaying music</li>
+            </ul>
+            <p>Despite being cute, this website contains <b>horror</b> elements, <b>disturbing</b> themes, topics, and imagery.</p>
+            <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. So don't be surprised.</p>
+            <div style="text-align:center">
+                <a href="home.html">Enter</a>
+            </div>
+            <img src="images/butterfree.webp">
+        </div>
+        <div id="webrings">
+            <div class="ring"><script src="https://transring.neocities.org/ring.js" data-widget="nb"></script></div>
+            <div class="zatoring ring">
+                <link rel="stylesheet" href="https://nogood-angel.moe/zatoring/widget.css">
+                <script src="https://nogood-angel.nekoweb.org/zatoring/webringu.js"></script>
+                <div class="zatoring-title">
+                    <a href="https://nogood-angel.nekoweb.org/zatoring/index.html">Z.A.T.O.ring</a>
+                </div>
+                <img src="zatoring/icon.png">
+                <div class="zatoring-links">
+                    <a href="https://nogood-angel.moe/zatoring/index.html?action=previous">&larr; prev</a>
+                    <a href="https://nogood-angel.moe/zatoring/index.html?action=random">random</a>
+                    <a href="https://nogood-angel.moe/zatoring/index.html?action=next">next &rarr;</a>
+                </div>
+            </div>
+            <div id="we_bring" class="ring">
+                <script type="text/javascript" src="https://brooklynights.nekoweb.org/we_bring/onionring-variables.js"></script>
+                <script type="text/javascript" src="https://brooklynights.nekoweb.org/we_bring/onionring-widget.js"></script>
+            </div>
+            <div id="IDOLRING_WIDGET" style="zoom:75%" class="ring">
+                <link rel="stylesheet" href="https://idolring.nekoweb.org/idolring.css" />
+                <script src="https://idolring.nekoweb.org/scripts/white.js"></script>
+                <script>
+                    document.getElementById("idol_description").innerHTML =
+                        "This webmaster is a big <b>Hatsune Miku</b> fan! <u>Vocaloid</u>";
+                </script>
+                <script>
+                    // replace YOUR_URL_HERE with the link to your idol's image
+                    document.getElementById("oshi").style.backgroundImage = "url('joined/idolring.jpg')";
+                </script>
+            </div>
+            <div id="chuuniring" class="ring">
+                <a href="https://supernw095.nekoweb.org/chuuniring" target="_blank">
+                    <img width="160px" src="https://supernw095.nekoweb.org/chuuniring/chuuniring-title.webp" alt="Chuuniring">
+                </a>
+                <img height="100px" src="joined/chuuniring.png">
+                <div>
+                    <a href="https://supernw095.nekoweb.org/chuuniring?action=previous">🠜 prev</a>
+                    <a href="https://supernw095.nekoweb.org/chuuniring?action=random">random</a>
+                    <a href="https://supernw095.nekoweb.org/chuuniring?action=next">next 🠞</a>
+                </div>
+            </div>
+            <div id="siwebring" class="ring">
+                <script src="webrings/siwebringuservars.js"></script>
+                <script src="https://dears.nekoweb.org/siwebring/onionring-variables.js"></script>
+                <script src="https://dears.nekoweb.org/siwebring/onionring-widget.js"></script>
+            </div>
+            <div class="ring"><script defer data-widget="kaidou" src="https://saikikusuo.nekoweb.org/webring/webringscript.js/"></script></div>
+        </div>
+    </main>
+</body>
+
+    
+    
+<!--<style>
     .container {
         width: 775px;
         display: flex;
@@ -95,7 +214,7 @@
 <body>
     <div class="container">
         <main class="indexfound">
-            <!--<div id="counter"></div>
+            <div id="counter"></div>
             <script>
                 const views = document.getElementById("counter");
 
@@ -118,7 +237,7 @@
                 }
 
                 displayStats();
-            </script>-->
+            </script>
             <h2>Before you proceed</h2>
             <ul>
                 <li>Coded on a 1920 x 1080 monitor</li>
@@ -189,5 +308,5 @@
             <script defer data-widget="kaidou" src="https://saikikusuo.nekoweb.org/webring/webringscript.js/"></script>
         </div>
     </div>
-</body>
+</body> -->
 </html>

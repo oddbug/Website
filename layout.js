@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // HEADER QUOTE
     const quotes = [
         "Where we curl up and wish for a new beginning",
-        "I am trying to be happy",
-        "Don't pity yourself. Once you go down that road, life turns into an endless nightmare."
+        "I am trying to be happy", // Needy Girl Overdose anime final episode
+        "Don't pity yourself. Once you go down that road, life turns into an endless nightmare." // Bungo Stray Dogs
     ];
     
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -137,6 +137,7 @@ const sidebarEl1 = `
     <nav>
         <h3 class="devide">Navigation</h3>
         <div class="navBox">
+            <img id="angelTsukasa" src="images/tsukasaangel.png">
             <a href="${nesting}/home.html">Home</a>
             <a href="${nesting}/aboutsite.html">About site</a>
             <a href="${nesting}/links.html">Links</a>

@@ -31,7 +31,7 @@
     
     #banners {
         position: absolute;
-        top: calc(100% + 5px); left: 5px;
+        top: calc(100% + 8px); left: 2px;
         img {
             width: 190px;
         }
@@ -70,8 +70,8 @@
         font-weight: bold;
     }
     #discord #tag {
-        background-color: var(--palepink);
-        border: 1px var(--pink) solid;
+        background-color: var(--palepurple);
+        border: 2px var(--purple) solid;
         border-radius: var(--borderRadiusSm);
         padding: 4px 6px 0;
         font-size: 12px;
@@ -94,8 +94,8 @@
         margin: 2px 0 -2px;
     }
     #discord .buttons a {
-        background-color: white;
-        border: 1px var(--pink) solid;
+        background-color: var(--palepurple);
+        border: 2px var(--purple) solid;
         border-radius: var(--borderRadiusSm);
         width: 100%;
         padding: 3px 0 2px;
@@ -105,7 +105,7 @@
     }
     
     #chattable {
-        border: 1px var(--pink) solid;
+        border: 2px var(--green) solid;
         border-radius: var(--borderRadiusMd);
         width: 100%;
         height: 300px;
@@ -121,7 +121,8 @@
     }
     #latest iframe {
         border: none;
-        aspect-ratio: 16/9;
+        border-radius: var(--borderRadiusSm);
+        aspect-ratio: 13/9;
         margin: auto;
         display: block;
     }
@@ -227,7 +228,7 @@
 </style>
 </head>
     
-<body>
+<body class="mainPages">
     <div class="container">
         <aside>
             <div id="stats">
@@ -310,6 +311,7 @@
                 <p>Welcome to this personal website on the net, belonging to me, <b>Bianca</b>. I created it as a place to store all of my brain matter. Here you can find my writings, shrines, collections, things I've done, and my favorite things.</p>
                 <hr>
                 <p>Bievenue à ce siteweb personel sur le net, apartenant à moi, <b>Bianca</b>. Je l'avais crée comme un endroit pour contenir tout la matière de mon cerveau. Ici tu peux trouver mes écritures, sanctuaires, collections, des chose que j'ai fait, et mes choses préférées.</p>
+                <div class="notice"><p>Currently restructuring a lot of things. Sorry if pages are super broken. Please tell me if I missed anything and I'll fix it!</p></div>
             </div>
             <div id="currently" style="grid-area: currently">
                 <h3>Currently I am...</h3>
@@ -425,10 +427,6 @@
                         <ul>
                             <li>Redo Genshin Impact</li>
                             <li>Yunyun Syndrome shrine</li>
-                        </ul>
-                        <h4>Collections</h4>
-                        <ul>
-                            <li>Images</li>
                         </ul>
                     </div>
                 </div>

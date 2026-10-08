@@ -4,30 +4,29 @@
     padding: 0;
     text-wrap: pretty;
 }
-@font-face {
-    font-family: angelbunny;
-    src: url(strawbunimilkPAIDfont.ttf);
-}
-:root {
-    /* COLORS */
+
+/*:root {
+     COLORS 
     --palepink: #f7edf1;
     --lightpink: #f7d7e2;
     --pink: #e0a2b7;
     --darkpink: #ba5979;
     --palepeach: #faf4f2;
     --peach: #ffded1;
-    --red: red /*#bd4d4d*/;
+    --red: red;
     --brown: #614e45;
     --paleyellow: #fcfbed;
     --lightyellow: #fff8e1;
     --lightgreen: #95bd8f;
     --green: #567d59;
     --lightblue: #d0def5;
-    /* OTHER EFFECTS */
+    
+    --white: white;
+     OTHER EFFECTS 
     --borderRadiusSm: 4px;
     --borderRadiusMd: 7px;
     
-}
+}*/
 body {
     font-family: angelbunny, sans-serif;
     font-weight: normal;

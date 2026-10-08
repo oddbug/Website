@@ -1,25 +1,78 @@
 * {
     cursor: url(bunny.cur), default;
-    scrollbar-color: var(--pink) transparent;
+    scrollbar-color: var(--green) var(--paleyellow);
     scrollbar-width: thin;
 }
-html {scrollbar-width: none;}
+@font-face {
+    font-family: angelbunny;
+    src: url(strawbunimilkPAIDfont.ttf) format('truetype');
+}
+:root {
+    /* Colors */
+    --palepink:     hsl(335, 55%, 95%);
+    --lightpink:    hsl(335, 55%, 85%);
+    --pink:         hsl(339, 55%, 75%);
+    --darkpink:     hsl(339, 55%, 65%);
+    
+    --palered:      hsl(360, 60%, 95%);
+    --lightred:     hsl(360, 70%, 85%);
+    --red:          hsl(360, 80%, 75%);
+    
+    --paleorange:   hsl(20, 80%, 95%);
+    --lightorange:  hsl(20, 80%, 85%);
+    --orange:       hsl(20, 80%, 75%);
+    
+    --paleyellow:   hsl(55, 80%, 95%);
+    --lightyellow:  hsl(55, 80%, 85%);
+    --yellow:       hsl(55, 80%, 75%);
+    
+    --palegreen:    hsl(110, 55%, 95%);
+    --lightgreen:   hsl(110, 55%, 85%);
+    --green:        hsl(110, 55%, 75%);
+    
+    --paleblue:     hsl(200, 60%, 95%);
+    --lightblue:    hsl(200, 60%, 85%);
+    --blue:         hsl(200, 60%, 75%);
+    
+    --palepurple:   hsl(260, 60%, 95%);
+    --lightpurple:  hsl(260, 60%, 85%);
+    --purple:       hsl(260, 60%, 75%);
+    
+    --white:        white;
+    
+    --palegrey:     hsl(0, 0%, 95%);
+    --lightgrey:    hsl(0, 0%, 85%);
+    --grey:         hsl(0, 0%, 75%);
+    --darkgrey:     hsl(0, 0%, 65%);
+    --darkergrey:   hsl(0, 0%, 55%);
+    
+    --palebrown:    hsl(17, 25%, 65%);
+    --lightbrown:   hsl(17, 25%, 55%);
+    --brown:        hsl(17, 25%, 45%);
+    --darkbrown:    hsl(17, 25%, 35%);
+    --darkerbrown:  hsl(17, 25%, 25%);
+    
+    --black:        black;
+    /* OTHER EFFECTS */
+    --borderRadiusSm: 4px;
+    --borderRadiusMd: 7px;
+}
 body {
     background:
-        repeating-linear-gradient(
+        repeating-linear-gradient(45deg,
             transparent 0 25px,
             rgba(255, 255, 255, 0.2) 25px 50px),
-        repeating-linear-gradient(90deg,
+        repeating-linear-gradient(-45deg,
             transparent 0 25px,
             rgba(255,255,255,0.4) 25px 50px
-        ) var(--lightpink);
+        ) var(--lightred);
     margin: 40px;
+    min-height: 100vh;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
     border-bottom: 1px var(--brown) dashed;
     padding-right: 15px;
-    font-style: italic;
     position: relative;
     &::after {
         content: url(images/graphics/pixels/daisy.webp);
@@ -37,6 +90,9 @@ h1, h2, h3, h4 {
         font-weight: normal;
     }
 }
+h3, h4 {
+    margin-bottom: 0;
+}
 b {
     color: var(--red);
 }
@@ -48,7 +104,7 @@ hr {
 }
 
 #s-m-t-tooltip {
-    background-color: white;
+    background-color: var(--white);
     border: 1px var(--pink) solid;
     border-radius: var(--borderRadiusMd);
     max-width: 300px;
@@ -57,58 +113,172 @@ hr {
     z-index: 99;
 }
 .container {
-    max-width: 1000px;
     margin: auto;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-areas:
-        "header header"
-        "aside main"
-        ". footer";
 }
 
 .devide {
-    background-color: var(--lightpink);
-    border: var(--pink) solid;
-    border-width: 1px 0;
-    padding: 7px;
+    background-color: var(--lightgreen);
+    border: var(--green) solid;
+    border-width: 2px 0;
+    padding: 7px 20px;
+    font-style: italic;
     text-align: center;
     text-shadow: 1px 1px var(--darkpink);
     text-box: trim-both cap alphabetic;
-    color: white;
+    color: var(--white);
     &::before, &::after {
         display: none;
     }
 }
 
-/* ASIDE */
+/* Page types */
 
-aside, header, main, footer {
+.mainPages {
+    .container {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "header header"
+            "aside main"
+            ". footer";
+    }
+    aside, header, main, footer {
+        background-color: var(--paleyellow);
+        border: var(--green) solid;
+    }
+    
+    /* Main header */
+    
+    header {
+        border-width: 2px;
+        border-radius: var(--borderRadiusMd) var(--borderRadiusMd) 0 0;
+        padding: 10px;
+        overflow: hidden;
+        grid-area: header;
+    }
+    #banner {
+        border: 2px var(--purple) solid;
+        border-radius: var(--borderRadiusSm);
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        overflow: hidden;
+    }
+    #banner .inner {
+        background: center right / cover url(images/header.webp);
+        padding: 6px 10px;
+        text-shadow:
+            1px 0 var(--purple),
+            0 1px var(--purple),
+            0 -1px var(--purple),
+            -1px 0 var(--purple),
+            1px 1px var(--purple),
+            -1px -1px var(--purple),
+            1px -1px var(--purple),
+            -1px 1px var(--purple);
+        color: white;
+        place-content: end;
+    }
+
+    #calendar {
+        background-color: var(--palepurple);
+        border-left: 2px var(--purple) solid;
+    }
+    .cal-header {
+        background-color: var(--lightpurple);
+        border-bottom: 2px var(--purple) solid;
+        padding: 2px 7px;
+        color: white;
+        display: flex;
+        column-gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cal-header button {
+        background: none;
+        border: 0;
+        padding: 0;
+    }
+    .cal-grid {
+        margin: 5px 0;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 2px;
+        text-align: center;
+    }
+    .cal-grid div:nth-child(-n+7) {
+        color: var(--)
+    }
+    .cal-header, .current-day {
+        font-weight: bold;
+        text-shadow: 1px 1px var(--darkpink);
+        color: var(--white);
+    }
+    
+    /* Main aside */
+    
+    aside {
+        border-width: 0 0 2px 2px;
+        border-bottom-left-radius: var(--borderRadiusMd);
+        height: fit-content;
+        padding: 0 10px 10px;
+        position: relative;
+        grid-area: aside;
+    }
+    aside .navBox:hover #angelTsukasa {
+        opacity: 0.4;
+    }
+    #angelTsukasa {
+        width: 100px;
+        position: absolute;
+        left: -39px; top: -26px;
+        z-index: 1;
+        transition: ease 0.2s;
+    }
+    
+    /* Main main */
+    
+    main {
+        border-width: 0 2px;
+        padding: 10px 15px;
+        grid-area: main;
+    }
+    
+    /* Main footer */
+    
+    footer {
+        border-width: 0 2px 2px;
+        border-radius: 0 0 var(--borderRadiusMd) var(--borderRadiusMd);
+        padding: 0 10px 10px;
+        text-align: center;
+        grid-area: footer;
+    }
+}
+
+.sidePages {
     background-color: var(--paleyellow);
-    border: var(--pink) solid;
+    border: 2px var(--green) solid;
+    border-radius: var(--borderRadiusMd);
+    margin: auto;
+    padding: 10px;
 }
 
-aside {
-    border-width: 0 0 1px 1px;
-    border-bottom-left-radius: var(--borderRadiusMd);
-    height: fit-content;
-    margin-bottom: 10px;
-    padding: 0 10px 10px;
-    grid-area: aside;
-    position: relative;
-}
+/* ASIDE */
 
 aside .devide {
     margin: 0 -10px;
     text-align: right;
+    &:first-child {
+        border-top: 0;
+    }
 }
 
 nav:not(:last-child) {
     margin-bottom: 10px;
 }
 .navBox {
-    background-color: var(--palepeach);
-    border: 1px var(--pink) solid;
+    background-color: var(--paleorange);
+    border: 2px var(--red) solid;
     border-radius: var(--borderRadiusSm);
     list-style: none;
     &:has(details[open]) {
@@ -129,7 +299,7 @@ nav a, nav details {
     display: block;
     position: relative;
     &:not(:last-child) {
-        border-bottom: 1px var(--pink) solid;
+        border-bottom: 2px var(--red) dashed;
     }
 }
 nav a, nav summary {
@@ -165,7 +335,7 @@ nav details .navBox {
     width: 80%;
     margin: 0;
     position: absolute;
-    inset: -.7px auto auto 100%;
+    inset: -1px auto auto 100%;
     z-index: 1;
 }
 nav a:hover, nav summary:hover {
@@ -174,88 +344,15 @@ nav a:hover, nav summary:hover {
     }
 }
 
-
 /* HEADER */
 
-header {
-    border-width: 1px 1px 0;
-    border-radius: var(--borderRadiusMd) var(--borderRadiusMd) 0 0;
-    padding: 10px;
-    grid-area: header;
-}
-#banner {
-    background-color: var(--lightpink);
-    border: 3px white double;
-    border-radius: var(--borderRadiusSm);
-    display: flex;
-    overflow: hidden;
-}
-#banner .inner {
-    background-image: url(images/header.webp);
-    background-size: cover;
-    background-position: center right;
-    width: calc(100% - 180px);
-    padding: 6px 10px;
-    text-shadow:
-        1px 0 var(--darkpink),
-        0 1px var(--darkpink),
-        0 -1px var(--darkpink),
-        -1px 0 var(--darkpink),
-        1px 1px var(--darkpink),
-        -1px -1px var(--darkpink),
-        1px -1px var(--darkpink),
-        -1px 1px var(--darkpink);
-    color: white;
-    place-content: end;
-}
 
-#calendar {
-    border-left: 3px white double;
-    width: 180px;
-    overflow: hidden;
-}
-.cal-header {
-    background-color: var(--pink);
-    border-bottom: 1px white solid;
-    padding: 2px 7px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.cal-header button {
-    background: none;
-    border: 0;
-    padding: 0;
-}
-.cal-grid {
-    margin: 5px 0;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 2px;
-    text-align: center;
-}
-.cal-grid div:nth-child(-n+7) {
-    color: var(--darkpink)
-}
-.current-day {
-    font-weight: bold;
-    text-shadow: 1px 1px var(--darkpink);
-    color: white;
-}
 
 /* MAIN */
 
-main {
-    border-width: 0 1px;
-    padding: 0 15px 10px;
-    position: relative;
-    grid-area: main;
-}
 main.indexfound {
     border-width: 1px;
     border-radius: var(--borderRadiusMd);
-    max-width: 500px;
     margin: 100px auto;
     padding: 10px;
 }
@@ -272,7 +369,7 @@ main .flex {
 }
 
 .box {
-    border: 1px var(--pink) solid;
+    border: 2px var(--green) solid;
     border-radius: var(--borderRadiusMd);
     overflow: hidden;
 }
@@ -290,15 +387,21 @@ main .flex {
     overflow-y: auto;
 }
 
+.notice {
+    background-color: var(--palered);
+    border: 2px var(--red) solid;
+    border-left-width: 4px;
+    border-radius: var(--borderRadiusSm);
+    padding: 5px 8px;
+    p::before {
+        content: "Notice: ";
+        font-weight: bold;
+        color: var(--red);
+    }
+}
+
 /* FOOTER */
 
-footer {
-    border-width: 0 1px 1px;
-    border-radius: 0 0 var(--borderRadiusMd) var(--borderRadiusMd);
-    padding: 0 10px 10px;
-    text-align: center;
-    grid-area: footer;
-}
 footer ul {
     list-style: none;
     display: flex;

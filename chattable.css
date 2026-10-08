@@ -1,13 +1,12 @@
-@import url(https://nogood-angel.moe/common.css);
+@import url(https://nogood-angel.moe/style.css);
 
 body {
     height: auto;
     font-size: 14px;
-    color: var(--brown);
 }
 #top_banner {
-    background: var(--lightpink);
-    border-bottom: var(--pink) solid;
+    background: var(--lightgreen);
+    border-bottom: var(--green) solid;
     border-width: 1px 0;
     width: 100%;
     padding: 7px;
@@ -33,12 +32,12 @@ body {
 
 #background {
     padding: 8px;
-    scrollbar-color: var(--pink) transparent;
+    scrollbar-color: var(--green) transparent;
     scrollbar-width: thin;
 }
 .msgWrapper {
-    background: var(--palepink);
-    border: 1px var(--pink) solid;
+    background: var(--palepurple);
+    border: 2px var(--purple) solid;
     border-radius: var(--borderRadiusMd);
     padding: 1px 3px 0;
     &:not(:last-child) {
@@ -63,13 +62,13 @@ body {
 }
 
 #textInput {
-    background: var(--lightpink);
-    border-top: 1px var(--pink) solid;
+    background: var(--lightgreen);
+    border-top: 2px var(--green) solid;
     padding: 5px;
 }
 #input {
-    background: var(--palepink);
-    border: 1px var(--pink) double;
+    background: var(--palegreen);
+    border: 2px var(--green) double;
     padding: 5px 10px;
     font-family: inherit;
     &:empty::before {
