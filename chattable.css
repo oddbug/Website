@@ -3,7 +3,6 @@
 
 body {
     background: none;
-    height: auto;
     margin: 0;
     font-size: 14px;
 }
@@ -24,9 +23,6 @@ body {
     a {
         font-size: 0;
     }
-}
-#main {
-    height: 100%;
 }
 
 #top_banner::after {
@@ -67,6 +63,7 @@ body {
 #textInput {
     background: var(--lightgreen);
     border-top: 2px var(--green) solid;
+    min-height: max-content;
     padding: 5px;
 }
 #input {
