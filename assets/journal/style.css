@@ -1,0 +1,147 @@
+body {
+    background-color: lavender;
+    font-family: monospace;
+    font-weight: normal;
+    color: var(--darkpink);
+    image-rendering: pixelated;
+    overflow: hidden;
+}
+.container {
+    background-color: white;
+    background-clip: padding-box;
+    border: 30px transparent solid;
+    border-image: url(../images/journal/border1.png) 24.5 round;
+    border-image-width: 44px;
+    width: 900px;
+    margin: 30px auto;
+    display: flex;
+}
+aside {width: 250px;}
+main {
+    background-color: var(--palepink);
+    background-image:
+        repeating-linear-gradient(
+            transparent,
+            transparent 16px,
+            rgba(255, 255, 255, 0.2) 16px,
+            rgba(255, 255, 255, 0.2) 34px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 16px,
+            rgba(255,255,255,0.4) 16px,
+            rgba(255,255,255,0.4) 34px
+        );
+    border-left: 2px #ee94a6 solid;
+    width: 600px;
+}
+
+/* LEFT */
+
+aside {
+    background-image: url(../images/journal/madoka.webp);
+    background-repeat: no-repeat;
+    background-size: 320px;
+    background-position: -60px 300px;
+    image-rendering: auto;
+    position: relative;
+}
+aside h2 {
+    border-bottom: 2px var(--darkpink) solid;
+    width: fit-content;
+    margin: 10px auto;
+    padding: 0 10px;
+    line-height: 20px;
+    font-style: italic;
+}
+
+#calendar {
+    width: 197px;
+    margin: 10px auto;
+}
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+}
+.cal-header button {
+    background: none;
+    border: 0;
+    padding: 0 5px;
+    color: var(--darkpink);
+}
+.cal-grid {
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0;
+    text-align: center;
+}
+.cal-grid div:nth-child(-n+7) {font-weight: bold;}
+.cal-grid div {
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+}
+.has-post a {text-decoration: underline;}
+.current-day, .current-day a {
+    background-color: var(--palepink);
+    border-radius: 50%;
+    font-weight: bold;
+
+}
+
+/* MAIN */
+
+main {padding: 20px 40px;}
+.inner {
+    background-color: white;
+    background-clip: padding-box;
+    border: 12px transparent solid;
+    border-image: url(../images/journal/border2.png) 11 round;
+    scrollbar-width: thin;
+    scrollbar-color: var(--pink) transparent;
+}
+.page {
+    border: 2px var(--darkpink) dashed;
+    height: 500px;
+    padding: 10px 25px;
+    overflow-y: auto;
+    &:not(:first-child) {display: none}
+}
+.page p {text-indent: 15px;}
+.info {margin-bottom: 10px;text-align: center;}
+.info h2 {
+    border-bottom: 2px var(--darkpink) solid;
+    width: fit-content;
+    margin: 0 auto 2px;
+    padding: 0 10px;
+    font-style: italic;
+}
+.info span {opacity: 0.7}
+
+.left {
+    margin: 0 10px 10px 0;
+    float: left;
+}
+.right {
+    margin: 0 0 10px 10px;
+    float: right;
+}
+
+#i260616 img {
+    width: 100%;
+    image-rendering: auto;
+}
+#i260818 #images {
+    height: 171px;
+    display: flex;
+    flex: wrap;
+}
+#i260903 #grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    img {
+        height: 170px;
+    }
+}

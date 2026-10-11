@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 1500px;
+    margin: 50px auto;
+    display: flex;
+    column-gap: 75px;
+}
+.left {
+    width: 250px;
+    margin-left: 100px;
+}
+.center {
+    width: 600px;
+}
+.right {
+    width: 400px;
+}
+
+.box {
+    border: 1px black solid;
+    padding: 2px;
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+.box .head {
+    background-color: red;
+}
+.box .inner {
+    height: 200px;
+}
