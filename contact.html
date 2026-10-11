@@ -2,37 +2,25 @@
 <html lang="en">
 <head>
     <title>Contact</title>
-    <meta name="description" content="An angel's personal website where I do anything I want.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    
-    <meta property="og:title" content="Nebula">
+    <meta property="og:title" content="Nebula | Contact">
     <meta property="og:description" content="Contact me.">
     <!--<meta property="og:image" content="">-->
     <meta property="og:url" content="https://nogood-angel.moe/contact.html">
-    
+    <meta name="theme-color" content="#e0a2b7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.webp">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
-    <script src="layout.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
-    <script>
-        (function($){
-            $(document).ready(function(){
-                $("[title]").style_my_tooltips({ 
-                    tip_follows_cursor:true,
-                    tip_delay_time:0,
-                    tip_fade_speed:0,
-                    attribute:"title"
-                });
-            });
-        })(jQuery);
-    </script>
+    <script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips({ tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0,attribute:"title"});});})(jQuery);</script>
 </head>
     
 <style>
     form {
-        width: 500px;
+        max-width: 500px;
         margin: auto;
     }
     .top {
@@ -65,12 +53,6 @@
     }
     button:hover {
         background-color: var(--palepink);
-    }
-    
-    @media (max-width: 645px) {
-        #contactForm {
-            width: 100%;
-        }
     }
 </style>
     

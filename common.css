@@ -27,12 +27,6 @@
     --borderRadiusMd: 7px;
     
 }*/
-body {
-    font-family: angelbunny, sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    color: var(--brown);
-}
 button, input, textarea {
     font-family: inherit;
     font-size: inherit;
@@ -51,21 +45,14 @@ p, ul, ol {
         margin-bottom: 10px;
     }
 }
-a {
-    color: var(--red);
-    &:hover {
-        color: var(--green);
-    }
-    &:has(img) {
-        font-size: 0;
-        text-box: none;
-    }
+a:has(img) {
+    font-size: 0;
 }
 ul {
     margin-left: 15px;
 }
 ol {
-    margin-left: 20px;
+    list-style-position: inside;
 }
 ul.nolist, ol.nolist {
     margin-left: 0;
@@ -75,7 +62,10 @@ code {
     background-color: rgba(0,0,0,0.1);
     border-radius: 3px;
     padding: 2px 5px;
-    font-size: 12px
+    font-size: .9rem;
+}
+iframe {
+    border: none;
 }
 
 .censor {

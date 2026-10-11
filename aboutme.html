@@ -3,29 +3,31 @@
 <head>
     <title>Webmaster</title>
     <meta property="og:title" content="Nebula | About me">
-    <meta property="og:description" content="">
     <meta property="og:url" content="https://nogood-angel.moe/aboutme.html">
     <meta name="theme-color" content="#e0a2b7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="images/favicon.webp">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.webp">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
-    <script src="layout.js"></script>
+    <script src="scripts/layout.js"></script>
     <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
     <script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips({ tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0,attribute:"title"});});})(jQuery);</script>
-</head>
     
 <style>
+    #socials {
+        image-rendering: pixelated;
+    }
     #about {
         margin-bottom: 10px;
         display: grid;
         grid-template-columns: 200px 1fr 100px;
         gap: 10px
     }
-    #socials {
-        image-rendering: pixelated;
+    #pfp {
+        border-radius: var(--borderRadiusSm);
+        width: 100%;
     }
     #ids {
         image-rendering: pixelated;
@@ -68,7 +70,7 @@
         }
         span {
             background-color: rgba(255,255,255,0.3);
-            backdrop-filter: blur(0.6px) sepia() grayscale(70%) hue-rotate(280deg);
+            backdrop-filter: blur(0.6px) sepia() grayscale(70%) hue-rotate(170deg);
             padding: 10px;
             text-align: center;
             place-content: center;
@@ -83,25 +85,26 @@
         }
     }
 </style>
+</head>
     
 <body class="mainPages">
     <div class="container">
         <aside></aside>
         <main>
-            <h2>About the webmaster
+            <h1>About the webmaster
                 <span id="socials">
-                    <a href="https://discord.com/users/596068722506989570" target="_blank"><img src="images/icons/social/Discord.png"></a>
-                    <a href="https://angelbug143.tumblr.com/" target="_blank"><img src="images/icons/social/Tumblr.png"></a>
-                    <a href="https://ko-fi.com/user333143" target="_blank"><img src="images/icons/social/Ko-fi.png"></a>
+                    <a href="https://discord.com/users/596068722506989570" target="_blank"><img src="assets/icons/social/Discord.png"></a>
+                    <a href="https://angelbug143.tumblr.com/" target="_blank"><img src="assets/icons/social/Tumblr.png"></a>
+                    <a href="https://ko-fi.com/user333143" target="_blank"><img src="assets/icons/social/Ko-fi.png"></a>
                 </span>
-            </h2>
+            </h1>
             <div id="about">
                 <div>
-                    <img src="images/icons/pfp.png" style="width:100%">
+                    <img id="pfp" src="assets/sona/redridingheart.png" title="Comm art by redridingheart (Twitter, Insta, Bsky, and Tumblr)">
                     <div id="ids">
-                        <img src="images/graphics/ids/lesbian.png">
-                        <img src="images/graphics/ids/aroace.png">
-                        <img src="images/graphics/ids/genderfluid.png">
+                        <img src="assets/graphics/ids/lesbian.png">
+                        <img src="assets/graphics/ids/aroace.png">
+                        <img src="assets/graphics/ids/genderfluid.png">
                     </div>
                 </div>
                 <div>
@@ -128,7 +131,7 @@
                         }
                     </script>
                 </div>
-                <img id="me" src="images/tsukasafig.png">
+                <img id="me" src="assets/tsukasafig.png">
             </div>
             <h3 class="devide">Interests</h3>
             <div id="interests">
@@ -1113,19 +1116,19 @@
             <h3 class="devide">Artists I like</h3>
             <div id="artists">
                 <div class="item">
-                    <img src="images/icons/lonelyt4xicab.jpg" alt="Lonely taxi cab">
+                    <img src="assets/icons/artists/lonelyt4xicab.jpg" alt="Lonely taxi cab">
                     <span><a href="https://x.com/lonelyt4xicab" target="_blank">lonelyt4xicab</a></span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/iewa.jpg" alt="Iewa">
+                    <img src="assets/icons/artists/iewa.png" alt="Iewa">
                     <span><a href="https://www.instagram.com/iewaaaaaaa" target="_blank">iewa</a></span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/yoruseh.jpg" alt="Yoruseh">
+                    <img src="assets/icons/artists/yoruseh.jpg" alt="Yoruseh">
                     <span><a href="https://www.instagram.com/yoruseh" target="_blank">yoruseh</a></span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/sukinapan.jpg" alt="Sukinapan">
+                    <img src="assets/icons/artists/sukinapan.jpg" alt="Sukinapan">
                     <span>
                         <a href="https://sukinapan.tumblr.com/" target="_blank">sukinapan</a>
                         also is part of a team of game devs who have cool games
@@ -1134,40 +1137,40 @@
                     </span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/hiyoponyo.webp" alt="Hiyo ponyo">
+                    <img src="assets/icons/artists/hiyoponyo.webp" alt="Hiyo ponyo">
                     <span><a href="https://www.instagram.com/hiyoponyo/" target="_blank">hiyoponyo</a></span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/etherane.jpg" alt="Etherane">
+                    <img src="assets/icons/artists/etherane.jpg" alt="Etherane">
                     <span>
                         <a href="https://anegames.fandom.com/wiki/Ætherworks_Wiki" target="_blank">Etherane</a>
                         Creator of one of my favorite game series Hello Charlotte
                     </span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/tsukumizu.jpg" alt="Tsukumizu">
+                    <img src="assets/icons/artists/tsukumizu.jpg" alt="Tsukumizu">
                     <span>
                         <a href="https://x.com/lililjiliijili" target="_blank">Tsukumizu</a>
                         Mangaka of Girls Last Tour
                     </span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/kael333.webp">
+                    <img src="assets/icons/artists/kael333.webp" alt="Kael">
                     <span><a href="https://kael.crd.co/" target="_blank">kael333</a></span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/yurucamp.webp">
+                    <img src="assets/icons/artists/yurucamp.webp" alt="Yurucamp">
                     <span>
                         <a href="https://waxwing.neocities.org/" target="_blank">io</a>
                         Creator of the game Flesh, Blood, and Concrete
                     </span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/lai.webp">
+                    <img src="assets/icons/artists/lai.webp" alt="Lai">
                     <span><a href="https://ca.pinterest.com/yasulk/" target="_blank">lai</a></span>
                 </div>
                 <div class="item">
-                    <img src="images/icons/strawbunimilk.jpg">
+                    <img src="assets/icons/artists/strawbunimilk.jpg" alt="Strawbunimilk">
                     <span>
                         <a href="https://strawbunimilk.neocities.org/" target="_blank">strawbunimilk</a>
                         i am going to commission them weheehe *excited*
@@ -1176,7 +1179,7 @@
             </div>
             <h3 class="devide">Quizzes</h3>
             <div id="quizzes">
-                <a href="https://rice.place/quiz.html" target="_blank"><img src="images/graphics/quizzes/rice.jpg"></a>
+                <a href="https://rice.place/quiz.html" target="_blank"><img src="assets/graphics/quizzes/rice.jpg"></a>
             </div>
         </main>
     </div>

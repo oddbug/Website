@@ -8,10 +8,10 @@
     <meta name="theme-color" content="#e0a2b7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="icon" href="images/favicon.webp">
+    <link rel="icon" href="assets/favicon.webp">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
-    <script src="layout.js"></script>
+    <script src="scripts/layout.js"></script>
     <!-- Tooltip -->
     <script src="scripts/tooltip.js"></script>
     <script src="scripts/jquery.style-my-tooltips.js"></script>
@@ -22,8 +22,8 @@
     
 <style>
     #stats {
-        background-color: var(--lightpink);
-        border: 1px var(--pink) solid;
+        background-color: var(--paleblue);
+        border: 2px var(--blue) solid;
         border-radius: var(--borderRadiusSm);
         padding: 5px;
         font-size: 13px;
@@ -166,7 +166,7 @@
         margin-bottom: 5px;
     }
     #updates span {
-        color: var(--darkpink);
+        color: var(--lightred);
     }
     
     #cliques {
@@ -186,8 +186,8 @@
         column-gap: 5px;
     }
     #cliques #text li {
-        background-color: var(--lightpink);
-        border: 1px white solid;
+        background-color: var(--palepink);
+        border: 2px var(--pink) solid;
         border-radius: var(--borderRadiusSm);
         padding: 2px;
         text-align: center;
@@ -215,15 +215,12 @@
 
     #neighborButtons {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 5px;
+        image-rendering: pixelated;
         img {
             width: 100%;
         }
-    }
-    
-    footer {
-        position: relative;
     }
 </style>
 </head>
@@ -248,16 +245,16 @@
                 </ul>
             </div>
             <div id="banners">
-                <a href="https://rice.place/" target="_blank"><img src="images/graphics/banners/riceplace.webp" alt="Rice place banner"></a>
-                <a href="https://nyscyra.net/" target="_blank"><img src="images/graphics/banners/nyscyra.webp" alt="Nyscyra banner"></a>
-                <a href="https://eyeorb.net/" target="_blank"><img src="images/graphics/banners/eyeorb.webp" alt="Eye orb banner"></a>
-                <a href="https://ophanim.dev/" target="_blank"><img src="images/graphics/banners/guts.webp" alt="Guts banner"></a>
-                <a href="https://8eyes.neocities.org/" target="_blank"><img src="images/graphics/banners/8eyes.webp" alt="8 eyes banner"></a>
-                <a href="https://yogurt200.com/rabbitmaidensoft/" target="_blank"><img src="images/graphics/banners/rabbitmaidensoftworks.webp" alt="Rabbit maiden softworks banner"></a>
+                <a href="https://rice.place/" target="_blank"><img src="assets/graphics/banners/riceplace.webp" alt="Rice place banner"></a>
+                <a href="https://nyscyra.net/" target="_blank"><img src="assets/graphics/banners/nyscyra.webp" alt="Nyscyra banner"></a>
+                <a href="https://eyeorb.net/" target="_blank"><img src="assets/graphics/banners/eyeorb.webp" alt="Eye orb banner"></a>
+                <a href="https://ophanim.dev/" target="_blank"><img src="assets/graphics/banners/guts.webp" alt="Guts banner"></a>
+                <a href="https://8eyes.neocities.org/" target="_blank"><img src="assets/graphics/banners/8eyes.webp" alt="8 eyes banner"></a>
+                <a href="https://yogurt200.com/rabbitmaidensoft/" target="_blank"><img src="assets/graphics/banners/rabbitmaidensoftworks.webp" alt="Rabbit maiden softworks banner"></a>
             </div>
         </aside>
         <main>
-            <h2 style="grid-area: title">Welcome...</h2>
+            <h1 style="grid-area: title">Welcome...</h1>
             <div id="discord" style="grid-area: discord">
                 <div id="profile">
                     <div class="flex">
@@ -316,22 +313,22 @@
             <div id="currently" style="grid-area: currently">
                 <h3>Currently I am...</h3>
                 <ul class="nolist">
-                    <li><img src="images/graphics/pixels/leaf.webp" alt="Leaf feeling icon">
+                    <li><img src="assets/graphics/pixels/leaf.webp" alt="Leaf feeling icon">
                         Feeling: Nervous</li>
-                    <li><img src="images/graphics/pixels/headphones.webp" alt="Headphones listening icon">
-                        Listening: Ode to a balloon animal - Astrid, Milkypossum</li>
-                    <li><img src="images/graphics/pixels/gameboy.webp" alt="Gameboy playing icon">
+                    <li><img src="assets/graphics/pixels/headphones.webp" alt="Headphones listening icon">
+                        Listening: Nightcore</li>
+                    <li><img src="assets/graphics/pixels/gameboy.webp" alt="Gameboy playing icon">
                         Playing: Petit Planet, Cyberpunk 2077</li>
-                    <li><img src="images/graphics/pixels/cd.webp" alt="CD watching icon">
+                    <li><img src="assets/graphics/pixels/cd.webp" alt="CD watching icon">
                         Watching: Nothing</li>
-                    <li><img src="images/graphics/pixels/bug.webp" alt="Beetle reading icon">
+                    <li><img src="assets/graphics/pixels/bug.webp" alt="Beetle reading icon">
                         Reading: Nothing</li>
-                    <li><img src="images/graphics/pixels/frog.webp" alt="Frog reading icon">
+                    <li><img src="assets/graphics/pixels/frog.webp" alt="Frog reading icon">
                         Learning: Javascript</li>
-                    <li><img src="images/graphics/pixels/onigiri.webp" alt="Onigiri eating icon">
-                        Eating: Candy</li>
-                    <li><img src="images/graphics/pixels/monster.webp" alt="Monster drinking icon">
-                        Drinking: Pacific punch monster</li>
+                    <li><img src="assets/graphics/pixels/onigiri.webp" alt="Onigiri eating icon">
+                        Eating: Chocolate</li>
+                    <li><img src="assets/graphics/pixels/monster.webp" alt="Monster drinking icon">
+                        Drinking: Grape rockstar</li>
                 </ul>
             </div>
             <div id="status" style="grid-area: status">
@@ -363,11 +360,11 @@
             </div>
             <div id="lists" style="grid-area: lists">
                 <div id="updates" class="box">
-                    <h4 class="devide">Updates <a href="rss.xml" target="_blank"><img src="images/rss.jpg" alt="RSS feed icon"></a></h4>
+                    <h4 class="devide">Updates <a href="rss.xml" target="_blank"><img src="assets/rss.jpg" alt="RSS feed icon"></a></h4>
                     <div class="inner">
                         <script>
                             // Tutorial https://www.youtube.com/watch?v=eS-FVnhjvEQ
-                            fetch("updates.json")
+                            fetch("scripts/updates.json")
 
                             .then(function(responce){
                                 return responce.json();
@@ -434,31 +431,31 @@
                     <div class="inner">
                         <ul id="pixel" class="nolist">
                             <li>
-                                <a href="https://bungle.online/clique" target="_blank"><img height="60" src="joined/computerangel.png" alt="Computer angel clique"></a>
-                                <a href="https://angel.valentinely.cc/" target="_blank"><img src="joined/angelnumbers.png" alt="333 Angel numbers clique"></a>
+                                <a href="https://bungle.online/clique" target="_blank"><img height="60" src="assets/joined/computerangel.png" alt="Computer angel clique"></a>
+                                <a href="https://angel.valentinely.cc/" target="_blank"><img src="assets/joined/angelnumbers.png" alt="333 Angel numbers clique"></a>
                             </li>
-                            <li><a href="https://plasma.nekoweb.org" target="_blank"><img src="joined/plasma.png" alt="Plasma clique"></a></li>
-                            <li><a href="https://sweet-pea.neocities.org/cliques/lucky" target="_blank"><img src="joined/lucky.webp" alt="Lucky clique"></a></li>
+                            <li><a href="https://plasma.nekoweb.org" target="_blank"><img src="assets/joined/plasma.png" alt="Plasma clique"></a></li>
+                            <li><a href="https://sweet-pea.neocities.org/cliques/lucky" target="_blank"><img src="assets/joined/lucky.webp" alt="Lucky clique"></a></li>
                             <li style="image-rendering:auto">
-                                <a href="https://web.archive.org/web/20100211214059/http://cry.xxxxxxxx.jp/" target="_blank"><img src="joined/cryunion.jpg" alt="Cry union"></a>
-                                <a href="https://web.archive.org/web/20080412132449/http://escapist.ifdef.jp/" target="_blank"><img src="joined/escapeunion.jpg" alt="Escapism union"></a>
-                                <a href="https://web.archive.org/web/20060509054542/http://joy.poosan.net/aptchild/ff/index.html" target="_blank"><img src="joined/featherfreak.jpg" alt="Feather freak union"></a>
+                                <a href="https://web.archive.org/web/20100211214059/http://cry.xxxxxxxx.jp/" target="_blank"><img src="assets/joined/cryunion.jpg" alt="Cry union"></a>
+                                <a href="https://web.archive.org/web/20080412132449/http://escapist.ifdef.jp/" target="_blank"><img src="assets/joined/escapeunion.jpg" alt="Escapism union"></a>
+                                <a href="https://web.archive.org/web/20060509054542/http://joy.poosan.net/aptchild/ff/index.html" target="_blank"><img src="assets/joined/featherfreak.jpg" alt="Feather freak union"></a>
                             </li>
                             <li>
-                                <a href="https://oodlecat.meowandsparkle.party/alive-enough/cliques.html" target="_blank"><img src="joined/touchgeneration.webp" alt="Touch generation clique"></a>
-                                <a href="https://pkmn.aquarel.nu" target="_blank" title="I Choose You! | Mimikyu"><img src="joined/ichooseyou.png" alt="Mimikyu I choose you clique"></a>
-                                <a href="https://fan.lysandre.me/starters" target="_blank"><img src="joined/firststarter.gif" title="My First Partner! ♥ Poplio" alt="Poplio My first partner clique"></a>
-                                <a href="https://snowvalley.online/adopt/omamori/" target="_blank"><img src="joined/omamori.webp" alt="Omamori clique"></a>
+                                <a href="https://oodlecat.meowandsparkle.party/alive-enough/cliques.html" target="_blank"><img src="assets/joined/touchgeneration.webp" alt="Touch generation clique"></a>
+                                <a href="https://pkmn.aquarel.nu" target="_blank" title="I Choose You! | Mimikyu"><img src="assets/joined/ichooseyou.png" alt="Mimikyu I choose you clique"></a>
+                                <a href="https://fan.lysandre.me/starters" target="_blank"><img src="assets/joined/firststarter.gif" title="My First Partner! ♥ Poplio" alt="Poplio My first partner clique"></a>
+                                <a href="https://snowvalley.online/adopt/omamori/" target="_blank"><img src="assets/joined/omamori.webp" alt="Omamori clique"></a>
                             </li>
-                            <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="joined/astrology.webp" alt="Gemini Astrology clique"></a></li>
-                            <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="joined/animegenre.webp" alt="Slice of Life Anime genre clique"></a></li>
-                            <li style="image-rendering:auto"><a href="https://sweet-pea.neocities.org/cliques/whosdere" target="_blank"><img src="joined/dandere.gif" alt="Who's dere clique"></a></li>
+                            <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="assets/joined/astrology.webp" alt="Gemini Astrology clique"></a></li>
+                            <li><a href="https://dust.kuchiki.net/cliques.php" target="_blank"><img src="assets/joined/animegenre.webp" alt="Slice of Life Anime genre clique"></a></li>
+                            <li style="image-rendering:auto"><a href="https://sweet-pea.neocities.org/cliques/whosdere" target="_blank"><img src="assets/joined/dandere.gif" alt="Who's dere clique"></a></li>
                         </ul>
                         <ul id="text" class="nolist">
                             <li><a href="https://petrapixel.neocities.org/cliques" target="_blank">gore</a> // bruises, raw meat, blood</li>
                             <li><img style="width:14px;margin:-2px 3px -2px 0" src="https://file.garden/ZkEY3dxjtja0xEri/tfc/aw1.png" alt="Left angel wing">I am <a href="https://ballonlea.neocities.org/trickyfox/" target="_blank">angelic</a><img style="width:14px;margin:-2px -0 -2px 3px" src="https://file.garden/ZkEY3dxjtja0xEri/tfc/aw2.png" alt="Right angel wing"></li>
-                            <li><a href="https://joro.nu/cliques" target="_blank">themed</a> // <img style="height:13px;margin:2px 0 -2px" src="joined/tsi-cute.png" alt="Cute Theme clique"></li>
-                            <li><a href="https://reef.kingdra.net/" target="_blank">fruit lover</a><img style="height:14px;margin:3px 5px -3px" src="joined/fruitlover.png" alt="Strawberry Fruit lover clique">strawberries</li>
+                            <li><a href="https://joro.nu/cliques" target="_blank">themed</a> // <img style="height:13px;margin:2px 0 -2px" src="assets/joined/tsi-cute.png" alt="Cute Theme clique"></li>
+                            <li><a href="https://reef.kingdra.net/" target="_blank">fruit lover</a><img style="height:14px;margin:3px 5px -3px" src="assets/joined/fruitlover.png" alt="Strawberry Fruit lover clique">strawberries</li>
                             <li><a href="https://cobie.nekoweb.org/webmaster/webcliques.html#BLACKCAT" target="_blank">Black Cat</a> // Unlucky, Strange</li>
                         </ul>
                     </div>
@@ -472,7 +469,7 @@
                 <h4 class="devide">Link me</h4>
                 <div class="inner">
                     <div class="buttons">
-                        <img title="Made by rice.place" src="images/graphics/buttons/button1.webp">
+                        <img title="Made by rice.place" src="assets/graphics/buttons/button1.webp">
                     </div>
                 </div>
             </div>
