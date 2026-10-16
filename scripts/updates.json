@@ -1,5 +1,11 @@
 [
     {
+        "title": "Body documentation",
+        "link": "/docs/body/index.html",
+        "date": "16/10/26",
+        "desc": "Redone completely."
+    },
+    {
         "title": "Site wide",
         "link": "/home.html",
         "date": "08/10/26",
