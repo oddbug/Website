@@ -292,23 +292,18 @@
                 <h3>What am I thinking?</h3>
                 <div id="statuscafe">
                     <p>This is just written in HTML. Status.cafe is down so I'll be making the same thing for myself here on my own site. Less dependencies.</p>
-                    <div style="display:flex">
-                        <div id="statuscafe-username"></div>
-                        <div id="statuscafe-timestamp"></div>
-                    </div>
-                    <div id="statuscafe-content"></div>
+                    <div id="curStatus"></div>
                     <script>
-                        fetch("https://status.cafe/users/oddbug/status.json")
-                            .then( r => r.json() )
-                                .then( r => {
-                            if (!r.content.length) {
-                                document.getElementById("statuscafe-content").innerHTML = "No status yet."
-                                return
-                            }
-                            document.getElementById("statuscafe-username").innerHTML = '<a href="https://status.cafe/users/oddbug" target="_blank">' + r.author + '</a>'
-                            document.getElementById("statuscafe-timestamp").innerHTML = r.timeAgo
-                            document.getElementById("statuscafe-content").innerHTML = r.content
-                        })
+                        const curStatus = document.getElementById('curStatus');
+                        
+                        fetch('scripts/status.json')
+                        .then(res => res.json())
+                        .then(status => {
+                            curStatus.innerHTML = `
+                                <div class="date">${status.date[0]}</div>
+                                <div class="text">${status.text[0]}</div>
+                            `;
+                        });
                     </script>
                 </div>
             </div>
