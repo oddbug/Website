@@ -4,6 +4,20 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
+            <title>Microblog</title>
+            <description>Since a service I used was down temporarilly, I replaced it by making my own for myself.</description>
+            <link>https://nogood-angel.moe/microblog.html</link>
+            <guid>post18</guid>
+            <pubDate>Mon 19 October 2026, 1:04:00 -0400</pubDate>
+        </item>
+        <item>
+            <title>Body documentation</title>
+            <description>Redid this page with cleaner code and layout.</description>
+            <link>https://nogood-angel.moe/docs/body/index.html</link>
+            <guid>post17</guid>
+            <pubDate>Fri 16 October 2026, 4:52:00 -0400</pubDate>
+        </item>
+        <item>
             <title>Images</title>
             <description>The beginning of my collection of images.</description>
             <link>https://nogood-angel.moe/images.html</link>

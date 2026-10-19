@@ -8,13 +8,13 @@
     <meta name="theme-color" content="#e0a2b7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="icon" href="assets/favicon.webp">
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/assets/favicon.webp">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/style.css">
     <script src="scripts/layout.js"></script>
     <!-- Tooltip -->
-    <script src="scripts/tooltip.js"></script>
-    <script src="scripts/jquery.style-my-tooltips.js"></script>
+    <script src="/scripts/tooltip.js"></script>
+    <script src="/scripts/jquery.style-my-tooltips.js"></script>
     <script>(function($){$(document).ready(function(){$("[title]").style_my_tooltips({ tip_follows_cursor:true,tip_delay_time:0,tip_fade_speed:0,attribute:"title"});});})(jQuery);</script>
     <!-- Chattable -->
     <script src="https://iframe.chat/scripts/main.min.js"></script>
@@ -22,19 +22,17 @@
     
 <style>
     #stats {
-        background-color: var(--paleblue);
-        border: 2px var(--blue) solid;
+        background-color: var(--palepurple);
+        border: 2px var(--purple) solid;
         border-radius: var(--borderRadiusSm);
+        margin-bottom: 10px;
         padding: 5px;
         font-size: 13px;
     }
     
     #banners {
-        position: absolute;
-        top: calc(100% + 8px); left: 2px;
-        img {
-            width: 190px;
-        }
+        
+        img { width: 100% }
     }
     
     main {
@@ -134,10 +132,14 @@
         margin-bottom: 5px;
         margin-right: 7px;
     }
-    #statuscafe-timestamp {
-        padding-top: 3.5px;
-        font-size: 11px;
-        opacity: 0.7;
+    #curDate {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        span {
+            font-size: 75%;
+            opacity: 0.7;
+        }
     }
     
     #lists {
@@ -255,6 +257,7 @@
                 <a href="https://ophanim.dev/" target="_blank"><img src="assets/graphics/banners/guts.webp" alt="Guts banner"></a>
                 <a href="https://8eyes.neocities.org/" target="_blank"><img src="assets/graphics/banners/8eyes.webp" alt="8 eyes banner"></a>
                 <a href="https://yogurt200.com/rabbitmaidensoft/" target="_blank"><img src="assets/graphics/banners/rabbitmaidensoftworks.webp" alt="Rabbit maiden softworks banner"></a>
+                <a href="https://nyaa.neocities.org/" target="_blank"><img src="assets/graphics/banners/nyaa.webp" alt="Nyaa banner"></a>
             </div>
         </aside>
         <main>
@@ -289,23 +292,23 @@
                 </ul>
             </div>
             <div id="status" style="grid-area: status">
-                <h3>What am I thinking?</h3>
-                <div id="statuscafe">
-                    <p>This is just written in HTML. Status.cafe is down so I'll be making the same thing for myself here on my own site. Less dependencies.</p>
-                    <div id="curStatus"></div>
-                    <script>
-                        const curStatus = document.getElementById('curStatus');
-                        
-                        fetch('scripts/status.json')
-                        .then(res => res.json())
-                        .then(status => {
-                            curStatus.innerHTML = `
-                                <div class="date">${status.date[0]}</div>
-                                <div class="text">${status.text[0]}</div>
-                            `;
-                        });
-                    </script>
-                </div>
+                <div id="curDate"></div>
+                <div id="curStatus"></div>
+                <script>
+                    const curDate = document.getElementById('curDate');
+                    const curStatus = document.getElementById('curStatus');
+
+                    fetch('scripts/status.json')
+                    .then(res => res.json())
+                    .then(status => {
+                        curDate.innerHTML = `
+                            <h3>What am I <a href="microblog.html">thinking</a>?</h3> <span class="date">${status[0].date}</span>
+                        `;
+                        curStatus.innerHTML = `
+                            <div class="text">${status[0].text}</div>
+                        `;
+                    });
+                </script>
             </div>
             <div id="latest" style="grid-area: latest">
                 <h3>Latest in my brain</h3>
@@ -395,7 +398,7 @@
                     <div class="inner">
                         <ul>
                             <li>Bookmarks page</li>
-                            <li>Documentation page</li>
+                            <li>Rewrite about site</li>
                             <li>Layout script, line 83, make work with onclick</li>
                             <li>Give percentages to header quotes</li>
                             <li>Remake RSS feed</li>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Microblog</title>
+    <meta property="og:title" content="Nebula | Microblog">
+    <meta property="og:url" content="https://nogood-angel.moe/status.html">
+    <meta name="theme-color" content="#e0a2b7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.webp">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/style.css">
+    
+<style>
+    * {
+        scrollbar-color: var(--lightpink) transparent;
+    }
+    body {
+        background-image: url(statuscafe/background.webp);
+    }
+    .container {
+        background-color: #ffeded;
+        background-clip: padding-box;
+        border: 17px transparent solid;
+        border-image: 12 round url(statuscafe/border.webp);
+        max-width: 700px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 15px;
+    }
+    aside {
+        position: relative;
+    }
+    aside::after {
+        content: url(assets/statusPfpBorder.webp);
+        position: absolute;
+        zoom: 34%;
+        top: -55px; left: -45px
+    }
+    #pfp {
+        width: 100%;
+        padding: 10px 15px 30px;
+    }
+    main {
+        background-color: var(--paleyellow);
+        border: 2px var(--palebrown) solid;
+        border-radius: var(--borderRadiusMd);
+        height: 400px;
+        padding: 20px;
+        overflow: auto;
+    }
+    .status {
+        background-color: var(--palepink);
+        border: 2px var(--palebrown) solid;
+        border-radius: var(--borderRadiusSm);
+        box-shadow: 0 0 5px var(--white) inset;
+        padding: 10px;
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+    .date {
+        border-bottom: 2px var(--lightbrown) dashed;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .date svg {
+        width: 15px;
+        height: 15px;
+    }
+</style>
+</head>
+    
+<body>
+    <div class="container">
+        <aside>
+            <img id="pfp" src="assets/statusPfp.webp">
+            <h3>Microblog</h3>
+            <p>My status.cafe replacement since it is down for now and likely ever.</p>
+        </aside>
+        <main>
+            <div id="statusList"></div>
+            <script>
+                // Tutorial https://www.youtube.com/watch?v=eS-FVnhjvEQ
+                fetch("scripts/status.json")
+
+                .then(function(responce){
+                    return responce.json();
+                })
+                .then(function(updates){
+                    let placeholder = document.querySelector("#statusList");
+                    let out = "";
+                    for(let log of updates){
+                        out += `
+                            <div class="status">
+                                <div class="date">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 21l-1.45-1.3q-2.525-2.275-4.175-3.925T3.75 12.812T2.388 10.4T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.3 0 2.475.55T12 4.75q.85-1 2.025-1.55t2.475-.55q2.35 0 3.925 1.575T22 8.15q0 1.15-.387 2.25t-1.363 2.412t-2.625 2.963T13.45 19.7z"/></svg>
+                                    <span>${log.date}</span>
+                                </div>
+                                <div class="text">${log.text}</div>
+                            </div>
+                        `;
+                    }
+                    placeholder.innerHTML = out;
+                })
+            </script>
+        </main>
+    </div>
+</body>
+</html>
