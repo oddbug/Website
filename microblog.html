@@ -16,13 +16,13 @@
         scrollbar-color: var(--lightpink) transparent;
     }
     body {
-        background-image: url(statuscafe/background.webp);
+        background-image: url(assets/microblogBackground.webp);
     }
     .container {
         background-color: #ffeded;
         background-clip: padding-box;
         border: 17px transparent solid;
-        border-image: 12 round url(statuscafe/border.webp);
+        border-image: 12 round url(assets/microblogBorder.webp);
         max-width: 700px;
         padding: 20px;
         display: grid;
@@ -33,7 +33,7 @@
         position: relative;
     }
     aside::after {
-        content: url(assets/statusPfpBorder.webp);
+        content: url(assets/microblogPfpBorder.webp);
         position: absolute;
         zoom: 34%;
         top: -55px; left: -45px
@@ -76,7 +76,7 @@
 <body>
     <div class="container">
         <aside>
-            <img id="pfp" src="assets/statusPfp.webp">
+            <img id="pfp" src="assets/microblogPfp.webp">
             <h3>Microblog</h3>
             <p>My status.cafe replacement since it is down for now and likely ever.</p>
         </aside>
