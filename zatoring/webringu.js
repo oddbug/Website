@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const action = window.location.search
     .substr(1)
     .replace("action=", "")
-    .replace(".html", "").replace(".xml", "")
+    .replace(".html", "")
     .toLowerCase();
   if (action && document.referrer) doAction(action);
 
