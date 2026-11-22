@@ -4,6 +4,13 @@
         <description>An angel's personal website where I do anything I want.</description>
         <link>https://nogood-angel.moe</link>
         <item>
+            <title>Body documentation</title>
+            <description>Added video: STRANGE ÆONS on Grave Robbing For Morons</description>
+            <link>https://nogood-angel.moe/docs/body/index.html</link>
+            <guid>post19</guid>
+            <pubDate>Sun 22 September 2026, 3:00:00 -0400</pubDate>
+        </item>
+        <item>
             <title>Microblog</title>
             <description>Since a service I used was down temporarilly, I replaced it by making my own for myself.</description>
             <link>https://nogood-angel.moe/microblog.html</link>
