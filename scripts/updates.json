@@ -1,6 +1,12 @@
 [
     {
-        "title": "Body documentation",
+        "title": "Body doc",
+        "link": "/docs/body/index.html",
+        "date": "22/11/26",
+        "desc": "Added video: STRANGE ÆONS on Grave Robbing For Morons"
+    },
+    {
+        "title": "Body doc",
         "link": "/docs/body/index.html",
         "date": "16/10/26",
         "desc": "Redone completely."
@@ -60,7 +66,7 @@
         "desc": "The beginning of my Needy Girl Overdose shrine."
     },
     {
-        "title": "Documentations",
+        "title": "Docs",
         "link": "/docs/index.html",
         "date": "31/07/26",
         "desc": "Documentations of things."
