@@ -1,20 +1,17 @@
-// initLayout() is called once the DOM (the HTML content of your website) has been loaded.
 document.addEventListener("DOMContentLoaded", function () {
-  // The layout will be loaded on all pages that do NOT have the "no-layout" class in the <body> element.
   if (!document.body.classList.contains("no-layout")) {
-      
-    document.querySelector("main").insertAdjacentHTML("beforebegin", headerEl);
-    document.querySelector("main").insertAdjacentHTML("afterend", footerEl);
+    document.querySelector(".container").insertAdjacentHTML("afterbegin", headerEl);
+    document.querySelector(".container").insertAdjacentHTML("beforeend", footerEl);
 
-    const wrapperElement = document.querySelector("aside"); // you might have to change this selector to something like .my-wrapper
+    const wrapperElement = document.querySelector("nav");
     if (wrapperElement) {
-      wrapperElement.insertAdjacentHTML("afterbegin", sidebarEl1);
+      wrapperElement.insertAdjacentHTML("afterbegin", navigationEl);
     }
 
     initActiveLinks();
   }
 
-  // CUSTOM JAVASCRIPT
+  // Custom JavaScript
     
   // CALENDAR
   const calendarEl = document.getElementById("calendar");
@@ -31,15 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const monthName = current.toLocaleString('default', { month: 'long' });
 
     let html = `
-        <div class="cal-header">
-            <button id="prev">⟵</button>
-            <span>${monthName} ${year}</span>
-            <button id="next">⟶</button>
-        </div>
+      <div class="cal-header">
+        <span>${monthName} ${year}</span>
+      </div>
 
-        <div class="cal-grid">
-            <div>S</div><div>M</div><div>T</div><div>W</div>
-            <div>T</div><div>F</div><div>S</div>
+      <div class="cal-grid">
+        <div>S</div><div>M</div><div>T</div><div>W</div>
+        <div>T</div><div>F</div><div>S</div>
     `;
 
     for (let i = 0; i < firstDay; i++) {
@@ -58,36 +53,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     html += `</div>`;
     calendarEl.innerHTML = html;
-
-    document.getElementById("prev").onclick = () => {
-      current.setMonth(current.getMonth() - 1);
-      renderCalendar();
-    };
-
-    document.getElementById("next").onclick = () => {
-      current.setMonth(current.getMonth() + 1);
-      renderCalendar();
-    };
   }
   renderCalendar();
     
-    // HEADER QUOTE
-    const quotes = [
-        "Where we curl up and wish for a new beginning",
-        "I am trying to be happy", // Needy Girl Overdose anime final episode
-        "Don't pity yourself. Once you go down that road, life turns into an endless nightmare." // Bungo Stray Dogs
-    ];
+  // Header quote
+  const quotes = [
+    "Where we curl up and wish for a new beginning",
+    "I am trying to be happy", // Needy Girl Overdose anime final episode
+    "Don't pity yourself. Once you go down that road, life turns into an endless nightmare." // Bungo Stray Dogs
+  ];
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById("quote").innerHTML = randomQuote;
     
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById("quote").innerHTML = randomQuote;
+  // Time
+  setInterval(showTime, 1000); // 1000 bits = 1 sec
+  function showTime() {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+
+    let ampm = hour > 12 ? "PM" : "AM";
+    let currentTime = `${hour}:${min}:${sec} ${ampm}`;
+
+    document.getElementById('clock').innerHTML = currentTime;
+  }
+  showTime();
+    
+  // Custom JavaScript end
 });
 
-/* FUNCTIONS */
-
 function initActiveLinks() {
-  // This function adds the class "active" to any link that links to the current page.
-  // This is helpful for styling the active menu item.
-
   const pathname = window.location.pathname;
   [...document.querySelectorAll("a")].forEach((el) => {
     const elHref = el
@@ -96,18 +95,14 @@ function initActiveLinks() {
       .replace("/public", "");
 
     if (pathname == "/") {
-      // homepage
       if (elHref == "/" || elHref == "/index.html") el.classList.add("active");
     } else {
-      // other pages
       if (window.location.href.includes(elHref)) el.classList.add("active");
     }
   });
 }
 
 function getNestingString() {
-  // This function prepares the "nesting" variable for your header and footer (see below).
-  // Only change this function if you know what you're doing.
   const currentUrl = window.location.href
     .replace("http://", "")
     .replace("https://", "")
@@ -118,72 +113,74 @@ function getNestingString() {
   return ".." + "/..".repeat(numberOfSlahes - 2);
 }
 
-/* HTML */
-
 const nesting = getNestingString();
 
+/**
+  Use ${nesting} to output a . or .. or ../.. etc according to the current page's folder depth.
+  Example: <img src="${nesting}/images/example.jpg" />
+ */
+
 const headerEl = `
-	<header>
-        <div id="banner">
-            <div class="inner">
-                <span id="quote"></span>
-            </div>
+	<header style="grid-area: header">
+        <div class="top">
             <div id="calendar"></div>
+        </div>
+        <div class="bottom">
+            <div id="quote"></div>
+            <div id="clock"></div>
         </div>
     </header>
 `;
 
-const sidebarEl1 = `
-    <nav>
-        <h3 class="devide">Navigation</h3>
-        <div class="navBox">
-            <img id="angelTsukasa" src="${nesting}/assets/tsukasaangel.png">
-            <a href="${nesting}/home.html">Home</a>
-            <a href="${nesting}/aboutsite.html">About site</a>
-            <a href="${nesting}/links.html">Links</a>
-            <a href="${nesting}/sitemap.html">Sitemap</a>
-            <a href="${nesting}/contact.html">Contact</a>
-            <a href="https://nogood-angel.atabook.org/">Guestbook</a>
-        </div>
+const navigationEl = `
+    <h3>Navigation</h3>
+        <ul>
+            <li><a href="${nesting}/home.html">Home</a>
+            <li><a href="${nesting}/aboutsite.html">About site</a>
+            <li><a href="${nesting}/links.html">Links</a>
+            <li><a href="${nesting}/sitemap.html">Sitemap</a>
+            <li><a href="${nesting}/contact.html">Contact</a>
+            <li><a href="https://nogood-angel.atabook.org/">Guestbook</a>
+        </ul>
         <h3 class="devide">Personal</h3>
-        <div class="navBox">
-            <a href="${nesting}/aboutme.html">About me</a>
-            <a href="${nesting}/anatomy.html">My anatomy</a>
-            <a href="${nesting}/medialog.html">Media log</a>
+        <ul>
+            <li><a href="${nesting}/aboutme.html">About me</a>
+            <li><a href="${nesting}/anatomy.html">My anatomy</a>
+            <li><a href="${nesting}/medialog.html">Media log</a>
             <details>
                 <summary>Collections</summary>
-                <div class="navBox">
-                    <a href="${nesting}/images.html">Images</a>
-                    <a href="${nesting}/graphics.html">Graphics</a>
-                    <a href="https://myfigurecollection.net/profile/angelbug">Figures</a>
-                </div>
+                <ul>
+                    <li><a href="${nesting}/images.html">Images</a>
+                    <li><a href="${nesting}/graphics.html">Graphics</a>
+                    <li><a href="https://myfigurecollection.net/profile/angelbug">Figures</a>
+                </ul>
             </details>
-        </div>
-        <h3 class="devide">Writings</h3>
-        <div class="navBox">
-            <a href="${nesting}/journal.html">Journal</a>
-            <a href="${nesting}/docs/index.html">Documentation</a>
-        </div>
+        </ul>
+        <h3>Writings</h3>
+        <ul>
+            <li><a href="${nesting}/journal.html">Journal</a></li>
+            <li><a href="${nesting}/docs/index.html">Documentation</a></li>
+        </ul>
         <h3 class="devide">Shrines</h3>
-        <div class="navBox">
-            <a href="${nesting}/shrines/milk/index.html">Milk Outside</a>
-            <a href="${nesting}/shrines/guchiry/index.html">Guchiry</a>
-        </div>
+        <ul>
+            <li><a href="${nesting}/shrines/milk/index.html">Milk Outside</a></li>
+            <li><a href="${nesting}/shrines/guchiry/index.html">Guchiry</a></li>
+        </ul>
         <h3 class="devide">For you</h3>
-        <div class="navBox">
-            <a href="${nesting}/templates/index.html">Template</a>
-            <a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a>
-        </div>
-    </nav>
+        <ul>
+            <li><a href="${nesting}/templates/index.html">Template</a></li>
+            <li><a href="${nesting}/zatoring/index.html">Z.A.T.O.ring</a></li>
+        </ul>
 `;
 
 const footerEl = `
-	<footer>
-        <ul>
+	<footer style="grid-area: footer">
+        <ul class="nolist">
             <li><a href="${nesting}/sitemap.html">Sitemap</a></li>
+            <li><a href="https://discord.gg/zkApGxebnK">Server</a></li>
             <li><a href="${nesting}/contact.html">Contact</a></li>
             <li><a href="https://nogood-angel.atabook.org/">Guestbook</a></li>
         </ul>
-        nogood-angel.moe © 2024 - Forever
-    </footer>
+		nogood-angel.moe (c) 2024 - forever
+	</footer>
 `;
