@@ -55,7 +55,7 @@ hr {
     border-bottom: 2px var(--brown) dashed;
     margin: 10px;
 }
-img, iframe {
+img {
     filter: saturate(.5);
 }
 
