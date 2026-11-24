@@ -7,8 +7,8 @@ body {
     font-size: 14px;
 }
 #top_banner {
-    background: var(--lightgreen);
-    border-bottom: var(--green) solid;
+    background: var(--lightpeach);
+    border-bottom: var(--peach) solid;
     border-width: 2px 0;
     width: 100%;
     padding: 7px;
@@ -31,12 +31,12 @@ body {
 
 #background {
     padding: 8px;
-    scrollbar-color: var(--green) transparent;
+    scrollbar-color: var(--peach) transparent;
     scrollbar-width: thin;
 }
 .msgWrapper {
-    background: var(--palepurple);
-    border: 2px var(--purple) solid;
+    background: var(--white);
+    border: 2px var(--lightgrey) solid;
     border-radius: var(--borderRadiusMd);
     padding: 1px 3px 0;
     &:not(:last-child) {
@@ -61,14 +61,14 @@ body {
 }
 
 #textInput {
-    background: var(--lightgreen);
-    border-top: 2px var(--green) solid;
+    background: var(--lightpeach);
+    border-top: 2px var(--peach) solid;
     min-height: max-content;
     padding: 5px;
 }
 #input {
-    background: var(--palegreen);
-    border: 2px var(--green) double;
+    background: var(--palepeach);
+    border: 2px var(--peach) double;
     padding: 5px 10px;
     font-family: inherit;
     &:empty::before {

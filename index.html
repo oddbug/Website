@@ -13,135 +13,48 @@
     <link rel="stylesheet" href="/style.css">
 
 <style>
-    main {
-        max-width: 800px;
-        margin-top: 80px !important;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    #bye {
-        width: 545px;
+    .container {
+        background-color: var(--white);
+        border: 2px var(--lightgrey) solid;
+        border-radius: var(--borderRadiusMd);
+        max-width: 500px;
+        margin: 130px auto;
+        padding: 10px;
         position: relative;
     }
-    #bye img {
-        width: 130px;
+    .container::after {
+        content: url(assets/butterfree.webp);
+        filter: saturate(.5);
+        zoom: 30%;
         position: absolute;
-        top: -80px; right: -50px;
-        z-index: 1;
-        pointer-events: none;
+        top: -300px; right: -180px;
     }
-    summary {
-        text-decoration: var(--red) underline;
+    b {
+        color: var(--red);
     }
-    
-    #webrings {
-        border: 2px var(--green) solid;
-        border-radius: var(--borderRadiusMd);
-        width: 230px;
-        height: 270px;
-        padding: 10px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-    }
-    .zatoring {
-        width: 100%;
-        font-size: 13px !important;
-    }
-    #IDOLRING_WIDGET {
-        zoom: 66%
-    }
-    #chuuniring {
-        background: center / contain url(https://supernw095.nekoweb.org/chuuniring/chuuniring-bg.webp);
-        border-radius: 5px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        a {
-            text-shadow: 2px 2px #7b6b94;
-            color: #efefff;
-        }
+    span {
+        margin-top: 10px;
+        text-align: center;
+        display: block;
     }
 </style>
 </head>
     
 <body>
-    <main class="sidePages">
-        <div id="bye">
-            <h2>Before you enter...</h2>
-            <ul>
-                <li>Coded on a 1920 x 1080 monitor</li>
-                <li>Autoplaying music and sounds</li>
-                <li>Contains moving parts and images</li>
-                <li>Uses iframes and JavaScript</li>
-                <li>Autoplaying music</li>
-            </ul>
-            <p>Despite being cute, this website contains <b>horror</b> elements, <b>disturbing</b> themes, topics, and imagery.</p>
-            <p>I, the webmaster, am an adult. I may feel uncomfortable interracting with you depending on your age, behavior, or anything else. So don't be surprised.</p>
-            <details>
-                <summary>Detailed content warning</summary>
-                Topic, themes and imagery of blood, gore, bugs, eyes, existential stuff, world ending scenarios, mental illness, delusion, insanity,
-            </details>
-            <div style="text-align:center">
-                <br>
-                <a href="home.html">Enter</a>
-            </div>
-            <img src="assets/butterfree.webp">
-        </div>
-        <div id="webrings">
-            <div><script src="https://transring.neocities.org/ring.js" data-widget="nb"></script></div>
-            <div class="zatoring">
-                <link rel="stylesheet" href="https://nogood-angel.moe/zatoring/widget.css">
-                <script src="https://nogood-angel.nekoweb.org/zatoring/webringu.js"></script>
-                <div class="zatoring-title">
-                    <a href="https://nogood-angel.nekoweb.org/zatoring/index.html">Z.A.T.O.ring</a>
-                </div>
-                <img src="zatoring/icon.png">
-                <div class="zatoring-links">
-                    <a href="https://nogood-angel.moe/zatoring/index.html?action=previous">&larr; prev</a>
-                    <a href="https://nogood-angel.moe/zatoring/index.html?action=random">random</a>
-                    <a href="https://nogood-angel.moe/zatoring/index.html?action=next">next &rarr;</a>
-                </div>
-            </div>
-            <div id="we_bring">
-                <script type="text/javascript" src="https://brooklynights.nekoweb.org/we_bring/onionring-variables.js"></script>
-                <script type="text/javascript" src="https://brooklynights.nekoweb.org/we_bring/onionring-widget.js"></script>
-            </div>
-            <div id="IDOLRING_WIDGET">
-                <link rel="stylesheet" href="https://idolring.nekoweb.org/idolring.css" />
-                <script src="https://idolring.nekoweb.org/scripts/white.js"></script>
-                <script>
-                    document.getElementById("idol_description").innerHTML =
-                        "This webmaster is a big <b>Hatsune Miku</b> fan! <u>Vocaloid</u>";
-                </script>
-                <script>
-                    // replace YOUR_URL_HERE with the link to your idol's image
-                    document.getElementById("oshi").style.backgroundImage = "url('assets/joined/idolring.jpg')";
-                </script>
-            </div>
-            <div id="chuuniring">
-                <a href="https://supernw095.nekoweb.org/chuuniring" target="_blank">
-                    <img width="160px" src="https://supernw095.nekoweb.org/chuuniring/chuuniring-title.webp" alt="Chuuniring">
-                </a>
-                <img height="100px" src="assets/joined/chuuniring.png">
-                <div>
-                    <a href="https://supernw095.nekoweb.org/chuuniring?action=previous">🠜 prev</a>
-                    <a href="https://supernw095.nekoweb.org/chuuniring?action=random">random</a>
-                    <a href="https://supernw095.nekoweb.org/chuuniring?action=next">next 🠞</a>
-                </div>
-            </div>
-            <div id="siwebring">
-                <script src="webrings/siwebringuservars.js"></script>
-                <script src="https://dears.nekoweb.org/siwebring/onionring-variables.js"></script>
-                <script src="https://dears.nekoweb.org/siwebring/onionring-widget.js"></script>
-            </div>
-            <div><script defer data-widget="kaidou" src="https://saikikusuo.nekoweb.org/webring/webringscript.js/"></script></div>
-        </div>
-    </main>
+    <div class="container">
+        <h1>Before you enter</h1>
+        <p>Despite seeming cute at first glance, this website contains elements of <b>horror</b> and <b>disturbing</b> imagery, topics, and themes.</p>
+        <details><summary>Detailed content warning</summary>Topic, themes and imagery of blood, bones, organs, gore, bugs, eyes, existential stuff, world ending scenarios, mental illness, delusion, insanity,</details>
+        <p style="margin:0">Other site info:</p>
+        <ul>
+            <li>Coded on a 1920 x 1080 pixel monitor</li>
+            <li>Tested on Chrome and Firefox</li>
+            <li>Autoplaying music and sounds</li>
+            <li>Contains moving parts and images</li>
+            <li>Uses iframes and JavaScript</li>
+        </ul>
+        <div class="notice">This website belongs to an adult.</div>
+        <span><a href="home.html">Proceed</a></span>
+    </div>
 </body>
 </html>
